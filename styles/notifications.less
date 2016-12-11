@@ -1,0 +1,63 @@
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+title       Reduced
+project     reduced-dark-ui
+version     0.0.0
+repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+author      Tuomas Hatakka
+email       tuomas.hatakka@gmail.com
+copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+
+
+atom-notifications {
+  .text(normal);
+  top: 32px;
+  background-color: transparent;
+
+  .close {
+    transition: all @transition-time ease;
+
+    &:before {
+      color: @text-color;
+    }
+  }
+
+  .btn {
+    height: 24px !important;
+    line-height: 20px !important;
+
+    &.close-all {
+      .button-variant(@text-color-info);
+    }
+  }
+
+  .content,
+  .detail,
+  .message,
+  .meta {
+    color: @text-color;
+    background-color: @overlay-background-color;
+    background-clip: inherit;
+
+    code,
+    .detail-content {
+      background-color: @overlay-border-color;
+      color: @text-color;
+    }
+
+    .stack-toggle {
+      color: @text-color-info;
+    }
+  }
+
+  .meta {
+    .description a {
+        color: @text-color-info;
+    }
+
+    .btn-toolbar .icon-clippy {
+      color: @text-color;
+      padding-left: 5px;
+    }
+  }
+}

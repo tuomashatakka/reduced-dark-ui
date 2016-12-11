@@ -1,0 +1,56 @@
+                                                                                                                                                                                                                                                                                                                                                                        /*
+title       Reduced
+project     reduced-dark-ui
+version     0.0.0
+repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+author      Tuomas Hatakka
+email       tuomas.hatakka@gmail.com
+copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+
+
+.build {
+  border-left: 0;
+  animation: none !important;
+
+  .control-container {
+    padding-left: 5px;
+    padding-right: 5px;
+    o§pacity: 1.0;
+
+    .btn {
+
+      .button(@button-border-color);
+      &.icon-zap      { .button-variant(@text-color-info); }
+      &.icon-trashcan { .button-variant(@text-color-warning); }
+      &.icon-x        { .button(@button-border-color) }
+
+    }}
+
+  .heading {
+    font-family: @font-family !important;
+    color: @text-color;
+    font-size: @font-size;
+
+    .heading-text {
+      text-align: center;
+      font-weight: bold }}
+
+  .output {
+    font-size: @font-size;
+    background-color: @build-terminal-background-color !important;
+    padding-left: @component-padding/2;
+    padding-right: @component-padding/2;
+    border-radius: @component-border-radius;
+    color: @text-color !important;
+
+    .terminal {
+      font-weight: normal }}
+
+  .title {
+    font-size: @font-size;
+    background: transparent !important;
+
+    &.error   { color: @text-color-error }
+    &.success { color: @text-color-success }
+
+  }}

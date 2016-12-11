@@ -1,0 +1,42 @@
+{
+  "version": "0.0.0",
+  "main": "./lib/main",
+
+  "name": "reduced-dark-atom-ui",
+  "theme": "ui",
+  "author": {
+    "name": "Tuomas Hatakka",
+    "email": "tuomas.hatakka@gmail.com"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/tuomashatakka/atom-ui-reduced-dark"
+  },
+  "configSchema": {
+    "tabSizing": {
+      "title": "Full-Width Tab Sizing",
+      "description": "In full width mode, tabs will fill the whole tab bar.",
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "dependencies": {},
+  "description": "Atom UI theme.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "homepage": "https://gitlab.com/tuomashatakka/atom-ui-reduced-dark",
+  "keywords": [
+    "dark",
+    "clean",
+    "elegant",
+    "ui"
+  ],
+  "optionalDependencies": {},
+  "readmeFilename": "README.md",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/tuomashatakka/atom-ui-reduced-dark"
+  }
+}

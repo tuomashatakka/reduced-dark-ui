@@ -1,0 +1,175 @@
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+title       Reduced
+project     reduced-dark-ui
+version     0.0.0
+repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+author      Tuomas Hatakka
+email       tuomas.hatakka@gmail.com
+copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+
+
+@import 'base';
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Animation                                                                                                                                                                                                                                                                                                                                                               */
+@ui-theme-name: reduced-dark-ui;
+@transition-time: 400ms;
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Base                                                                                                                                                                                                                                                                                                                                                                 */
+@base-background-color: @reduced-dark0;
+@base-border-color: @reduced-dark1;
+@app-background-color: @base-background-color;
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Background                                                                                                                                                                                                                                                                                                                                                                 */
+@background-color-highlight: @reduced-dark2;
+@background-color-selected: @reduced-dark2;
+@background-color-info: @reduced-dark8;
+@background-color-success: @reduced-dark14;
+@background-color-warning: @reduced-dark12;
+@background-color-error: @reduced-dark11;
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Text                                                                                                                                                                                                                                                                                                                                                                 */
+@text-color: @reduced-dark4;
+@text-color-subtle: fade(@text-color, 40%);
+@text-color-highlight: @reduced-dark6;
+@text-color-selected: @text-color-highlight;
+@text-color-info: @reduced-dark8;
+@text-color-success: @reduced-dark14;
+@text-color-warning: @reduced-dark12;
+@text-color-error: @reduced-dark11;
+@text-color-ignored: @text-color-subtle;
+@text-color-added: @reduced-dark14;
+@text-color-renamed: @reduced-dark8;
+@text-color-modified: @reduced-dark13;
+@text-color-removed: @reduced-dark11;
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Components                                                                                                                                                                                                                                                                                                                                                                 */
+
+// Buttons
+@button-background-color: transparent;
+@button-background-color-hover: @input-border-color;
+@button-background-color-selected: @input-border-color;
+@button-border-color: @input-border-color;
+
+// Gutter
+@gutter-background-color: transparent;
+@gutter-background-color-selected: transparent;
+@gutter-text-color: @text-color-subtle;
+@gutter-text-color-selected: @text-color-selected;
+
+// Input
+@input-background-color: @reduced-dark1;
+@input-border-color: @text-color;
+@input-background-color-active: @text-color;
+@input-text-color-active: @base-background-color;
+
+// Overlays
+@overlay-background-color: @tool-panel-background-color;
+@overlay-border-color: @base-border-color;
+
+// Panes
+@pane-item-background-color: @reduced-dark2;
+@pane-item-border-color: @base-border-color;
+
+// Panels
+@tool-panel-background-color: @base-background-color;
+@tool-panel-border-color: @base-border-color;
+@inset-panel-background-color: @reduced-dark1;
+@inset-panel-border-color: @base-border-color;
+@panel-heading-background-color: @reduced-dark1;
+@panel-heading-border-color: @base-border-color;
+
+// Progress bar
+@progress-loading-bar-background-color: @reduced-dark8;
+
+// Scrollbar
+@scrollbar-color: @reduced-dark1;
+@scrollbar-color-active: @reduced-dark1;
+@scrollbar-border-color: @reduced-dark0;
+@scrollbar-track-color: transparent;
+
+// Site
+@ui-site-color-1: @reduced-dark8;
+@ui-site-color-2: @reduced-dark14;
+@ui-site-color-3: @reduced-dark12;
+@ui-site-color-4: @reduced-dark11;
+@ui-site-color-5: @reduced-dark13;
+
+// Tabs
+@tab-bar-background-color: @app-background-color;
+@tab-bar-border-color: @base-border-color;
+@tab-background-color: @tool-panel-background-color;
+@tab-background-color-active: @reduced-dark2;
+@tab-background-color-hover: @reduced-dark2;
+@tab-border-color: @base-border-color;
+
+// Tooltips
+@tooltip-text-color: @base-background-color;
+@tooltip-background-color: @text-color;
+@tooltip-key-text-color: @reduced-dark8;
+@tooltip-key-background-color: @base-background-color;
+
+// Tree view
+@tree-view-background-color: @tool-panel-background-color;
+@tree-view-border-color: @base-border-color;
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Config                                                                                                                                                                                                                                                                                                                                                                 */
+@use-custom-controls: true;
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Typography                                                                                                                                                                                                                                                                                                                                                                 */
+@font-family:
+  "BlinkMacSystemFont",
+  "System Font",
+  "Helvetica Neue",
+  "Roboto",
+  "Cantarell",
+  "Ubuntu",
+  "Lucida Grande",
+  "Segoe UI",
+  "Noto Sans",
+  sans-serif;
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+Package Support                                                                                                                                                                                                                                                                                                                                                                 */
+
+// Build
+@build-terminal-background-color: darken(@reduced-dark0, 2%);
+
+// Imdone
+@imdone-atom-task-background-color: darken(@reduced-dark1, 2%);
+@imdone-atom-task-background-color-draged: @reduced-dark1;
+
+// Markdown
+@markdown-preview-background-color: @reduced-dark6;
+@markdown-preview-border-color: @reduced-dark4;
+@markdown-preview-code-background-color: @reduced-dark4;
+@markdown-preview-table-body-color: @reduced-dark5;
+@markdown-preview-text-color: @reduced-dark0;
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Sizes                                                                                                                                                                                                                                                                                                                                                                 */
+
+// Base
+@disclosure-arrow-size: 12px;
+@component-icon-size: 16px;
+@component-icon-padding: 5px;
+@component-padding: 10px;
+@component-line-height: 26px;
+@component-border-radius: 4px;
+
+// Fonts
+@font-size: 16px;
+@input-font-size: 16px;
+
+// Inputs
+@input-height: 32px;
+
+// Lists
+@list-active-icon-size: 14px;
+
+// Tabs
+@tab-height: 40px;
