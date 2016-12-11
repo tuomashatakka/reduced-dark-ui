@@ -2,7 +2,7 @@
   "version": "0.0.0",
   "main": "./lib/main",
 
-  "name": "reduced-dark-atom-ui",
+  "name": "reduced-dark-ui",
   "theme": "ui",
   "author": {
     "name": "Tuomas Hatakka",

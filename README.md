@@ -1,7 +1,7 @@
+<img src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/re-logo.svg"/>
+
+
 # Reduced Dark
-
-*****
-
 Reduced Dark Atom UI Theme for atom
 
   - Minimal and plain
@@ -9,11 +9,13 @@ Reduced Dark Atom UI Theme for atom
   - Innovative
   - Configurable
 
-## Settings
+#### Copyright
 
 TBA
 
-## Copyright
+---
+
+#### Copyright
 
 Copyright (C) 2016-2017 Tuomas Hatakka
 
