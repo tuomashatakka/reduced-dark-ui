@@ -12,11 +12,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 @import 'base';
                                                                                                                                                                                                                                                                                                                                                                         /*
 Animation                                                                                                                                                                                                                                                                                                                                                               */
-@ui-theme-name: reduced-dark-ui;
+@ui-theme-name: 'reduced-dark-ui';
 @transition-time: 400ms;
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-Base                                                                                                                                                                                                                                                                                                                                                                 */
+Base                                                                                                                                                                                                                                                                                                                                                                    */
 @base-background-color: @reduced-dark0;
 @base-border-color: @reduced-dark1;
 @app-background-color: @base-background-color;
@@ -47,7 +47,7 @@ Text                                                                            
 @text-color-removed: @reduced-dark11;
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-Components                                                                                                                                                                                                                                                                                                                                                                 */
+Components                                                                                                                                                                                                                                                                                                                                                              */
 
 // Buttons
 @button-background-color: transparent;
@@ -117,17 +117,17 @@ Components                                                                      
 @tree-view-background-color: @tool-panel-background-color;
 @tree-view-border-color: @base-border-color;
                                                                                                                                                                                                                                                                                                                                                                         /*
-Config                                                                                                                                                                                                                                                                                                                                                                 */
+Config                                                                                                                                                                                                                                                                                                                                                                  */
 @use-custom-controls: true;
                                                                                                                                                                                                                                                                                                                                                                         /*
-Typography                                                                                                                                                                                                                                                                                                                                                                 */
+Typography                                                                                                                                                                                                                                                                                                                                                              */
 @font-family:
-  "BlinkMacSystemFont",
-  "System Font",
   "Helvetica Neue",
   "Roboto",
   "Cantarell",
   "Ubuntu",
+  "BlinkMacSystemFont",
+  "System Font",
   "Lucida Grande",
   "Segoe UI",
   "Noto Sans",
@@ -172,4 +172,4 @@ Sizes                                                                           
 @list-active-icon-size: 14px;
 
 // Tabs
-@tab-height: 40px;
+@tab-height: 5em;

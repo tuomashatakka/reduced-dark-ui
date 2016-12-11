@@ -1,6 +1,6 @@
 {
   "version": "0.0.0",
-  "main": "./lib/main",
+  "main": "./lib/main.js",
 
   "name": "reduced-dark-ui",
   "theme": "ui",

@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/apm/v/reduced-dark.svg"/></a>&nbsp;&nbsp;
 
   <img src="https://atom.io/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
-  <a href="https://atom.io/themes/reduced-dark-atom-ui">
+  <a href="https://atom.io/themes/reduced-dark-ui">
     <img src="https://img.shields.io/apm/v/reduced-dark.svg"/></a>&nbsp;&nbsp;
 
   <a href="https://atom.io/themes/reduced-dark">
