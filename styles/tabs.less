@@ -14,8 +14,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   width: 100%;
   height: @tab-height;
   padding: 0;
-  display: table;
-  table-layout: fixed;
+  display: flex;
   -webkit-transform: scale(1);
 
   .tab {
@@ -26,10 +25,10 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     display: table-cell;
     width: 100%;
     height: @tab-height;
-    line-height: @tab-height;
+    line-height: @tab-height/3;
     box-sizing: border-box;
     border: 0;
-    padding-left: 20px !important;
+    padding: @tab-height/3 1rem !important;
     padding-right: 20px !important;
     position: relative;
     transition: color @transition-time ease, border @transition-time ease, background @transition-time ease;
@@ -56,6 +55,12 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
         display: block;
       }
     }
+    .title {
+      line-height: inherit;
+      &::before {
+        line-height: inherit;
+      }
+    }
   }
 
   .tab.active,
@@ -67,6 +72,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     &.title {
       color: @text-color-selected;
       padding: 0;
+
     }
 
     .status-modified {
@@ -143,24 +149,5 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   .tab.modified:not(:hover) .close-icon {
     left: 8px !important;
     right: auto !important;
-  }
-}
-
-@media (max-width: 1280px), (max-height: 800px) {
-  .tab-bar {
-    height: @tab-height * 0.8;
-
-    .tab {
-      height: @tab-height * 0.8;
-      line-height: @tab-height * 0.8;
-
-      &.modified:not(:hover) .close-icon {
-        top: ((@tab-height * 0.8) - 6) / 2;
-      }
-
-      .close-icon {
-        top: ((@tab-height * 0.8) - 16) / 2;
-      }
-    }
   }
 }
