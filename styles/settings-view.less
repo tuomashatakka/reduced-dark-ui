@@ -14,13 +14,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   .text(normal);
 
   .breadcrumb {
-    .text(normal);
-    font-weight: 200;
+    .text(caps);
   }
 
   input[type="checkbox"]:checked {
-    background-color: @text-color-info;
-  }
+    background-color: @text-color-info }
 
   .alert {
     border: 0;
@@ -41,8 +39,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
       &:before {
         margin-right: 0;
-        transition: color @transition-time ease;
-      }
+        transition: color @transition-time ease }
     }
   }
 
@@ -51,8 +48,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     background: mix(@text-color-info, @base-background-color, 32%);
 
     button.close:before {
-      color: @text-color-info;
-    }
+      color: @text-color-info }
   }
 
   .alert-danger {
@@ -60,42 +56,35 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     background: mix(@text-color-error, @base-background-color, 32%);
 
     button.close:before {
-      color: @text-color-error;
-    }
+      color: @text-color-error }
   }
 
   .setting-title,
   .setting-title.themes-label {
-    .text(normal);
-  }
+    .text(highlight) }
 
   label {
     .text(normal);
-
     &.control-label {
       .theme-description {
-        min-height: 36px;
-      }
-    }
+        min-height: 36px }}
   }
 
   .section {
     background-color: @app-background-color;
-
-    .section-heading {
-      .text(heading);
-      font-size: 24px;
-    }
-
-    .sub-section-heading {
-      .text(heading);
-      font-size: 16px;
-    }
-  }
+    .section-heading { .h2 }
+    .sub-section-heading { .h3 }}
 
   .section:first-of-type {
-    border-top: 0;
-  }
+    border-top: 0 }
+
+  .section .section-heading::before,
+  .section .sub-section-heading::before {
+    font-size: 1.5em;
+    line-height: 0.75em;
+    padding: 0 1em 0 0;
+    vertical-align: top;
+    opacity: 0.75; }
 
   .config-menu {
     background-color: @app-background-color;
@@ -115,8 +104,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   }
 
   .sub-section .row div {
-    background-color: transparent;
-  }
+    background-color: transparent }
 
   .package-card {
     .text(normal);
@@ -125,12 +113,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     padding: @component-padding;
 
     &:hover {
-      background: transparent;
-    }
+      background: transparent }
 
     .card-name {
-      .text(highlight);
-    }
+      .text(caps);
+      .h4 }
 
     .meta-controls {
       .install-button, .uninstall-button {
@@ -141,44 +128,34 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
           &::before {
             -webkit-animation: spin 1s linear infinite;
-            content: '\f087';
-          }
-        }
+            content: '\f087' }}
       }
 
       .status-indicator {
-        width: @component-padding/2;
-      }
+        width: @component-padding / 2 }
     }
   }
 
   .package-detail .package-card:hover {
-    background-color: transparent;
-  }
+    background-color: transparent }
 
   .collapsed .package-container .row {
-    border: 0;
-  }
+    border: 0 }
 
   .package-update-view {
     .thumbnail {
-      background-color: @tool-panel-background-color !important;
-    }
+      background-color: @tool-panel-background-color !important }
 
     .package-status.icon-check {
-      color: @text-color-success;
-    }
+      color: @text-color-success }
 
     .package-status.icon-cloud-download {
-      color: @text-color-info;
-    }
+      color: @text-color-info }
   }
 
   .package-readme {
     font-size: 1em;
 
     h1, h2, h3, h4 {
-      .text(heading);
-    }
-  }
+      .text(heading) }}
 }
