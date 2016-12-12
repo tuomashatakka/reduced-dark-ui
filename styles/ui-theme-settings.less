@@ -8,18 +8,48 @@ author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
                                                                                                                                                                                                                                                                                                                                                                         /*
-Variable definitions                                                                                                                                                                                                                                                                                                                                                                 */
-@theme-setting-tabsizing: ~'theme-@{ui-theme-name}-tabsizing';
-                                                                                                                                                                                                                                                                                                                                                                        /*
-User Interface                                                                                                                                                                                                                                                                                                                                                                 */
-[@{theme-setting-tabsizing}="nofullwidth"] { .theme-setting-tabsizing-nofullwidth() }
 
-.theme-setting-tabsizing-nofullwidth() {
+Variable definitions                                                                                                                                                                                                                                                                                                                                                    */
+@theme-setting-tabsizing: ~'@{ui-theme-name}-tabsizing';
+@theme-setting-fixedtabbar: ~'@{ui-theme-name}-fixedtabbar';
+                                                                                                                                                                                                                                                                                                                                                                        /*
+User Interface                                                                                                                                                                                                                                                                                                                                                          */
+[@{theme-setting-tabsizing}="false"] { .theme-setting-tabsizing() }
+[@{theme-setting-fixedtabbar}="true"] { .theme-setting-fixedtabbar() }
+
+.theme-setting-tabsizing() {
 
   .tab-bar {
     width: auto;
 
-    .tab { width: inherit }
+    .tab { width: inherit !important }
+
+    .tab.active,
+    .tab:hover.active { width: inherit !important }
+
+  }}
+
+.theme-setting-fixedtabbar() {
+  atom-workspace > atom-workspace-axis {
+    margin-top: @tab-height !important }
+
+  .tree-view-resizer {
+    overflow: inherit;
+    & .project-root-header {
+      margin-top: -@tab-height;
+    }
+    & .project-root > .list-tree {
+      top: 0;
+    }
+  }
+
+  .tab-bar {
+    position: fixed;
+    height: @tab-height;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 300;
 
     .tab.active,
     .tab:hover.active { width: inherit }

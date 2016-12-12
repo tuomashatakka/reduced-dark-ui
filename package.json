@@ -17,6 +17,12 @@
       "description": "In full width mode, tabs will fill the whole tab bar.",
       "type": "boolean",
       "default": true
+    },
+    "fixedTabBar": {
+      "title": "Fixed Tab Bar",
+      "description": "More room for tabs",
+      "type": "boolean",
+      "default": true
     }
   },
   "dependencies": {},
