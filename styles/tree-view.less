@@ -37,66 +37,17 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
         transition: all @transition-time ease;
         opacity: 0 }
 
-      &:hover {
-        &:before {
-          opacity: 1 }}
-
+      &:hover { &:before { opacity: 1 }}
     }
   }
 
   .project-root.project-root.collapsed {
-
-    & > .header {
-      &:before { opacity: 0 }
-
-      &:hover {
-        &:before { opacity: 1 } }
-    }}
+    & > .header { &:before { opacity: 0 }
+      &:hover { &:before { opacity: 1 } }
+  }}
 
   .directory.selected:before { background: transparent !important }}
 
-
-// SETTINGS: Fixed repo position
-.tree-view-scroller {
-  position: relative;
-  margin-left: -8px;
-  overflow: initial;
-
-
-  & > .tree-view {
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin-left: 8px;
-    display: flex;
-    overflow: initial;
-
-    & > .project-root {
-      flex: 1 1 auto;
-
-      &::before {
-        content: none;
-      }
-
-      & > .header {
-        position: relative;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: @tab-height }
-
-      & > .list-tree {
-        position: absolute;
-        overflow: auto;
-        top: @tab-height;
-        background-color: @tree-view-background-color;
-        bottom: 0;
-        left: 0;
-        right: 0 }
-    }
-  }}
 
 .list-group .icon,
 .list-tree .icon {

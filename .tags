@@ -10,14 +10,15 @@ bugs	package.json	/^  "bugs": {$/;"	f
 configSchema	package.json	/^  "configSchema": {$/;"	f
 default	package.json	/^      "default": true$/;"	f
 dependencies	package.json	/^  "dependencies": {},$/;"	f
+description	package.json	/^      "description": "Allow tabs to spread amongst the whole screen.",$/;"	f
 description	package.json	/^      "description": "In full width mode, tabs will fill the whole tab bar.",$/;"	f
-description	package.json	/^      "description": "More room for tabs",$/;"	f
+description	package.json	/^      "description": "Project root folder visible even when scrolled down.",$/;"	f
 description	package.json	/^  "description": "Atom UI theme.",$/;"	f
 devDependencies	package.json	/^  "devDependencies": {},$/;"	f
 email	package.json	/^    "email": "tuomas.hatakka@gmail.com"$/;"	f
 engines	package.json	/^  "engines": {$/;"	f
+fixedProjectRoot	package.json	/^    "fixedProjectRoot": {$/;"	f
 fixedTabBar	package.json	/^    "fixedTabBar": {$/;"	f
-getSettingName	lib/main.js	/^function getSettingName(name, delimiter='-') {$/;"	f
 homepage	package.json	/^  "homepage": "https:\/\/gitlab.com\/tuomashatakka\/atom-ui-reduced-dark",$/;"	f
 keywords	package.json	/^  "keywords": [$/;"	f
 license	package.json	/^  "license": "MIT",$/;"	f
@@ -29,6 +30,7 @@ readmeFilename	package.json	/^  "readmeFilename": "README.md",$/;"	f
 repository	package.json	/^  "repository": {$/;"	f
 tabSizing	package.json	/^    "tabSizing": {$/;"	f
 theme	package.json	/^  "theme": "ui",$/;"	f
+title	package.json	/^      "title": "Fixed Project Root",$/;"	f
 title	package.json	/^      "title": "Fixed Tab Bar",$/;"	f
 title	package.json	/^      "title": "Full-Width Tab Sizing",$/;"	f
 type	package.json	/^      "type": "boolean",$/;"	f

@@ -13,14 +13,17 @@ atom-panel.modal,
 .overlay {
   .overlay-shadow();
   .text(normal);
+
   background-color: @overlay-background-color;
   border-radius: @component-border-radius !important;
   border: 1px solid @base-border-color !important;
   padding: @component-padding @component-padding*2;
-  width: 680px;
-  margin-left: -340px;
+  width: 720px;
+  transform: translateX(-50%);
+  left: 50vw;
+  margin-left: 0;
 
-  @media (max-width: 680px) {
+  @media (max-width: 720px) {
     & {
       width: 100%;
       left: 0;
@@ -28,22 +31,17 @@ atom-panel.modal,
     }
   }
 
-  label,
-  p {
+  label, p {
     .text(normal);
-    font-weight: 200;
-  }
+    font-weight: 200 }
 
-  atom-text-editor[mini],
-  atom-text-editor.mini,
-  atom-text-editor.mini::shadow,
-  atom-text-editor[mini]::shadow {
+  atom-text-editor[mini], atom-text-editor.mini, atom-text-editor.mini::shadow, atom-text-editor[mini]::shadow {
     .text(heading);
     .text {
       color: @text-color-highlight;
     }
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 2em;
+    line-height: 1.2em;
     height: auto;
     max-height: none;
     background-color: transparent;
@@ -64,56 +62,33 @@ atom-panel.modal,
   }
 
   &.from-top {
-    top: 20vh;
-  }
+    top: 5vh }
 
-  .loading,
-  .error-message {
+  .loading, .error-message {
     .text(subtle);
     height: @component-line-height + @component-padding;
     line-height: @component-line-height + @component-padding;
-    padding-bottom: @component-padding;
-  }
+    padding-bottom: @component-padding }
 
-  ul.list-group,
-  .select-list ol.list-group,
-  &.select-list ol.list-group {
+  ul.list-group, .select-list ol.list-group, &.select-list ol.list-group {
     margin: 0 -@component-padding*2 -@component-padding;
 
-    li .character-match {
-      .text(normal);
-    }
-
-    li.selected .character-match {
-      .text(selected);
-    }
-
+    li .character-match { .text(normal) }
+    li.selected .character-match { .text(selected) }
     li {
       padding: @component-padding/2 @component-padding*2;
 
-      &.two-lines {
-        padding: @component-padding/2 @component-padding*2;
-      }
+      &.two-lines { padding: @component-padding/2 @component-padding*2 }
 
       .status.icon {
         float: right;
         margin-left: @component-icon-padding;
-
-        &:before {
-          margin-right: 0;
-        }
-      }
+        &:before { margin-right: 0 } }
 
       &.selected {
         border-radius: 0 !important;
-
-        .status.icon {
-          color: @text-color-selected;
-        }
-      }
-    }
-  }
-}
+        .status.icon { color: @text-color-selected }
+  }}}}
 
 atom-panel.modal {
   & > div > atom-text-editor[mini]:before {
@@ -122,30 +97,11 @@ atom-panel.modal {
     padding-right: @component-padding;
     -webkit-font-smoothing: antialiased;
     content: "\f011";
-    margin-left: -@component-padding*2;
-  }
-
-  & > .command-palette > atom-text-editor[mini]:before {
-    content: "\f0c8";
-  }
-
-  & > .encoding-selector > atom-text-editor[mini]:before {
-    content: "\f094";
-  }
-
-  & > .grammar-selector > atom-text-editor[mini]:before {
-    content: "\f010";
-  }
-
-  & > .symbols-view > atom-text-editor[mini]:before {
-    content: "\f0c0";
-  }
-
-  & > .fuzzy-finder > atom-text-editor[mini]:before {
-    content: "\f02e";
-  }
-
-  & > .diff-list-view > atom-text-editor[mini]:before {
-    content: "\f0d6";
-  }
+    margin-left: -@component-padding*2 }
+  & > .command-palette > atom-text-editor[mini]:before { content: "\f0c8" }
+  & > .encoding-selector > atom-text-editor[mini]:before { content: "\f094" }
+  & > .grammar-selector > atom-text-editor[mini]:before { content: "\f010" }
+  & > .symbols-view > atom-text-editor[mini]:before { content: "\f0c0" }
+  & > .fuzzy-finder > atom-text-editor[mini]:before { content: "\f02e" }
+  & > .diff-list-view > atom-text-editor[mini]:before { content: "\f0d6" }
 }

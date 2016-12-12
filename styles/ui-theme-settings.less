@@ -10,14 +10,15 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
                                                                                                                                                                                                                                                                                                                                                                         /*
 
 Variable definitions                                                                                                                                                                                                                                                                                                                                                    */
-@theme-setting-tabsizing: ~'@{ui-theme-name}-tabsizing';
+@theme-configuration: ~'@{ui-theme-name}-settings';
 @theme-setting-fixedtabbar: ~'@{ui-theme-name}-fixedtabbar';
                                                                                                                                                                                                                                                                                                                                                                         /*
 User Interface                                                                                                                                                                                                                                                                                                                                                          */
-[@{theme-setting-tabsizing}="false"] { .theme-setting-tabsizing() }
-[@{theme-setting-fixedtabbar}="true"] { .theme-setting-fixedtabbar() }
+[@{theme-configuration}*="tab-sizing"] { .config(tab-sizing) }
+[@{theme-configuration}*="fixed-tab-bar"] { .config(fixed-tab-bar) }
+[@{theme-configuration}*="fixed-project-root"] { .config(fixed-project-root) }
 
-.theme-setting-tabsizing() {
+.config(tab-sizing) {
 
   .tab-bar {
     width: auto;
@@ -29,18 +30,14 @@ User Interface                                                                  
 
   }}
 
-.theme-setting-fixedtabbar() {
+.config(fixed-tab-bar) {
   atom-workspace > atom-workspace-axis {
     margin-top: @tab-height !important }
 
   .tree-view-resizer {
     overflow: inherit;
-    & .project-root-header {
-      margin-top: -@tab-height;
-    }
-    & .project-root > .list-tree {
-      top: 0;
-    }
+    & .project-root-header { margin-top: -@tab-height }
+    & .project-root > .list-tree { top: 0  }
   }
 
   .tab-bar {
@@ -55,3 +52,45 @@ User Interface                                                                  
     .tab:hover.active { width: inherit }
 
   }}
+
+
+.config(fixed-project-root) {
+
+  .tree-view-scroller {
+    position: relative;
+    margin-left: -8px;
+    overflow: initial;
+
+    & > .tree-view {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin-left: 8px;
+      display: flex;
+      overflow: initial;
+
+      & > .project-root {
+        flex: 1 1 auto;
+
+        &::before { content: none; }
+
+        & > .header {
+          position: relative;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: @tab-height }
+
+        & > .list-tree {
+          position: absolute;
+          overflow: auto;
+          top: @tab-height;
+          background-color: @tree-view-background-color;
+          bottom: 0;
+          left: 0;
+          right: 0 }
+      }
+    }}
+}

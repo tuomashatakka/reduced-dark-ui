@@ -11,11 +11,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 .tab-bar {
   background: @tab-bar-background-color;
-  width: 100%;
+  width: auto;
   height: @tab-height;
   padding: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   -webkit-transform: scale(1);
 
   .tab {
@@ -24,7 +24,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     color: @text-color-subtle;
     background: @tab-background-color;
     display: block;
-    flex: 1 1 auto;
+    flex: 10 0 auto;
     width: auto;
     height: @tab-height;
     line-height: @tab-height/3;
@@ -42,27 +42,20 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     }
 
     .status-modified {
-      color: @text-color-modified;
-    }
+      color: @text-color-modified }
 
     .status-added {
-      color: @text-color-added;
-    }
+      color: @text-color-added }
 
     &:hover {
       color: @text-color-highlight;
       background: @tab-background-color-hover;
 
-      .close-icon {
-        display: block;
-      }
-    }
+      .close-icon { display: block }}
+
     .title {
       line-height: inherit;
-      &::before {
-        line-height: inherit;
-      }
-    }
+      &::before { line-height: inherit }}
   }
 
   .tab.active,
@@ -71,36 +64,15 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     background-color: @tab-background-color-active;
     width: 100%;
 
-    &.title {
-      color: @text-color-selected;
-      padding: 0;
-
-    }
-
-    .status-modified {
-      color: @text-color-modified;
-    }
-
-    .status-added {
-      color: @text-color-added;
-    }
-
-    .status-ignored {
-      color: @text-color-ignored;
-    }
-
-    .close-icon:before {
-      color: @text-color-subtle;
-    }
-
-    .close-icon:hover:before {
-      color: @text-color-highlight;
-    }
+    &.title { color: @text-color-selected; padding: 0 }
+    .status-modified { color: @text-color-modified }
+    .status-added { color: @text-color-added }
+    .status-ignored { color: @text-color-ignored }
+    .close-icon:before { color: @text-color-subtle }
+    .close-icon:hover:before { color: @text-color-highlight }
   }
 
-  .tab.modified:hover .close-icon:before {
-    color: @text-color-info;
-  }
+  .tab.modified:hover .close-icon:before { color: @text-color-info }
 
   .tab.modified:not(:hover) .close-icon {
     opacity: 1;
@@ -109,8 +81,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     right: 8px;
     display: inline-block;
     border-color: @background-color-info;
-    border-width: 2px;
-  }
+    border-width: 2px }
 
   .tab .close-icon {
     top: (@tab-height - 16) / 2;
@@ -133,23 +104,18 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       width: 13px;
       height: 12px;
       transition: transform @transition-time ease, color @transition-time ease, background @transition-time ease;
-    }
-  }
+    }}
 
   .tab:hover .close-icon {
     transform: scale(1);
-    opacity: 1;
-  }
-}
+    opacity: 1 }}
 
 .platform-darwin {
   .tab .close-icon {
     left: 4px !important;
-    right: auto !important;
-  }
+    right: auto !important }
 
   .tab.modified:not(:hover) .close-icon {
     left: 8px !important;
-    right: auto !important;
-  }
+    right: auto !important }
 }

@@ -20,7 +20,13 @@
     },
     "fixedTabBar": {
       "title": "Fixed Tab Bar",
-      "description": "More room for tabs",
+      "description": "Allow tabs to spread amongst the whole screen.",
+      "type": "boolean",
+      "default": true
+    },
+    "fixedProjectRoot": {
+      "title": "Fixed Project Root",
+      "description": "Project root folder visible even when scrolled down.",
       "type": "boolean",
       "default": true
     }

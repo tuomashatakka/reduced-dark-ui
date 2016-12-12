@@ -12,12 +12,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 Find and replace                                                                                                                                                                                                                                                                                                                                                                 */
 .project-find, .find-and-replace {
 
-  .btn-group-find .btn {
-    .button-variant(@text-color-info) }
-
-  .btn-group-replace .btn, .btn-group-replace-all .btn, {
-    .button-variant(@text-color-warning) }
-
+  .btn-group-find .btn { .button-variant(@text-color-info) }
+  .btn-group-replace .btn, .btn-group-replace-all .btn, { .button-variant(@text-color-warning) }
   .find-meta-container {
     top: 4px;
 
@@ -72,8 +68,7 @@ Scrollbars                                                                      
       &:active,
       &:hover {
         border: 1px solid @base-background-color }
-    }}
-}
+  }}}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Select Forms                                                                                                                                                                                                                                                                                                                                                                 */
@@ -87,8 +82,7 @@ select.form-control {
   &:focus,
   &:hover {
    background: @button-border-color !important;
-   color: @base-background-color !important }
-}
+   color: @base-background-color !important }}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text Editors                                                                                                                                                                                                                                                                                                                                                                 */
@@ -107,34 +101,23 @@ atom-text-editor[mini]::shadow {
     border: 1px solid @input-border-color;
     color: @text-color-highlight }
 
-  .text,
-  .source {
-    color: @text-color }
+  .text, .source { color: @text-color }
 
   .placeholder-text {
     .text(subtle);
     height: @input-height;
     line-height: @input-height - 2px }
 
-  .cursor {
-    border-color: @text-color-highlight }
-}
+  .cursor { border-color: @text-color-highlight }}
 
 atom-text-editor[mini].is-focused,
 atom-text-editor[mini].is-focused::shadow {
   border: 1px solid @input-border-color;
   background-color: @input-background-color-active;
 
-  .text,
-  .source {
-    color: @input-text-color-active }
-
-
+  .text, .source { color: @input-text-color-active }
   &:hover {
     border: 1px solid @text-color-highlight;
     background-color: @input-background-color-active;
     color: @text-color-highlight }
-
-  .selection .region {
-    background-color: fade(@background-color-highlight, 40%) }
-}
+  .selection .region { background-color: fade(@background-color-highlight, 40%) }}
