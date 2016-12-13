@@ -9,20 +9,23 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
                                                                                                                                                                                                                                                                                                                                                                         /*
 Overlay                                                                                                                                                                                                                                                                                                                                                                 */
-.button(@color) {
-  color: @text-color;
-  font-size: 12px;
-  font-weight: 400;
-  background: transparent;
-  height: @input-height;
-  line-height: @input-height;
-  border-radius: @component-border-radius;
-  border-color: @color;
-  border-width: 1px !important;
-  border-style: solid !important;
-  box-shadow: none !important;
-  transition: all @transition-time ease;
-  padding: 0 10px;
+.button(@color, @style: none) {
+
+  &.btn-success, &.btn-success, &.btn-default.btn-success {
+    color: @text-color;
+    font-size: 12px;
+    font-weight: 400;
+    background: transparent;
+    height: @input-height;
+    line-height: @input-height;
+    border-radius: @component-border-radius;
+    border-color: @color;
+    border-width: 1px !important;
+    border-style: solid !important;
+    box-shadow: none !important;
+    transition: all @transition-time ease;
+    padding: 0 10px;
+  }
 
   &:focus { outline: none }
 
@@ -125,6 +128,17 @@ Text                                                                            
 .text(warning) {
   .text(normal);
   color: @text-color-warning }
+
+.state(@class, @type) {
+  @selector: ~".@{class}-@{type}";
+  @selector2: ~".@{class}-default.@{class}-@{type}";
+  @col: ~"text-color-@{type}";
+  @bg: ~"background-color-@{type}";
+  @selector {
+    background-color: @@bg;
+    color: @@col;
+  }
+}
                                                                                                                                                                                                                                                                                                                                                                           /*
 Overlay                                                                                                                                                                                                                                                                                                                                                                    */
 .overlay-shadow() {

@@ -11,22 +11,37 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 project-viewer {
 
-  & > .list-tree > li.list-nested-item > .list-item {
-    .h3;
-    line-height: 1.5em;
-    text-transform: none;
-    padding-top: 0.25em;
+  position: absolute;
+  z-index: 100;
+  padding: 1rem;
+
+  & > .list-tree {
+    max-height: 0;
+    transition: @transition-time max-height, @transition-time padding;
+
+    & > li.list-nested-item > .list-item {
+      .h3;
+      line-height: 1.5em;
+      text-transform: none;
+      padding-top: 0.25em; }
+
   }
+  &:hover > .list-tree {
+    max-height: 50vh;
+    padding-top: 2rem !important;
+    overflow: auto }
 
   pv-header {
     .h3;
     background: transparent;
-    margin: 0;
+    margin: -1rem 0;
+    padding: 0 !important;
+    height: @tab-height;
+    line-height: @tab-height;
 
     &::before {
       font-family: ionicons;
       content: "\f35c" !important;
-      padding-right: 0.2em;
-    }
+      padding-right: 0.4em }
   }
 }
