@@ -10,9 +10,22 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 atom-notifications {
+  @shadow-opacity: 5;
+  @shadow-blur: 4;
+
   .text(normal);
   top: 32px;
   background-color: transparent;
+
+  atom-notification {
+    box-shadow: 0.2em 0.2em unit(@shadow-blur / 10, em) rgba(0, 0, 0, @shadow-opacity / 100);
+    border: 1px solid rgba(0,0,0,0.2);
+    &:first-child.has-close {
+      .message {
+        padding-right: 1rem;
+      }
+    }
+  }
 
   .close {
     transition: all @transition-time ease;
@@ -23,41 +36,40 @@ atom-notifications {
   }
 
   .btn {
-    height: 24px !important;
-    line-height: 20px !important;
 
+    .button-variant(@text-color-info);
     &.close-all {
-      .button-variant(@text-color-info);
     }
+    border-radius: 2em;
+    vertical-align: middle;
+    line-height: 2em !important;
+    height: 2em !important;
+    box-sizing: content-box;
+    padding: 0.2em 1em;
   }
-
   .content,
   .detail,
   .message,
   .meta {
+    background-clip: inherit;
+    padding: 1rem;
     color: @text-color;
     background-color: @overlay-background-color;
-    background-clip: inherit;
 
-    code,
-    .detail-content {
-      background-color: @overlay-border-color;
-      color: @text-color;
+    code, .detail-content {
+      // background-color: @overlay-border-color;
+      // color: @text-color
     }
 
-    .stack-toggle {
-      color: @text-color-info;
-    }
-  }
+    .stack-toggle { color: @text-color-info }}
+
+  .content { padding: 0 }
 
   .meta {
-    .description a {
-        color: @text-color-info;
-    }
+    .description a { color: @text-color-info }
 
     .btn-toolbar .icon-clippy {
       color: @text-color;
-      padding-left: 5px;
-    }
+      padding-left: 5px }
   }
 }

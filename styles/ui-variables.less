@@ -17,34 +17,34 @@ Animation                                                                       
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Base                                                                                                                                                                                                                                                                                                                                                                    */
-@base-background-color: @reduced-dark0;
-@base-border-color: @reduced-dark1;
+@base-background-color: @col-bg;
+@base-border-color: @col-darker;
 @app-background-color: @base-background-color;
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Background                                                                                                                                                                                                                                                                                                                                                                 */
-@background-color-highlight: @reduced-dark2;
-@background-color-selected: @reduced-dark2;
-@background-color-info: @reduced-dark8;
-@background-color-success: @reduced-dark14;
-@background-color-warning: @reduced-dark12;
-@background-color-error: @reduced-dark11;
+@background-color-highlight: @col-dark;
+@background-color-selected: @col-dark;
+@background-color-info: @col-main;
+@background-color-success: @col-success;
+@background-color-warning: @col-annotation;
+@background-color-error: @col-error;
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text                                                                                                                                                                                                                                                                                                                                                                 */
-@text-color: @reduced-dark4;
+@text-color: @col-light;
 @text-color-subtle: fade(@text-color, 40%);
-@text-color-highlight: @reduced-dark6;
+@text-color-highlight: @col-white;
 @text-color-selected: @text-color-highlight;
-@text-color-info: @reduced-dark8;
-@text-color-success: @reduced-dark14;
-@text-color-warning: @reduced-dark12;
-@text-color-error: @reduced-dark11;
+@text-color-info: @col-main;
+@text-color-success: @col-success;
+@text-color-warning: @col-annotation;
+@text-color-error: @col-error;
 @text-color-ignored: @text-color-subtle;
-@text-color-added: @reduced-dark14;
-@text-color-renamed: @reduced-dark8;
-@text-color-modified: @reduced-dark13;
-@text-color-removed: @reduced-dark11;
+@text-color-added: @col-success;
+@text-color-renamed: @col-main;
+@text-color-modified: @col-warning;
+@text-color-removed: @col-error;
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Components                                                                                                                                                                                                                                                                                                                                                              */
@@ -62,7 +62,7 @@ Components                                                                      
 @gutter-text-color-selected: @text-color-selected;
 
 // Input
-@input-background-color: @reduced-dark1;
+@input-background-color: @col-darker;
 @input-border-color: @text-color;
 @input-background-color-active: @text-color;
 @input-text-color-active: @base-background-color;
@@ -72,45 +72,45 @@ Components                                                                      
 @overlay-border-color: @base-border-color;
 
 // Panes
-@pane-item-background-color: @reduced-dark2;
+@pane-item-background-color: @col-dark;
 @pane-item-border-color: @base-border-color;
 
 // Panels
 @tool-panel-background-color: @base-background-color;
 @tool-panel-border-color: @base-border-color;
-@inset-panel-background-color: @reduced-dark1;
+@inset-panel-background-color: @col-darker;
 @inset-panel-border-color: @base-border-color;
-@panel-heading-background-color: @reduced-dark1;
+@panel-heading-background-color: @col-darker;
 @panel-heading-border-color: @base-border-color;
 
 // Progress bar
-@progress-loading-bar-background-color: @reduced-dark8;
+@progress-loading-bar-background-color: @col-main;
 
 // Scrollbar
-@scrollbar-color: @reduced-dark1;
-@scrollbar-color-active: @reduced-dark1;
-@scrollbar-border-color: @reduced-dark0;
+@scrollbar-color: @col-darker;
+@scrollbar-color-active: @col-darker;
+@scrollbar-border-color: @col-bg;
 @scrollbar-track-color: transparent;
 
 // Site
-@ui-site-color-1: @reduced-dark8;
-@ui-site-color-2: @reduced-dark14;
-@ui-site-color-3: @reduced-dark12;
-@ui-site-color-4: @reduced-dark11;
-@ui-site-color-5: @reduced-dark13;
+@ui-site-color-1: @col-main;
+@ui-site-color-2: @col-success;
+@ui-site-color-3: @col-annotation;
+@ui-site-color-4: @col-error;
+@ui-site-color-5: @col-warning;
 
 // Tabs
 @tab-bar-background-color: @app-background-color;
 @tab-bar-border-color: @base-border-color;
 @tab-background-color: @tool-panel-background-color;
-@tab-background-color-active: @reduced-dark2;
-@tab-background-color-hover: @reduced-dark2;
+@tab-background-color-active: @col-dark;
+@tab-background-color-hover: @col-dark;
 @tab-border-color: @base-border-color;
 
 // Tooltips
 @tooltip-text-color: @base-background-color;
 @tooltip-background-color: @text-color;
-@tooltip-key-text-color: @reduced-dark8;
+@tooltip-key-text-color: @col-main;
 @tooltip-key-background-color: @base-background-color;
 
 // Tree view
@@ -150,18 +150,18 @@ Typography                                                                      
 Package Support                                                                                                                                                                                                                                                                                                                                                                 */
 
 // Build
-@build-terminal-background-color: darken(@reduced-dark0, 2%);
+@build-terminal-background-color: darken(@col-bg, 2%);
 
 // Imdone
-@imdone-atom-task-background-color: darken(@reduced-dark1, 2%);
-@imdone-atom-task-background-color-draged: @reduced-dark1;
+@imdone-atom-task-background-color: darken(@col-darker, 2%);
+@imdone-atom-task-background-color-draged: @col-darker;
 
 // Markdown
-@markdown-preview-background-color: @reduced-dark6;
-@markdown-preview-border-color: @reduced-dark4;
-@markdown-preview-code-background-color: @reduced-dark4;
-@markdown-preview-table-body-color: @reduced-dark5;
-@markdown-preview-text-color: @reduced-dark0;
+@markdown-preview-background-color: @col-white;
+@markdown-preview-border-color: @col-light;
+@markdown-preview-code-background-color: @col-light;
+@markdown-preview-table-body-color: @col-lighter;
+@markdown-preview-text-color: @col-bg;
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Sizes                                                                                                                                                                                                                                                                                                                                                                 */
