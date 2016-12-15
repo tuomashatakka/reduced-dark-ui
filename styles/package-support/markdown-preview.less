@@ -27,6 +27,8 @@ GitHub                                                                          
     background-color: #F7F7F7 !important;
     border-radius: 3px }
 
+  em, strong, th { color: @markdown-preview-text-color; font-weight: 300 }
+
   h1, h2, h3, h4, h5 { color: #333333 }}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
@@ -38,7 +40,7 @@ Style                                                                           
   font-weight: 100;
 
   a { color: @text-color-info }
-  em, strong { color: inherit; font-weight: 300 }
+  em, strong { color: @markdown-preview-text-color; font-weight: 300 }
   hr { border: 1px solid @markdown-preview-border-color !important }
   h1, h2, h3 { border-color: @markdown-preview-border-color }
   h1, h2, h3, h4, h5 { color: @markdown-preview-text-color }
@@ -63,7 +65,7 @@ Style                                                                           
 
     h1, h2, h3, h4, h5 { color: @markdown-preview-text-color }
     table {
-      td, th            { border-color: transparent }
+      td, th            { border-color: transparent; color: @markdown-preview-text-color }
       th                { background-color: @markdown-preview-border-color }
       tr                { background-color: @markdown-preview-table-body-color;
         &:nth-child(2n) { background-color: darken(@markdown-preview-background-color, 3%) }

@@ -1,14 +1,3 @@
-/**
-* @Author: Tunpi
-* @Date:   December 14, 2016 3:42 AM
-* @Email:  tuomas.hatakka@gmail.com
-* @Project: Envelope
-* @Last modified by:   Tunpi
-* @Last modified time: December 14, 2016 3:55 AM
-*/
-
-
-
                                                                                                                                                                                                                                                                                                                                                                         /*
 title       Reduced
 project     reduced-dark-ui
@@ -31,7 +20,6 @@ Find and replace                                                                
       font-size: 11px;
       text-transform: uppercase }
   }}
-
                                                                                                                                                                                                                                                                                                                                                                         /*
 Keybinding Badges                                                                                                                                                                                                                                                                                                                                                                 */
 kbd {
@@ -42,7 +30,6 @@ kbd {
   border: 1px solid @tooltip-key-text-color;
   border-radius: @component-border-radius/2;
   margin-left: @component-padding/2; }
-
                                                                                                                                                                                                                                                                                                                                                                         /*
 Scrollbars                                                                                                                                                                                                                                                                                                                                                                 */
 .scrollbars-visible-always {
@@ -60,11 +47,9 @@ Scrollbars                                                                      
     background: @scrollbar-color;
     background-clip: content-box;
 
-    &:active,
-    &:hover {
+    &:active, &:hover {
       border: 1px solid @scrollbar-border-color;
-      background: @scrollbar-color-active }
-  }
+      background: @scrollbar-color-active }}
 
   atom-text-editor, .settings-view {
     /deep/ ::-webkit-scrollbar-track,
@@ -75,10 +60,9 @@ Scrollbars                                                                      
       border: 1px solid @base-background-color;
       background: @scrollbar-color;
 
-      &:active,
-      &:hover {
-        border: 1px solid @base-background-color }
-  }}}
+      &:active, &:hover { 
+        border: 1px solid @base-background-color }}}
+}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Select Forms                                                                                                                                                                                                                                                                                                                                                                 */
@@ -89,45 +73,47 @@ select.form-control {
   line-height: @input-height;
   text-transform: none;
 
-  &:focus,
-  &:hover {
+  &:focus, &:hover {
    background: @button-border-color !important;
    color: @base-background-color !important }}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text Editors                                                                                                                                                                                                                                                                                                                                                                 */
-atom-text-editor[mini],
-atom-text-editor[mini]::shadow {
-  transition: all @transition-time ease;
-  background-color: @input-background-color;
-  border: 1px solid @input-background-color;
-  border-radius: @component-border-radius;
-  padding-left: @component-padding / 2;
-  height: @input-height;
-  max-height: @input-height;
-  line-height: @input-height;
-
-  &:hover {
-    border: 1px solid @input-border-color;
-    color: @text-color-highlight }
-
-  .text, .source { color: @text-color }
-
-  .placeholder-text {
-    .text(subtle);
+atom-text-editor[mini] {
+  &, &::shadow {
+    transition: all @transition-time ease;
+    background-color: @input-background-color;
+    border: 1px solid @input-background-color;
+    border-radius: @component-border-radius;
+    padding-left: @component-padding / 2;
     height: @input-height;
-    line-height: @input-height - 2px }
+    max-height: @input-height;
+    line-height: @input-height;
 
-  .cursor { border-color: @text-color-highlight }}
+    &:hover {
+      border: 1px solid @input-border-color;
+      color: @text-color-highlight }
+    .text, .source { color: @text-color }
 
-atom-text-editor[mini].is-focused,
-atom-text-editor[mini].is-focused::shadow {
-  border: 1px solid @input-border-color;
-  background-color: @input-background-color-active;
+    .placeholder-text {
+      .text(subtle);
+      height: @input-height;
+      line-height: @input-height;
+      box-sizing: border-box }
 
-  .text, .source { color: @input-text-color-active }
-  &:hover {
-    border: 1px solid @text-color-highlight;
+    .cursor { border-color: @text-color-highlight }}
+
+  &.is-focused,
+  &.is-focused::shadow {
+    border: 1px solid @input-border-color;
     background-color: @input-background-color-active;
-    color: @text-color-highlight }
-  .selection .region { background-color: fade(@background-color-highlight, 40%) }}
+
+    .text, .source { color: @input-text-color-active }
+
+    &:hover {
+      border: 1px solid @text-color-highlight;
+      background-color: @input-background-color-active;
+      color: @text-color-highlight }
+
+    .selection .region { background-color: fade(@background-color-highlight, 40%) }}
+}

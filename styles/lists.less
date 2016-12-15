@@ -9,52 +9,21 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-.list-group,
-.list-tree {
-  li .character-match {
-    .text(normal);
-    transition: color @transition-time/2 ease;
-  }
-
-  li:hover .character-match {
-    .text(highlight);
-    transition: color @transition-time/2 ease;
-  }
-
-  li.selected:before {
-    background: @background-color-selected;
-  }
-
-  li.selected .character-match {
-    .text(selected);
-    font-size: @font-size;
-  }
-
-  li.selected .word {
-    color: @text-color-selected !important;
-  }
-
-  li,
-  li.list-item {
-    transition: color @transition-time/2 ease;
-  }
-
-  li:hover,
-  li.list-item:hover {
-    .text(highlight);
-  }
-
-  li:not(.list-nested-item),
-  li.list-nested-item > .list-item {
-    .text(normal);
+.list-group, .list-tree {
+  li {
+    & .character-match { .text(normal); transition: color @transition-time/2 ease }
+    &:hover .character-match { .text(highlight); transition: color @transition-time/2 ease }
+    &.selected:before { background: @background-color-selected }
+    &.selected .character-match { .text(selected); font-size: @font-size }
+    &.selected .word { color: @text-color-selected !important }
+    &, &.list-item { transition: color @transition-time/2 ease }
+    &:hover, &.list-item:hover { .text(highlight) }
+    &:not(.list-nested-item), &.list-nested-item > .list-item { .text(normal) }
   }
 
   .generate-list-item-text-color(@class) {
     li:not(.list-nested-item).text-@{class},
-    li.list-nested-item.text-@{class}> .list-item {
-      .text(@class);
-    }
-  }
+    li.list-nested-item.text-@{class}> .list-item { .text(@class) }}
   .generate-list-item-text-color(subtle);
   .generate-list-item-text-color(info);
   .generate-list-item-text-color(success);
@@ -125,8 +94,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
   .list-group li {
     padding-left: @component-padding/2;
-    transition: color @transition-time/2 ease }
-}
+    transition: color @transition-time/2 ease }}
 
 .ui-sortable {
   li { line-height: 2.5em }

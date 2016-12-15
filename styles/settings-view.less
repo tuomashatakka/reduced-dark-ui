@@ -1,14 +1,3 @@
-/**
-* @Author: Tunpi
-* @Date:   December 14, 2016 3:42 AM
-* @Email:  tuomas.hatakka@gmail.com
-* @Project: Envelope
-* @Last modified by:   Tunpi
-* @Last modified time: December 14, 2016 3:49 AM
-*/
-
-
-
                                                                                                                                                                                                                                                                                                                                                                         /*
 title       Reduced
 project     reduced-dark-ui
@@ -22,10 +11,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 .settings-view {
   font-size: @font-size;
   .text(normal);
-
-  .breadcrumb {
-    .text(caps);
-  }
+  .breadcrumb { .text(caps) }
 
   input[type="checkbox"]:checked {
     background-color: @text-color-info }
@@ -39,35 +25,26 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       border: 0 !important;
       padding: 0 !important;
       opacity: 1;
-
       &:hover {
         background: transparent;
         &:before {
-          color: @text-color-highlight;
-        }
-      }
-
+          color: @text-color-highlight }}
       &:before {
         margin-right: 0;
-        transition: color @transition-time ease }
-    }
+        transition: color @transition-time ease }}
   }
 
   .alert-info {
     color: @text-color-info;
     background: mix(@text-color-info, @base-background-color, 32%);
-
     button.close:before {
-      color: @text-color-info }
-  }
+      color: @text-color-info }}
 
   .alert-danger {
     color: @text-color-error;
     background: mix(@text-color-error, @base-background-color, 32%);
-
     button.close:before {
-      color: @text-color-error }
-  }
+      color: @text-color-error }}
 
   .setting-title,
   .setting-title.themes-label {
@@ -100,21 +77,14 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     background-color: @app-background-color;
     z-index: +1;
 
-    .nav > li > a {
-      transition: color @transition-time ease;
-    }
-
-    .nav > li > a:hover {
-      background: transparent;
-    }
-
-    .nav > li.active > a:hover {
-      background: @background-color-selected;
-    }
+    .nav > li {
+      > a {
+        transition: color @transition-time ease;
+        &:hover { background: transparent }}
+      &.active > a:hover { background: @background-color-selected }}
   }
 
-  .sub-section .row div {
-    background-color: transparent }
+  .sub-section .row div { background-color: transparent }
 
   .package-card {
     .text(normal);
@@ -122,16 +92,12 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     border-width: 0px solid @base-border-color;
     padding: @component-padding;
 
-    &:hover {
-      background: transparent }
-
-    .card-name {
-      .h4 }
+    &:hover { background: transparent }
+    .card-name { .h4 }
 
     .meta-controls {
       .install-button, .uninstall-button {
-        &.is-installing,
-        &.is-uninstalling {
+        &.is-installing, &.is-uninstalling {
           background-image: none;
           -webkit-animation: none;
 
@@ -141,8 +107,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       }
 
       .status-indicator {
-        width: @component-padding / 2 }
-    }
+        width: @component-padding / 2 }}
   }
 
   .package-detail .package-card:hover {
@@ -155,16 +120,10 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     .thumbnail {
       background-color: @tool-panel-background-color !important }
 
-    .package-status.icon-check {
-      color: @text-color-success }
-
-    .package-status.icon-cloud-download {
-      color: @text-color-info }
-  }
+    .package-status.icon-check { color: @text-color-success }
+    .package-status.icon-cloud-download { color: @text-color-info }}
 
   .package-readme {
     font-size: 1em;
-
-    h1, h2, h3, h4 {
-      .text(heading) }}
+    h1, h2, h3, h4 { .text(heading) }}
 }

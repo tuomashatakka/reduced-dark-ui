@@ -8,13 +8,29 @@ author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
+// Selectors
+@checkbox: ~".control-group .checkbox input";
+@size: 2rem;
 
-input[type="checkbox"] {
-  &:focus {
-    box-shadow: none !important;
-  }
-  &:before,
-  &:after {
-    background: @base-background-color;
+@{checkbox} {
+  vertical-align: middle;
+  width: @size;
+  height: @size;
+  line-height: @size;
+  text-align: center;
+  border-radius: 4em;
+  border-color: @text-color-info;
+  background-color: fade(@background-color-info, 20%);
+  text-align: center;
+  margin-top: -0.4em;
+  margin-left: -@size - 0.6em;
+
+  &:focus { box-shadow: none !important }
+  &::before, &::after {
+    margin-left: -2px;
+    margin-top: 0px;
+    min-height: 1px;
+    height: 1px;
+    background-color: darken(@background-color-info, 50%);
   }
 }

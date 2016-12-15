@@ -1,8 +1,7 @@
 {
+  "name": "reduced-dark-ui",
   "version": "0.0.0",
   "main": "./lib/main.js",
-
-  "name": "reduced-dark-ui",
   "theme": "ui",
   "author": {
     "name": "Tuomas Hatakka",

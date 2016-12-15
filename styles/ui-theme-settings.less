@@ -10,56 +10,52 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
                                                                                                                                                                                                                                                                                                                                                                         /*
 
 Variable definitions                                                                                                                                                                                                                                                                                                                                                    */
-@theme-configuration: ~'@{ui-theme-name}-settings';
-@theme-setting-fixedtabbar: ~'@{ui-theme-name}-fixedtabbar';
+@config-attr: ~'@{ui-theme-name}-settings';
                                                                                                                                                                                                                                                                                                                                                                         /*
 User Interface                                                                                                                                                                                                                                                                                                                                                          */
-[@{theme-configuration}*="tab-sizing"] { .config(tab-sizing) }
-[@{theme-configuration}*="fixed-tab-bar"] { .config(fixed-tab-bar) }
-[@{theme-configuration}*="fixed-project-root"] { .config(fixed-project-root) }
+.config(tabSizing);
+.config(fixedTabBar);
+.config(fixedProjectRoot);
 
-.config(tab-sizing) {
+.config(@arg) { [@{config-attr}*=@{arg}] {
 
+& when (@arg = fixedProjectRoot) {
   .tab-bar {
     width: auto;
-
     .tab { width: inherit !important }
+    .tab.active, .tab:hover.active { width: inherit !important }}
+}
 
-    .tab.active,
-    .tab:hover.active { width: inherit !important }
 
-  }}
-
-.config(fixed-tab-bar) {
+& when (@arg = fixedTabBar) {
   atom-workspace > atom-workspace-axis {
     margin-top: @tab-height !important }
 
   .tree-view-resizer {
     overflow: inherit;
     & .project-root-header { margin-top: -@tab-height }
-    & .project-root > .list-tree { top: 0  }
-  }
+    & .project-root > .list-tree { top: 0 }}
 
   .tab-bar {
     position: fixed;
     height: @tab-height;
-    top: 0;
+    transform: translateY(-100%);
     left: 0;
     right: 0;
     z-index: 300;
-
-    .tab.active,
-    .tab:hover.active { width: inherit }
-
-  }}
+    .tab.active, .tab:hover.active { width: inherit }}
+}
 
 
-.config(fixed-project-root) {
+& when (@arg = fixedProjectRoot) {
+  atom-panel-container.right {
+    z-index: 400 }
 
   .tree-view-scroller {
     position: relative;
-    margin-left: -8px;
+    margin-left: 8px;
     overflow: initial;
+    z-index: 301;
 
     & > .tree-view {
       position: relative;
@@ -86,11 +82,13 @@ User Interface                                                                  
         & > .list-tree {
           position: absolute;
           overflow: auto;
-          top: @tab-height;
+          top: 0; // @tab-height;
           background-color: @tree-view-background-color;
           bottom: 0;
           left: 0;
-          right: 0 }
-      }
-    }}
+          right: 0 }}}
+  }
 }
+
+
+}}
