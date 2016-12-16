@@ -37,17 +37,14 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   .alert-info {
     color: @text-color-info;
     background: mix(@text-color-info, @base-background-color, 32%);
-    button.close:before {
-      color: @text-color-info }}
+    button.close:before { color: @text-color-info }}
 
   .alert-danger {
     color: @text-color-error;
     background: mix(@text-color-error, @base-background-color, 32%);
-    button.close:before {
-      color: @text-color-error }}
+    button.close:before { color: @text-color-error }}
 
-  .setting-title,
-  .setting-title.themes-label {
+  .setting-title, .setting-title.themes-label {
     .text(highlight) }
 
   label {
@@ -107,7 +104,9 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       }
 
       .status-indicator {
-        width: @component-padding / 2 }}
+        width: 1.5em !important;
+        margin-left: 1em }
+    }
   }
 
   .package-detail .package-card:hover {

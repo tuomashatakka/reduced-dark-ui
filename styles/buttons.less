@@ -9,8 +9,7 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-button, button.icon,
-.btn-default, .btn {
+button, button.icon, .btn-default, .btn {
   .button(@button-border-color);
 
   &:focus, &:active:focus {
@@ -20,20 +19,28 @@ button, button.icon,
   &.btn-xs {
     font-size: 10px;
     padding: 0 4px;
-    height: 16px;
-    line-height: 16px }
+    height: @button-height/1.5;
+    line-height: @button-height/1.5 }
 
   &.btn-sm {
     font-size: 11px;
     padding: 0 8px;
-    height: 24px;
-    line-height: 24px }
+    height: @button-height;
+    line-height: @button-height }
 
   &.btn-lg {
     font-size: 13px;
     padding: 0 12px;
-    height: 40px;
-    line-height: 40px }
+    height: @button-height * 2;
+    line-height: @button-height * 2 }
+
+  &.icon {
+    &::before {
+      vertical-align: middle;
+      margin-top: -3px;
+      font-size: 2.2em;
+      color: mix(@text-color, @app-background-color) }
+  }
 
   &.btn-error { .button-variant(@text-color-error) }
   &.btn-info { .button-variant(@text-color-info) }
@@ -44,11 +51,36 @@ button, button.icon,
 }
 
 .btn-group {
-  & > .btn:first-child:not(:last-child) {
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important }
 
-  & > .btn:last-child:not(:first-child) {
-    border-top-left-radius: 0 !important;
-    border-bottom-left-radius: 0 !important }
+  border: 0;
+  margin: 0px;
+
+  & > .btn {
+    border: 1px solid;
+    line-height: @button-height !important;
+  }
+
+  .btn:first-child {
+    border-left-width: 1px !important;
+    border-left-style: solid !important;
+    border-top-left-radius: @button-border-radius !important;
+    border-bottom-left-radius: @button-border-radius !important;
+  }
+  .btn:last-child {
+    border-right-width: 1px !important;
+    border-right-style: solid !important;
+    border-top-right-radius: @button-border-radius !important;
+    border-bottom-right-radius: @button-border-radius !important;
+  }
+
+  .btn-toolbar > & {
+    border-radius: @button-border-radius !important;
+    overflow: hidden;
+    margin: 0 1px;
+    border: 1px solid fade(@base-border-color, 75%);
+
+    & > .btn {
+      border: 0;
+      margin: 0 1px;
+      border-radius: @button-border-radius !important }}
 }

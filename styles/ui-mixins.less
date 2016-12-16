@@ -11,35 +11,43 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 Overlay                                                                                                                                                                                                                                                                                                                                                                 */
 .button(@color, @style: none) {
 
-  &.btn-success, &.btn-success, &.btn-default.btn-success {
+  &.btn, &.btn.btn-success, &.btn-default.btn-success {
+    .text(menu);
     color: @text-color;
-    font-size: 12px;
-    font-weight: 400;
     background: transparent;
-    height: @input-height;
-    line-height: @input-height;
+    font-size: @input-font-size;
+    line-height: @button-height;
     border-radius: @component-border-radius;
-    border-color: @color;
+    transition: all @transition-time ease;
     border-width: 1px !important;
     border-style: solid !important;
     box-shadow: none !important;
-    transition: all @transition-time ease;
-    padding: 0 10px;
+    height: auto;
+    margin: 0;
+    padding: 0 @button-height;
+    box-sizing: border-box }
+
+  &:focus {
+    outline: none }
+
+  &:focus, &:hover {
+    color: @base-background-color !important;
+    border-color: @color !important;
+    background: @color !important;
+    &:first-child {
+      border-top-left-radius: 1.5em !important;
+      border-bottom-left-radius: 1.5em !important;
+    }
+    &:last-child {
+      border-top-right-radius: 1.5em !important;
+      border-bottom-right-radius: 1.5em !important;
+    }
   }
 
-  &:focus { outline: none }
-
-  &:focus,
-  &:hover {
-    color: @base-background-color !important;
-    background: @color !important;
-    border-color: @color !important }
-
-  &:active,
-  &:active:focus {
+  &:active, &:active:focus {
     color: @base-background-color;
     background: @color;
-    border: 1px solid @text-color-selected !important }
+    border: 1px solid !important }
 
   &.selected {
     color: @base-background-color;
@@ -47,12 +55,11 @@ Overlay                                                                         
     border: 1px solid @color !important;
 
     &:hover {
-      color: @base-background-color !important;
-      border: 1px solid @text-color-highlight !important;
-      background: @color !important }}
+      color: @base-background-color;
+      border: 1px solid;
+      background: @color }}
 
-  &[disabled],
-  &.disabled {
+  &[disabled], &.disabled {
     opacity: 1;
     background-color: transparent !important;
     border-color: transparent !important;
@@ -71,13 +78,12 @@ Overlay                                                                         
     color: @base-background-color !important;
     background: @color !important }
 
-  &[disabled],
-  &.disabled {
+  &[disabled], &.disabled {
     opacity: 1;
     background-color: transparent !important;
     border-color: transparent !important;
-    color: @text-color-subtle !important;
-  }}
+    color: @text-color-subtle !important }
+}
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text                                                                                                                                                                                                                                                                                                                                                                 */
 .text(error) {
@@ -95,6 +101,11 @@ Text                                                                            
   font-family: @font-family-caps;
   text-transform: uppercase;
   font-weight: 200 }
+
+.text(menu) {
+  font: 400 0.9em/26px @font-family-caps;
+  text-transform: lowercase;
+  letter-spacing: 0.05em }
 
 .text(highlight) {
   .text(normal);
