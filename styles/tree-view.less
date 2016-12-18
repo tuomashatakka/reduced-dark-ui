@@ -18,27 +18,19 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   .project-root {
     padding-bottom: @component-padding / 2;
 
-    /*
-    &:before {
-      height: @tab-height;
-      background-clip: padding-box }
-      */
-
     & > .header {
-
       & .name {
-        .h4();
+        .h4;
         color: @text-color-highlight;
         height: @tab-height;
         line-height: @tab-height }
 
-      &:before {
+      &::before {
         color: @text-color-highlight;
         transition: all @transition-time ease;
         opacity: 0 }
 
-      &:hover { &:before { opacity: 1 }}
-    }
+      &:hover::before { opacity: 1 }}
   }
 
   .project-root.project-root.collapsed {
@@ -46,7 +38,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       &:hover { &:before { opacity: 1 } }
   }}
 
-  .directory.selected:before { background: transparent !important }}
+  .directory.selected:before {
+    background: transparent !important }}
 
 
 .list-group .icon,
@@ -60,7 +53,5 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     height: inherit;
     vertical-align: top }}
 
-.tree-view-resizer {
-
-  .tree-view-resize-handle {
-    width: 8px }}
+.tree-view-resizer .tree-view-resize-handle {
+    width: 8px }

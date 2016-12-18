@@ -35,7 +35,10 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     border: 0;
     color: @text-color-subtle;
     background: @tab-background-color;
-    transition: color @transition-time ease, border @transition-time ease, background @transition-time ease;
+    transition:
+      color @transition-time ease,
+      border @transition-time ease,
+      background @transition-time ease;
 
     [class*='status-'], &.modified, &.added {
       transition:
