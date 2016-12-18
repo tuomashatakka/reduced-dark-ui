@@ -11,6 +11,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 .settings-view {
   font-size: @font-size;
   .text(normal);
+
   .breadcrumb {
     .text(caps);
     position: absolute;
@@ -19,9 +20,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     background-color: @app-background-color;
     left: 0;
     right: 0;
-    & > li + li::before {
-      font-family: "FontAwesome";
-      content: "\f105" }}
+    & > li + li::before { .icon("\f105") }}
 
   input[type="checkbox"]:checked {
     background-color: @text-color-highlight }
