@@ -10,9 +10,10 @@ bugs	package.json	/^  "bugs": {$/;"	f
 configSchema	package.json	/^  "configSchema": {$/;"	f
 default	package.json	/^      "default": true$/;"	f
 dependencies	package.json	/^  "dependencies": {},$/;"	f
-description	package.json	/^      "description": "Allow tabs to spread amongst the whole screen.",$/;"	f
-description	package.json	/^      "description": "In full width mode, tabs will fill the whole tab bar.",$/;"	f
-description	package.json	/^      "description": "Project root folder visible even when scrolled down.",$/;"	f
+description	package.json	/^      "description": "EXPERIMENTAL - Allow tabs to spread amongst the whole screen.",$/;"	f
+description	package.json	/^      "description": "EXPERIMENTAL - In full width mode, tabs will fill the whole tab bar.",$/;"	f
+description	package.json	/^      "description": "EXPERIMENTAL - Project root folder visible even when scrolled down.",$/;"	f
+description	package.json	/^      "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",$/;"	f
 description	package.json	/^  "description": "Atom UI theme.",$/;"	f
 devDependencies	package.json	/^  "devDependencies": {},$/;"	f
 email	package.json	/^    "email": "tuomas.hatakka@gmail.com"$/;"	f
@@ -26,6 +27,7 @@ main	package.json	/^  "main": ".\/lib\/main.js",$/;"	f
 name	package.json	/^    "name": "Tuomas Hatakka",$/;"	f
 name	package.json	/^  "name": "reduced-dark-ui",$/;"	f
 optionalDependencies	package.json	/^  "optionalDependencies": {},$/;"	f
+overrideEditorBackground	package.json	/^    "overrideEditorBackground": {$/;"	f
 readmeFilename	package.json	/^  "readmeFilename": "README.md",$/;"	f
 repository	package.json	/^  "repository": {$/;"	f
 tabSizing	package.json	/^    "tabSizing": {$/;"	f
@@ -33,6 +35,7 @@ theme	package.json	/^  "theme": "ui",$/;"	f
 title	package.json	/^      "title": "Fixed Project Root",$/;"	f
 title	package.json	/^      "title": "Fixed Tab Bar",$/;"	f
 title	package.json	/^      "title": "Full-Width Tab Sizing",$/;"	f
+title	package.json	/^      "title": "Override Editor Background Color",$/;"	f
 type	package.json	/^      "type": "boolean",$/;"	f
 type	package.json	/^    "type": "git",$/;"	f
 url	package.json	/^    "url": "https:\/\/gitlab.com\/tuomashatakka\/atom-ui-reduced-dark"$/;"	f

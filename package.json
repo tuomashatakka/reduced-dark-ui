@@ -13,19 +13,25 @@
   "configSchema": {
     "tabSizing": {
       "title": "Full-Width Tab Sizing",
-      "description": "In full width mode, tabs will fill the whole tab bar.",
+      "description": "EXPERIMENTAL - In full width mode, tabs will fill the whole tab bar.",
       "type": "boolean",
       "default": true
     },
     "fixedTabBar": {
       "title": "Fixed Tab Bar",
-      "description": "Allow tabs to spread amongst the whole screen.",
+      "description": "EXPERIMENTAL - Allow tabs to spread amongst the whole screen.",
       "type": "boolean",
       "default": true
     },
     "fixedProjectRoot": {
       "title": "Fixed Project Root",
-      "description": "Project root folder visible even when scrolled down.",
+      "description": "EXPERIMENTAL - Project root folder visible even when scrolled down.",
+      "type": "boolean",
+      "default": true
+    },
+    "overrideEditorBackground": {
+      "title": "Override Editor Background Color",
+      "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
       "type": "boolean",
       "default": true
     }

@@ -16,6 +16,7 @@ User Interface                                                                  
 .config(tabSizing);
 .config(fixedTabBar);
 .config(fixedProjectRoot);
+.config(overrideEditorBackground);
 .config(@arg) {
   [@{config-attr}*=@{arg}] {
 
@@ -97,5 +98,11 @@ User Interface                                                                  
               right: 0 }}}}
     }
 
+    & when (@arg = overrideEditorBackground) {
+      atom-text-editor,
+      atom-text-editor::shadow,
+      :host {
+        background: @tab-background-color-active }
+    }
 
   }}

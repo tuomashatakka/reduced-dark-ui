@@ -9,51 +9,47 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-atom-text-editor,
-atom-text-editor::shadow,
-:host {
-  background: @tab-background-color-active;
+atom-text-editor, atom-text-editor::shadow, :host {
   .scroll-view { padding: 0 }
 }
 
-atom-text-editor[mini],
-atom-text-editor[mini]::shadow {
-    transition: all @transition-time ease;
-    background-color: @input-background-color;
-    border: 1px solid @input-background-color;
-    border-radius: @button-border-radius;
-    padding-left: @component-padding / 2;
+atom-text-editor[mini], atom-text-editor[mini]::shadow {
+  transition: all @transition-time ease;
+  background-color: @input-background-color;
+  border: 1px solid @input-background-color;
+  border-radius: @button-border-radius;
+  padding-left: @component-padding / 2;
+  height: @input-height;
+  max-height: @input-height;
+  line-height: @input-height;
+
+  &:hover {
+    border: 1px solid @input-border-color;
+    color: @text-color-highlight }
+
+  .text, .source { color: @text-color }
+
+  .placeholder-text {
+    .text(subtle);
     height: @input-height;
-    max-height: @input-height;
     line-height: @input-height;
+    box-sizing: border-box }
 
-    &:hover {
-      border: 1px solid @input-border-color;
-      color: @text-color-highlight }
-    .text, .source { color: @text-color }
-
-    .placeholder-text {
-      .text(subtle);
-      height: @input-height;
-      line-height: @input-height;
-      box-sizing: border-box }
-
-    .cursor {
-      border-color: @text-color-highlight }
+  .cursor {
+    border-color: @text-color-highlight }
 }
 
-atom-text-editor[mini].is-focused,
-atom-text-editor[mini].is-focused::shadow {
-    border: 1px solid @input-border-color;
+atom-text-editor[mini].is-focused, atom-text-editor[mini].is-focused::shadow {
+  border: 1px solid @input-border-color;
+  background-color: @input-background-color-active;
+
+  .text, .source { color: @input-text-color-active }
+
+  &:hover {
+    border: 1px solid @text-color-highlight;
     background-color: @input-background-color-active;
+    color: @text-color-highlight }
 
-    .text, .source { color: @input-text-color-active }
-
-    &:hover {
-      border: 1px solid @text-color-highlight;
-      background-color: @input-background-color-active;
-      color: @text-color-highlight }
-
-    .selection .region {
-      background-color: fade(@background-color-highlight, 40%) }
+  .selection .region {
+    background-color: fade(@background-color-highlight, 40%) }
 }

@@ -59,73 +59,73 @@ Text                                                                            
                                                                                                                                                                                                                                                                                                                                                                         /*
 Components                                                                                                                                                                                                                                                                                                                                                              */
 
-// Buttons
-@button-background-color: transparent;
-@button-background-color-hover: @input-border-color;
-@button-background-color-selected: @input-border-color;
-@button-border-color: @input-border-color;
+    // Buttons
+    @button-background-color: transparent;
+    @button-background-color-hover: @input-border-color;
+    @button-background-color-selected: @input-border-color;
+    @button-border-color: @input-border-color;
 
-// Gutter
-@gutter-background-color: transparent;
-@gutter-background-color-selected: transparent;
-@gutter-text-color: @text-color-subtle;
-@gutter-text-color-selected: @text-color-selected;
+    // Gutter
+    @gutter-background-color: transparent;
+    @gutter-background-color-selected: transparent;
+    @gutter-text-color: @text-color-subtle;
+    @gutter-text-color-selected: @text-color-selected;
 
-// Input
-@input-background-color: @col-darker;
-@input-border-color: @text-color;
-@input-background-color-active: @text-color;
-@input-text-color-active: @base-background-color;
+    // Input
+    @input-background-color: @col-darker;
+    @input-border-color: @text-color;
+    @input-background-color-active: @text-color;
+    @input-text-color-active: @base-background-color;
 
-// Overlays
-@overlay-background-color: @tool-panel-background-color;
-@overlay-border-color: @base-border-color;
+    // Overlays
+    @overlay-background-color: @tool-panel-background-color;
+    @overlay-border-color: @base-border-color;
 
-// Panes
-@pane-item-background-color: @col-dark;
-@pane-item-border-color: @base-border-color;
+    // Panes
+    @pane-item-background-color: @col-dark;
+    @pane-item-border-color: @base-border-color;
 
-// Panels
-@tool-panel-background-color: @base-background-color;
-@tool-panel-border-color: @base-border-color;
-@inset-panel-background-color: @col-darker;
-@inset-panel-border-color: @base-border-color;
-@panel-heading-background-color: @col-darker;
-@panel-heading-border-color: @base-border-color;
+    // Panels
+    @tool-panel-background-color: @base-background-color;
+    @tool-panel-border-color: @base-border-color;
+    @inset-panel-background-color: @col-darker;
+    @inset-panel-border-color: @base-border-color;
+    @panel-heading-background-color: @col-darker;
+    @panel-heading-border-color: @base-border-color;
 
-// Progress bar
-@progress-loading-bar-background-color: @col-main;
+    // Progress bar
+    @progress-loading-bar-background-color: @col-main;
 
-// Scrollbar
-@scrollbar-color: @col-darker;
-@scrollbar-color-active: @col-darker;
-@scrollbar-border-color: @col-bg;
-@scrollbar-track-color: transparent;
+    // Scrollbar
+    @scrollbar-color: @col-darker;
+    @scrollbar-color-active: @col-darker;
+    @scrollbar-border-color: @col-bg;
+    @scrollbar-track-color: transparent;
 
-// Site
-@ui-site-color-1: @col-main;
-@ui-site-color-2: @col-success;
-@ui-site-color-3: @col-annotation;
-@ui-site-color-4: @col-error;
-@ui-site-color-5: @col-warning;
+    // Site
+    @ui-site-color-1: @col-main;
+    @ui-site-color-2: @col-success;
+    @ui-site-color-3: @col-annotation;
+    @ui-site-color-4: @col-error;
+    @ui-site-color-5: @col-warning;
 
-// Tabs
-@tab-bar-background-color: @app-background-color;
-@tab-bar-border-color: @base-border-color;
-@tab-background-color: @tool-panel-background-color;
-@tab-background-color-active: @col-dark;
-@tab-background-color-hover: @col-dark;
-@tab-border-color: @base-border-color;
+    // Tabs
+    @tab-bar-background-color: @app-background-color;
+    @tab-bar-border-color: @base-border-color;
+    @tab-background-color: @tool-panel-background-color;
+    @tab-background-color-active: @col-dark;
+    @tab-background-color-hover: @col-dark;
+    @tab-border-color: @base-border-color;
 
-// Tooltips
-@tooltip-text-color: @base-background-color;
-@tooltip-background-color: @text-color;
-@tooltip-key-text-color: @col-main;
-@tooltip-key-background-color: @base-background-color;
+    // Tooltips
+    @tooltip-text-color: @base-background-color;
+    @tooltip-background-color: @text-color;
+    @tooltip-key-text-color: @col-main;
+    @tooltip-key-background-color: @base-background-color;
 
-// Tree view
-@tree-view-background-color: @tool-panel-background-color;
-@tree-view-border-color: @base-border-color;
+    // Tree view
+    @tree-view-background-color: @tool-panel-background-color;
+    @tree-view-border-color: @base-border-color;
                                                                                                                                                                                                                                                                                                                                                                         /*
 Config                                                                                                                                                                                                                                                                                                                                                                  */
 @use-custom-controls: true;
@@ -146,53 +146,59 @@ Typography                                                                      
   "Noto Sans",
   sans-serif;
 
-@font-family-caps:
+@font-family-menu:
   "Montserrat",
   @font-family;
+
+@font-family-caps:
+  "Novecento Sans Wide",
+  "Montserrat",
+  @font-family;
+
                                                                                                                                                                                                                                                                                                                                                                           /*
 Package Support                                                                                                                                                                                                                                                                                                                                                                 */
 
-// Build
-@build-terminal-background-color: darken(@col-bg, 2%);
+    // Build
+    @build-terminal-background-color: darken(@col-bg, 2%);
 
-// Imdone
-@imdone-atom-task-background-color: darken(@col-darker, 2%);
-@imdone-atom-task-background-color-draged: @col-darker;
+    // Imdone
+    @imdone-atom-task-background-color: darken(@col-darker, 2%);
+    @imdone-atom-task-background-color-draged: @col-darker;
 
-// Markdown
-@markdown-preview-background-color: @col-white;
-@markdown-preview-border-color: @col-light;
-@markdown-preview-code-background-color: @col-light;
-@markdown-preview-table-body-color: @col-lighter;
-@markdown-preview-text-color: @col-bg;
+    // Markdown
+    @markdown-preview-background-color: @col-white;
+    @markdown-preview-border-color: @col-light;
+    @markdown-preview-code-background-color: @col-light;
+    @markdown-preview-table-body-color: @col-lighter;
+    @markdown-preview-text-color: @col-bg;
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Sizes                                                                                                                                                                                                                                                                                                                                                                 */
 
-// Base
-@disclosure-arrow-size: 1rem;
-@component-icon-size: 1.2rem;
-@component-icon-padding: 0.5rem;
-@component-padding: 1rem;
-@component-line-height: 2rem;
-@component-border-radius: 6px;
+    // Base
+    @disclosure-arrow-size: 1rem;
+    @component-icon-size: 1.2rem;
+    @component-icon-padding: 0.5rem;
+    @component-padding: 1rem;
+    @component-line-height: 2rem;
+    @component-border-radius: 6px;
 
-// Fonts
-@font-size: 12px;
-@input-font-size: @font-size;
+    // Fonts
+    @font-size: 12px;
+    @input-font-size: @font-size;
 
-// Inputs
-@input-height: 2.4rem;
+    // Inputs
+    @input-height: 2.4rem;
 
-// Buttons
-@button-height: @input-height;
-@button-border-radius: @input-height;
+    // Buttons
+    @button-height: @input-height;
+    @button-border-radius: @input-height;
 
-// Lists
-@list-active-icon-size: 1rem;
+    // Lists
+    @list-active-icon-size: 1rem;
 
-// Menu
-@menu-width: 240px;
+    // Menu
+    @menu-width: 240px;
 
-// Tabs
-@tab-height: 4.5rem;
+    // Tabs
+    @tab-height: 4.5rem;

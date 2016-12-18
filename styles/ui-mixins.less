@@ -12,8 +12,7 @@ Overlay                                                                         
 .button(@color) {
 
   &.btn, &.btn.btn-success, &.btn-default.btn-success {
-    .text(menu);
-    text-transform: uppercase;
+    .text(caps);
     font-weight: 400;
     color: @text-color;
     background: transparent;
@@ -92,8 +91,7 @@ Text                                                                            
 
 .text(heading) {
   color: @text-color;
-  font-family: @font-family-caps;
-  text-transform: full-width;
+  font-family: @font-family-menu;
   font-weight: 200 }
 
 .text(caps) {
@@ -103,8 +101,9 @@ Text                                                                            
   font-weight: 400 }
 
 .text(menu) {
-  font: 100 0.9em/26px @font-family-caps;
+  font: 400 0.9em/26px @font-family-menu;
   text-transform: lowercase;
+  font-size: 0.9em;
   letter-spacing: 0.05em }
 
 .text(highlight) {
