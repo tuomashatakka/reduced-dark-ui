@@ -11,16 +11,13 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 status-bar {
   .text(subtle);
+  display: block;
   background: @base-border-color;
   height: @input-height;
-  line-height: @component-line-height;
-  font-size: 11px;
+  line-height: @input-height;
+  font-size: 10px;
+  letter-spacing: 0.02em;
 
-  & > .flexbox-repaint-hack {
-    padding-top: 3px;
-  }
-
-  span {
-    font-size: 11px;
-  }
+  & > .flexbox-repaint-hack { padding-top: 0 }
+  span { font-size: 1em }
 }
