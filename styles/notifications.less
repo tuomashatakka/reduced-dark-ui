@@ -12,6 +12,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 atom-notifications {
   @shadow-opacity: 15; // this per 100
   @shadow-blur: 14;    // this per 10
+  @left-bar-width: 3rem;
+
 
   .text(normal);
   top: 1rem;
@@ -20,16 +22,51 @@ atom-notifications {
   atom-notification {
     box-shadow: 0.2em 0.2em unit(@shadow-blur / 10, em) rgba(0, 0, 0, @shadow-opacity / 100);
     border: 1px solid rgba(0,0,0,0.2);
-    border-radius: @component-border-radius;
+    border-radius: 3px !important;
     overflow: hidden;
 
     &.has-close .message { padding-right: 2rem }
     &:first-child.has-close .message { padding-right: 6rem }
-    &:not(.has-close) .close-all { display: none }}
+    &:not(.has-close) .close-all { display: none }
+
+    &::before {
+      width: @left-bar-width;
+    }
+  }
+
+
 
   .close {
     transition: all @transition-time ease;
     &:before { color: @text-color }}
+
+  .btn-toolbar {
+    display: flex;
+    margin: 1rem -1rem -1rem;
+
+    & > *, & > .btn.btn {
+      transition: all @transition-time;
+      flex: 1 1 auto;
+      border-radius: 0 !important;
+      text-align: center;
+      margin: 0;
+      padding: 0 !important;
+
+      border-collapse: collapse;
+      border-width: 1px 0 0 1px !important;
+      border-style: solid;
+      border-color: @base-border-color !important;
+      background-color: rgba(0, 0, 0, 0.1);
+      box-sizing: border-box;
+      &:not(:hover) {
+        color: @text-color-subtle !important }
+
+      &:hover {
+        background: @text-color-subtle }
+
+        &:first-child {
+          border-left-width: 0 !important }}
+  }
 
   .btn, .btn.close-all, .btn-success, button.btn-success, .btn-default.btn-success {
 
@@ -41,7 +78,11 @@ atom-notifications {
     box-sizing: content-box;
     padding: 0 1em !important;
 
-    &.close-all { background: @base-background-color }}
+    &.close-all {
+      right: 3.5rem;
+      top: 2.2rem;
+      position: fixed;
+      background: @base-background-color }}
 
   .content,
   .detail,

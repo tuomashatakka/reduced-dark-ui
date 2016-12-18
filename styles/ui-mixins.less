@@ -39,12 +39,12 @@ Overlay                                                                         
     background: @color !important;
 
     &:first-child {
-      border-top-left-radius: @button-border-radius !important;
-      border-bottom-left-radius: @button-border-radius !important }
+      border-top-left-radius: @button-border-radius;
+      border-bottom-left-radius: @button-border-radius }
 
     &:last-child {
-      border-top-right-radius: @button-border-radius !important;
-      border-bottom-right-radius: @button-border-radius !important }
+      border-top-right-radius: @button-border-radius;
+      border-bottom-right-radius: @button-border-radius }
   }
 
   &:active, &:active:focus {
@@ -119,6 +119,9 @@ Text                                                                            
 .text(error) {
   .text(normal);
   color: @text-color-error }
+
+.text() {
+  .text(normal) }
 
 .text(normal) {
   color: @text-color;
