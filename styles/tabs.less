@@ -9,60 +9,49 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
+@icon-size: 1em;
+
 .tab-bar {
-  background: @tab-bar-background-color;
-  width: auto;
+  display: flex;
+  width: 12em;
   height: @tab-height;
   padding: 0;
-  display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  overflow-x: auto;
+  background: @tab-bar-background-color;
   -webkit-transform: scale(1);
 
   .tab {
     .text(normal);
-    text-align: center;
-    color: @text-color-subtle;
-    background: @tab-background-color;
+    box-sizing: border-box;
+    position: relative;
     display: block;
-    flex: 10 0 auto;
+    flex: 1 0 auto;
+    text-align: center;
     width: auto;
     height: @tab-height;
     line-height: @tab-height/3;
-    box-sizing: border-box;
-    border: 0;
     padding: @tab-height/3 0.5rem !important;
-    position: relative;
+    border: 0;
+    color: @text-color-subtle;
+    background: @tab-background-color;
     transition: color @transition-time ease, border @transition-time ease, background @transition-time ease;
 
-    [class*='status-'], &.modified, &.added { transition: color @transition-time ease, background @transition-time ease }
+    [class*='status-'], &.modified, &.added {
+      transition:
+        color @transition-time ease,
+        background @transition-time ease }
+
     .status-modified, &.modified { color: @text-color-modified }
     .status-added, &.added { color: @text-color-added }
-
-    & .close-icon {
-      transition: transform @transition-time ease, color @transition-time ease, background @transition-time ease;
-      top: @tab-height / 2;
-      line-height: 16px;
-      height: 16px;
-      width: 16px;
-      left: auto;
-      right: 4px;
-      position: absolute;
-      transform: scale(1) translateY(-100%);
-      opacity: 0 }
-
-    &:hover {
-      color: @text-color-highlight;
-      background: @tab-background-color-hover;
-
-
-      .close-icon {
-        transform: scale(1) translateY(-50%);
-        opacity: 1;
-        display: block }}
 
     .title {
       line-height: inherit;
       &::before { line-height: inherit }}
+
+    &:hover {
+      color: @text-color-highlight;
+      background: @tab-background-color-hover }
 
     &.active {
       flex: 10 0 auto;
@@ -73,25 +62,60 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       .status-modified { color: @text-color-modified }
       .status-added { color: @text-color-added }
       .status-ignored { color: @text-color-ignored }
-      .close-icon:before { color: @text-color-subtle }
-      .close-icon:hover:before { color: @text-color-highlight } }
 
-    &.modified:not(:hover) .close-icon {
-      opacity: 1;
-      transform: scale(1) translateY(-50%);
-      top: (@tab-height - 6) / 2;
-      right: 8px;
-      display: inline-block;
-      border-color: @background-color-info;
-      border-width: 2px }}
+    &:last-child {
+      padding-right: 320px !important }}
+
+
+    .close-icon { .close-icon-generator() }
+    &:hover .close-icon { .close-icon-generator(hover) }
+    &.modified:not(:hover) .close-icon { .close-icon-generator(modified) }}}
+
+body:not(.menu-hidden) .tab-bar {
+  left: @menu-width;
 }
 
 .platform-darwin {
   .tab .close-icon {
-    left: 4px !important;
+    left: @icon-size !important;
     right: auto !important }
 
   .tab.modified:not(:hover) .close-icon {
-    left: 8px !important;
-    right: auto !important }
+    left: @icon-size !important;
+    right: auto !important }}
+
+.close-icon-generator(@state: none) {
+  position: absolute;
+  top: @tab-height / 2;
+  left: @icon-size;
+  width: @icon-size;
+  height: @icon-size;
+  line-height: @icon-size;
+  text-align: center;
+  font-size: @icon-size;
+  transform: translate(0%, -50%);
+  box-sizing: border-box;
+  transition: all @transition-time ease;
+
+  &::before {
+    display: block;
+    border-radius: 50%;
+    transition: all @transition-time ease;
+    transform: rotate(45deg);
+    opacity: 0 }
+
+  &::before when (@state = none) {
+    color: transparent }
+
+  &::before when (@state = hover) {
+    color: @text-color-info;
+    border-color: @background-color-info;
+    background: @tab-background-color-active;
+    transform: rotate(0deg);
+    opacity: 1 }
+
+  &::before when (@state = modified) {
+    color: transparent;
+    border-width: 2px;
+    opacity: 1 }
 }

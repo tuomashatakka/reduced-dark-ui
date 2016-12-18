@@ -12,7 +12,6 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 atom-panel.modal, .overlay {
   .text(normal);
   .overlay-shadow;
-
   background-color: @overlay-background-color;
   border-radius: @component-border-radius !important;
   border: 1px solid @base-border-color !important;
@@ -31,7 +30,10 @@ atom-panel.modal, .overlay {
     .text(normal);
     font-weight: 200 }
 
-  atom-text-editor[mini], atom-text-editor.mini, atom-text-editor.mini::shadow, atom-text-editor[mini]::shadow {
+  atom-text-editor.mini,
+  atom-text-editor.mini::shadow,
+  atom-text-editor[mini],
+  atom-text-editor[mini]::shadow {
     .text(heading);
     font-size: 2em;
     line-height: 1.2em;
@@ -53,11 +55,9 @@ atom-panel.modal, .overlay {
       border-left: 0 !important;
       border-right: 0 !important;
       border-bottom: 1px solid @base-border-color !important;
-      background-color: transparent !important }
-  }
+      background-color: transparent !important }}
 
-  &.from-top {
-    top: 5vh }
+  &.from-top { top: 5vh }
 
   .loading, .error-message {
     .text(subtle);
@@ -68,12 +68,17 @@ atom-panel.modal, .overlay {
   ul.list-group, .select-list ol.list-group, &.select-list ol.list-group {
     margin: 0 -@component-padding*2 -@component-padding;
 
-    li .character-match { .text(normal) }
-    li.selected .character-match { .text(selected) }
+    li .character-match {
+      .text(normal) }
+
+    li.selected .character-match {
+      .text(selected) }
+
     li {
       padding: @component-padding/2 @component-padding*2;
 
-      &.two-lines { padding: @component-padding/2 @component-padding*2 }
+      &.two-lines {
+        padding: @component-padding/2 @component-padding*2 }
 
       .status.icon {
         float: right;
@@ -82,5 +87,5 @@ atom-panel.modal, .overlay {
 
       &.selected {
         border-radius: 0 !important;
-        .status.icon { color: @text-color-selected }
-  }}}}
+        .status.icon { color: @text-color-selected }}}}
+}
