@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+atom	package.json	/^    "atom": ">=0.174.0 <2.0.0"$/;"	f
+author	package.json	/^  "author": {$/;"	f
+bugs	package.json	/^  "bugs": {$/;"	f
+configSchema	package.json	/^  "configSchema": {$/;"	f
+default	package.json	/^      "default": true$/;"	f
+dependencies	package.json	/^  "dependencies": {},$/;"	f
+description	package.json	/^      "description": "Allow tabs to spread amongst the whole screen.",$/;"	f
+description	package.json	/^      "description": "In full width mode, tabs will fill the whole tab bar.",$/;"	f
+description	package.json	/^      "description": "Project root folder visible even when scrolled down.",$/;"	f
+description	package.json	/^  "description": "Atom UI theme.",$/;"	f
+devDependencies	package.json	/^  "devDependencies": {},$/;"	f
+email	package.json	/^    "email": "tuomas.hatakka@gmail.com"$/;"	f
+engines	package.json	/^  "engines": {$/;"	f
+fixedProjectRoot	package.json	/^    "fixedProjectRoot": {$/;"	f
+fixedTabBar	package.json	/^    "fixedTabBar": {$/;"	f
+homepage	package.json	/^  "homepage": "https:\/\/gitlab.com\/tuomashatakka\/atom-ui-reduced-dark",$/;"	f
+keywords	package.json	/^  "keywords": [$/;"	f
+license	package.json	/^  "license": "MIT",$/;"	f
+main	package.json	/^  "main": ".\/lib\/main.js",$/;"	f
+name	package.json	/^    "name": "Tuomas Hatakka",$/;"	f
+name	package.json	/^  "name": "reduced-dark-ui",$/;"	f
+optionalDependencies	package.json	/^  "optionalDependencies": {},$/;"	f
+readmeFilename	package.json	/^  "readmeFilename": "README.md",$/;"	f
+repository	package.json	/^  "repository": {$/;"	f
+tabSizing	package.json	/^    "tabSizing": {$/;"	f
+theme	package.json	/^  "theme": "ui",$/;"	f
+title	package.json	/^      "title": "Fixed Project Root",$/;"	f
+title	package.json	/^      "title": "Fixed Tab Bar",$/;"	f
+title	package.json	/^      "title": "Full-Width Tab Sizing",$/;"	f
+type	package.json	/^      "type": "boolean",$/;"	f
+type	package.json	/^    "type": "git",$/;"	f
+url	package.json	/^    "url": "https:\/\/gitlab.com\/tuomashatakka\/atom-ui-reduced-dark"$/;"	f
+version	package.json	/^  "version": "0.0.0",$/;"	f

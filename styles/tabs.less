@@ -14,6 +14,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 .tab-bar {
   display: flex;
   width: 12em;
+  margin-left: @tab-height;
   height: @tab-height;
   padding: 0;
   justify-content: flex-start;
@@ -64,10 +65,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       .title { color: @text-color-selected; padding: 0 }
       .status-modified { color: @text-color-modified }
       .status-added { color: @text-color-added }
-      .status-ignored { color: @text-color-ignored }
-
-    &:last-child {
-      padding-right: 320px !important }}
+      .status-ignored { color: @text-color-ignored }}
 
 
     .close-icon { .close-icon-generator() }
