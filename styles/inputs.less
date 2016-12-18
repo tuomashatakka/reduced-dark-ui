@@ -10,9 +10,10 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 // Selectors
 @checkbox: ~".control-group .checkbox input";
-@size: 2rem;
 
 @{checkbox} {
+  @size: 2rem;
+
   vertical-align: middle;
   width: @size;
   height: @size;
@@ -31,6 +32,5 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     margin-top: 0px;
     min-height: 1px;
     height: 2px;
-    background-color: darken(@background-color-info, 50%);
-  }
+    background-color: darken(@background-color-info, 50%) }
 }

@@ -11,31 +11,28 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 .list-group, .list-tree {
   li {
+    &.selected:before { background: @background-color-selected }
+    &.selected .word { color: @text-color-selected !important }
+
     & .character-match { .text(normal); transition: color @transition-time/2 ease }
     &:hover .character-match { .text(highlight); transition: color @transition-time/2 ease }
-    &.selected:before { background: @background-color-selected }
     &.selected .character-match { .text(selected); font-size: @font-size }
-    &.selected .word { color: @text-color-selected !important }
+
     &, &.list-item { transition: color @transition-time/2 ease }
     &:hover, &.list-item:hover { .text(highlight) }
-    &:not(.list-nested-item), &.list-nested-item > .list-item { .text(normal) }
+    &:not(.list-nested-item), &.list-nested-item > .list-item {
+      .text(normal);
+      .icon::before {
+        font-size: 0.9em;
+        }}
   }
 
-  .generate-list-item-text-color(@class) {
-    li:not(.list-nested-item).text-@{class},
-    li.list-nested-item.text-@{class}> .list-item { .text(@class) }}
   .generate-list-item-text-color(subtle);
   .generate-list-item-text-color(info);
   .generate-list-item-text-color(success);
   .generate-list-item-text-color(warning);
   .generate-list-item-text-color(error);
   .generate-list-item-text-color(selected);
-
-  .generate-list-item-status-color(@color, @status) {
-    li:not(.list-nested-item).status-@{status},
-    li.list-nested-item.status-@{status}> .list-item { color: @color }
-    li:not(.list-nested-item).selected.status-@{status},
-    li.list-nested-item.selected.status-@{status}> .list-item { color: @color }}
   .generate-list-item-status-color(@text-color-subtle, ignored);
   .generate-list-item-status-color(@text-color-added, added);
   .generate-list-item-status-color(@text-color-renamed, renamed);
@@ -48,7 +45,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     font-size: @font-size }}
 
 .select-list ol.list-group,
-&.select-list ol.list-group,
+.modal.select-list ol.list-group,
 .modal .select-list ol.list-group {
   max-height: 80vh;
 
@@ -60,6 +57,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
   li.selected {
     background-color: @background-color-selected;
+
     &:before { display: none }
     pre { border-color: @text-color-highlight }}
 
@@ -81,8 +79,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
       &:before {
         margin-right: @component-icon-padding;
-        color: @text-color-success }}
-  }}
+        color: @text-color-success }}}
+}
 
 .select-list.popover-list {
   .overlay-shadow();
@@ -109,3 +107,21 @@ li.ui-sortable-helper {
   list-style: none;
   padding: 0 @component-padding;
   background: @background-color-highlight }
+
+
+.generate-list-item-text-color(@class) {
+  li:not(.list-nested-item).text-@{class},
+  li.list-nested-item.text-@{class}> .list-item {
+    .text(@class) }}
+
+.generate-list-item-status-color(@color, @status) {
+  li:not(.list-nested-item).status-@{status},
+  li.list-nested-item.status-@{status}> .list-item,
+  li:not(.list-nested-item).selected.status-@{status},
+  li.list-nested-item.selected.status-@{status}> .list-item {
+    color: @color;
+
+    .icon::before {
+      font-size: 0.9em;
+      color: mix(@color, @background-color-selected, 88%) } }
+}

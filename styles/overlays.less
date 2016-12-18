@@ -9,10 +9,9 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-atom-panel.modal,
-.overlay {
-  .overlay-shadow();
+atom-panel.modal, .overlay {
   .text(normal);
+  .overlay-shadow;
 
   background-color: @overlay-background-color;
   border-radius: @component-border-radius !important;
@@ -23,13 +22,10 @@ atom-panel.modal,
   left: 50vw;
   margin-left: 0;
 
-  @media (max-width: 720px) {
-    & {
-      width: 100%;
-      left: 0;
-      margin-left: 0;
-    }
-  }
+  .small({
+    width: 100%;
+    left: 0;
+    margin-left: 0 })
 
   label, p {
     .text(normal);
@@ -37,9 +33,6 @@ atom-panel.modal,
 
   atom-text-editor[mini], atom-text-editor.mini, atom-text-editor.mini::shadow, atom-text-editor[mini]::shadow {
     .text(heading);
-    .text {
-      color: @text-color-highlight;
-    }
     font-size: 2em;
     line-height: 1.2em;
     height: auto;
@@ -51,14 +44,16 @@ atom-panel.modal,
     border-radius: 0;
     border-bottom: 1px solid @base-border-color;
 
+    .text {
+      color: @text-color-highlight }
+
     &.is-focused:hover,
     &:hover {
       border-top: 0 !important;
       border-left: 0 !important;
       border-right: 0 !important;
       border-bottom: 1px solid @base-border-color !important;
-      background-color: transparent !important;
-    }
+      background-color: transparent !important }
   }
 
   &.from-top {
@@ -89,19 +84,3 @@ atom-panel.modal,
         border-radius: 0 !important;
         .status.icon { color: @text-color-selected }
   }}}}
-
-atom-panel.modal {
-  & > div > atom-text-editor[mini]:before {
-    color: @text-color-subtle;
-    font-family: "Octicons Regular";
-    padding-right: @component-padding;
-    -webkit-font-smoothing: antialiased;
-    content: "\f011";
-    margin-left: -@component-padding*2 }
-  & > .command-palette > atom-text-editor[mini]:before { content: "\f0c8" }
-  & > .encoding-selector > atom-text-editor[mini]:before { content: "\f094" }
-  & > .grammar-selector > atom-text-editor[mini]:before { content: "\f010" }
-  & > .symbols-view > atom-text-editor[mini]:before { content: "\f0c0" }
-  & > .fuzzy-finder > atom-text-editor[mini]:before { content: "\f02e" }
-  & > .diff-list-view > atom-text-editor[mini]:before { content: "\f0d6" }
-}

@@ -9,15 +9,18 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
                                                                                                                                                                                                                                                                                                                                                                         /*
 Overlay                                                                                                                                                                                                                                                                                                                                                                 */
-.button(@color, @style: none) {
+.button(@color) {
 
   &.btn, &.btn.btn-success, &.btn-default.btn-success {
     .text(menu);
+    text-transform: uppercase;
+    font-weight: 400;
     color: @text-color;
     background: transparent;
     font-size: @input-font-size;
+    font-size: 0.75em;
     line-height: @button-height;
-    border-radius: @component-border-radius;
+    border-radius: @button-border-radius;
     transition: all @transition-time ease;
     border-width: 1px !important;
     border-style: solid !important;
@@ -34,14 +37,14 @@ Overlay                                                                         
     color: @base-background-color !important;
     border-color: @color !important;
     background: @color !important;
+
     &:first-child {
-      border-top-left-radius: 1.5em !important;
-      border-bottom-left-radius: 1.5em !important;
-    }
+      border-top-left-radius: @button-border-radius !important;
+      border-bottom-left-radius: @button-border-radius !important }
+
     &:last-child {
-      border-top-right-radius: 1.5em !important;
-      border-bottom-right-radius: 1.5em !important;
-    }
+      border-top-right-radius: @button-border-radius !important;
+      border-bottom-right-radius: @button-border-radius !important }
   }
 
   &:active, &:active:focus {
@@ -86,24 +89,21 @@ Overlay                                                                         
 }
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text                                                                                                                                                                                                                                                                                                                                                                 */
-.text(error) {
-  .text(normal);
-  color: @text-color-error }
 
 .text(heading) {
   color: @text-color;
   font-family: @font-family-caps;
-  text-transform: uppercase;
+  text-transform: full-width;
   font-weight: 200 }
 
 .text(caps) {
   color: @text-color;
   font-family: @font-family-caps;
   text-transform: uppercase;
-  font-weight: 200 }
+  font-weight: 400 }
 
 .text(menu) {
-  font: 400 0.9em/26px @font-family-caps;
+  font: 100 0.9em/26px @font-family-caps;
   text-transform: lowercase;
   letter-spacing: 0.05em }
 
@@ -115,6 +115,10 @@ Text                                                                            
 .text(info) {
   .text(normal);
   color: @text-color-info }
+
+.text(error) {
+  .text(normal);
+  color: @text-color-error }
 
 .text(normal) {
   color: @text-color;
@@ -147,10 +151,28 @@ Text                                                                            
   @bg: ~"background-color-@{type}";
   @selector {
     background-color: @@bg;
-    color: @@col;
-  }
-}
+    color: @@col }}
                                                                                                                                                                                                                                                                                                                                                                           /*
 Overlay                                                                                                                                                                                                                                                                                                                                                                    */
 .overlay-shadow() {
   box-shadow: 0.2rem 0.4rem 2rem 0 rgba(0, 0, 0, 0.33) !important }
+
+.icon(@content) {
+  color: @text-color-subtle;
+  font-family: FontAwesome;
+  -webkit-font-smoothing: antialiased;
+  content: @content;
+  transition: all @transition-time }
+
+
+                                                                                                                                                                                                                                                                                                                                                                           /*
+Media Queries                                                                                                                                                                                                                                                                                                                                                              */
+
+.small(@args) { .media(768px, @args) }
+.medium(@args) { .media(1200px, @args) }
+
+
+.media(@breakpoint: 768px, @args) {
+
+  @media (max-width: @breakpoint) {
+    @args(); }}

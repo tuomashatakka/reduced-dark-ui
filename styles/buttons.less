@@ -50,6 +50,7 @@ button, button.icon, .btn-default, .btn {
   &.status-indicator { border-width: 0 !important }
 }
 
+.btn-toolbar,
 .btn-group {
 
   border: 0;
@@ -58,6 +59,8 @@ button, button.icon, .btn-default, .btn {
   & > .btn {
     border: 1px solid;
     line-height: @button-height !important;
+    height: @button-height !important;
+    box-sizing: border-box;
   }
 
   .btn:first-child {
@@ -73,6 +76,7 @@ button, button.icon, .btn-default, .btn {
     border-bottom-right-radius: @button-border-radius !important;
   }
 
+  &.btn-toolbar > &,
   .btn-toolbar > & {
     border-radius: @button-border-radius !important;
     overflow: hidden;

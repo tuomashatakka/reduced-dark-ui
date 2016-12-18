@@ -16,79 +16,82 @@ User Interface                                                                  
 .config(tabSizing);
 .config(fixedTabBar);
 .config(fixedProjectRoot);
-
-.config(@arg) { [@{config-attr}*=@{arg}] {
-
-& when (@arg = fixedProjectRoot) {
-  .tab-bar {
-    width: auto;
-    .tab { width: inherit !important }
-    .tab.active, .tab:hover.active { width: inherit !important }}
-}
+.config(@arg) {
+  [@{config-attr}*=@{arg}] {
 
 
-& when (@arg = fixedTabBar) {
-  atom-workspace > atom-workspace-axis {
-    margin-top: @tab-height !important }
+    & when (@arg = fixedProjectRoot) {
 
-  .tree-view-resizer {
-    overflow: inherit;
-    & .project-root-header { margin-top: -@tab-height }
-    & .project-root > .list-tree { top: 0 }}
-
-  .tab-bar {
-    position: fixed;
-    height: @tab-height;
-    transform: translateY(-100%);
-    left: 0;
-    right: 0;
-    z-index: 300;
-    .tab.active, .tab:hover.active { width: inherit }}
-}
+      .tab-bar {
+        width: auto;
+        .tab { width: inherit !important }
+        .tab.active, .tab:hover.active { width: inherit !important }}
+    }
 
 
-& when (@arg = fixedProjectRoot) {
-  atom-panel-container.right {
-    z-index: 400 }
+    & when (@arg = fixedTabBar) {
 
-  .tree-view-scroller {
-    position: relative;
-    margin-left: 8px;
-    overflow: initial;
-    z-index: 301;
+      atom-workspace > atom-workspace-axis {
+        margin-top: @tab-height !important }
 
-    & > .tree-view {
-      position: relative;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin-left: 8px;
-      display: flex;
-      overflow: initial;
+      .tree-view-resizer {
+        overflow: inherit;
+        & .project-root-header { margin-top: -@tab-height }
+        & .project-root > .list-tree { top: 0 }}
 
-      & > .project-root {
-        flex: 1 1 auto;
+      .tab-bar {
+        position: fixed;
+        height: @tab-height;
+        transform: translateY(-100%);
+        left: 0;
+        right: 0;
+        z-index: 300;
+        .tab.active, .tab:hover.active { width: inherit }}
+    }
 
-        &::before { content: none; }
 
-        & > .header {
+    & when (@arg = fixedProjectRoot) {
+
+      atom-panel-container.right {
+        z-index: 400 }
+
+      .tree-view-scroller {
+        position: relative;
+        margin-left: 8px;
+        overflow: initial;
+        z-index: 301;
+
+        & > .tree-view {
           position: relative;
           top: 0;
           left: 0;
           right: 0;
-          height: @tab-height }
-
-        & > .list-tree {
-          position: absolute;
-          overflow: auto;
-          top: 0; // @tab-height;
-          background-color: @tree-view-background-color;
           bottom: 0;
-          left: 0;
-          right: 0 }}}
-  }
-}
+          margin-left: 8px;
+          display: flex;
+          overflow: initial;
+
+          & > .project-root {
+            flex: 1 1 auto;
+
+            &::before { content: none; }
+
+            & > .header {
+              position: relative;
+              top: 0;
+              left: 0;
+              right: 0;
+              height: @tab-height }
+
+            & > .list-tree {
+              position: absolute;
+              overflow: auto;
+              top: 0; // @tab-height;
+              background-color: @tree-view-background-color;
+              bottom: 0;
+              left: 0;
+              right: 0 }}}}
+    }
 
 
-}}
+  }}

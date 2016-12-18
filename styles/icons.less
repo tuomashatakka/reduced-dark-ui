@@ -1,0 +1,33 @@
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+title       Reduced
+project     reduced-dark-ui
+version     0.0.0
+repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+author      Tuomas Hatakka
+email       tuomas.hatakka@gmail.com
+copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+
+.settings-view .sub-section .sub-section-heading.has-items::after {
+  .icon("\f106");
+  transform: rotate(0deg) }
+
+.settings-view .sub-section.collapsed .sub-section-heading::after {
+  transform: rotate(180deg) }
+
+
+atom-panel.modal {
+  & > div > atom-text-editor[mini]:before {
+    color: @text-color-subtle;
+    font-family: "Octicons Regular";
+    padding-right: @component-padding;
+    -webkit-font-smoothing: antialiased;
+    content: "\f011";
+    margin-left: -@component-padding*2 }
+
+  & > .command-palette > atom-text-editor[mini]::before { content: "\f0c8" }
+  & > .encoding-selector > atom-text-editor[mini]::before { content: "\f094" }
+  & > .grammar-selector > atom-text-editor[mini]::before { content: "\f010" }
+  & > .symbols-view > atom-text-editor[mini]::before { content: "\f0c0" }
+  & > .fuzzy-finder > atom-text-editor[mini]::before { content: "\f02e" }
+  & > .diff-list-view > atom-text-editor[mini]::before { content: "\f0d6" }}
