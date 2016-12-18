@@ -1,6 +1,6 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Project Viewer Panel
+title       Linter Panel
 project     reduced-dark-ui
 version     0.0.0
 repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
@@ -8,23 +8,27 @@ author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
-@horizontal: ~".tool-bar.tool-bar-horizontal";
-@vertical: ~".tool-bar.tool-bar-vertical";
+linter-panel {
+  line-height: 2em;
 
-  @{horizontal}, @{vertical} {
-    hr.tool-bar-spacer {
-      -webkit-mask-image: none !important;
-      border-color: @base-border-color }
-  }
+  &:not(:empty) {
+    padding-bottom: 0 !important }
 
-  @{horizontal} {
-    hr, .tool-bar-spacer {
-      margin-left: 1em;
-      margin-right: 1em }
-  }
+  linter-message {
+    display: block;
+    padding: 0.5em 1em 0;
 
-  @{vertical} {
-    hr, .tool-bar-spacer {
-      margin-top: 1em;
-      margin-bottom: 1em }
-  }
+    .badge, .linter-highlight.badge {
+      border-radius: @button-border-radius }}
+}
+
+linter-bottom-container {
+  display: inline-block;
+  line-height: inherit;
+  height: inherit;
+
+  linter-bottom-tab {
+    border-color: transparent;
+    height: inherit;
+    line-height: inherit }
+}
