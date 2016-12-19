@@ -8,7 +8,15 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-Find and replace                                                                                                                                                                                                                                                                                                                                                                 */
+Workspace                                                                                                                                                                                                                                                                                                                                                               */
+atom-workspace {
+  atom-workspace-axis.vertical {
+    margin-left: @tab-height;
+  }
+}
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Find and replace                                                                                                                                                                                                                                                                                                                                                        */
 .project-find, .find-and-replace {
 
   .btn-group-find .btn { .button-variant(@text-color-info) }
@@ -20,7 +28,7 @@ Find and replace                                                                
       font-size: 11px; }
   }}
                                                                                                                                                                                                                                                                                                                                                                         /*
-Keybinding Badges                                                                                                                                                                                                                                                                                                                                                                 */
+Keybinding Badges                                                                                                                                                                                                                                                                                                                                                       */
 kbd {
   .text(normal);
   color: @tooltip-key-text-color;

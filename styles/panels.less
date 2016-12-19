@@ -17,6 +17,13 @@ atom-panel {
     padding-bottom: 1em;
     background: @app-background-color }
 
+  &.left {
+    &:nth-of-type(2) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      background: @app-background-color }}
   &.bottom > *:not(:empty) {
     background: @app-background-color;
     padding-top: 1px;
