@@ -100,3 +100,17 @@ select.form-control {
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text Editors                                                                                                                                                                                                                                                                                                                                                                 */
+atom-panel-container.left {
+  &::before {
+    content: "…";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: @tab-height;
+    height: @tab-height;
+    line-height: @tab-height;
+    text-align: center;
+    box-sizing: border-box;
+    background-image: url("/Users/tuomas/Projects/Atom/reduced-dark-ui/assets/re-logo.svg");
+  }
+}

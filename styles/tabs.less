@@ -14,7 +14,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 .tab-bar {
   display: flex;
   width: 12em;
-  margin-left: @tab-height;
+  // margin-left: @tab-height;
   height: @tab-height;
   padding: 0;
   justify-content: flex-start;
@@ -44,7 +44,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     [class*='status-'], &.modified, &.added {
       transition:
         color @transition-time ease,
-        background @transition-time ease }
+        background @transition-time ease;
+        .title, *::before { color: inherit !important; border-color: auto !important }}
 
     .status-modified, &.modified { color: @text-color-modified }
     .status-added, &.added { color: @text-color-added }
@@ -53,10 +54,12 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       line-height: inherit;
       &::before { line-height: inherit }}
 
+    // Hovered
     &:hover {
       color: @text-color-highlight;
       background: @tab-background-color-hover }
 
+    // Current
     &.active {
       flex: 10 0 auto;
       color: @text-color-selected;
@@ -67,10 +70,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       .status-added { color: @text-color-added }
       .status-ignored { color: @text-color-ignored }}
 
-
-    .close-icon { .close-icon-generator() }
-    &:hover .close-icon { .close-icon-generator(hover) }
-    &.modified:not(:hover) .close-icon { .close-icon-generator(modified) }}}
+    .tab-state() }}
 
 body:not(.menu-hidden) .tab-bar {
   left: @menu-width;
@@ -105,18 +105,32 @@ body:not(.menu-hidden) .tab-bar {
     transform: rotate(45deg);
     opacity: 0 }
 
+
+  // Not modified, non-hovered
+
   &::before when (@state = none) {
     color: transparent }
 
+
+  // Hovered
+
   &::before when (@state = hover) {
-    color: @text-color-info;
-    border-color: @background-color-info;
+    color: inherit;
     background: @tab-background-color-active;
     transform: rotate(0deg);
     opacity: 1 }
 
+
+  // Modified
+
   &::before when (@state = modified) {
-    color: transparent;
     border-width: 2px;
     opacity: 1 }
+}
+
+
+.tab-state() {
+  .close-icon { .close-icon-generator() }
+  &:hover .close-icon { .close-icon-generator(hover) }
+  &.modified:not(:hover) .close-icon { .close-icon-generator(modified) }
 }
