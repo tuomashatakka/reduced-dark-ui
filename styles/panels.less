@@ -18,16 +18,42 @@ atom-panel {
     background: @app-background-color }
 
   &.left {
-    &:nth-of-type(2) {
       position: absolute;
       top: 0;
       left: 0;
       bottom: 0;
-      background: @app-background-color }}
+      background: @app-background-color }
+
   &.bottom > *:not(:empty) {
     background: @app-background-color;
     padding-top: 1px;
     z-index: 3 }}
+
+atom-panel-container.left {
+  atom-panel {
+    transition: all @transition-time;
+
+    &:nth-child(1) {
+      z-index: 101;
+      margin-top: 0 * @tab-height;
+      transform: translateX(-100%);
+
+    &:hover {
+      transform: translateX(0);
+      & ~ * {
+        transform: translateX(-100%);
+      }
+    }
+    }
+    &:nth-child(2) {
+      z-index: 102;
+      margin-top: 1 * @tab-height }
+    &:nth-child(3) { z-index: 103; margin-top: 2 * @tab-height }
+    &:nth-child(4) { z-index: 104; margin-top: 3 * @tab-height }
+    &:nth-child(5) { z-index: 105; margin-top: 4 * @tab-height }
+    &:nth-child(6) { z-index: 106; margin-top: 5 * @tab-height }
+  }
+}
 
 atom-panel-container.bottom {
     margin-top: 0;

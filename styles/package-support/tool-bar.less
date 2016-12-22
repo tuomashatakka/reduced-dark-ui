@@ -28,19 +28,29 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
   @{vertical} {
     transition: width @transition-time;
-    width: @tab-height !important;
-    z-index: 1000;
+    width: @tab-height - 0.6 !important;
+    border-width: 0 !important;
+    padding: 0;
 
     &:hover {
       width: 240px !important }
 
     hr, .tool-bar-spacer {
       margin-top: 1em;
-      margin-bottom: 1em }
+      margin-bottom: 1em;
+      margin: 1rem 0 !important;
+      width: 80%;
+      left: 10%;
+      border-top: transparent;
+      position: relative }
 
     button {
       text-align: left;
-      margin: 0 !important;
+      width: inherit !important;
+      height: @tab-height - 1 !important;
+      line-height: @tab-height - 1 !important;
+      border-width: 0 !important;
+      margin: 0.4rem 0.2rem !important;
       padding: 0 !important;
       width: auto !important }
 
@@ -48,11 +58,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       display: inline-block;
       vertical-align: middle;
       text-align: center;
-      margin-left: -5px;
+      margin: 0 0 0 -0.3rem;
       width: @tab-height }
 
     button::after {
-      margin-left: 0.5em;
+      margin-left: 1rem;
       display: inline-block;
       content: attr(data-original-title) }
   }

@@ -11,46 +11,53 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 project-viewer {
 
-  position: absolute;
-  z-index: 100;
-  padding: 0;
-  margin-top: @tab-height;
-  z-index: 1400;
+  position: relative;
+  display: block;
+  overflow: visible;
 
   & > .list-tree {
-    max-height: 0;
+    height: 100vh;
+    box-sizing: border-box;
     text-align: left;
-    padding: 0 1rem !important;
-    transition:
-      max-height @transition-time,
-      padding @transition-time;
+    padding: 1rem !important;
+    transition: all @transition-time;
 
     & > li.list-nested-item > .list-item {
       .h3;
       line-height: 1.5em;
       padding-top: 0.25em; }}
 
-  &:hover > .list-tree {
-    max-height: 80vh;
-    padding: 1rem !important;
-    overflow: auto }
+  &::before {
+    content: "\f35c" !important;
+    display: block;
+    margin-left: 100%;
 
-  pv-header {
-    .h3;
-    background: transparent;
-    position: absolute;
     margin: 0;
-    padding: 0 !important;
+    top: 0;
+    left: 0;
+    margin-left: 100%;
     width: @tab-height;
     height: @tab-height;
     line-height: @tab-height;
     text-align: center;
-    font-size: 0;
-    transform: translateY(-100%);
+    font-size: 24px;
+    background-color: inherit;
 
-    &::before {
-      font-family: ionicons;
-      font-size: 24px;
-      content: "\f35c" !important;
-      padding-right: 0.4em }}
+    font-family: ionicons;
+    transform: translateX(0%);
+    transition: all @transition-time }
+
+
+  pv-header {
+    .h3;
+    display: none;
+    background: transparent;
+    position: relative;
+    margin: 0;
+    padding: 0 !important;
+    width: 100%;
+    line-height: @tab-height;
+    text-align: center;
+    font-size: 0;
+  }
 }
