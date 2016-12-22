@@ -13,7 +13,6 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 .tab-bar {
   display: flex;
-  width: 12em;
   // margin-left: @tab-height;
   height: @tab-height;
   padding: 0;
@@ -36,10 +35,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     border: 0;
     color: @text-color-subtle;
     background: @tab-background-color;
-    transition:
-      color @transition-time ease,
-      border @transition-time ease,
-      background @transition-time ease;
+    transition: all @transition-time ease !important;
 
     [class*='status-'], &.modified, &.added {
       transition:

@@ -23,10 +23,6 @@ User Interface                                                                  
 
     & when (@arg = fixedProjectRoot) {
 
-      .tab-bar {
-        width: auto;
-        .tab { width: inherit !important }
-        .tab.active, .tab:hover.active { width: inherit !important }}
     }
 
 
@@ -37,7 +33,6 @@ User Interface                                                                  
 
       .tree-view-resizer {
         overflow: inherit;
-        & .project-root-header { margin-top: -@tab-height }
         & .project-root > .list-tree { top: 0 }}
 
       .tab-bar {
@@ -75,6 +70,9 @@ User Interface                                                                  
           & > .project-root {
             flex: 1 1 auto;
 
+            & + .entries {
+            }
+
             &::before { content: none; }
 
             & > .header {
@@ -91,7 +89,7 @@ User Interface                                                                  
             & > .list-tree {
               position: absolute;
               overflow: auto;
-              top: 0; // @tab-height;
+              top: @tab-height;
               background-color: @tree-view-background-color;
               bottom: 0;
               left: 0;
