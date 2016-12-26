@@ -11,6 +11,22 @@
     "url": "https://gitlab.com/tuomashatakka/atom-ui-reduced-dark"
   },
   "configSchema": {
+
+    "uiScale": {
+      "title": "UI Scale",
+      "description": "Scale the user interface",
+      "type": "integer",
+      "default": 100,
+      "minimum": 25,
+      "maximum": 200
+    },
+    "highlightColor": {
+      "title": "Highlight Color",
+      "description": "The main accent color used in the ui",
+      "type": "color",
+      "default": "#59edbc"
+    },
+
     "tabSizing": {
       "title": "Full-Width Tab Sizing",
       "description": "EXPERIMENTAL - In full width mode, tabs will fill the whole tab bar.",

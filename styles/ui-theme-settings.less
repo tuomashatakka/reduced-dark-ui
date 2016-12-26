@@ -11,14 +11,42 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 Variable definitions                                                                                                                                                                                                                                                                                                                                                    */
 @config-attr: ~'@{ui-theme-name}-settings';
+
+@scale-attr: ~'@{ui-theme-name}-uiscale';
+@scale-min: 25;
+@scale-max: 200;
+
                                                                                                                                                                                                                                                                                                                                                                         /*
 User Interface                                                                                                                                                                                                                                                                                                                                                          */
+
 .config(tabSizing);
 .config(fixedTabBar);
 .config(fixedProjectRoot);
 .config(overrideEditorBackground);
-.config(@arg) {
-  [@{config-attr}*=@{arg}] {
+atom-workspace {
+  .configure_scale();
+}
+
+.configure_scale {
+  .loop(@counter) when (@counter > @scale-min) {
+    .loop((@counter - 1));
+
+    *[reduced-dark-ui-uiscale=@{counter}] & {
+      font-size: (@font-size * @counter / 100);
+    }
+  }
+  .loop(@scale-max);
+}
+
+html {
+  font-size: @font-size;
+  * {
+    font-size: inherit;
+  }
+}
+
+
+.config(@arg) { [@{config-attr}*=@{arg}] {
 
 
     & when (@arg = fixedProjectRoot) {
