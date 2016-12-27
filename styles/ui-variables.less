@@ -42,6 +42,15 @@ Background                                                                      
 @background-color-error: @col-error;
 
                                                                                                                                                                                                                                                                                                                                                                         /*
+Size factors                                                                                                                                                                                                                                                                                                                                                                 */
+@size-tiny: 0.72;
+@size-xsmall: 0.82;
+@size-small: 0.82;
+@size-large: 1.2;
+@size-xlarge: 2.4;
+@size-huge: 4;
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
 Text                                                                                                                                                                                                                                                                                                                                                                 */
 @text-color: @col-light;
 @text-color-subtle: fade(@text-color, 40%);
@@ -120,7 +129,7 @@ Components                                                                      
 
     // Tooltips
     @tooltip-text-color: @base-background-color;
-    @tooltip-background-color: @text-color;
+    @tooltip-background-color: @background-color-highlight;
     @tooltip-key-text-color: @col-main;
     @tooltip-key-background-color: @base-background-color;
 
@@ -178,18 +187,18 @@ Sizes                                                                           
 
     // Base
     @disclosure-arrow-size: 1rem;
-    @component-icon-size: 1.2rem;
-    @component-icon-padding: 0.5rem;
+    @component-icon-size: unit(@size-large, rem);
     @component-padding: 1rem;
-    @component-line-height: 2rem;
+    @component-icon-padding: @component-padding / 2;
+    @component-line-height: unit(@size-xlarge, rem);
     @component-border-radius: 6px;
 
     // Fonts
-    @font-size: 12px;
+    @font-size: 1rem;
     @input-font-size: @font-size;
 
     // Inputs
-    @input-height: 2.4rem;
+    @input-height: unit(@size-xlarge, rem);
 
     // Buttons
     @button-height: @input-height;
@@ -199,7 +208,7 @@ Sizes                                                                           
     @list-active-icon-size: 1rem;
 
     // Menu
-    @menu-width: 240px;
+    @menu-width: 20vw;
 
     // Tabs
     @tab-height: 2 * @input-height;

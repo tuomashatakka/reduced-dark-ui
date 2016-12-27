@@ -17,19 +17,19 @@ button, button.icon, .btn-default, .btn {
     border: 1px solid @text-color-selected !important }
 
   &.btn-xs {
-    font-size: 10px;
+    font-size: @size-xsmall;
     padding: 0 4px;
     height: @button-height/1.5;
     line-height: @button-height/1.5 }
 
   &.btn-sm {
-    font-size: 11px;
+    font-size: @size-small;
     padding: 0 8px;
     height: @button-height;
     line-height: @button-height }
 
   &.btn-lg {
-    font-size: 13px;
+    font-size: @size-large;
     padding: 0 12px;
     height: @button-height * 2;
     line-height: @button-height * 2 }
@@ -84,7 +84,32 @@ button, button.icon, .btn-default, .btn {
     border: 1px solid fade(@base-border-color, 75%);
 
     & > .btn {
-      border: 0;
-      margin: 0 1px;
+      border-width: 0;
+      margin: 1px;
       border-radius: @button-border-radius !important }}
+}
+
+.meta-controls .btn-toolbar {
+  margin: 0 auto;
+
+  button, .btn {
+    font-size: 0;
+    width: @button-height;
+    height: @button-height;
+    line-height: @button-height;
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+    border-color: @base-border-color;
+
+    &::before,
+    .icon::before {
+      font-size: unit(@size-large, rem);
+      width: 100%;
+      height: 100%;
+      line-height: @button-height;
+      margin: -1px 0 0;
+      box-sizing: border-box;
+    }
+  }
 }

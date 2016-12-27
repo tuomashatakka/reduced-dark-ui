@@ -9,18 +9,19 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 // Selectors
-@checkbox: ~".control-group .checkbox input";
+@checkbox:  ~".control-group .checkbox input";
+@select:    ~".controls .select-container";
 
 @{checkbox} {
-  @size: 2rem;
+  @size: unit(1.6, rem);
 
   vertical-align: middle;
   width: @size;
   height: @size;
   line-height: @size;
   text-align: center;
-  border-radius: 4em;
-  border-color: fade(@text-color, 25%);
+  border-radius: @size;
+  border-color: fade(@text-color, 5%);
   background-color: fade(@text-color, 20%);
   text-align: center;
   margin-top: -0.3em;
@@ -28,9 +29,23 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
   &:focus { box-shadow: none !important }
   &::before, &::after {
-    margin-left: 4px;
-    margin-top: 3px;
+    left: 50%;
+    top: 50%;
+    margin: 5px 1px -1px -2px;
     min-height: 1px;
     height: 1px;
-    background-color: darken(@background-color-info, 50%) }
+    transform: translate(-50%, -50%);
+    background-color: lighten(@background-color-highlight, 15%) }
+}
+
+@{select} {
+  /deep/ ::option, select.form-control {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0 }
+  button {
+    margin-left: 0 }
+
+  &:hover, select:hover {
+    background: transparent !important;
+    color: @text-color-highlight !important }
 }

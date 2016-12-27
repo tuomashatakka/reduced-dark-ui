@@ -9,6 +9,24 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Workspace                                                                                                                                                                                                                                                                                                                                                               */
+
+html {
+  //font-size: @font-size;
+
+  .loop(@counter) when (@counter > @scale-min) {
+    .loop((@counter - 1));
+
+    &[reduced-dark-ui-uiscale=@{counter}] atom-workspace {
+      font-size: (@font-size * @counter / 100);
+    }
+  }
+  .loop(@scale-max);
+
+  font-size: @font-size;
+  * {
+    font-size: 1em;
+  }
+}
 atom-workspace {
   atom-workspace-axis.vertical {
     margin-left: @tab-height;
@@ -25,7 +43,7 @@ Find and replace                                                                
     top: 4px;
 
     span {
-      font-size: 11px; }
+      font-size: initial; }
   }}
                                                                                                                                                                                                                                                                                                                                                                         /*
 Keybinding Badges                                                                                                                                                                                                                                                                                                                                                       */

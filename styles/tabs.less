@@ -15,10 +15,10 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   display: flex;
   // margin-left: @tab-height;
   height: @tab-height;
-  padding: 0;
-  justify-content: flex-start;
+  justify-content: center;
   overflow-x: auto;
   background: @tab-bar-background-color;
+  border-radius: 0 !important;
   -webkit-transform: scale(1);
 
   .tab {
@@ -41,14 +41,14 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       transition:
         color @transition-time ease,
         background @transition-time ease;
-        .title, *::before { color: inherit !important; border-color: auto !important }}
+
+      .title, *::before {
+        color: inherit !important;
+        border-color: auto !important }}
 
     .status-modified, &.modified { color: @text-color-modified }
     .status-added, &.added { color: @text-color-added }
-
-    .title {
-      line-height: inherit;
-      &::before { line-height: inherit }}
+    .title, .title::before { line-height: inherit }
 
     // Hovered
     &:hover {
@@ -57,9 +57,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
     // Current
     &.active {
-      flex: 10 0 auto;
+      flex: 1 0 auto;
       color: @text-color-selected;
       background-color: @tab-background-color-active;
+      .accent;
+      border-top: 1px solid;
 
       .title { color: @text-color-selected; padding: 0 }
       .status-modified { color: @text-color-modified }
@@ -67,10 +69,6 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       .status-ignored { color: @text-color-ignored }}
 
     .tab-state() }}
-
-body:not(.menu-hidden) .tab-bar {
-  // left: @menu-width;
-}
 
 .platform-darwin {
   .tab .close-icon {
@@ -104,13 +102,10 @@ body:not(.menu-hidden) .tab-bar {
 
 
   // Not modified, non-hovered
-
   &::before when (@state = none) {
     color: transparent }
 
-
   // Hovered
-
   &::before when (@state = hover) {
     color: inherit;
     background: @tab-background-color-active;
@@ -118,9 +113,7 @@ body:not(.menu-hidden) .tab-bar {
     transform: rotate(0deg);
     opacity: 1 }
 
-
   // Modified
-
   &::before when (@state = modified) {
     border-width: 0px;
     opacity: 1 }
