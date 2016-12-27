@@ -68,8 +68,5 @@
   "optionalDependencies": {},
   "readmeFilename": "README.md",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:tuomashatakka/reduced-dark-ui.git"
-  }
+  "repository": "https://github.com/tuomashatakka/reduced-dark-ui"
 }
