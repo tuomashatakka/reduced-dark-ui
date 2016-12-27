@@ -53,7 +53,7 @@
     }
   },
   "dependencies": {},
-  "description": "Atom UI theme.",
+  "description": "A dark & minimal yet usable theme for atom.",
   "devDependencies": {},
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
