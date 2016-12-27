@@ -70,6 +70,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tuomashatakka/reduced-dark-ui"
+    "url": "git@github.com:tuomashatakka/reduced-dark-ui.git"
   }
 }
