@@ -8,7 +8,7 @@
     "email": "tuomas.hatakka@gmail.com"
   },
   "bugs": {
-    "url": "https://gitlab.com/tuomashatakka/atom-ui-reduced-dark"
+    "url": "https://github.com/tuomashatakka/reduced-dark-ui/issues"
   },
   "configSchema": {
 
@@ -58,7 +58,7 @@
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
   },
-  "homepage": "https://gitlab.com/tuomashatakka/atom-ui-reduced-dark",
+  "homepage": "https://github.com/tuomashatakka/reduced-dark-ui",
   "keywords": [
     "dark",
     "clean",
@@ -70,6 +70,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/tuomashatakka/atom-ui-reduced-dark"
+    "url": "https://github.com/tuomashatakka/reduced-dark-ui"
   }
 }
