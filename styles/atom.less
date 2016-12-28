@@ -120,9 +120,8 @@ select.form-control {
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text Editors                                                                                                                                                                                                                                                                                                                                                                 */
 atom-panel-container.left {
-  color: red;
-  background: red;
   &::before {
+    display: none;
     content: "…";
     position: fixed;
     top: 0;
@@ -132,6 +131,9 @@ atom-panel-container.left {
     line-height: @tab-height;
     text-align: center;
     box-sizing: border-box;
-    background-image: url("/Users/tuomas/Projects/Atom/reduced-dark-ui/assets/re-logo.svg");
+    background-image: url("https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/re-logo.svg");
+    background-size: 6em;
+    background-position: center center;
+    background-repeat: no-repeat;
   }
 }

@@ -33,21 +33,29 @@ atom-panel-container.left {
   atom-panel {
     transition: all @transition-time;
 
-    &:nth-child(1) {
-      z-index: 101;
-      margin-top: 0 * @tab-height;
+    &::before {
+      font-family: "ionicons";
+      content: "\f404";
+      position: absolute;
+      right: 0;
+      width: 4.8rem;
+      height: 4.8rem;
+      line-height: 4.8rem;
+      text-align: center;
+      font-size: 24px;
+      transform: translateX(100%);
+      background: inherit }
+
       transform: translateX(-100%);
+      margin-right: -4.8rem;
 
     &:hover {
-      transform: translateX(0);
-      & ~ * {
-        transform: translateX(-100%);
-      }
-    }
-    }
-    &:nth-child(2) {
-      z-index: 102;
-      margin-top: 1 * @tab-height }
+      transform: translateX(0) }
+
+    &:hover ~ atom-panel {
+      margin-left: -4.8rem }
+    &:nth-child(1) { z-index: 101; margin-top: 0 * @tab-height }
+    &:nth-child(2) { z-index: 102; margin-top: 1 * @tab-height }
     &:nth-child(3) { z-index: 103; margin-top: 2 * @tab-height }
     &:nth-child(4) { z-index: 104; margin-top: 3 * @tab-height }
     &:nth-child(5) { z-index: 105; margin-top: 4 * @tab-height }

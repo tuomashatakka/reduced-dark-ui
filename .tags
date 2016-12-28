@@ -18,14 +18,14 @@ description	package.json	/^      "description": "EXPERIMENTAL - Project root fol
 description	package.json	/^      "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",$/;"	f
 description	package.json	/^      "description": "Scale the user interface",$/;"	f
 description	package.json	/^      "description": "The main accent color used in the ui",$/;"	f
-description	package.json	/^  "description": "Atom UI theme.",$/;"	f
+description	package.json	/^  "description": "A dark & minimal yet usable theme for atom.",$/;"	f
 devDependencies	package.json	/^  "devDependencies": {},$/;"	f
 email	package.json	/^    "email": "tuomas.hatakka@gmail.com"$/;"	f
 engines	package.json	/^  "engines": {$/;"	f
 fixedProjectRoot	package.json	/^    "fixedProjectRoot": {$/;"	f
 fixedTabBar	package.json	/^    "fixedTabBar": {$/;"	f
 highlightColor	package.json	/^    "highlightColor": {$/;"	f
-homepage	package.json	/^  "homepage": "https:\/\/gitlab.com\/tuomashatakka\/atom-ui-reduced-dark",$/;"	f
+homepage	package.json	/^  "homepage": "https:\/\/github.com\/tuomashatakka\/reduced-dark-ui",$/;"	f
 keywords	package.json	/^  "keywords": [$/;"	f
 license	package.json	/^  "license": "MIT",$/;"	f
 main	package.json	/^  "main": ".\/lib\/main.js",$/;"	f
@@ -36,7 +36,7 @@ name	package.json	/^  "name": "reduced-dark-ui",$/;"	f
 optionalDependencies	package.json	/^  "optionalDependencies": {},$/;"	f
 overrideEditorBackground	package.json	/^    "overrideEditorBackground": {$/;"	f
 readmeFilename	package.json	/^  "readmeFilename": "README.md",$/;"	f
-repository	package.json	/^  "repository": {$/;"	f
+repository	package.json	/^  "repository": "https:\/\/github.com\/tuomashatakka\/reduced-dark-ui"$/;"	f
 tabSizing	package.json	/^    "tabSizing": {$/;"	f
 theme	package.json	/^  "theme": "ui",$/;"	f
 title	package.json	/^      "title": "Fixed Project Root",$/;"	f
@@ -48,7 +48,6 @@ title	package.json	/^      "title": "UI Scale",$/;"	f
 type	package.json	/^      "type": "boolean",$/;"	f
 type	package.json	/^      "type": "color",$/;"	f
 type	package.json	/^      "type": "integer",$/;"	f
-type	package.json	/^    "type": "git",$/;"	f
 uiScale	package.json	/^    "uiScale": {$/;"	f
-url	package.json	/^    "url": "https:\/\/gitlab.com\/tuomashatakka\/atom-ui-reduced-dark"$/;"	f
-version	package.json	/^  "version": "0.0.0",$/;"	f
+url	package.json	/^    "url": "https:\/\/github.com\/tuomashatakka\/reduced-dark-ui\/issues"$/;"	f
+version	package.json	/^  "version": "0.2.0",$/;"	f
