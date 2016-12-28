@@ -1,11 +1,23 @@
 
-![Reduced Theme Logo][logo]
+<div style='text-align: left; float: right; width: 40%; margin-left: 1em; padding-left: 0.5em;'>
+<span class='icon icon-alert' />
+<span class='h3'>PLEASE NOTE</span><br/>
+This theme is currently under development and should be considered barely as a preview.
+Contributions and issues are more than welcome - as well as any other feedback!
+Tree-view works currently best when at the right side of the screen.
+Tool-bar package is currently configured only for its left panel layout.
+Linter is fully themed.
+</em>
+
+<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/re-logo.svg' style='clear: both; width: 25%'>
 
 # Reduced Dark
 
 *Minimal + plain - yet usable + functional*
 
+
 UI theme for Atom.io.
+
 While being clean and simple, does not compromise usability.
 
 This theme is an attempt to wrap the currently-not-as-intuitive-as-it-could-be paneling scheme in Atom for reduced obstruction by obsolete panels that fill the screen and reduce your precious code editor into a thin line with max line length of ~50 characters (😄) at best. This is implemented by making the side panels collapse into a tool-bar of sort. **Feedback is great**ly valuable and appreciated here.
@@ -20,9 +32,11 @@ Seriously, it will be like candyland.
 
 TBA (Short descriptions in the settings themselves)
 
-![Screen](ss1)
-![Screen](ss2)
-![Screen](ss3)
+### Screenshots
+
+<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-10.png' style='float: right; width: 25%; margin: 4%' />
+<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 25%; margin: 4%' />
+<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-12.png' style='float: right; width: 25%; margin: 4%' />
 
 
 ### Motivation
