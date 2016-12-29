@@ -1,5 +1,6 @@
 
-<div style='text-align: left; float: right; width: 40%; margin-left: 1em; padding-left: 0.5em;'>
+<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/re-logo.svg' style='clear: both; width: 25%'>
+
 <span class='icon icon-alert' />
 <span class='h3'>PLEASE NOTE</span><br/>
 This theme is currently under development and should be considered barely as a preview.
@@ -9,7 +10,7 @@ Tool-bar package is currently configured only for its left panel layout.
 Linter is fully themed.
 </em>
 
-<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/re-logo.svg' style='clear: both; width: 25%'>
+
 
 # Reduced Dark
 
@@ -28,15 +29,24 @@ Also hella lotta configuration options (on their way).
 Seriously, it will be like candyland.
 
 
+
 ### Configuration
 
 TBA (Short descriptions in the settings themselves)
+
+Please note that the highlight option is not yet thoroughly implemented.
+
+At its current state, the window needs to be reloaded for the config changes to show. This will be fixed soon.
+
+
 
 ### Screenshots
 
 <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-10.png' style='float: right; width: 25%; margin: 4%' />
 <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 25%; margin: 4%' />
 <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-12.png' style='float: right; width: 25%; margin: 4%' />
+<div class='clear: both;'></div>
+
 
 
 ### Motivation
@@ -58,13 +68,14 @@ This theme was inspired by the
  - Material; and
  - Seti
 themes.
- Material UI, Seti UI and Northem UI themes.
 
-I liked the structuring of Northem so much that I actually used the Northem's source (with some heavy modifications though) for creating the bootstrap from which this mastdrpiece emerged.
+I liked the structuring of Northem so much that I actually used the Northem's source (with some heavy modifications though) for creating the bootstrap from which this masterpiece emerged.
 
 So, thanks to all authors and contributors involved in making my Atom experience top notch!
 
 ---
+
+
 
 ### Copyright
 
@@ -72,6 +83,7 @@ Copyright (C) 2016-2017 Tuomas Copyright
 
 
 Feel free to fork for creating a new theme, but please mention this repo
+
 
 
 [logo]: https://tuomashatakka.github.io/reduced-dark-ui/assets/re-logo.svg
