@@ -1,23 +1,45 @@
 
-<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/re-logo.svg' style='clear: both; width: 25%'>
+<p align="center">
 
-<span class='icon icon-alert' />
-<span class='h3'>PLEASE NOTE</span><br/>
-This theme is currently under development and should be considered barely as a preview.
-Contributions and issues are more than welcome - as well as any other feedback!
-Tree-view works currently best when at the right side of the screen.
-Tool-bar package is currently configured only for its left panel layout.
-Linter is fully themed.
-</em>
+  <img src="https://tuomashatakka.github.io/reduced-dark-ui/assets/re-logo.svg" width=24 height=24/>
+  <a href="https://atom.io/themes/reduced-dark-ui">
+    [![downloads](https://img.shields.io/apm/dm/reduced-dark-ui.svg?style=flat-square)]()
+  </a>&nbsp;&nbsp;
+
+  <img src="https://github.com/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
+  <a href="https://github.com/tuomashatakka/reduced-dark-ui/releases/latest">
+    [![issues](https://img.shields.io/github/issues/tuomashatakka/reduced-dark-ui.svg?style=flat-square)]()
+  </a>&nbsp;&nbsp;
+
+  <img src="https://atom.io/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
+  <a href="https://atom.io/themes/reduced-dark-ui">
+    [![version](https://img.shields.io/apm/v/reduced-dark-ui.svg?style=flat-square)]()
+  </a>&nbsp;&nbsp;
+  <img style='display: none;' src="https://gitlab.com/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
+</p>
+
+<p align="center"><img style='width:25%;' src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/re-logo.svg"/></p></p>
+
+<h1 style='text-align: center'>Reduced Dark</h1>
+
+<p align="center">
+  *Minimal + plain - yet usable + functional* UI theme for Atom.io.
+</p>
 
 
+<h2 style='text-align: center'><span class='icon icon-alert' /> PLEASE NOTE</h2>
+<p align="center">
+  This theme is currently under development and should be considered barely as a preview.
+  Contributions and issues are more than welcome - as well as any other feedback!
+  Tree-view works currently best when at the right side of the screen.
+  Tool-bar package is currently configured only for its left panel layout.
+  Linter is fully themed.
+  </em>
+</p>
 
-# Reduced Dark
+## About
 
-*Minimal + plain - yet usable + functional*
-
-
-UI theme for Atom.io.
+<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-10.png' style='float: right; width: 25%; margin: 4%' />
 
 While being clean and simple, does not compromise usability.
 
@@ -42,10 +64,23 @@ At its current state, the window needs to be reloaded for the config changes to 
 
 ### Screenshots
 
-<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-10.png' style='float: right; width: 25%; margin: 4%' />
-<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 25%; margin: 4%' />
-<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-12.png' style='float: right; width: 25%; margin: 4%' />
-<div class='clear: both;'></div>
+<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 42%; margin: 4%' />
+
+<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-12.png' style='float: right; width: 42%; margin: 4%' />
+
+
+
+### Inspiration and thanks
+
+This theme was inspired by the
+- Northem
+- Material; and
+- Seti
+themes.
+
+I liked the structuring of Northem so much that I actually used the Northem's source (with some heavy modifications though) for creating the bootstrap from which this masterpiece emerged.
+
+So, thanks to all authors and contributors involved in making my Atom experience top notch!
 
 
 
@@ -58,20 +93,6 @@ Cross the boundaries, innovate, try new things. Do not fear to fall. Learn to fa
 If you get an idea, write it down. Testing happens naturally when you continue what you were doing in the first place 😃 If it works, congrats! You'll get my admiration and thumbs up. Convert it to a package or a theme and publish it. It's not as hard as it may sound if you've ever opened the infamous Atom Flight Manual. PS, ES6 just works - no need for coffee shit 😘
 
 The key is that not an inch of screen estate should be wasted to something that does not provide usability or functionality, but that doesn't mean things could not be beautiful. Just try and do implement only the features that make sense, postpone the polishing until the end.
-
-
-
-### Inspiration and thanks
-
-This theme was inspired by the
- - Northem
- - Material; and
- - Seti
-themes.
-
-I liked the structuring of Northem so much that I actually used the Northem's source (with some heavy modifications though) for creating the bootstrap from which this masterpiece emerged.
-
-So, thanks to all authors and contributors involved in making my Atom experience top notch!
 
 ---
 
