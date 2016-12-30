@@ -13,24 +13,37 @@ atom-notifications {
   @shadow-opacity: 15; // this per 100
   @shadow-blur: 14;    // this per 10
   @left-bar-width: 3rem;
-
+  @transition-curve: cubic-bezier(0.65, 0.02, 0.35, 0.2);
 
   .text(normal);
   top: 1rem;
   background-color: transparent;
+  margin-left: -@left-bar-width;
 
   atom-notification {
-    box-shadow: 0.2em 0.2em unit(@shadow-blur / 10, em) rgba(0, 0, 0, @shadow-opacity / 100);
-    border: 1px solid rgba(0,0,0,0.2);
-    border-radius: 3px !important;
+    box-shadow: 0em 1em unit(@shadow-blur / 10, em) rgba(0, 0, 0, @shadow-opacity / 100);
+    border: 0px solid rgba(0,0,0,0.2);
+    border-radius: 2px !important;
     overflow: hidden;
+    transition: transform @transition-time*3 @transition-curve @transition-time*2;
+    transform: translateX(94%);
+
+    &:hover {
+      transition-delay: 0s;
+      transition-duration: @transition-time/2;
+      transform: translateX(0);
+    }
 
     &.has-close .message { padding-right: 2rem }
     &:first-child.has-close .message { padding-right: 6rem }
     &:not(.has-close) .close-all { display: none }
 
     &::before {
+      border-radius: 2px 0 0 2px !important;
       width: @left-bar-width;
+    }
+    &::after {
+      display: none;
     }
   }
 
@@ -42,7 +55,7 @@ atom-notifications {
 
   .btn-toolbar {
     display: flex;
-    margin: 1rem -1rem -1rem;
+    margin: 0 -1rem;
 
     & > *, & > .btn.btn {
       transition: all @transition-time;
@@ -51,9 +64,11 @@ atom-notifications {
       text-align: center;
       margin: 0;
       padding: 0 !important;
+      height: @tab-height*0.75 !important;
+      line-height: @tab-height*0.75 !important;
 
       border-collapse: collapse;
-      border-width: 1px 0 0 1px !important;
+      border-width: 0 !important;
       border-style: solid;
       border-color: @base-border-color !important;
       background-color: rgba(0, 0, 0, 0.1);
@@ -83,30 +98,48 @@ atom-notifications {
       top: 2.2rem;
       position: fixed; background: @base-background-color }}
 
+  .error {
+    code {
+      .state(error) }
+  }
   .content,
   .detail,
   .message,
   .meta {
     background-clip: inherit;
-    padding: 1rem;
+    border-width: 0;
+    padding: unit(@size-xlarge, rem) 1rem;
     color: @text-color;
     background-color: @overlay-background-color;
 
-  .stack-toggle { color: @text-color-info }}
+  .stack-toggle {
+    .icon, .icon::before {
+      line-height: inherit;
+      font-size: inherit;
+    }
+    line-height: 2em;
+    color: @text-color-info }}
 
   .detail {
     padding-top: 0;
-    padding-bottom: 0;
 
-    code, .detail-content {
-      .text(subtle) }}
+    code { .text(subtle) }
+    .detail-content {
+      .text(subtle);
+      line-height: 2em }
+  }
 
 
   .content {
+    border-radius: 0;
     padding: 0 }
 
   .meta {
-    .description a { color: @text-color-info }
+    padding-top: 0;
+    padding-bottom: 0;
+    .description {
+      padding-bottom: @button-height/2;
+      a { color: @text-color-info }}
 
     &:empty {
       padding-top: 0;
