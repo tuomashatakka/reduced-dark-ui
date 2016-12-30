@@ -9,6 +9,23 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
+
+atom-pane-container atom-pane-axis {
+
+  &.horizontal * {
+    border-right: 1px solid @base-border-color }
+
+  &.horizontal > *:last-child {
+    border-right: none }
+
+  &.vertical atom-pane-resize-handle.vertical {
+    border-bottom: 1px solid @base-border-color;
+    margin-bottom: -1px }}
+
+
+atom-panel-container {
+  background: @base-background-color }
+
 atom-panel {
   .text(normal);
   background: @tool-panel-background-color;
@@ -30,6 +47,7 @@ atom-panel {
     z-index: 3 }}
 
 atom-panel-container.left {
+
   atom-panel {
     transition: all @transition-time;
     transform: translateX(-100%);
@@ -64,17 +82,17 @@ atom-panel-container.bottom {
     border-top: 1px solid @tool-panel-border-color;
     z-index: 3 }
 
-.pane-item, atom-pane-container atom-pane .item-views {
+.pane-item,
+atom-pane-container atom-pane .item-views {
   background: @app-background-color !important;
   border: 0 }
 
-atom-panel-container {
-  background: @base-background-color }
-
-.focusable-panel, .item-views .focusable-panel {
+.focusable-panel,
+.item-views .focusable-panel {
   padding: @component-padding }
 
-.panel-heading, .inset-panel .panel-heading {
+.panel-heading,
+.inset-panel .panel-heading {
   .text(heading);
   font-size: 2em;
   border-radius: 0;
@@ -90,18 +108,9 @@ atom-panel-container {
     &.btn-info { .button-variant(@text-color-info) }
     &.btn-success { .button-variant(@text-color-success) }
     &.btn-warning { .button-variant(@text-color-warning) }
-    &.btn-error { .button-variant(@text-color-error) }}}
+    &.btn-error { .button-variant(@text-color-error) }}
+    }
 
 .panel-body {
   background: @tool-panel-background-color;
   border-radius: inherit }
-
-atom-pane-container atom-pane-axis {
-  &.horizontal {
-    > *:last-child { border-right: none }
-    > * { border-right: 1px solid @base-border-color }}
-
-  &.vertical {
-    > atom-pane-resize-handle.vertical {
-      border-bottom: 1px solid @base-border-color;
-      margin-bottom: -1px }}}

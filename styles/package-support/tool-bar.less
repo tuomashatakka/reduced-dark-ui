@@ -12,25 +12,79 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 @vertical: ~".tool-bar.tool-bar-vertical";
 
   @{horizontal}, @{vertical} {
-    padding-top: @tab-height;
     box-sizing: border-box;
 
     hr.tool-bar-spacer {
       -webkit-mask-image: none !important;
       border-color: @base-border-color }
+
+    button.btn.tool-bar-btn {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      border-radius: 2px;
+      border-width: 0 !important }
   }
 
   @{horizontal} {
+    &.tool-bar {
+      justify-content: center;
+      flex-wrap: nowrap;
+      padding: @component-padding }
+
     hr, .tool-bar-spacer {
       margin-left: 1em;
       margin-right: 1em }
+
+    button {
+      flex: 1 0 0;
+      padding: @component-padding*0.75 @component-padding*1.5 !important;
+      width: @tab-height + 3 !important;
+      width: auto !important;
+      height: auto !important }
+
+    button::before {
+      box-sizing: content-box;
+      display: block;
+      margin: 0 auto 0.5rem !important;
+      border-radius: 50%;
+      border-width: 1px;
+      border-style: solid;
+      border-color: transparent;
+      transition: all @transition-time;
+      width: @tab-height;
+      line-height: @tab-height;
+      height: @tab-height }
+
+    button:hover {
+      background: transparent !important; }
+    button:hover::before,
+    button:hover::after {
+      color: crimson;
+      .accent;
+      border-color: initial }
+
+    button::after {
+      .text(caps);
+      line-height: 2em;
+      font-weight: 700;
+      font-size: unit(@size-tiny, em);
+      letter-spacing: 0.1em;
+      display: block;
+      position: relative;
+      overflow: hidden;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transition: all @transition-time;
+      content: attr(data-original-title) }
   }
 
   @{vertical} {
     transition: width @transition-time;
     width: @tab-height - 0.6 !important;
     border-width: 0 !important;
-    padding: 0;
+    padding: @tab-height 0 0 0;
 
     &:hover {
       width: 240px !important }
@@ -44,7 +98,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       border-top: transparent;
       position: relative }
 
-    button {
+    button.tool-bar-btn {
       text-align: left;
       width: inherit !important;
       height: @tab-height - 1 !important;

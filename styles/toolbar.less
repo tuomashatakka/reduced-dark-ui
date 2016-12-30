@@ -10,11 +10,15 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 atom-workspace > atom-panel-container.header {
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 10;
+  position: relative;
+
   .title-bar {
+    .text(caps);
+    font-size: unit(@size-tiny, rem);
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
     padding: 0;
     height: 20px;
     line-height: 20px;
