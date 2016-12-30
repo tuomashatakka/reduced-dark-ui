@@ -27,8 +27,11 @@ User Interface                                                                  
 .config(@arg) { [@{config-attr}*=@{arg}] {
 
 
-    & when (@arg = fixedProjectRoot) {
-
+    & when (@arg = tabSizing) {
+      atom-workspace .tab-bar .tab {
+        max-width: none;
+        flex-basis: auto;
+      }
     }
 
 
