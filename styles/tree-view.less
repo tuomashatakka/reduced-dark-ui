@@ -15,26 +15,38 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   padding-top: 0;
   position: relative;
 
+  > li.separator {
+    border-width: 0 }
+
   .project-root {
-    padding-bottom: @component-padding / 2;
+    padding-bottom: @component-padding / 2 }
 
-    & > .header {
-      & > span {
-        color: @text-color-subtle }
+  .project-root .project-root-header {
+    color: @text-color-highlight;
+    border-bottom: 1px solid transparent;
 
-      & .name {
-        .h4;
-        color: @text-color-highlight;
-        height: @tab-height;
-        line-height: @tab-height }
+    span {
+      color: @text-color-subtle }
 
-      &::before {
-        color: @text-color-highlight;
-        transition: all @transition-time ease;
-        opacity: 0 }
+    .name {
+      .h4;
+      color: inherit;
+      height: @tab-height;
+      line-height: @tab-height }
 
-      &:hover::before { opacity: 1 }}
+    &::before {
+      margin-left: 16px;
+      color: inherit;
+      transition: all @transition-time ease;
+      opacity: 0.25 }
+
+    &:hover::before {
+      opacity: 1 }
   }
+
+  .project-root:not(.selected) .project-root-header {
+    background-color: #201f23;
+    border-bottom-color: rgba(0,0,0,0.2) }
 
   .project-root.project-root.collapsed {
     & > .header { &:before { opacity: 0 }

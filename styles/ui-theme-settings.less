@@ -59,45 +59,52 @@ User Interface                                                                  
 
     & when (@arg = fixedProjectRoot) {
 
-      atom-panel-container.right {
-        z-index: 400 }
-
       .tree-view-scroller {
         position: relative;
         margin-left: 8px;
         overflow: initial;
         z-index: 301;
 
-        & > .tree-view {
+        .tree-view {
           position: relative;
           top: 0;
           left: 0;
           right: 0;
           bottom: 0;
-          margin-left: 8px;
+          margin-left: 0;
+          padding: 0;
           display: flex;
           overflow: initial;
 
-          & > .project-root {
+          > .project-root {
             flex: 1 1 auto;
+            margin: 0;
+            padding: 0;
+            max-width: 100%;
 
-            & + .entries {
-            }
+            &.selected {
+              z-index: 1000 }
 
-            &::before { content: none; }
+            &::before {
+              content: none; }
 
-            & > .header {
+            &:not(.selected) .project-root-header {
+              background-color: #17171a;
+              border-bottom-color: rgba(0,0,0,0.2) }
+
+            .project-root-header {
               position: relative;
               top: 0;
               left: 0;
-              margin-left: -30px;
-              margin-right: -36px;
-              padding-left: 1em;
+              margin: 0;
+              padding: 0;
+              margin-left: -8px;
+              max-width: 100%;
               z-index: 1000;
               background: @tree-view-background-color;
               height: @tab-height }
 
-            & > .list-tree {
+            > .list-tree {
               position: absolute;
               overflow: auto;
               top: @tab-height;
