@@ -17,7 +17,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 // Custom injected panel icons
 atom-panel {
-  > .display-icon {
+  .display-icon {
     position: absolute;
     top: @tab-height/8;
     right: @tab-height/8;
@@ -46,7 +46,7 @@ atom-panel {
       width: 100%;
     }
   }
-  &:hover > .display-icon {
+  &:hover .display-icon {
     transform: translateX(-@tab-height);
   }
 }
