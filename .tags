@@ -50,4 +50,4 @@ type	package.json	/^      "type": "color",$/;"	f
 type	package.json	/^      "type": "integer",$/;"	f
 uiScale	package.json	/^    "uiScale": {$/;"	f
 url	package.json	/^    "url": "https:\/\/github.com\/tuomashatakka\/reduced-dark-ui\/issues"$/;"	f
-version	package.json	/^  "version": "0.2.6",$/;"	f
+version	package.json	/^  "version": "0.2.7",$/;"	f
