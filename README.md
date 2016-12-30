@@ -1,31 +1,31 @@
 
-<p align="center">
-
-  <img src="https://tuomashatakka.github.io/reduced-dark-ui/assets/re-logo.svg" width=24 height=24/>
-  <a href="https://atom.io/themes/reduced-dark-ui">
-    <img src="https://img.shields.io/apm/dm/reduced-dark-ui.svg?style=flat-square">
-  </a>&nbsp;&nbsp;
-
-  <img src="https://github.com/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
-  <a href="https://github.com/tuomashatakka/reduced-dark-ui/releases/latest">
-    [![issues](https://img.shields.io/github/issues/tuomashatakka/reduced-dark-ui.svg?style=flat-square)]()
-  </a>&nbsp;&nbsp;
-
-  <img src="https://atom.io/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
-  <a href="https://atom.io/themes/reduced-dark-ui">
-    [![version](https://img.shields.io/apm/v/reduced-dark-ui.svg?style=flat-square)]()
-  </a>&nbsp;&nbsp;
-  <img style='display: none;' src="https://gitlab.com/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
-</p>
-
-<p align="center"><img style='width:25%;' src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/re-logo.svg"/></p></p>
-
 <h1 style='text-align: center'>Reduced Dark</h1>
 
 <p align="center">
   *Minimal + plain - yet usable + functional* UI theme for Atom.io.
 </p>
 
+<p align="center">
+
+  <img src="https://tuomashatakka.github.io/reduced-dark-ui/assets/re-logo.svg" width=24 height=24/>
+  <a href="https://atom.io/themes/reduced-dark-ui">
+    <img src="https://img.shields.io/apm/dm/reduced-dark-ui.svg?style=flat-square">
+    </a>&nbsp;&nbsp;
+
+  <img src="https://github.com/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
+  <a href="https://github.com/tuomashatakka/reduced-dark-ui/releases/latest">
+    <img src="https://img.shields.io/github/issues/tuomashatakka/reduced-dark-ui.svg?style=flat-square">
+    </a>&nbsp;&nbsp;
+
+  <img src="https://atom.io/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
+  <a href="https://atom.io/themes/reduced-dark-ui">
+    <img src="https://img.shields.io/apm/v/reduced-dark-ui.svg?style=flat-square">
+    </a>&nbsp;&nbsp;
+</p>
+
+<p align="center">
+  <img style='width:25%; max-width: 14em;' src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/re-logo.svg"/>
+</p>
 
 <h2 style='text-align: center'><span class='icon icon-alert' /> PLEASE NOTE</h2>
 <p align="center">
@@ -43,23 +43,29 @@
 
 While being clean and simple, does not compromise usability.
 
-This theme is an attempt to wrap the currently-not-as-intuitive-as-it-could-be paneling scheme in Atom for reduced obstruction by obsolete panels that fill the screen and reduce your precious code editor into a thin line with max line length of ~50 characters (😄) at best. This is implemented by making the side panels collapse into a tool-bar of sort. **Feedback is great**ly valuable and appreciated here.
+This theme is an attempt to wrap the currently-not-as-intuitive-as-it-could-be paneling scheme in Atom for reduced obstruction (by obsolete panels that fill the screen and reduce your precious code editor into a thin line with max line length of ~50 characters (😄) at best)
+by making the side panels collapse into a tool-bar of sort. **Feedback is great**ly valuable and appreciated here.
 
-If some package doesn't display correctly, please raise an issue and I'll do my best at supporting it. Panel collapsing should be generically implemented enough to cause few to none inconsistencies though.
+If a package's panel fails to display correctly, please raise an issue and I'll do my best at supporting it. Or better, submit a pull request! Panel collapsing should be generically implemented enough to cause few to none inconsistencies though.
 
 Also hella lotta configuration options (on their way).
 Seriously, it will be like candyland.
 
 
 
-### Configuration
+### Feats || hilites && config
 
-TBA (Short descriptions in the settings themselves)
+ - COMING SOON™ - **Any accent color**. Please note that the highlight option is not yet thoroughly implemented.
 
-Please note that the highlight option is not yet thoroughly implemented.
 
-At its current state, the window needs to be reloaded for the config changes to show. This will be fixed soon.
-
+ - **Custom icons for any and every package**. Configure any icon you want to. Automatic initial resolving by walking the DOM.
+   THIS IS STILL IN AN EARLY STATE, but works already. The theme needs to be reloaded for changes to become visible. Assigned icons
+   can be changed from the theme's settings
+ - **Fixed tab bar**. Window-wide tab bar - finally you can see 'em all at once
+ - **Fixed project root**. Tree view's root folder always visible
+ - **Full-width tab sizing**. No blank space wasted whatsoever
+ - **UI Scale**. Each and every part of the UI is scaled with the editor's font size as a basis. Gracefully.
+   Pick a number (from 25 to 200) and see the magic happen. I know you hate too fat interfaces too ;)
 
 
 ### Screenshots
