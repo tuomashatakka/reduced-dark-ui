@@ -3,7 +3,7 @@
 
   <img src="https://tuomashatakka.github.io/reduced-dark-ui/assets/re-logo.svg" width=24 height=24/>
   <a href="https://atom.io/themes/reduced-dark-ui">
-    [![downloads](https://img.shields.io/apm/dm/reduced-dark-ui.svg?style=flat-square)]()
+    <img src="https://img.shields.io/apm/dm/reduced-dark-ui.svg?style=flat-square">
   </a>&nbsp;&nbsp;
 
   <img src="https://github.com/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
