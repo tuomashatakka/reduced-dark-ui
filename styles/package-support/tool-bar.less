@@ -27,42 +27,43 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   }
 
   @{horizontal} {
+    @size: @tab-height*0.75;
     &.tool-bar {
       justify-content: center;
       flex-wrap: nowrap;
       padding: @component-padding }
 
     hr, .tool-bar-spacer {
-      margin-left: 1em;
-      margin-right: 1em }
+      margin: 0 @component-padding }
 
     button {
       flex: 1 0 0;
-      padding: @component-padding*0.75 @component-padding*1.5 !important;
-      width: @tab-height + 3 !important;
       width: auto !important;
       height: auto !important }
 
     button::before {
       box-sizing: content-box;
-      display: block;
-      margin: 0 auto 0.5rem !important;
+      display: inline-block;
       border-radius: 50%;
-      border-width: 1px;
-      border-style: solid;
-      border-color: transparent;
       transition: all @transition-time;
-      width: @tab-height;
-      line-height: @tab-height;
-      height: @tab-height }
+      padding: 0;
+      width: @size;
+      height: @size;
+      line-height: @size !important }
 
     button:hover {
       background: transparent !important; }
-    button:hover::before,
-    button:hover::after {
+
+    button:hover::before {
       color: crimson;
       .accent;
       border-color: initial }
+
+    button:hover::after {
+      color: crimson;
+      .accent;
+      border-color: none;
+      background: transparent }
 
     button::after {
       .text(caps);
