@@ -9,6 +9,8 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
+.list-tree,
+.list-group,
 .tree-view {
   font-size: @font-size;
   background: @tree-view-background-color;
@@ -19,6 +21,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     border-width: 0 }
 
   .project-root {
+    transition: opacity @transition-time;
     padding-bottom: @component-padding / 2 }
 
   .project-root .project-root-header {
@@ -41,19 +44,32 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       opacity: 0.25 }
 
     &:hover::before {
-      opacity: 1 }
-  }
+      opacity: 1 }}
 
-  .project-root:not(.selected) .project-root-header {
-    background-color: #201f23;
+  .project-root:not(.selected).collapsed .project-root-header {
+    height: @tab-height !important;
+    flex-grow: 0 !important;
+    z-index: 0;
+    background-color: #17171a;
     border-bottom-color: rgba(0,0,0,0.2) }
 
-  .project-root.project-root.collapsed {
-    & > .header { &:before { opacity: 0 }
-      &:hover { &:before { opacity: 1 } }
-  }}
+  .project-root.selected.expanded { z-index: 1000 }
+  .project-root.expanded ~ .project-root {
+    height: @tab-height !important;
+    flex-grow: 0 !important;
+    z-index: 0;
+    background-color: #201f23;
+    border-bottom-color: rgba(0,0,0,0.2);
 
-  .directory.selected:before {
+    .project-root-header {
+      background-color: #17171a;
+      border-bottom-color: rgba(0,0,0,0.2);
+      height: inherit }
+
+    > .entries {
+      display: none !important }}
+
+  .directory.selected::before {
     background: transparent !important }}
 
 
@@ -69,4 +85,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     vertical-align: top }}
 
 .tree-view-resizer .tree-view-resize-handle {
-    width: 8px }
+  width: 8px }
+
+.tree-view-resizer .tree-view-scroller {
+  overflow: hidden }

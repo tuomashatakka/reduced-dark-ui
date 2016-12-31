@@ -12,34 +12,31 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 atom-pane-container atom-pane-axis {
 
-  &.horizontal * {
-    border-right: 1px solid @base-border-color }
-
-  &.horizontal > *:last-child {
-    border-right: none }
-
+  &.horizontal * { border-right: 1px solid @base-border-color }
+  &.horizontal > *:last-child { border-right: none }
   &.vertical atom-pane-resize-handle.vertical {
     border-bottom: 1px solid @base-border-color;
     margin-bottom: -1px }}
 
 
 atom-panel-container {
+  position: relative;
   background: @base-background-color }
 
 atom-panel {
   .text(normal);
   background: @tool-panel-background-color;
 
-  &.bottom {
-    padding-bottom: 1em;
-    background: @app-background-color }
-
   &.left {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      background: @app-background-color }
+    background: @app-background-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0 }
+
+  &.bottom {
+    background: @app-background-color;
+    padding-bottom: 1em }
 
   &.bottom > *:not(:empty) {
     background: @app-background-color;

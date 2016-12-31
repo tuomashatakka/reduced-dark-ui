@@ -41,7 +41,7 @@ User Interface                                                                  
         margin-top: @tab-height !important }
 
       .tree-view-resizer {
-        overflow: inherit;
+        overflow: hidden;
         & .project-root > .list-tree { top: 0 }}
 
       .tab-bar {
@@ -88,7 +88,7 @@ User Interface                                                                  
             &::before {
               content: none; }
 
-            &:not(.selected) .project-root-header {
+            &:not(.selected).collapsed .project-root-header {
               background-color: #17171a;
               border-bottom-color: rgba(0,0,0,0.2) }
 
