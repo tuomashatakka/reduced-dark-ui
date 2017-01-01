@@ -13,7 +13,7 @@
 title       Reduced
 project     reduced-dark-ui
 version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
@@ -43,6 +43,7 @@ Background                                                                      
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Size factors                                                                                                                                                                                                                                                                                                                                                                 */
+@size: 4.8;
 @size-tiny: 0.72;
 @size-xsmall: 0.82;
 @size-small: 0.82;
@@ -198,10 +199,12 @@ Sizes                                                                           
     @input-font-size: @font-size;
 
     // Inputs
-    @input-height: unit(@size-xlarge, rem);
+    @input-height: 1.5 * unit(@size-xlarge, rem);
+    @input-padding-vertical: @component-padding / 2;
+    @input-padding-horizontal: @component-padding;
 
     // Buttons
-    @button-height: @input-height + 0.6;
+    @button-height: @input-height;
     @button-border-radius: @input-height;
 
     // Lists
@@ -211,4 +214,4 @@ Sizes                                                                           
     @menu-width: 20vw;
 
     // Tabs
-    @tab-height: 2.4 * @input-height;
+    @tab-height: 4.8rem;

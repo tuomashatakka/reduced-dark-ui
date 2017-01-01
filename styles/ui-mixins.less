@@ -3,7 +3,7 @@
 title       Reduced
 project     reduced-dark-ui
 version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
@@ -16,16 +16,17 @@ Overlay                                                                         
     .text(caps);
     color: @text-color;
     background: transparent;
-    font-size: @button-height / 3;
-    line-height: @button-height;
+    font-size: 1rem;
+    line-height: @button-height - 2 * @input-padding-vertical;
+    min-height: @button-height;
     border-radius: @button-border-radius;
-    transition: all @transition-time ease;
+    transition: all @transition-time / 2;
     border-width: 1px !important;
     border-style: solid !important;
     box-shadow: none !important;
     height: auto;
     margin: 0;
-    padding: 0 @button-height;
+    padding: @input-padding-vertical @input-padding-horizontal;
     box-sizing: border-box }
 
   &:active, &:active:focus,

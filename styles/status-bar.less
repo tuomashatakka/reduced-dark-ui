@@ -13,11 +13,15 @@ status-bar {
   .text(subtle);
   display: block;
   background: @base-border-color;
-  height: @input-height;
-  line-height: @input-height;
+  height: @input-height / 2;
+  line-height: @input-height / 2;
   font-size: 0.82em;
   letter-spacing: 0.02em;
 
   & > .flexbox-repaint-hack { padding-top: 0 }
+  & > *,
+  & > * > * {
+    height: inherit;
+    line-height: inherit }
   span { font-size: 1em }
 }

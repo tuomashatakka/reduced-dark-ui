@@ -3,7 +3,7 @@
 title       Reduced
 project     reduced-dark-ui
 version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
@@ -58,7 +58,6 @@ button, button.icon, .btn-default, .btn {
 
   & > .btn {
     border: 1px solid;
-    line-height: @button-height !important;
     height: @button-height !important;
     box-sizing: border-box;
   }
@@ -81,7 +80,7 @@ button, button.icon, .btn-default, .btn {
     border-radius: @button-border-radius;
     overflow: hidden;
     margin: 0 1px;
-    border: 1px solid fade(@base-border-color, 75%);
+    border: 0 solid fade(@base-border-color, 75%);
 
     & > .btn {
       border-width: 0;
@@ -108,7 +107,7 @@ button, button.icon, .btn-default, .btn {
       width: 100%;
       height: 100%;
       line-height: @button-height;
-      margin: -1px 0 0;
+      margin: -2px 0 2px;
       box-sizing: border-box;
     }
   }
