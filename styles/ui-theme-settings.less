@@ -12,27 +12,21 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 Variable definitions                                                                                                                                                                                                                                                                                                                                                    */
 @config-attr: ~'@{ui-theme-name}-settings';
 
-@scale-attr: ~'@{ui-theme-name}-uiscale';
-@scale-min: 25;
-@scale-max: 200;
-
                                                                                                                                                                                                                                                                                                                                                                         /*
 User Interface                                                                                                                                                                                                                                                                                                                                                          */
-
 .config(tabSizing);
 .config(fixedTabBar);
 .config(fixedProjectRoot);
 .config(overrideEditorBackground);
-
-.config(@arg) { [@{config-attr}*=@{arg}] {
+.config(@arg) {
+  [@{config-attr}*=@{arg}] {
 
 
     & when (@arg = tabSizing) {
+
       atom-workspace .tab-bar .tab {
         max-width: none;
-        flex-basis: auto;
-      }
-    }
+        flex-basis: auto }}
 
 
     & when (@arg = fixedTabBar) {
@@ -53,8 +47,7 @@ User Interface                                                                  
         z-index: 300;
         .tab.active,
         .tab:hover.active {
-          width: inherit }}
-    }
+          width: inherit }}}
 
 
     & when (@arg = fixedProjectRoot) {
@@ -88,10 +81,6 @@ User Interface                                                                  
             &::before {
               content: none; }
 
-            &:not(.selected).collapsed .project-root-header {
-              background-color: #17171a;
-              border-bottom-color: rgba(0,0,0,0.2) }
-
             .project-root-header {
               position: relative;
               top: 0;
@@ -101,14 +90,12 @@ User Interface                                                                  
               margin-left: -8px;
               max-width: 100%;
               z-index: 1000;
-              background: @tree-view-background-color;
               height: @tab-height }
 
             > .list-tree {
               position: absolute;
               overflow: auto;
               top: @tab-height;
-              background-color: @tree-view-background-color;
               bottom: 0;
               left: 0;
               right: 0 }}}}

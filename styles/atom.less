@@ -9,41 +9,26 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Workspace                                                                                                                                                                                                                                                                                                                                                               */
-
 html {
-  //font-size: @font-size;
-  font-size: @font-size;
-  * { font-size: 1em }
+  font-size: @font-size}
 
-  .loop(@counter) when (@counter > @scale-min) {
-    .loop((@counter - 1));
-
-    &[reduced-dark-ui-uiscale=@{counter}] atom-workspace {
-      font-size: (@font-size * @counter / 100) }}
-
-  .loop(@scale-max) }
+* {
+  font-size: 1em }
 
 body {
   position: relative }
 
 atom-workspace {
   atom-workspace-axis.vertical {
-    margin-left: @tab-height;
-  }
-}
+    margin-left: @tab-height }}
+
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-Find and replace                                                                                                                                                                                                                                                                                                                                                        */
+Search and replace                                                                                                                                                                                                                                                                                                                                                        */
 .project-find, .find-and-replace {
-
   .btn-group-find .btn { .button-variant(@text-color-info) }
-  .btn-group-replace .btn, .btn-group-replace-all .btn, { .button-variant(@text-color-warning) }
-  .find-meta-container {
-    top: 4px;
+  [class*="btn-group-replace"] .btn { .button-variant(@text-color-warning) }}
 
-    span {
-      font-size: initial; }
-  }}
                                                                                                                                                                                                                                                                                                                                                                         /*
 Keybinding Badges                                                                                                                                                                                                                                                                                                                                                       */
 kbd,
@@ -55,6 +40,7 @@ kbd,
   border: 1px solid @tooltip-key-text-color;
   border-radius: @component-border-radius;
   margin-left: @component-padding/2; }
+
                                                                                                                                                                                                                                                                                                                                                                         /*
 Scrollbars                                                                                                                                                                                                                                                                                                                                                                 */
 .scrollbars-visible-always {
@@ -86,8 +72,7 @@ Scrollbars                                                                      
       background: @scrollbar-color;
 
       &:active, &:hover {
-        border: 1px solid @base-background-color }}}
-}
+        border: 1px solid @base-background-color }}}}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Select Forms                                                                                                                                                                                                                                                                                                                                                                 */
@@ -112,27 +97,7 @@ select.form-control {
   line-height: @input-height;
   text-transform: none;
 
-  &:focus, &:hover {
-   background: @button-border-color !important;
-   color: @base-background-color !important }}
-
-                                                                                                                                                                                                                                                                                                                                                                        /*
-Text Editors                                                                                                                                                                                                                                                                                                                                                                 */
-atom-panel-container.left {
-  &::before {
-    display: none;
-    content: "…";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: @tab-height;
-    height: @tab-height;
-    line-height: @tab-height;
-    text-align: center;
-    box-sizing: border-box;
-    background-image: url("https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/re-logo.svg");
-    background-size: 6em;
-    background-position: center center;
-    background-repeat: no-repeat;
-  }
-}
+  &:focus,
+  &:hover {
+   background: @input-background-color-active !important;
+   color: @input-text-color-active !important }}

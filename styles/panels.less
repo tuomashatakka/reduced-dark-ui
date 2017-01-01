@@ -1,47 +1,51 @@
-
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
+title       Workspace panels
 project     reduced-dark-ui
-version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
-email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
+// Containers
+atom-panel-container {
+  background: @base-background-color }
 
-atom-pane-container atom-pane-axis {
+atom-panel-container.bottom {
+  margin-top: 0;
+  border-top: 1px solid @tool-panel-border-color;
+  z-index: 3 }
 
-  &.horizontal * { border-right: 1px solid @base-border-color }
-  &.horizontal > *:last-child { border-right: none }
-  &.vertical atom-pane-resize-handle.vertical {
+atom-pane-container {
+  atom-pane-axis.horizontal > * { border-right: 1px solid @base-border-color }
+  atom-pane-axis.horizontal > *:last-child { border-right: none }
+  atom-pane-axis.vertical atom-pane-resize-handle.vertical {
     border-bottom: 1px solid @base-border-color;
     margin-bottom: -1px }}
 
 
-atom-panel-container {
-  background: @base-background-color }
-
+// Panels
 atom-panel {
   .text(normal);
-  background: @tool-panel-background-color;
+  background: @tool-panel-background-color }
 
-  &.left {
+atom-panel.left {
     background: @app-background-color;
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0 }
 
-  &.bottom {
+atom-panel.bottom {
     background: @app-background-color;
     padding-bottom: 1em }
 
-  &.bottom > *:not(:empty) {
+atom-panel.bottom > *:not(:empty) {
     background: @app-background-color;
     padding-top: 1px;
-    z-index: 3 }}
+    z-index: 3 }
 
+
+// Collapsing
 atom-panel-container.left {
 
   atom-panel {
@@ -49,44 +53,17 @@ atom-panel-container.left {
     transform: translateX(-100%);
     margin-right: -@tab-height;
 
-    &:hover { transform: translateX(0);
-    & ~ atom-panel { margin-left: -@tab-height }}
+    &:hover { transform: translateX(0) }
+    &:hover ~ atom-panel { margin-left: -@tab-height }
 
     &:nth-child(1) { z-index: 101; margin-top: 0 * @tab-height }
     &:nth-child(2) { z-index: 102; margin-top: 1 * @tab-height }
     &:nth-child(3) { z-index: 103; margin-top: 2 * @tab-height }
     &:nth-child(4) { z-index: 104; margin-top: 3 * @tab-height }
     &:nth-child(5) { z-index: 105; margin-top: 4 * @tab-height }
-    &:nth-child(6) { z-index: 106; margin-top: 5 * @tab-height }}
+    &:nth-child(6) { z-index: 106; margin-top: 5 * @tab-height }}}
 
-  /*&::before {
-    font-family: "ionicons";
-    content: "\f404";
-    position: absolute;
-    right: 0;
-    width: 4.8rem;
-    height: 4.8rem;
-    line-height: 4.8rem;
-    text-align: center;
-    font-size: 24px;
-    transform: translateX(100%);
-    background: inherit }*/
-}
-
-atom-panel-container.bottom {
-    margin-top: 0;
-    border-top: 1px solid @tool-panel-border-color;
-    z-index: 3 }
-
-.pane-item,
-atom-pane-container atom-pane .item-views {
-  background: @app-background-color !important;
-  border: 0 }
-
-.focusable-panel,
-.item-views .focusable-panel {
-  padding: @component-padding }
-
+// Heading
 .panel-heading,
 .inset-panel .panel-heading {
   .text(heading);
@@ -104,9 +81,19 @@ atom-pane-container atom-pane .item-views {
     &.btn-info { .button-variant(@text-color-info) }
     &.btn-success { .button-variant(@text-color-success) }
     &.btn-warning { .button-variant(@text-color-warning) }
-    &.btn-error { .button-variant(@text-color-error) }}
-    }
+    &.btn-error { .button-variant(@text-color-error) }}}
 
+// Item views
 .panel-body {
   background: @tool-panel-background-color;
   border-radius: inherit }
+
+// Misc
+.pane-item,
+atom-pane-container atom-pane .item-views {
+  background: @app-background-color !important;
+  border: 0 }
+
+.focusable-panel,
+.item-views .focusable-panel {
+  padding: @component-padding }
