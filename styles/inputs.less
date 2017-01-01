@@ -12,6 +12,10 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 @checkbox:  ~".control-group .checkbox input";
 @select:    ~".controls .select-container";
 
+.checkbox {
+  padding-left: 0;
+}
+
 @{checkbox} {
   @size: unit(1.6, rem);
 
@@ -39,13 +43,19 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 }
 
 @{select} {
-  /deep/ ::option, select.form-control {
+  padding: 0 0 0 @component-padding;
+  line-height: @button-height;
+  height: @button-height;
+
+  select.form-control {
+    line-height: inherit;
+    height: inherit;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0 }
+
   button {
     margin-left: 0 }
 
   &:hover, select:hover {
     background: transparent !important;
-    color: @text-color-highlight !important }
-}
+    color: @text-color-highlight !important }}

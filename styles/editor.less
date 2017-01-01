@@ -9,19 +9,22 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-atom-text-editor, atom-text-editor::shadow, :host {
-  .scroll-view { padding: 0 }
-}
+atom-text-editor,
+atom-text-editor::shadow,
+:host {
+  .scroll-view { padding: 0 }}
 
-atom-text-editor[mini], atom-text-editor[mini]::shadow {
+atom-text-editor[mini],
+atom-text-editor[mini]::shadow {
   transition: all @transition-time ease;
   background-color: @input-background-color;
   border: 1px solid @input-background-color;
   border-radius: @button-border-radius;
-  padding-left: @component-padding / 2;
-  height: @input-height;
-  max-height: @input-height;
+  padding: @component-padding / 4 @component-padding;
+  height: @input-height + @component-padding / 2;
+  max-height: @input-height + @component-padding / 2;
   line-height: @input-height;
+  overflow: hidden;
 
   &:hover {
     border: 1px solid @input-border-color;
@@ -31,8 +34,8 @@ atom-text-editor[mini], atom-text-editor[mini]::shadow {
 
   .placeholder-text {
     .text(subtle);
-    height: @input-height;
-    line-height: @input-height;
+    height: inherit;
+    line-height: inherit;
     box-sizing: border-box }
 
   .cursor {
