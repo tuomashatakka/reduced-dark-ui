@@ -176,18 +176,24 @@ Colors & accent                                                                 
 
 .accent {
   background: @background-color-highlight;
-  color: @col-highlight }
+  color: @col-highlight;
 
-.accent.inverse {
-  background: @col-highlight;
+  &.active,
+  &.selected {
+    }
 
-  & when (lightness(@col-highlight) < 0.5) { &, &:focus, &:active {
-    color: @col-white;
-    border-color: @col-white !important }}
+  &:hover,
+  &:focus {}
+  &.inverse {
+    background: @col-highlight;
 
-  & when (lightness(@col-highlight) >= 0.5) { &, &:focus, &:active {
-    color: @col-bg;
-    border-color: @col-bg !important }}}
+    & when (lightness(@col-highlight) < 0.5) { &, &:focus, &:active {
+      color: @col-white;
+      border-color: @col-highlight !important }}
+
+    & when (lightness(@col-highlight) >= 0.5) { &, &:focus, &:active {
+      color: @col-bg;
+      border-color: @col-highlight !important }}}}
 
                                                                                                                                                                                                                                                                                                                                                                            /*
 Media Queries                                                                                                                                                                                                                                                                                                                                                              */

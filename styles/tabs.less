@@ -26,7 +26,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     box-sizing: border-box;
     position: relative;
     display: block;
-    flex: 1 0 auto;
+    flex: 1 1 auto;
     text-align: center;
     width: auto;
     height: @tab-height;
@@ -59,15 +59,12 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
     // Current
     &.active {
-      flex: 1 0 auto;
+      flex: 1 1 auto;
       color: @text-color-selected;
       background-color: @tab-background-color-active;
       .accent;
 
-      .title { color: inherit; padding: 0 }
-      .status-added,
-      .status-modified,
-      .status-ignored { color: inherit }}
+      .title { color: inherit; padding: 0 }}
 
     .tab-state() }}
 
