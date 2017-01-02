@@ -37,6 +37,7 @@ name	package.json	/^  "name": "reduced-dark-ui",$/;"	f
 optionalDependencies	package.json	/^  "optionalDependencies": {},$/;"	f
 overrideEditorBackground	package.json	/^    "overrideEditorBackground": {$/;"	f
 readmeFilename	package.json	/^  "readmeFilename": "README.md",$/;"	f
+registerCommand	lib/core/subscribe.js	/^function registerCommand(cmd, handler) {$/;"	f
 repository	package.json	/^  "repository": "https:\/\/github.com\/tuomashatakka\/reduced-dark-ui"$/;"	f
 tabSizing	package.json	/^    "tabSizing": {$/;"	f
 theme	package.json	/^  "theme": "ui",$/;"	f

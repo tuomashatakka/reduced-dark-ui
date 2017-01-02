@@ -32,7 +32,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     height: @tab-height;
     line-height: @tab-height/3;
     padding: @tab-height/3 0.5rem !important;
-    border: 0;
+    border-width: 1px 0 0;
+    border-top-style: solid;
     color: @text-color-subtle;
     background: @tab-background-color;
     transition: all @transition-time ease !important;
@@ -48,6 +49,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
     .status-modified, &.modified { color: @text-color-modified }
     .status-added, &.added { color: @text-color-added }
+    .status-ignored, &.ignored { color: @text-color-ignored }
     .title, .title::before { line-height: inherit }
 
     // Hovered
@@ -61,12 +63,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       color: @text-color-selected;
       background-color: @tab-background-color-active;
       .accent;
-      border-top: 1px solid;
 
-      .title { color: @text-color-selected; padding: 0 }
-      .status-modified { color: @text-color-modified }
-      .status-added { color: @text-color-added }
-      .status-ignored { color: @text-color-ignored }}
+      .title { color: inherit; padding: 0 }
+      .status-added,
+      .status-modified,
+      .status-ignored { color: inherit }}
 
     .tab-state() }}
 
