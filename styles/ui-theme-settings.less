@@ -10,7 +10,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
                                                                                                                                                                                                                                                                                                                                                                         /*
 
 Variable definitions                                                                                                                                                                                                                                                                                                                                                    */
-@config-attr: ~'@{ui-theme-name}-settings';
+@attr-config:       ~'@{ui-theme-name}-settings';
+@attr-color-accent: ~'@{ui-theme-name}-highilightcolor';
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 User Interface                                                                                                                                                                                                                                                                                                                                                          */
@@ -19,7 +20,7 @@ User Interface                                                                  
 .config(fixedProjectRoot);
 .config(overrideEditorBackground);
 .config(@arg) {
-  [@{config-attr}*=@{arg}] {
+  [@{attr-config}*=@{arg}] {
 
 
     & when (@arg = tabSizing) {
