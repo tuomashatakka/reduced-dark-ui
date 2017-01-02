@@ -4,7 +4,9 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+activationCommands	package.json	/^  "activationCommands": {$/;"	f
 atom	package.json	/^    "atom": ">=0.174.0 <2.0.0"$/;"	f
+atom-workspace	package.json	/^    "atom-workspace": "reduced-dark-ui:decorate"$/;"	f
 author	package.json	/^  "author": {$/;"	f
 bugs	package.json	/^  "bugs": {$/;"	f
 configSchema	package.json	/^  "configSchema": {$/;"	f

@@ -50,6 +50,9 @@
       "default": true
     }
   },
+  "activationCommands": {
+    "atom-workspace": "reduced-dark-ui:decorate"
+  },
   "dependencies": {},
   "description": "A dark & minimal yet usable theme for atom.",
   "devDependencies": {},
