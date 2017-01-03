@@ -11,48 +11,80 @@
     "url": "https://github.com/tuomashatakka/reduced-dark-ui/issues"
   },
   "configSchema": {
-    "uiScale": {
-      "title": "UI Scale",
-      "description": "Scale the user interface",
-      "type": "integer",
-      "default": 100,
-      "minimum": 25,
-      "maximum": 200
+
+    "layout": {
+      "order": 1,
+      "title": "Size & layout",
+      "description": "General UI tweaks",
+      "type": "object",
+      "properties": {
+        "uiScale": {
+          "order": 1,
+          "title": "UI Scale",
+          "description": "Scale the user interface",
+          "type": "integer",
+          "default": 100,
+          "minimum": 25,
+          "maximum": 200
+        },
+        "tabSizing": {
+          "order": 2,
+          "title": "Full-Width Tab Sizing",
+          "description": "Let tabs stretch to fill the whole container.",
+          "type": "boolean",
+          "default": true
+        },
+        "fixedTabBar": {
+          "order": 3,
+          "title": "Fixed Tab Bar",
+          "description": "Display tabs above everything else. Enabling this setting allows tabs to spread amongst the whole screen.",
+          "type": "boolean",
+          "default": false
+        },
+        "fixedProjectRoot": {
+          "order": 4,
+          "title": "Fixed Project Root",
+          "description": "Set the project root(s) in the tree view to be fixed to the top of the view. If enabled, the root folders remain visible when the tree view is scrolled down.",
+          "type": "boolean",
+          "default": true
+        }
+      }
     },
-    "highlightColor": {
-      "title": "Highlight Color",
-      "description": "The main accent color used in the ui",
-      "type": "color",
-      "default": "#59edbc"
-    },
-    "tabSizing": {
-      "title": "Full-Width Tab Sizing",
-      "description": "EXPERIMENTAL - In full width mode, tabs will fill the whole tab bar.",
-      "type": "boolean",
-      "default": true
-    },
-    "fixedTabBar": {
-      "title": "Fixed Tab Bar",
-      "description": "EXPERIMENTAL - Allow tabs to spread amongst the whole screen.",
-      "type": "boolean",
-      "default": true
-    },
-    "fixedProjectRoot": {
-      "title": "Fixed Project Root",
-      "description": "EXPERIMENTAL - Project root folder visible even when scrolled down.",
-      "type": "boolean",
-      "default": true
+    "palette": {
+      "order": 2,
+      "title": "Theme colors",
+      "description": "Highlight colors for the theme",
+      "type": "object",
+      "properties": {
+        "primary": {
+          "order": 1,
+          "title": "Primary color",
+          "description": "The primary highlight color. Used in the main GUI component interaction",
+          "type": "color",
+          "default": "#59edbc"
+        },
+        "accentColor": {
+          "order": 2,
+          "title": "Secondary color",
+          "description": "A complementary highlight accent.",
+          "type": "color",
+          "default": "#3bb3f6"
+        }
+      }
     },
     "overrideEditorBackground": {
+      "order": 3,
       "title": "Override Editor Background Color",
       "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
       "type": "boolean",
       "default": true
     }
   },
+
   "activationCommands": {
     "atom-workspace": "reduced-dark-ui:decorate"
   },
+
   "dependencies": {},
   "description": "A dark & minimal yet usable theme for atom.",
   "devDependencies": {},
