@@ -19,7 +19,13 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
+@import 'definitions/config-fallback';
+@import 'definitions/config-user';
 @import 'base';
+
+@col-highlight: @config-primary;
+// @col-warning: lighten(@config-accentColor, 25%);
+@col-error: @config-accentColor;
                                                                                                                                                                                                                                                                                                                                                                         /*
 Animation                                                                                                                                                                                                                                                                                                                                                               */
 @ui-theme-name: 'reduced-dark-ui';
@@ -31,15 +37,16 @@ Base                                                                            
 @base-background-color: @col-bg;
 @base-border-color: @col-darker;
 @app-background-color: @base-background-color;
-
                                                                                                                                                                                                                                                                                                                                                                         /*
 Background                                                                                                                                                                                                                                                                                                                                                                 */
+@background-color-dark: darken(@base-background-color, 4%);
 @background-color-highlight: @col-dark;
 @background-color-selected: @col-dark;
-@background-color-info: @col-main;
-@background-color-success: @col-success;
-@background-color-warning: @col-annotation;
-@background-color-error: @col-error;
+
+@background-color-info: mix(@col-main, @app-background-color, 50%);
+@background-color-success: mix(@col-success, @app-background-color, 50%);
+@background-color-warning: mix(@col-annotation, @app-background-color, 75%);
+@background-color-error: mix(@col-error, @app-background-color, 75%);
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Size factors                                                                                                                                                                                                                                                                                                                                                                 */

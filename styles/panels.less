@@ -28,13 +28,6 @@ atom-panel {
   .text(normal);
   background: @tool-panel-background-color }
 
-atom-panel.left {
-    background: @app-background-color;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0 }
-
 atom-panel.bottom {
     background: @app-background-color;
     padding-bottom: 1em }
@@ -48,20 +41,28 @@ atom-panel.bottom > *:not(:empty) {
 // Collapsing
 atom-panel-container.left {
 
-  atom-panel {
-    transition: all @transition-time;
-    transform: translateX(-100%);
-    margin-right: -@tab-height;
+  // atom-panel.left {
+  //   background: @app-background-color;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   bottom: 0 }
 
-    &:hover { transform: translateX(0) }
-    &:hover ~ atom-panel { margin-left: -@tab-height }
-
-    &:nth-child(1) { z-index: 101; margin-top: 0 * @tab-height }
-    &:nth-child(2) { z-index: 102; margin-top: 1 * @tab-height }
-    &:nth-child(3) { z-index: 103; margin-top: 2 * @tab-height }
-    &:nth-child(4) { z-index: 104; margin-top: 3 * @tab-height }
-    &:nth-child(5) { z-index: 105; margin-top: 4 * @tab-height }
-    &:nth-child(6) { z-index: 106; margin-top: 5 * @tab-height }}}
+  // atom-panel {
+  //   transition: all @transition-time;
+  //   transform: translateX(-100%);
+  //   margin-right: -@tab-height;
+  //
+  //   &:hover { transform: translateX(0) }
+  //   &:hover ~ atom-panel { margin-left: -@tab-height }
+  //
+  //   &:nth-child(1) { z-index: 101; margin-top: 0 * @tab-height }
+  //   &:nth-child(2) { z-index: 102; margin-top: 1 * @tab-height }
+  //   &:nth-child(3) { z-index: 103; margin-top: 2 * @tab-height }
+  //   &:nth-child(4) { z-index: 104; margin-top: 3 * @tab-height }
+  //   &:nth-child(5) { z-index: 105; margin-top: 4 * @tab-height }
+  //   &:nth-child(6) { z-index: 106; margin-top: 5 * @tab-height }}
+}
 
 // Heading
 .panel-heading,
@@ -97,3 +98,24 @@ atom-pane-container atom-pane .item-views {
 .focusable-panel,
 .item-views .focusable-panel {
   padding: @component-padding }
+
+// Resizers
+@handle: ~"*[class*='resize']:empty";
+atom-panel.left,
+atom-panel.right {
+  @{handle} {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    min-width: 4px;
+    width: 4px;
+    background: fade(@background-color-dark, 10%);
+    z-index: 100000 }}
+
+atom-panel.left @{handle} {
+  right: 0px;
+  transform: translateX(50%) }
+
+atom-panel.right @{handle} {
+  left: 0px;
+  transform: translateX(-50%) }
