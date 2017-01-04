@@ -10,7 +10,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 .settings-view .sub-section .sub-section-heading.has-items::after {
   .icon("\f106");
-  transform: rotate(0deg) }
+  transform: rotate(0deg);
+  transform-origin: center }
 
 .settings-view .sub-section.collapsed .sub-section-heading::after {
   transform: rotate(180deg) }
@@ -18,6 +19,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 // Custom injected panel icons
 atom-panel {
   .display-icon {
+    .selection(disabled);
     position: absolute;
     top: @tab-height/8;
     right: @tab-height/8;

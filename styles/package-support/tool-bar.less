@@ -1,123 +1,120 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Project Viewer Panel
+title       Tool bar package support
 project     reduced-dark-ui
-version     0.0.0
 repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
-@horizontal: ~".tool-bar.tool-bar-horizontal";
-@vertical: ~".tool-bar.tool-bar-vertical";
+@size:        @tab-height * 0.75;
+@horizontal:  ~".tool-bar.tool-bar-horizontal";
+@vertical:    ~".tool-bar.tool-bar-vertical";
+// color: crimson;
 
-  @{horizontal}, @{vertical} {
-    box-sizing: border-box;
+@{horizontal},
+@{vertical} {
+  box-sizing: border-box;
+  border-width: 0;
 
-    hr.tool-bar-spacer {
-      -webkit-mask-image: none !important;
-      border-color: @base-border-color }
+  hr.tool-bar-spacer {
+    -webkit-mask-image: none !important;
+    border-color: @base-border-color }
 
-    button.btn.tool-bar-btn {
-      position: relative;
-      margin: 0;
-      padding: 0;
-      border-radius: 2px;
-      border-width: 0 !important }
-  }
+  button.btn.tool-bar-btn {
+    position: relative;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 @component-padding / 2 !important;
+    border-radius: @component-border-radius }
 
-  @{horizontal} {
-    @size: @tab-height*0.75;
-    &.tool-bar {
-      justify-content: center;
-      flex-wrap: nowrap;
-      padding: @component-padding }
+  button:hover {
+    background: transparent !important; }
 
-    hr, .tool-bar-spacer {
-      margin: 0 @component-padding }
+  button::before,
+  button::after {
+    position: relative;
+    line-height: @size !important;
+    height: @size !important;
+    border-radius: @component-padding / 2;
+    padding: 0;
+    transition:
+      color @transition-time,
+      background-color @transition-time }
 
-    button {
-      flex: 1 0 0;
-      width: auto !important;
-      height: auto !important }
+  button::before { width: @size }
+  button::after { .text(caps) }
 
-    button::before {
-      box-sizing: content-box;
-      display: inline-block;
-      border-radius: 50%;
-      transition: all @transition-time;
-      padding: 0;
-      width: @size;
-      height: @size;
-      line-height: @size !important }
+  button:hover::before {
+    .accent;
+    border-color: initial }
 
-    button:hover {
-      background: transparent !important; }
+  button:hover::after {
+    .accent;
+    border-color: none;
+    background: transparent }}
 
-    button:hover::before {
-      color: crimson;
-      .accent;
-      border-color: initial }
+@{horizontal} {
+  &.tool-bar {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: @component-padding / 2 @component-padding }
 
-    button:hover::after {
-      color: crimson;
-      .accent;
-      border-color: none;
-      background: transparent }
+  hr, .tool-bar-spacer {
+    margin: 0 @component-padding }
 
-    button::after {
-      .text(caps);
-      line-height: 2em;
-      font-weight: 700;
-      font-size: unit(@size-tiny, em);
-      letter-spacing: 0.1em;
-      display: block;
-      position: relative;
-      overflow: hidden;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      transition: all @transition-time;
-      content: attr(data-original-title) }
-  }
+  button {
+    flex: 0 1 @size * 2.5;
+    width: auto !important;
+    height: auto !important }
 
-  @{vertical} {
-    transition: width @transition-time;
-    width: @tab-height - 0.6 !important;
-    border-width: 0 !important;
-    padding: @tab-height 0 0 0;
+  button::before {
+    box-sizing: content-box;
+    display: inline-block;
+    height: @size;
+    line-height: @size !important }
 
-    &:hover {
-      width: 240px !important }
+  button::after {
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all @transition-time;
+    content: attr(data-original-title) }}
 
-    hr, .tool-bar-spacer {
-      margin-top: 1em;
-      margin-bottom: 1em;
-      margin: 1rem 0 !important;
-      width: 80%;
-      left: 10%;
-      border-top: transparent;
-      position: relative }
+@{vertical} {
+  transition: width @transition-time;
+  width: auto; // @tab-height - 0.6 !important;
+  border-width: 0 !important;
+  padding: @tab-height 0 0 0;
 
-    button.tool-bar-btn {
-      text-align: left;
-      width: inherit !important;
-      height: @tab-height - 1 !important;
-      line-height: @tab-height - 1 !important;
-      border-width: 0 !important;
-      margin: 0.4rem 0.2rem !important;
-      padding: 0 !important;
-      width: auto !important }
+  // &:hover {
+  //   width: 240px !important }
 
-    button::before {
-      display: inline-block;
-      vertical-align: middle;
-      text-align: center;
-      margin: 0 0 0 -0.3rem;
-      width: @tab-height }
+  hr, .tool-bar-spacer {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin: 1rem 0 !important;
+    width: 80%;
+    left: 10%;
+    border-top: transparent;
+    position: relative }
 
-    button::after {
-      margin-left: 1rem;
-      display: inline-block;
-      content: attr(data-original-title) }
-  }
+  button.tool-bar-btn {
+    //width: inherit !important;
+    text-align: left;
+    margin: 0.4rem 0.2rem !important;
+    padding: 0 !important;
+    width: auto !important }
+
+  button::before {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center }
+
+  button::after {
+    margin-left: 1rem;
+    display: inline-block;
+    content: attr(data-original-title) }
+}

@@ -1,18 +1,7 @@
-/**
-* @Author: Tunpi
-* @Date:   December 14, 2016 3:42 AM
-* @Email:  tuomas.hatakka@gmail.com
-* @Project: Envelope
-* @Last modified by:   Tunpi
-* @Last modified time: December 14, 2016 3:47 AM
-*/
-
-
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
+title       Reduced UI variables
 project     reduced-dark-ui
-version     0.0.0
 repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
@@ -43,10 +32,10 @@ Background                                                                      
 @background-color-highlight: @col-dark;
 @background-color-selected: @col-dark;
 
-@background-color-info: mix(@col-main, @app-background-color, 50%);
-@background-color-success: mix(@col-success, @app-background-color, 50%);
-@background-color-warning: mix(@col-annotation, @app-background-color, 75%);
-@background-color-error: mix(@col-error, @app-background-color, 75%);
+@background-color-info: screen(@col-main, @app-background-color, 50%);
+@background-color-success: screen(@col-success, @app-background-color, 50%);
+@background-color-warning: screen(@col-annotation, @app-background-color, 75%);
+@background-color-error: screen(@col-error, @app-background-color, 75%);
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Size factors                                                                                                                                                                                                                                                                                                                                                                 */
@@ -200,6 +189,7 @@ Sizes                                                                           
     @component-icon-padding: @component-padding / 2;
     @component-line-height: unit(@size-xlarge, rem);
     @component-border-radius: 6px;
+    @handle-size: 12px;
 
     // Fonts
     @font-size: 1rem;

@@ -11,16 +11,32 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 status-bar {
   .text(subtle);
   display: block;
-  background: @base-border-color;
-  height: @input-height / 2;
-  line-height: @input-height / 2;
+  background: transparent;
+  height: @input-height;
+  line-height: @input-height;
   font-size: 0.82em;
   letter-spacing: 0.02em;
 
-  & > .flexbox-repaint-hack { padding-top: 0 }
+  & > .flexbox-repaint-hack {
+    padding: 0 }
   & > *,
   & > * > * {
+    background: transparent;
     height: inherit;
     line-height: inherit }
-  span { font-size: 1em }
+
+  span {
+    font-size: 1em }
+
+  .status-bar-right,
+  .status-bar-left {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    & > * {
+      flex: 0 1 auto;
+      padding: 0;
+      margin: 0 @component-padding / 1.5 0 0;
+    }
+  }
 }

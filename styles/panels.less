@@ -107,15 +107,35 @@ atom-panel.right {
     position: absolute;
     top: 0;
     bottom: 0;
-    min-width: 4px;
-    width: 4px;
+    left: 0;
+    right: 0;
+    min-width: @handle-size;
+    min-height: @handle-size;
+    width: @handle-size;
+    height: @handle-size;
     background: fade(@background-color-dark, 10%);
     z-index: 100000 }}
 
 atom-panel.left @{handle} {
   right: 0px;
+  left: auto;
+  height: auto;
   transform: translateX(50%) }
 
 atom-panel.right @{handle} {
   left: 0px;
+  right: auto;
+  height: auto;
   transform: translateX(-50%) }
+
+atom-panel.top @{handle} {
+  top: 0px;
+  bottom: auto;
+  width: auto;
+  transform: translateY(50%) }
+
+atom-panel.bottom @{handle} {
+  bottom: 0px;
+  top: auto;
+  width: auto;
+  transform: translateY(-50%) }

@@ -15,98 +15,93 @@ Variable definitions                                                            
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 User Interface                                                                                                                                                                                                                                                                                                                                                          */
-.config(tabSizing);
-.config(fixedTabBar);
-.config(fixedProjectRoot);
-.config(overrideEditorBackground);
-.config(@arg) {
-  [@{attr-config}*=@{arg}] {
+//.config(tabSizing);
+// .config(fixedTabBar);
+// .config(fixedProjectRoot);
+// .config(overrideEditorBackground);
+// .config(@arg) {
+//[@{attr-config}*=@{arg}] {
+atom-workspace when (@config-tabSizing = true) {
+  .tab-bar .tab {
+    max-width: none;
+    flex-basis: auto }
+}
 
 
-    & when (@arg = tabSizing) {
+atom-workspace when (@config-fixedTabBar = true) {
+  & > atom-workspace-axis {
+    margin-top: @tab-height !important }
 
-      atom-workspace .tab-bar .tab {
-        max-width: none;
-        flex-basis: auto }}
+  .tree-view-resizer {
+    overflow: hidden;
+    & .project-root > .list-tree { top: 0 }}
 
-
-    & when (@arg = fixedTabBar) {
-
-      atom-workspace > atom-workspace-axis {
-        margin-top: @tab-height !important }
-
-      .tree-view-resizer {
-        overflow: hidden;
-        & .project-root > .list-tree { top: 0 }}
-
-      .tab-bar {
-        position: fixed;
-        height: @tab-height;
-        transform: translateY(-100%);
-        left: 0;
-        right: 0;
-        z-index: 300;
-        .tab.active,
-        .tab:hover.active {
-          width: inherit }}}
+  .tab-bar {
+    position: fixed;
+    height: @tab-height;
+    transform: translateY(-100%);
+    left: 0;
+    right: 0;
+    z-index: 300;
+    .tab.active,
+    .tab:hover.active {
+      width: inherit }}
+}
 
 
-    & when (@arg = fixedProjectRoot) {
+atom-workspace when (@config-fixedProjectRoot = true) {
+  .tree-view-scroller {
+    position: relative;
+    margin-left: 8px;
+    overflow: initial;
+    z-index: 301;
 
-      .tree-view-scroller {
-        position: relative;
-        margin-left: 8px;
-        overflow: initial;
-        z-index: 301;
+    .tree-view {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin-left: 0;
+      padding: 0;
+      display: flex;
+      overflow: initial;
 
-        .tree-view {
+      > .project-root {
+        flex: 1 1 auto;
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+
+        &.selected {
+          z-index: 1000 }
+
+        &::before {
+          content: none; }
+
+        .project-root-header {
           position: relative;
           top: 0;
           left: 0;
-          right: 0;
-          bottom: 0;
-          margin-left: 0;
+          margin: 0;
           padding: 0;
-          display: flex;
-          overflow: initial;
+          margin-left: -8px;
+          max-width: 100%;
+          z-index: 1000;
+          height: @tab-height }
 
-          > .project-root {
-            flex: 1 1 auto;
-            margin: 0;
-            padding: 0;
-            max-width: 100%;
+        > .list-tree {
+          position: absolute;
+          overflow: auto;
+          top: @tab-height;
+          bottom: 0;
+          left: 0;
+          right: 0 }}}}
+}
 
-            &.selected {
-              z-index: 1000 }
-
-            &::before {
-              content: none; }
-
-            .project-root-header {
-              position: relative;
-              top: 0;
-              left: 0;
-              margin: 0;
-              padding: 0;
-              margin-left: -8px;
-              max-width: 100%;
-              z-index: 1000;
-              height: @tab-height }
-
-            > .list-tree {
-              position: absolute;
-              overflow: auto;
-              top: @tab-height;
-              bottom: 0;
-              left: 0;
-              right: 0 }}}}
-    }
-
-    & when (@arg = overrideEditorBackground) {
-      atom-text-editor,
-      atom-text-editor::shadow,
-      :host {
-        background: @tab-background-color-active }
-    }
-
-  }}
+atom-workspace when (@config-overrideEditorBackground = true) {
+  atom-text-editor,
+  atom-text-editor::shadow,
+  :host {
+    background: @tab-background-color-active }
+}

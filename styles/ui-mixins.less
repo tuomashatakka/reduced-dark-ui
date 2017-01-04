@@ -88,7 +88,9 @@ Text                                                                            
   color: @text-color;
   font-family: @font-family-caps;
   text-transform: uppercase;
-  font-weight: 400 }
+  font-weight: 400;
+  font-size: unit(@size-tiny, rem);
+  letter-spacing: 0.1em; }
 
 .text(highlight) {
   .text(normal);
@@ -195,12 +197,16 @@ Colors & accent                                                                 
       color: @col-bg;
       border-color: @col-highlight !important }}}}
 
+.selection(disabled) {
+  -webkit-user-select: none;
+  -webkit-user-drag: none }
+
+
                                                                                                                                                                                                                                                                                                                                                                            /*
 Media Queries                                                                                                                                                                                                                                                                                                                                                              */
 
 .small(@args) { .media(768px, @args) }
 .medium(@args) { .media(1200px, @args) }
-
 
 .media(@breakpoint: 768px, @args) {
 
