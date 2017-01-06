@@ -1,5 +1,6 @@
 # NPM & Node
 node_modules
+node_modules/**
 
 # Symbols
 .tags
