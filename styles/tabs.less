@@ -50,7 +50,9 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     .status-modified, &.modified { color: @text-color-modified }
     .status-added, &.added { color: @text-color-added }
     .status-ignored, &.ignored { color: @text-color-ignored }
-    .title, .title::before { line-height: inherit }
+    .title, .title::before {
+      line-height: inherit;
+      font-size: 1rem !important }
 
     // Hovered
     &:hover {

@@ -20,6 +20,8 @@ html {
 body {
   position: relative }
 
+
+// Blur for the modal bg
 atom-workspace {
   atom-workspace-axis.vertical {
     margin-left: @tab-height }}
@@ -58,36 +60,27 @@ kbd,
 }
                                                                                                                                                                                                                                                                                                                                                                         /*
 Scrollbars                                                                                                                                                                                                                                                                                                                                                                 */
-.scrollbars-visible-always {
+
+.scrollbars-visible-always,
+atom-text-editor,
+.settings-view {
   /deep/ ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px }
+    width: @handle-size;
+    height: @handle-size }
 
   /deep/ ::-webkit-scrollbar-track,
   /deep/ ::-webkit-scrollbar-corner {
     background: @scrollbar-track-color }
 
   /deep/ ::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    border: 1px solid @scrollbar-border-color;
+    border-radius: @handle-size;
+    border: 1px solid transparent;
     background: @scrollbar-color;
     background-clip: content-box;
 
     &:active, &:hover {
-      border: 1px solid @scrollbar-border-color;
-      background: @scrollbar-color-active }}
-
-  atom-text-editor, .settings-view {
-    /deep/ ::-webkit-scrollbar-track,
-    /deep/ ::-webkit-scrollbar-corner {
-      background: @base-background-color }
-
-    /deep/ ::-webkit-scrollbar-thumb {
-      border: 1px solid @base-background-color;
-      background: @scrollbar-color;
-
-      &:active, &:hover {
-        border: 1px solid @base-background-color }}}}
+      border-color: @scrollbar-color;
+      background: @scrollbar-color-active }}}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Select Forms                                                                                                                                                                                                                                                                                                                                                                 */

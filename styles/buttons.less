@@ -60,6 +60,9 @@ button, button.icon, .btn-default, .btn {
     height: @button-height !important;
     box-sizing: border-box }
 
+  .btn:hover {
+    border-color: transparent !important }
+
   .btn:first-child {
     border-left-width: 1px !important;
     border-left-style: solid !important;
@@ -74,6 +77,7 @@ button, button.icon, .btn-default, .btn {
   &.btn-toolbar > &,
   .btn-toolbar > & {
     border-radius: @button-border-radius;
+    line-height: @button-height;
     overflow: hidden;
     margin: 0 1px;
     border: 0 solid fade(@base-border-color, 75%);
@@ -81,6 +85,7 @@ button, button.icon, .btn-default, .btn {
     & > .btn {
       border-width: 0;
       margin: 1px;
+      line-height: @button-height;
       border-radius: @button-border-radius !important }}
 }
 

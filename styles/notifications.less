@@ -14,11 +14,17 @@ atom-notifications {
   @shadow-blur: 14;    // this per 10
   @left-bar-width: 3rem;
   @transition-curve: cubic-bezier(0.65, 0.02, 0.35, 0.2);
+  @hide-factor: 0.85;
 
   .text(normal);
   top: 1rem;
   background-color: transparent;
   margin-left: -@left-bar-width;
+
+  &:hover atom-notification {
+    transition-delay: 0s;
+    transition-duration: @transition-time/2;
+    transform: translateX(0) }
 
   atom-notification {
     box-shadow: 0em 1em unit(@shadow-blur / 10, em) rgba(0, 0, 0, @shadow-opacity / 100);
@@ -26,28 +32,16 @@ atom-notifications {
     border-radius: 2px !important;
     overflow: hidden;
     transition: transform @transition-time*3 @transition-curve @transition-time*2;
-    transform: translateX(94%);
+    transform: translateX(unit(@hide-factor * 100, %));
 
-    &:hover {
-      transition-delay: 0s;
-      transition-duration: @transition-time/2;
-      transform: translateX(0);
-    }
-
+    &:not(.has-close) { transform: translateX(0) }
+    &:not(.has-close) .close-all { display: none }
     &.has-close .message { padding-right: 2rem }
     &:first-child.has-close .message { padding-right: 6rem }
-    &:not(.has-close) .close-all { display: none }
-
+    &::after { display: none }
     &::before {
       border-radius: 2px 0 0 2px !important;
-      width: @left-bar-width;
-    }
-    &::after {
-      display: none;
-    }
-  }
-
-
+      width: @left-bar-width }}
 
   .close {
     transition: all @transition-time ease;
@@ -57,7 +51,8 @@ atom-notifications {
     display: flex;
     margin: 0 -1rem;
 
-    & > *, & > .btn.btn {
+    & > *,
+    & > .btn.btn {
       transition: all @transition-time;
       flex: 1 1 auto;
       border-radius: 0 !important;
@@ -73,25 +68,19 @@ atom-notifications {
       border-color: @base-border-color !important;
       background-color: rgba(0, 0, 0, 0.1);
       box-sizing: border-box;
-      &:not(:hover) {
-        color: @text-color-subtle !important }
 
-      &:hover {
-        background: @text-color-subtle }
-
-        &:first-child {
-          border-left-width: 0 !important }}
-  }
+      &:not(:hover) { color: @text-color-subtle !important }
+      &:hover { background: @text-color-subtle }
+      &:first-child { border-left-width: 0 !important }}}
 
   .btn, .btn.close-all, .btn-success, button.btn-success, .btn-default.btn-success {
 
     .button-variant(@text-color-info);
     font-weight: 300 !important;
     font-size: 0.8em !important;
-
     vertical-align: middle;
     box-sizing: content-box;
-    padding: 0 1em !important;
+    padding: @component-padding/2 @component-padding !important;
 
     &.close-all {
       right: 3.5rem;
@@ -99,9 +88,8 @@ atom-notifications {
       position: fixed; background: @base-background-color }}
 
   .error {
-    code {
-      .state(error) }
-  }
+    code { .state(error) }}
+
   .content,
   .detail,
   .message,
@@ -115,8 +103,8 @@ atom-notifications {
   .stack-toggle {
     .icon, .icon::before {
       line-height: inherit;
-      font-size: inherit;
-    }
+      font-size: inherit }
+
     line-height: 2em;
     color: @text-color-info }}
 
@@ -126,9 +114,7 @@ atom-notifications {
     code { .text(subtle) }
     .detail-content {
       .text(subtle);
-      line-height: 2em }
-  }
-
+      line-height: 2em }}
 
   .content {
     border-radius: 0;
@@ -137,6 +123,7 @@ atom-notifications {
   .meta {
     padding-top: 0;
     padding-bottom: 0;
+
     .description {
       padding-bottom: @button-height/2;
       a { color: @text-color-info }}
@@ -148,5 +135,4 @@ atom-notifications {
     .btn-toolbar .icon-clippy {
       color: @text-color;
       line-height: @button-height;
-      padding-left: @button-height/2 }}
-}
+      padding-left: @button-height/2 }}}
