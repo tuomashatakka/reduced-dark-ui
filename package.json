@@ -11,49 +11,65 @@
     "url": "https://gitlab.com/tuomashatakka/atom-ui-reduced-dark"
   },
   "configSchema": {
-
-    "uiScale": {
-      "title": "UI Scale",
-      "description": "Scale the user interface",
-      "type": "integer",
-      "default": 100,
-      "minimum": 25,
-      "maximum": 200
-    },
-    "highlightColor": {
-      "title": "Highlight Color",
-      "description": "The main accent color used in the ui",
-      "type": "color",
-      "default": "#59edbc"
-    },
-
-    "tabSizing": {
-      "title": "Full-Width Tab Sizing",
-      "description": "EXPERIMENTAL - In full width mode, tabs will fill the whole tab bar.",
-      "type": "boolean",
-      "default": true
-    },
-    "fixedTabBar": {
-      "title": "Fixed Tab Bar",
-      "description": "EXPERIMENTAL - Allow tabs to spread amongst the whole screen.",
-      "type": "boolean",
-      "default": true
-    },
-    "fixedProjectRoot": {
-      "title": "Fixed Project Root",
-      "description": "EXPERIMENTAL - Project root folder visible even when scrolled down.",
-      "type": "boolean",
-      "default": true
+    "layout": {
+      "order": 1,
+      "title": "Size & layout",
+      "description": "General UI tweaks",
+      "type": "object",
+      "properties": {
+        "uiScale": {
+          "order": 1,
+          "title": "UI Scale",
+          "description": "Scale the user interface",
+          "type": "integer",
+          "default": 100,
+          "minimum": 25,
+          "maximum": 200
+        },
+        "tabSizing": {
+          "order": 2,
+          "title": "Full-Width Tab Sizing",
+          "description": "Let tabs stretch to fill the whole container.",
+          "type": "boolean",
+          "default": true
+        },
+        "fixedTabBar": {
+          "order": 3,
+          "title": "Fixed Tab Bar",
+          "description": "Display tabs above everything else. Enabling this setting allows tabs to spread amongst the whole screen.",
+          "type": "boolean",
+          "default": false
+        },
+        "fixedProjectRoot": {
+          "order": 4,
+          "title": "Fixed Project Root",
+          "description": "Set the project root(s) in the tree view to be fixed to the top of the view. If enabled, the root folders remain visible when the tree view is scrolled down.",
+          "type": "boolean",
+          "default": true
+        }
+      }
     },
     "overrideEditorBackground": {
       "title": "Override Editor Background Color",
       "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
       "type": "boolean",
       "default": true
+    },
+    "icons": {
+      "order": 4,
+      "title": "Override Editor Background Color",
+      "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
+      "type": "object"
     }
   },
-  "dependencies": {},
-  "description": "Atom UI theme.",
+  "activationCommands": {
+    "atom-workspace": "reduced-dark-ui:decorate"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "description": "A dark & minimal yet usable theme for atom.",
   "devDependencies": {},
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
