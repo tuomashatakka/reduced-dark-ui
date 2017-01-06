@@ -8,3 +8,5 @@ node_modules/**
 
 # General
 *.log
+*.lock
+*.ai
