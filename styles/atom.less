@@ -9,6 +9,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Workspace                                                                                                                                                                                                                                                                                                                                                               */
+@blur-intensity: 6px;
+
 html {
   font-size: @font-size}
 
@@ -21,6 +23,12 @@ body {
 atom-workspace {
   atom-workspace-axis.vertical {
     margin-left: @tab-height }}
+
+.modal-open {
+  atom-panel-container.footer,
+  atom-workspace-axis.horizontal {
+  transition: -webkit-filter @transition-time;
+  -webkit-filter: blur(@blur-intensity) }}
 
 
                                                                                                                                                                                                                                                                                                                                                                         /*
