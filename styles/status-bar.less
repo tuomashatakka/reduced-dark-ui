@@ -14,13 +14,13 @@ status-bar {
   background: transparent;
   height: @input-height;
   line-height: @input-height;
-  font-size: 0.82em;
+  font-size: unit(@size-small, rem);
   letter-spacing: 0.02em;
 
   & > .flexbox-repaint-hack {
     padding: 0 }
-  & > *,
-  & > * > * {
+
+  & > *, & > * > * {
     background: transparent;
     height: inherit;
     line-height: inherit }
@@ -34,9 +34,12 @@ status-bar {
     align-items: stretch;
     justify-content: flex-start;
     & > * {
+      font-size: unit(@size-small, rem);
       flex: 0 1 auto;
       padding: 0;
       margin: 0 @component-padding / 1.5 0 0;
     }
   }
+  .status-bar-right > *:last-child {
+    padding-right: @component-padding }
 }

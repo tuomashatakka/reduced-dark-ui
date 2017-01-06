@@ -30,7 +30,7 @@ Search and replace                                                              
   [class*="btn-group-replace"] .btn { .button-variant(@text-color-warning) }}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-Keybinding Badges                                                                                                                                                                                                                                                                                                                                                       */
+Badges & Keybinding Badges                                                                                                                                                                                                                                                                                                                                                       */
 kbd,
 .settings-view .package-readme kbd {
   .text(normal);
@@ -39,8 +39,15 @@ kbd,
   font-size: 90%;
   border: 1px solid @tooltip-key-text-color;
   border-radius: @component-border-radius;
-  margin-left: @component-padding/2; }
+  margin-left: @component-padding/2 }
 
+.badge {
+  padding: @component-padding / 2;
+
+  &.info, &.success, &.warning, &.error,
+  &.badge-info, &.badge-success, &.badge-warning, &.badge-error {
+    color: @tooltip-key-background-color }
+}
                                                                                                                                                                                                                                                                                                                                                                         /*
 Scrollbars                                                                                                                                                                                                                                                                                                                                                                 */
 .scrollbars-visible-always {

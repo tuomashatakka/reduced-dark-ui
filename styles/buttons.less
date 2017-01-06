@@ -18,19 +18,19 @@ button, button.icon, .btn-default, .btn {
 
   &.btn-xs {
     font-size: @size-xsmall;
-    padding: 0 4px;
+    padding: 0 @component-padding / 2;
     height: @button-height/1.5;
     line-height: @button-height/1.5 }
 
   &.btn-sm {
     font-size: @size-small;
-    padding: 0 8px;
+    padding: 0 @component-padding / 2;
     height: @button-height;
     line-height: @button-height }
 
   &.btn-lg {
     font-size: @size-large;
-    padding: 0 12px;
+    padding: 0 @component-padding;
     height: @button-height * 2;
     line-height: @button-height * 2 }
 
@@ -42,11 +42,10 @@ button, button.icon, .btn-default, .btn {
       color: mix(@text-color, @app-background-color) }
   }
 
-  &.btn-error { .button-variant(@text-color-error) }
-  &.btn-info { .button-variant(@text-color-info) }
-  &.btn-primary { .button-variant(@text-color-info) }
+  &.btn-info, &.btn-primary { .button-variant(@text-color-info) }
   &.btn-success { .button-variant(@text-color-success) }
   &.btn-warning { .button-variant(@text-color-warning) }
+  &.btn-error { .button-variant(@text-color-error) }
   &.status-indicator { border-width: 0 !important }
 }
 
@@ -59,21 +58,18 @@ button, button.icon, .btn-default, .btn {
   & > .btn {
     border: 1px solid;
     height: @button-height !important;
-    box-sizing: border-box;
-  }
+    box-sizing: border-box }
 
   .btn:first-child {
     border-left-width: 1px !important;
     border-left-style: solid !important;
-    border-top-left-radius: @button-border-radius;
-    border-bottom-left-radius: @button-border-radius;
-  }
+    border-top-left-radius: @button-border-radius !important;
+    border-bottom-left-radius: @button-border-radius !important }
   .btn:last-child {
     border-right-width: 1px !important;
     border-right-style: solid !important;
-    border-top-right-radius: @button-border-radius;
-    border-bottom-right-radius: @button-border-radius;
-  }
+    border-top-right-radius: @button-border-radius !important;
+    border-bottom-right-radius: @button-border-radius !important }
 
   &.btn-toolbar > &,
   .btn-toolbar > & {
