@@ -22,13 +22,14 @@ default	package.json	/^          "default": true$/;"	f
 default	package.json	/^      "default": true$/;"	f
 dependencies	package.json	/^  "dependencies": {$/;"	f
 description	package.json	/^          "description": "A complementary highlight accent.",$/;"	f
-description	package.json	/^          "description": "Display tabs above everything else. Enabling this setting allows tabs to spread amongst the whole screen.",$/;"	f
-description	package.json	/^          "description": "Let tabs stretch to fill the whole container.",$/;"	f
-description	package.json	/^          "description": "Scale the user interface",$/;"	f
-description	package.json	/^          "description": "Set the project root(s) in the tree view to be fixed to the top of the view. If enabled, the root folders remain visible when the tree view is scrolled down.",$/;"	f
+description	package.json	/^          "description": "Display tabs above everything else. Enabling this setting allows tabs to spread amongst the whole screen. **Has some issues while the screen is split horizontally**",$/;"	f
+description	package.json	/^          "description": "Scale the user interface (does not affect the text editor font size)",$/;"	f
+description	package.json	/^          "description": "Set the project root(s) in the tree view to be fixed to the top of the view. If enabled, the root folders remain fixed to the top of the view while the tree view is scrolled.",$/;"	f
+description	package.json	/^          "description": "Spread the tabs to fill the whole tab bar.",$/;"	f
 description	package.json	/^          "description": "The primary highlight color. Used in the main GUI component interaction",$/;"	f
-description	package.json	/^      "description": "General UI tweaks",$/;"	f
+description	package.json	/^      "description": "General user interface definitions",$/;"	f
 description	package.json	/^      "description": "Highlight colors for the theme",$/;"	f
+description	package.json	/^      "description": "Icons for the workspace's panels (run reduced-dark-ui:decorate to refresh)",$/;"	f
 description	package.json	/^      "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",$/;"	f
 description	package.json	/^  "description": "A dark & minimal yet usable theme for atom.",$/;"	f
 devDependencies	package.json	/^  "devDependencies": {},$/;"	f
@@ -80,10 +81,11 @@ tabSizing	package.json	/^        "tabSizing": {$/;"	f
 theme	package.json	/^  "theme": "ui",$/;"	f
 title	package.json	/^          "title": "Fixed Project Root",$/;"	f
 title	package.json	/^          "title": "Fixed Tab Bar",$/;"	f
-title	package.json	/^          "title": "Full-Width Tab Sizing",$/;"	f
 title	package.json	/^          "title": "Primary color",$/;"	f
 title	package.json	/^          "title": "Secondary color",$/;"	f
+title	package.json	/^          "title": "Spread tabs",$/;"	f
 title	package.json	/^          "title": "UI Scale",$/;"	f
+title	package.json	/^      "title": "Icons",$/;"	f
 title	package.json	/^      "title": "Override Editor Background Color",$/;"	f
 title	package.json	/^      "title": "Size & layout",$/;"	f
 title	package.json	/^      "title": "Theme colors",$/;"	f

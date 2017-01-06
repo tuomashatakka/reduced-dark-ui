@@ -178,7 +178,7 @@ Colors & accent                                                                 
 
 .accent {
   background: @background-color-highlight;
-  color: @col-highlight;
+  color: @color-highlight;
 
   &.active,
   &.selected {
@@ -187,15 +187,15 @@ Colors & accent                                                                 
   &:hover,
   &:focus {}
   &.inverse {
-    background: @col-highlight;
+    background: @color-highlight;
 
-    & when (lightness(@col-highlight) < 0.5) { &, &:focus, &:active {
+    & when (lightness(@color-highlight) < 0.5) { &, &:focus, &:active {
       color: @col-white;
-      border-color: @col-highlight !important }}
+      border-color: @color-highlight !important }}
 
-    & when (lightness(@col-highlight) >= 0.5) { &, &:focus, &:active {
+    & when (lightness(@color-highlight) >= 0.5) { &, &:focus, &:active {
       color: @col-bg;
-      border-color: @col-highlight !important }}}}
+      border-color: @color-highlight !important }}}}
 
 .selection(disabled) {
   -webkit-user-select: none;

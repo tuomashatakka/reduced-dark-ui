@@ -50,9 +50,10 @@ atom-workspace when (@config-fixedTabBar = true) {
 
 
 atom-workspace when (@config-fixedProjectRoot = true) {
+
   .tree-view-scroller {
     position: relative;
-    margin-left: 8px;
+    margin-left: 0;
     overflow: initial;
     z-index: 301;
 
@@ -64,11 +65,14 @@ atom-workspace when (@config-fixedProjectRoot = true) {
       bottom: 0;
       margin-left: 0;
       padding: 0;
-      display: flex;
       overflow: initial;
 
       > .project-root {
-        flex: 1 1 auto;
+        position: static;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         margin: 0;
         padding: 0;
         max-width: 100%;
@@ -85,7 +89,7 @@ atom-workspace when (@config-fixedProjectRoot = true) {
           left: 0;
           margin: 0;
           padding: 0;
-          margin-left: -8px;
+          display: block;
           max-width: 100%;
           z-index: 1000;
           height: @tab-height }
@@ -93,10 +97,18 @@ atom-workspace when (@config-fixedProjectRoot = true) {
         > .list-tree {
           position: absolute;
           overflow: auto;
+          display: block;
           top: @tab-height;
           bottom: 0;
           left: 0;
-          right: 0 }}}}
+          right: 0 }
+
+        &.expanded {
+          .project-root-header {
+            right: 0;
+            position: absolute }
+          ~ .project-root {
+            display: none }}}}}
 }
 
 atom-workspace when (@config-overrideEditorBackground = true) {

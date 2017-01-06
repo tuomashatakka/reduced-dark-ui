@@ -9,7 +9,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 @background-color-dark: #17171a;
-@tree-view-border-color-disabled: rgba(0,0,0,0.2);
+@tree-view-border-color-disabled: rgba(0,0,0,0.05);
 
 .list-tree,
 .list-group,
@@ -21,6 +21,9 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
   > li.separator {
     border-width: 0 }
+
+  .directory.selected::before {
+    background: transparent !important }
 
   .project-root {
     transition: opacity @transition-time;
@@ -72,9 +75,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     .project-root-header {
       background: @tree-view-background-color;
       border-bottom-color: transparent }}
-
-  .directory.selected::before {
-    background: transparent !important }}
+}
 
 
 .list-group .icon,
@@ -89,7 +90,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     vertical-align: top }}
 
 .tree-view-resizer .tree-view-resize-handle {
-  width: 8px }
+  width: @handle-size }
 
 .tree-view-resizer .tree-view-scroller {
   overflow: auto }

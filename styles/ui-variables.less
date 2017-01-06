@@ -12,14 +12,16 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 @import 'definitions/config-user';
 @import 'base';
 
-@col-highlight: @config-primary;
-// @col-warning: lighten(@config-accentColor, 25%);
-@col-error: @config-accentColor;
+@color-highlight: @config-primary;
+@color-main: mix(@config-primary, @col-main, 25%);
+@color-info: mix(@config-primary, @col-main, 50%);
+@color-success: mix(@config-primary, @col-success, 50%);
+@color-error: mix(@config-accentColor, @col-error, 25%);
                                                                                                                                                                                                                                                                                                                                                                         /*
 Animation                                                                                                                                                                                                                                                                                                                                                               */
 @ui-theme-name: 'reduced-dark-ui';
 @transition-time: 400ms;
-//@col-main: attr('reduced-dark-ui-highlightcolor');
+//@color-main: attr('reduced-dark-ui-highlightcolor');
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Base                                                                                                                                                                                                                                                                                                                                                                    */
@@ -32,10 +34,10 @@ Background                                                                      
 @background-color-highlight: @col-dark;
 @background-color-selected: @col-dark;
 
-@background-color-info: screen(@col-main, @app-background-color, 50%);
-@background-color-success: screen(@col-success, @app-background-color, 50%);
+@background-color-info: screen(@color-main, @app-background-color, 50%);
+@background-color-success: screen(@color-success, @app-background-color, 50%);
 @background-color-warning: screen(@col-annotation, @app-background-color, 75%);
-@background-color-error: screen(@col-error, @app-background-color, 75%);
+@background-color-error: mix(@color-error, @app-background-color, 90%);
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Size factors                                                                                                                                                                                                                                                                                                                                                                 */
@@ -53,15 +55,15 @@ Text                                                                            
 @text-color-subtle: fade(@text-color, 40%);
 @text-color-highlight: @col-white;
 @text-color-selected: @text-color-highlight;
-@text-color-info: @col-main;
-@text-color-success: @col-success;
+@text-color-info: @color-main;
+@text-color-success: @color-success;
 @text-color-warning: @col-annotation;
-@text-color-error: @col-error;
+@text-color-error: @color-error;
 @text-color-ignored: @text-color-subtle;
-@text-color-added: @col-success;
-@text-color-renamed: @col-main;
+@text-color-added: @color-success;
+@text-color-renamed: @color-main;
 @text-color-modified: @col-warning;
-@text-color-removed: @col-error;
+@text-color-removed: @color-error;
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Components                                                                                                                                                                                                                                                                                                                                                              */
@@ -101,7 +103,7 @@ Components                                                                      
     @panel-heading-border-color: @base-border-color;
 
     // Progress bar
-    @progress-loading-bar-background-color: @col-main;
+    @progress-loading-bar-background-color: @color-main;
 
     // Scrollbar
     @scrollbar-color: @col-darker;
@@ -110,11 +112,11 @@ Components                                                                      
     @scrollbar-track-color: transparent;
 
     // Site
-    @ui-site-color-1: @col-main;
-    @ui-site-color-2: @col-success;
+    @ui-site-color-1: @color-main;
+    @ui-site-color-2: @color-success;
     @ui-site-color-3: @col-annotation;
-    @ui-site-color-4: @col-error;
-    @ui-site-color-5: @col-warning;
+    @ui-site-color-4: @col-warning;
+    @ui-site-color-5: @color-error;
 
     // Tabs
     @tab-bar-background-color: @app-background-color;
@@ -127,7 +129,7 @@ Components                                                                      
     // Tooltips
     @tooltip-text-color: @text-color;
     @tooltip-background-color: @background-color-selected;
-    @tooltip-key-text-color: @col-main;
+    @tooltip-key-text-color: @color-main;
     @tooltip-key-background-color: @base-background-color;
 
     // Tree view
