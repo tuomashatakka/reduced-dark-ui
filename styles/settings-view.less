@@ -1,16 +1,31 @@
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
+title       Settings view
 project     reduced-dark-ui
-version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
+@settings-gutter: 1.5rem;
+@size-pkg-name: 6rem;
+
 .settings-view {
   .text(normal);
   font-size: @font-size;
+
+  // Inputs
+  .color {
+    padding: 0;
+
+    input[type="color"] {
+      margin: 0 0 0 -2.5rem;
+      padding: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 2rem;
+      border: none;
+      background: transparent }}
 
   .breadcrumb {
     .text(caps);
@@ -21,8 +36,16 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     left: 0;
     right: 0;
 
+    & > li {
+      padding: 0 1.5rem 0 0;
+    }
+
     & > li + li::before {
+      padding: 0 1.5rem 0 0;
       .icon("\f105") }}
+
+  .breadcrumb + * {
+    margin-top: 4rem }
 
   input[type="checkbox"]:checked {
     background-color: @text-color-highlight }
@@ -69,21 +92,41 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
         min-height: 36px }}}
 
   .section {
-    background-color: @app-background-color;
-    background-color: @background-color-highlight;
+    margin: @settings-gutter @settings-gutter 0 0;
+    background-color: mix(@app-background-color, @background-color-highlight);
+    border-radius: @component-border-radius;
+
+    .section-body {
+      display: flex;
+      max-width: none;
+      flex-flow: row wrap;
+
+      .control-group {
+        flex: 1 0 33%;
+        min-width: 32rem;
+        padding: 0 @input-height 0 0;
+        margin-bottom: @settings-gutter }
+    }
+
+    .section-container {
+      max-width: none }
 
     .section-heading { .h2 }
-    .sub-section-heading { .h3 }}
+    .sub-section .sub-section-heading { .h3 }
+    .sub-section .sub-section .sub-section-heading { .h4 }}
 
-  .section:first-of-type { border-top: 0 }
+  .section:first-of-type {
+    border-top: 0 }
 
   .section .section-heading::before,
   .section .sub-section-heading::before {
-    font-size: 1.5em;
-    line-height: 0.75em;
-    padding: 0 1em 0 0;
-    vertical-align: top;
-    opacity: 0.75; }
+    font-size: 6em;
+    padding: 0 1.5rem 0 0;
+    vertical-align: middle;
+    opacity: 0.1;
+    margin-left: -6.5rem;
+    margin-right: 5rem;
+    line-height: 1.5rem }
 
   .config-menu {
     background-color: @app-background-color;
@@ -105,28 +148,45 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       &.active > a:hover {
         background: @background-color-selected }}}
 
-  .sub-section .container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: stretch;
+  .sub-section {
+    margin: 0;
+    padding-bottom: @component-padding;
 
-    & > * {
-      margin: 0 }
+    .container {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: stretch;
 
-    & > * > * {
-      margin: 0 2px 2px 0 }
+      & > * {
+        display: block;
+        flex: 1 0 33%;
+        border-radius: @component-border-radius;
+        border: 1px solid mix(@base-border-color, @app-background-color);
+        margin: 0 2px 2px 0 }
+
+      & > * > * {
+        margin: 0 }
+    }
+    .row div {
+      background-color: transparent }
   }
-  .sub-section .row div { background-color: transparent }
 
   .package-card {
     .text(normal);
+    position: relative;
     background: @background-color-highlight;
-    border-width: 0px solid @base-border-color;
+    border-width: 0px;
     border-radius: 2px;
     padding: @component-padding;
+    transition: all @transition-time;
 
-    &:hover { background: transparent }
+    &:hover {
+      transform: translateY(-6px);
+      z-index: 100;
+      background-color: #19191b !important;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2) }
+
     .card-name { .h4 }
 
     .meta-controls {
@@ -139,9 +199,23 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
             -webkit-animation: spin 1s linear infinite;
             content: '\f087' }}}
 
+      .btn-toolbar > .btn-group {
+        border-radius: 0;
+        position: static;
+      }
+
       .status-indicator {
-        width: 1.5em !important;
-        margin-left: 1em }}
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: auto !important;
+        width: 1px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border-width: 0 !important;
+        min-width: 1px;
+        z-index: 10000 }}
   }
 
   .package-detail .package-card:hover {
@@ -160,4 +234,42 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   .package-readme {
     font-size: 1em;
     h1, h2, h3, h4 { .text(heading) }}
+}
+
+
+// Package details view
+.settings-view .package-detail-view {
+  .package-card {
+    flex: 1 0 100%;
+    border-width: 0 !important;
+    padding-bottom: 3em;
+    background: transparent;
+
+    .package-name {
+      .h1;
+      font-weight: 100;
+      font-size: @size-pkg-name;
+      letter-spacing: -0.075em }
+
+    .package-name:hover {
+      text-decoration: none }
+  }
+
+  > p,
+  > .link {
+    float: left;
+    padding: @settings-gutter;
+    margin: 0 !important }
+
+  > .btn-wrap-group {
+    .btn-group;
+    clear: both;
+    padding: @settings-gutter;
+
+    .btn {
+      margin: 0 1em 1em 0;
+      padding: 0em 1.6em;
+      display: inline-block;
+    }
+  }
 }

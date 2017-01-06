@@ -1,0 +1,9 @@
+# NPM & Node
+node_modules
+
+# Symbols
+.tags
+.tags*
+
+# General
+*.log

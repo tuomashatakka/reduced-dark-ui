@@ -3,7 +3,7 @@
 title       Reduced
 project     reduced-dark-ui
 version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
@@ -16,16 +16,17 @@ Overlay                                                                         
     .text(caps);
     color: @text-color;
     background: transparent;
-    font-size: @button-height / 3;
-    line-height: @button-height;
+    font-size: 1rem;
+    line-height: @button-height - 2 * @input-padding-vertical;
+    min-height: @button-height;
     border-radius: @button-border-radius;
-    transition: all @transition-time ease;
+    transition: all @transition-time / 2;
     border-width: 1px !important;
     border-style: solid !important;
     box-shadow: none !important;
     height: auto;
     margin: 0;
-    padding: 0 @button-height;
+    padding: @input-padding-vertical @input-padding-horizontal;
     box-sizing: border-box }
 
   &:active, &:active:focus,
@@ -87,7 +88,9 @@ Text                                                                            
   color: @text-color;
   font-family: @font-family-caps;
   text-transform: uppercase;
-  font-weight: 400 }
+  font-weight: 400;
+  font-size: unit(@size-tiny, rem);
+  letter-spacing: 0.1em; }
 
 .text(highlight) {
   .text(normal);
@@ -157,20 +160,47 @@ Overlay                                                                         
 
                                                                                                                                                                                                                                                                                                                                                                              /*
 Colors & accent                                                                                                                                                                                                                                                                                                                                                              */
+.state() {
+  background: @background-color-highlight }
+
+.state(error) {
+  color: @text-color-error }
+
+.state(warning) {
+  color: @text-color-warning }
+
+.state(info) {
+  color: @text-color-info }
+
+.state(success) {
+  color: @text-color-success }
+
+
 .accent {
   background: @background-color-highlight;
-  color: @col-highlight }
+  color: @col-highlight;
 
-.accent.inverse {
-  background: @col-highlight;
+  &.active,
+  &.selected {
+    }
 
-  & when (lightness(@col-highlight) < 0.5) { &, &:focus, &:active {
-    color: @col-white;
-    border-color: @col-white !important }}
+  &:hover,
+  &:focus {}
+  &.inverse {
+    background: @col-highlight;
 
-  & when (lightness(@col-highlight) >= 0.5) { &, &:focus, &:active {
-    color: @col-bg;
-    border-color: @col-bg !important }}}
+    & when (lightness(@col-highlight) < 0.5) { &, &:focus, &:active {
+      color: @col-white;
+      border-color: @col-highlight !important }}
+
+    & when (lightness(@col-highlight) >= 0.5) { &, &:focus, &:active {
+      color: @col-bg;
+      border-color: @col-highlight !important }}}}
+
+.selection(disabled) {
+  -webkit-user-select: none;
+  -webkit-user-drag: none }
+
 
                                                                                                                                                                                                                                                                                                                                                                            /*
 Media Queries                                                                                                                                                                                                                                                                                                                                                              */
@@ -178,8 +208,20 @@ Media Queries                                                                   
 .small(@args) { .media(768px, @args) }
 .medium(@args) { .media(1200px, @args) }
 
-
 .media(@breakpoint: 768px, @args) {
 
   @media (max-width: @breakpoint) {
     @args(); }}
+
+      /*&::before {
+        font-family: "ionicons";
+        content: "\f404";
+        position: absolute;
+        right: 0;
+        width: 4.8rem;
+        height: 4.8rem;
+        line-height: 4.8rem;
+        text-align: center;
+        font-size: 24px;
+        transform: translateX(100%);
+        background: inherit }*/

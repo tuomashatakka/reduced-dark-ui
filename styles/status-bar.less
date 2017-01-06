@@ -1,9 +1,8 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
+title       Status bar
 project     reduced-dark-ui
-version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
@@ -12,12 +11,32 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 status-bar {
   .text(subtle);
   display: block;
-  background: @base-border-color;
+  background: transparent;
   height: @input-height;
   line-height: @input-height;
   font-size: 0.82em;
   letter-spacing: 0.02em;
 
-  & > .flexbox-repaint-hack { padding-top: 0 }
-  span { font-size: 1em }
+  & > .flexbox-repaint-hack {
+    padding: 0 }
+  & > *,
+  & > * > * {
+    background: transparent;
+    height: inherit;
+    line-height: inherit }
+
+  span {
+    font-size: 1em }
+
+  .status-bar-right,
+  .status-bar-left {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    & > * {
+      flex: 0 1 auto;
+      padding: 0;
+      margin: 0 @component-padding / 1.5 0 0;
+    }
+  }
 }

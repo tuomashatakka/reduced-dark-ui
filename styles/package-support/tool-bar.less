@@ -1,68 +1,120 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Project Viewer Panel
+title       Tool bar package support
 project     reduced-dark-ui
-version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
-@horizontal: ~".tool-bar.tool-bar-horizontal";
-@vertical: ~".tool-bar.tool-bar-vertical";
+@size:        @tab-height * 0.75;
+@horizontal:  ~".tool-bar.tool-bar-horizontal";
+@vertical:    ~".tool-bar.tool-bar-vertical";
+// color: crimson;
 
-  @{horizontal}, @{vertical} {
-    padding-top: @tab-height;
-    box-sizing: border-box;
+@{horizontal},
+@{vertical} {
+  box-sizing: border-box;
+  border-width: 0;
 
-    hr.tool-bar-spacer {
-      -webkit-mask-image: none !important;
-      border-color: @base-border-color }
-  }
+  hr.tool-bar-spacer {
+    -webkit-mask-image: none !important;
+    border-color: @base-border-color }
 
-  @{horizontal} {
-    hr, .tool-bar-spacer {
-      margin-left: 1em;
-      margin-right: 1em }
-  }
+  button.btn.tool-bar-btn {
+    position: relative;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 @component-padding / 2 !important;
+    border-radius: @component-border-radius }
 
-  @{vertical} {
-    transition: width @transition-time;
-    width: @tab-height - 0.6 !important;
-    border-width: 0 !important;
+  button:hover {
+    background: transparent !important; }
+
+  button::before,
+  button::after {
+    position: relative;
+    line-height: @size !important;
+    height: @size !important;
+    border-radius: @component-padding / 2;
     padding: 0;
+    transition:
+      color @transition-time,
+      background-color @transition-time }
 
-    &:hover {
-      width: 240px !important }
+  button::before { width: @size }
+  button::after { .text(caps) }
 
-    hr, .tool-bar-spacer {
-      margin-top: 1em;
-      margin-bottom: 1em;
-      margin: 1rem 0 !important;
-      width: 80%;
-      left: 10%;
-      border-top: transparent;
-      position: relative }
+  button:hover::before {
+    .accent;
+    border-color: initial }
 
-    button {
-      text-align: left;
-      width: inherit !important;
-      height: @tab-height - 1 !important;
-      line-height: @tab-height - 1 !important;
-      border-width: 0 !important;
-      margin: 0.4rem 0.2rem !important;
-      padding: 0 !important;
-      width: auto !important }
+  button:hover::after {
+    .accent;
+    border-color: none;
+    background: transparent }}
 
-    button::before {
-      display: inline-block;
-      vertical-align: middle;
-      text-align: center;
-      margin: 0 0 0 -0.3rem;
-      width: @tab-height }
+@{horizontal} {
+  &.tool-bar {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: @component-padding / 2 @component-padding }
 
-    button::after {
-      margin-left: 1rem;
-      display: inline-block;
-      content: attr(data-original-title) }
-  }
+  hr, .tool-bar-spacer {
+    margin: 0 @component-padding }
+
+  button {
+    flex: 0 1 @size * 2.5;
+    width: auto !important;
+    height: auto !important }
+
+  button::before {
+    box-sizing: content-box;
+    display: inline-block;
+    height: @size;
+    line-height: @size !important }
+
+  button::after {
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all @transition-time;
+    content: attr(data-original-title) }}
+
+@{vertical} {
+  transition: width @transition-time;
+  width: auto; // @tab-height - 0.6 !important;
+  border-width: 0 !important;
+  padding: @tab-height 0 0 0;
+
+  // &:hover {
+  //   width: 240px !important }
+
+  hr, .tool-bar-spacer {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin: 1rem 0 !important;
+    width: 80%;
+    left: 10%;
+    border-top: transparent;
+    position: relative }
+
+  button.tool-bar-btn {
+    //width: inherit !important;
+    text-align: left;
+    margin: 0.4rem 0.2rem !important;
+    padding: 0 !important;
+    width: auto !important }
+
+  button::before {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center }
+
+  button::after {
+    margin-left: 1rem;
+    display: inline-block;
+    content: attr(data-original-title) }
+}

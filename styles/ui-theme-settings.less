@@ -3,110 +3,105 @@
 title       Reduced
 project     reduced-dark-ui
 version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
                                                                                                                                                                                                                                                                                                                                                                         /*
 
 Variable definitions                                                                                                                                                                                                                                                                                                                                                    */
-@config-attr: ~'@{ui-theme-name}-settings';
-
-@scale-attr: ~'@{ui-theme-name}-uiscale';
-@scale-min: 25;
-@scale-max: 200;
+@attr-config:       ~'@{ui-theme-name}-settings';
+@attr-color-accent: ~'@{ui-theme-name}-highilightcolor';
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 User Interface                                                                                                                                                                                                                                                                                                                                                          */
-
-.config(tabSizing);
-.config(fixedTabBar);
-.config(fixedProjectRoot);
-.config(overrideEditorBackground);
-
-.config(@arg) { [@{config-attr}*=@{arg}] {
-
-
-    & when (@arg = fixedProjectRoot) {
-
-    }
-
-
-    & when (@arg = fixedTabBar) {
-
-      atom-workspace > atom-workspace-axis {
-        margin-top: @tab-height !important }
-
-      .tree-view-resizer {
-        overflow: inherit;
-        & .project-root > .list-tree { top: 0 }}
-
-      .tab-bar {
-        position: fixed;
-        height: @tab-height;
-        transform: translateY(-100%);
-        left: 0;
-        right: 0;
-        z-index: 300;
-        .tab.active, .tab:hover.active { width: inherit }}
-    }
+//.config(tabSizing);
+// .config(fixedTabBar);
+// .config(fixedProjectRoot);
+// .config(overrideEditorBackground);
+// .config(@arg) {
+//[@{attr-config}*=@{arg}] {
+atom-workspace when (@config-tabSizing = true) {
+  .tab-bar .tab {
+    max-width: none;
+    flex-basis: auto }
+}
 
 
-    & when (@arg = fixedProjectRoot) {
+atom-workspace when (@config-fixedTabBar = true) {
+  & > atom-workspace-axis {
+    margin-top: @tab-height !important }
 
-      atom-panel-container.right {
-        z-index: 400 }
+  .tree-view-resizer {
+    overflow: hidden;
+    & .project-root > .list-tree { top: 0 }}
 
-      .tree-view-scroller {
-        position: relative;
-        margin-left: 8px;
-        overflow: initial;
-        z-index: 301;
+  .tab-bar {
+    position: fixed;
+    height: @tab-height;
+    transform: translateY(-100%);
+    left: 0;
+    right: 0;
+    z-index: 300;
+    .tab.active,
+    .tab:hover.active {
+      width: inherit }}
+}
 
-        & > .tree-view {
+
+atom-workspace when (@config-fixedProjectRoot = true) {
+  .tree-view-scroller {
+    position: relative;
+    margin-left: 8px;
+    overflow: initial;
+    z-index: 301;
+
+    .tree-view {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin-left: 0;
+      padding: 0;
+      display: flex;
+      overflow: initial;
+
+      > .project-root {
+        flex: 1 1 auto;
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+
+        &.selected {
+          z-index: 1000 }
+
+        &::before {
+          content: none; }
+
+        .project-root-header {
           position: relative;
           top: 0;
           left: 0;
-          right: 0;
+          margin: 0;
+          padding: 0;
+          margin-left: -8px;
+          max-width: 100%;
+          z-index: 1000;
+          height: @tab-height }
+
+        > .list-tree {
+          position: absolute;
+          overflow: auto;
+          top: @tab-height;
           bottom: 0;
-          margin-left: 8px;
-          display: flex;
-          overflow: initial;
+          left: 0;
+          right: 0 }}}}
+}
 
-          & > .project-root {
-            flex: 1 1 auto;
-
-            & + .entries {
-            }
-
-            &::before { content: none; }
-
-            & > .header {
-              position: relative;
-              top: 0;
-              left: 0;
-              margin-left: -30px;
-              margin-right: -36px;
-              padding-left: 1em;
-              z-index: 1000;
-              background: @tree-view-background-color;
-              height: @tab-height }
-
-            & > .list-tree {
-              position: absolute;
-              overflow: auto;
-              top: @tab-height;
-              background-color: @tree-view-background-color;
-              bottom: 0;
-              left: 0;
-              right: 0 }}}}
-    }
-
-    & when (@arg = overrideEditorBackground) {
-      atom-text-editor,
-      atom-text-editor::shadow,
-      :host {
-        background: @tab-background-color-active }
-    }
-
-  }}
+atom-workspace when (@config-overrideEditorBackground = true) {
+  atom-text-editor,
+  atom-text-editor::shadow,
+  :host {
+    background: @tab-background-color-active }
+}

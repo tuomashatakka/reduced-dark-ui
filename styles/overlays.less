@@ -3,15 +3,19 @@
 title       Reduced
 project     reduced-dark-ui
 version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-atom-panel.modal, .overlay {
+@overlay-input-size: 6rem;
+
+atom-panel.modal,
+.overlay {
   .text(normal);
   .overlay-shadow;
+
   background-color: @overlay-background-color;
   border-radius: @component-border-radius !important;
   border: 1px solid @base-border-color !important;
@@ -35,7 +39,8 @@ atom-panel.modal, .overlay {
   atom-text-editor[mini],
   atom-text-editor[mini]::shadow {
     .text(heading);
-    font-size: 2em;
+    font-size: @overlay-input-size;
+    font-weight: 100;
     line-height: 1.2em;
     height: auto;
     max-height: none;
@@ -48,6 +53,10 @@ atom-panel.modal, .overlay {
 
     .text {
       color: @text-color-highlight }
+
+    ::selection, .selection .region {
+      background-color: fade(multiply(@col-main, @col-keyword), 75%);
+      border-radius: 4px }
 
     &.is-focused:hover,
     &:hover {

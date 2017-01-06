@@ -1,6 +1,6 @@
 {
   "name": "reduced-dark-ui",
-  "version": "0.0.0",
+  "version": "0.3.2",
   "main": "./lib/main.js",
   "theme": "ui",
   "author": {
@@ -8,7 +8,7 @@
     "email": "tuomas.hatakka@gmail.com"
   },
   "bugs": {
-    "url": "https://gitlab.com/tuomashatakka/atom-ui-reduced-dark"
+    "url": "https://github.com/tuomashatakka/reduced-dark-ui/issues"
   },
   "configSchema": {
     "layout": {
@@ -49,7 +49,30 @@
         }
       }
     },
+    "palette": {
+      "order": 2,
+      "title": "Theme colors",
+      "description": "Highlight colors for the theme",
+      "type": "object",
+      "properties": {
+        "primary": {
+          "order": 1,
+          "title": "Primary color",
+          "description": "The primary highlight color. Used in the main GUI component interaction",
+          "type": "color",
+          "default": "#59edbc"
+        },
+        "accentColor": {
+          "order": 2,
+          "title": "Secondary color",
+          "description": "A complementary highlight accent.",
+          "type": "color",
+          "default": "#3bb3f6"
+        }
+      }
+    },
     "overrideEditorBackground": {
+      "order": 3,
       "title": "Override Editor Background Color",
       "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
       "type": "boolean",
@@ -74,7 +97,7 @@
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
   },
-  "homepage": "https://gitlab.com/tuomashatakka/atom-ui-reduced-dark",
+  "homepage": "https://github.com/tuomashatakka/reduced-dark-ui",
   "keywords": [
     "dark",
     "clean",
@@ -84,8 +107,5 @@
   "optionalDependencies": {},
   "readmeFilename": "README.md",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://gitlab.com/tuomashatakka/atom-ui-reduced-dark"
-  }
+  "repository": "https://github.com/tuomashatakka/reduced-dark-ui"
 }

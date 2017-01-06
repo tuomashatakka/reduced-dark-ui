@@ -3,17 +3,56 @@
 title       Reduced
 project     reduced-dark-ui
 version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 .settings-view .sub-section .sub-section-heading.has-items::after {
   .icon("\f106");
-  transform: rotate(0deg) }
+  transform: rotate(0deg);
+  transform-origin: center }
 
 .settings-view .sub-section.collapsed .sub-section-heading::after {
   transform: rotate(180deg) }
+
+// Custom injected panel icons
+atom-panel {
+  .display-icon {
+    .selection(disabled);
+    position: absolute;
+    top: @tab-height/8;
+    right: @tab-height/8;
+    width: @tab-height/1.25;
+    height: @tab-height/1.25 !important;
+    margin-right: -@tab-height;
+    line-height: @tab-height/1.25;
+    text-align: center;
+    font-size: 2em;
+    color: @text-color;
+    z-index: 1000;
+    box-sizing: border-box;
+    transition: transform @transition-time;
+    transform: translateX(0);
+    border-radius: 50%;
+    // border: 1px solid fade(@text-color, 1%);
+    background-color: fade(@text-color, 1%);
+    background-color: inherit;
+
+    &::before {
+      font-size: inherit !important;
+      line-height: inherit !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+  }
+  &:hover .display-icon {
+    transform: translateX(-@tab-height);
+  }
+}
 
 
 atom-panel.modal {

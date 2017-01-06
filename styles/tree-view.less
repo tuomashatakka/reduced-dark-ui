@@ -1,47 +1,79 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
+title       Tree view & lists
 project     reduced-dark-ui
-version     0.0.0
-repository  https://gitlab.com/tuomashatakka/atom-ui-reduced-dark
+repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
+@background-color-dark: #17171a;
+@tree-view-border-color-disabled: rgba(0,0,0,0.2);
+
+.list-tree,
+.list-group,
 .tree-view {
   font-size: @font-size;
   background: @tree-view-background-color;
   padding-top: 0;
   position: relative;
 
+  > li.separator {
+    border-width: 0 }
+
   .project-root {
-    padding-bottom: @component-padding / 2;
+    transition: opacity @transition-time;
+    padding-bottom: @component-padding / 2 }
 
-    & > .header {
-      & > span {
-        color: @text-color-subtle }
+  .project-root-header {
+    color: @text-color-highlight;
+    border-bottom: 1px solid transparent;
 
-      & .name {
-        .h4;
-        color: @text-color-highlight;
-        height: @tab-height;
-        line-height: @tab-height }
+    span {
+      color: @text-color-subtle }
 
-      &::before {
-        color: @text-color-highlight;
-        transition: all @transition-time ease;
-        opacity: 0 }
+    .name {
+      .h3;
+      font-weight: 100;
+      color: inherit;
+      height: @tab-height;
+      line-height: @tab-height }
 
-      &:hover::before { opacity: 1 }}
-  }
+    &::before {
+      margin-left: 16px;
+      color: inherit;
+      transition: all @transition-time ease;
+      opacity: 0.25 }
 
-  .project-root.project-root.collapsed {
-    & > .header { &:before { opacity: 0 }
-      &:hover { &:before { opacity: 1 } }
-  }}
+    &:hover::before {
+      opacity: 1 }}
 
-  .directory.selected:before {
+  // Inactive tabs
+  .project-root.collapsed,
+  .project-root.selected.collapsed,
+  .project-root.expanded ~ .project-root:not(.selected) {
+    height: @tab-height !important;
+    flex-grow: 0 !important;
+    z-index: 0;
+
+    .project-root-header {
+      background-color: @background-color-dark;
+      border-bottom-color: @tree-view-border-color-disabled;
+      height: inherit }
+
+    .entries {
+        display: none !important } }
+
+  // Active tab
+  .project-root.selected {
+    z-index: 1000;
+
+    .project-root-header {
+      background: @tree-view-background-color;
+      border-bottom-color: transparent }}
+
+  .directory.selected::before {
     background: transparent !important }}
 
 
@@ -57,4 +89,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     vertical-align: top }}
 
 .tree-view-resizer .tree-view-resize-handle {
-    width: 8px }
+  width: 8px }
+
+.tree-view-resizer .tree-view-scroller {
+  overflow: auto }
