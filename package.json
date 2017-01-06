@@ -71,12 +71,52 @@
         }
       }
     },
-    "overrideEditorBackground": {
+    "decor": {
       "order": 3,
-      "title": "Override Editor Background Color",
-      "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
-      "type": "boolean",
-      "default": true
+      "title": "Miscellaneous",
+      "description": "a",
+      "type": "object",
+      "properties": {
+        "overrideEditorBackground": {
+          "order": 1,
+          "title": "Override Editor Background Color",
+          "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
+          "type": "boolean",
+          "default": true
+        },
+        "uiFont": {
+          "order": 2,
+          "title": "UI font family",
+          "description": "Font for the regular text in the UI",
+          "type": "string",
+          "enum": [
+            "Arial",
+            "Helvetica Neue",
+            "Roboto",
+            "Open Sans",
+            "Montserrat",
+            "Lato",
+            "Raleway",
+            "Work Sans"
+          ]
+        },
+        "uiFontWeight": {
+          "order": 3,
+          "title": "UI font weight",
+          "description": "Font weight for the regular text in the UI",
+          "type": "string",
+          "enum": [
+            "100",
+            "200",
+            "300",
+            "400",
+            "500",
+            "600",
+            "700",
+            "800"
+          ]
+        }
+      }
     },
     "icons": {
       "order": 4,
