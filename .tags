@@ -6,10 +6,13 @@
 !_TAG_PROGRAM_VERSION	5.8	//
 accentColor	package.json	/^        "accentColor": {$/;"	f
 activationCommands	package.json	/^  "activationCommands": {$/;"	f
+addCommands	xx/core/subscribe.js	/^ *\/function addCommands(self,...cmd){let commands=cmd.reduce((acc,iter)=>{let isDisposable=iter instanceof Disposable;if(isDisposable)return acc;let commandName=`${rootNamespace}:${cmd}`;let handler=(...arg)=>self.handle(name,...arg);return Object.assign(acc,{[commandName]:handler.bind(self)})},{});return atom.commands.add('atom-workspace',commands)}function registerCommand(cmd,handler){let commandName=`${rootNamespace}:${cmd}`;let callback=(...args)=>handler(...args);return atom.commands.add('atom-workspace',commandName,callback)}function getComposite(){if(composite)return composite;return composite=new ReducedComposite}class ReducedComposite extends CompositeDisposable{constructor(){super();this.registry={}}subscribe(command,callback,options={}){\/\/ Create disposables for the provided commands$/;"	f
 atom	package.json	/^    "atom": ">=0.174.0 <2.0.0"$/;"	f
+atom-workspace	keymaps/reduced-dark-ui.json	/^  "atom-workspace": {$/;"	f
 atom-workspace	package.json	/^    "atom-workspace": "reduced-dark-ui:decorate"$/;"	f
 author	package.json	/^  "author": {$/;"	f
 bugs	package.json	/^  "bugs": {$/;"	f
+checkIfSettingsOpened	lib/views/settings.js	/^function checkIfSettingsOpened ({item, uri}) {$/;"	f
 configSchema	package.json	/^  "configSchema": {$/;"	f
 default	package.json	/^          "default": "#3bb3f6"$/;"	f
 default	package.json	/^          "default": "#59edbc"$/;"	f
@@ -17,7 +20,7 @@ default	package.json	/^          "default": 100,$/;"	f
 default	package.json	/^          "default": false$/;"	f
 default	package.json	/^          "default": true$/;"	f
 default	package.json	/^      "default": true$/;"	f
-dependencies	package.json	/^  "dependencies": {},$/;"	f
+dependencies	package.json	/^  "dependencies": {$/;"	f
 description	package.json	/^          "description": "A complementary highlight accent.",$/;"	f
 description	package.json	/^          "description": "Display tabs above everything else. Enabling this setting allows tabs to spread amongst the whole screen.",$/;"	f
 description	package.json	/^          "description": "Let tabs stretch to fill the whole container.",$/;"	f
@@ -32,21 +35,34 @@ devDependencies	package.json	/^  "devDependencies": {},$/;"	f
 email	package.json	/^    "email": "tuomas.hatakka@gmail.com"$/;"	f
 engines	package.json	/^  "engines": {$/;"	f
 export.CAPITALIZE_ONLY_FIRST	lib/utils.js	/^export const FORMAT_FLAGS = {$/;"	p
+export.CAPITALIZE_ONLY_FIRST	xx/utils.js	/^'use babel';export function iconFactory({icon,iconset='glyphicon',size}){let tag='span';return['<',tag,' class=\\'',['icon',iconset,iconset+'-'+icon].join(' '),'\\'',size?'style=\\'font-size: \\''+size:'','><\/',tag,'>'].join('')}export const FORMAT_FLAGS={CAPITALIZE_ONLY_FIRST:'no-capitalize'};\/**$/;"	p
+f5	keymaps/reduced-dark-ui.json	/^    "f5": "reduced-dark-ui:decorate",$/;"	f
+f6	keymaps/reduced-dark-ui.json	/^    "f6": "reduced-dark-ui:update-accents"$/;"	f
 fixedProjectRoot	package.json	/^        "fixedProjectRoot": {$/;"	f
 fixedTabBar	package.json	/^        "fixedTabBar": {$/;"	f
+flatten	src/main.js	/^function flatten (o, path=[]) {$/;"	f
+flatten	xx/main.js	/^function flatten (o, path=[]) {$/;"	f
+from.Component.state.dragged	lib/views/settings.js	/^    this.state = {$/;"	p
+from.Component.state.width	lib/views/settings.js	/^      x: 0,$/;"	p
+from.Component.state.x	lib/views/settings.js	/^      dragged: false,$/;"	p
 function.flatten	lib/main.js	/^function flatten (o, path=[]) {$/;"	f
+getComposite	xx/core/subscribe.js	/^ *\/function addCommands(self,...cmd){let commands=cmd.reduce((acc,iter)=>{let isDisposable=iter instanceof Disposable;if(isDisposable)return acc;let commandName=`${rootNamespace}:${cmd}`;let handler=(...arg)=>self.handle(name,...arg);return Object.assign(acc,{[commandName]:handler.bind(self)})},{});return atom.commands.add('atom-workspace',commands)}function registerCommand(cmd,handler){let commandName=`${rootNamespace}:${cmd}`;let callback=(...args)=>handler(...args);return atom.commands.add('atom-workspace',commandName,callback)}function getComposite(){if(composite)return composite;return composite=new ReducedComposite}class ReducedComposite extends CompositeDisposable{constructor(){super();this.registry={}}subscribe(command,callback,options={}){\/\/ Create disposables for the provided commands$/;"	c
+getScale	xx/scale.js	/^'use babel';import{doc,conf,rootNamespace,namespace}from'.\/main';const scaling=({minimum,maximum}=atom.config.getSchema('reduced-dark-ui.layout.uiScale'));const getScaleAttrName=()=>namespace('uiScale');const getScaleAttrValue=()=>parseInt(doc.getAttribute(getScaleAttrName()));function getScale(scale=null){if(!scale)scale=getScaleAttrValue();if(scale>=scaling.minimum&&scale<=scaling.maximum&&parseInt(scale))return parseInt(scale)\/100;return 1}const setScale=(value=null)=>{let fontSize=atom.config.settings['editor'].fontSize;fontSize=12;value=getScale(value);let styleAttr=el=>(el.getAttribute('style')||'').split(';').filter(att=>{return!att.trim().startsWith('font-size')&&att.trim().length>0});let docinline=styleAttr(doc);docinline.push('font-size: '+value*fontSize+'px');let bodyinline=styleAttr(document.body);bodyinline.push('font-size: '+value*fontSize+'px');doc.setAttribute('style',docinline.join(';'));document.body.setAttribute('style',bodyinline.join(';'))};export default getScale;export{setScale,getScale,scaling};/;"	f
 homepage	package.json	/^  "homepage": "https:\/\/github.com\/tuomashatakka\/reduced-dark-ui",$/;"	f
+icons	package.json	/^    "icons": {$/;"	f
 keywords	package.json	/^  "keywords": [$/;"	f
 layout	package.json	/^    "layout": {$/;"	f
 let.accent	lib/main.js	/^  let styles = {$/;"	p
 let.secondary	lib/main.js	/^    'accent': 'orange',$/;"	p
 license	package.json	/^  "license": "MIT",$/;"	f
 log	lib/tools.js	/^function log (...args) {$/;"	f
+log	xx/tools.js	/^'use babel';export default{log};function log(...args){if(!atom||!atom.devMode||!args.length)return;let maxIter=25;let newline='\\n';let prefix=`[reduced-dark-ui.log]`;let method=args.findIndex(o=>o&&o[0]==='method');method=method!==-1?args[method][1]:'log';let output=[newline,prefix,newline];while(args.length&&maxIter--){let input=args.pop();if(!input)continue;let isObject=input.constructor&&input.constructor.name==='Object';if(isObject)for(let key in input){let space=Array(32-key.length).fill(' ').join('');output.push(key,space,input[key],newline)}output.push(newline)}console[method](...output)}/;"	f
 main	package.json	/^  "main": ".\/lib\/main.js",$/;"	f
 maximum	package.json	/^          "maximum": 200$/;"	f
 minimum	package.json	/^          "minimum": 25,$/;"	f
 name	package.json	/^    "name": "Tuomas Hatakka",$/;"	f
 name	package.json	/^  "name": "reduced-dark-ui",$/;"	f
+observeSettingsPanel	lib/views/settings.js	/^function observeSettingsPanel () {$/;"	f
 optionalDependencies	package.json	/^  "optionalDependencies": {},$/;"	f
 order	package.json	/^          "order": 1,$/;"	f
 order	package.json	/^          "order": 2,$/;"	f
@@ -55,13 +71,17 @@ order	package.json	/^          "order": 4,$/;"	f
 order	package.json	/^      "order": 1,$/;"	f
 order	package.json	/^      "order": 2,$/;"	f
 order	package.json	/^      "order": 3,$/;"	f
+order	package.json	/^      "order": 4,$/;"	f
 overrideEditorBackground	package.json	/^    "overrideEditorBackground": {$/;"	f
 palette	package.json	/^    "palette": {$/;"	f
 primary	package.json	/^        "primary": {$/;"	f
 properties	package.json	/^      "properties": {$/;"	f
+react	package.json	/^    "react": "^15.4.1",$/;"	f
+react-dom	package.json	/^    "react-dom": "^15.4.1"$/;"	f
 readmeFilename	package.json	/^  "readmeFilename": "README.md",$/;"	f
 register.initial	lib/core/subscribe.js	/^    options = {$/;"	p
 registerCommand	lib/core/subscribe.js	/^function registerCommand(cmd, handler) {$/;"	f
+registerCommand	xx/core/subscribe.js	/^ *\/function addCommands(self,...cmd){let commands=cmd.reduce((acc,iter)=>{let isDisposable=iter instanceof Disposable;if(isDisposable)return acc;let commandName=`${rootNamespace}:${cmd}`;let handler=(...arg)=>self.handle(name,...arg);return Object.assign(acc,{[commandName]:handler.bind(self)})},{});return atom.commands.add('atom-workspace',commands)}function registerCommand(cmd,handler){let commandName=`${rootNamespace}:${cmd}`;let callback=(...args)=>handler(...args);return atom.commands.add('atom-workspace',commandName,callback)}function getComposite(){if(composite)return composite;return composite=new ReducedComposite}class ReducedComposite extends CompositeDisposable{constructor(){super();this.registry={}}subscribe(command,callback,options={}){\/\/ Create disposables for the provided commands$/;"	f
 repository	package.json	/^  "repository": "https:\/\/github.com\/tuomashatakka\/reduced-dark-ui"$/;"	f
 tabSizing	package.json	/^        "tabSizing": {$/;"	f
 theme	package.json	/^  "theme": "ui",$/;"	f
@@ -78,6 +98,7 @@ type	package.json	/^          "type": "boolean",$/;"	f
 type	package.json	/^          "type": "color",$/;"	f
 type	package.json	/^          "type": "integer",$/;"	f
 type	package.json	/^      "type": "boolean",$/;"	f
+type	package.json	/^      "type": "object"$/;"	f
 type	package.json	/^      "type": "object",$/;"	f
 uiScale	package.json	/^        "uiScale": {$/;"	f
 url	package.json	/^    "url": "https:\/\/github.com\/tuomashatakka\/reduced-dark-ui\/issues"$/;"	f
