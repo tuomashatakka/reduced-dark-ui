@@ -1,0 +1,11 @@
+var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key]}}}return target};const ICON_CLASS_NAME='display-icon';const getHaystack=()=>['ion','fa','icon'];/**
+ * Walks the DOM for the given HTML node until one of the haystack's
+ * classes is found. Returns the found icon's name and icon set
+ * @method findElementIcon
+ * @param  {HTMLNode}      el    HTML element to search the icon in
+ * @return {Object}              An object containing the found icon and its
+ *                               iconset. If no icon is found, returns the
+ *                               defaults defined in the beginning of the
+ *                               function
+ */export const findElementIcon=el=>{let match=false;let icon='ios-close-empty';let iconset='icon';let haystack=getHaystack();if(!el)return{iconset,icon};while(!match&&haystack.length){iconset=haystack.pop();match=el.querySelector('.'+iconset);if(!match)continue;let cls=match.className||'';let cond=new RegExp('\\s'+iconset+'-([\\w-]+)','gi');cls.replace(cond,(_,name)=>{icon=name;return _})}return{iconset,icon}};const makeIcon=({iconset,icon,className})=>{let el=document.createElement('span');className=[iconset,iconset+'-'+icon,className].join(' ');el.setAttribute('class',className);return el};let iconCache={};const getIcons=(icon=null)=>{// Return all icons if no icon is specified
+let descriptor='reduced-dark-ui.icons';let icons;if(!iconCache.length||icon&&!iconCache[icon]){icons=atom.config.get(descriptor)||{};iconCache=_extends({iconCache},icons)}else icons=_extends({},iconCache);return icon===null?icons:icons[icon]||null};const updateIcons=payload=>{let icons=iconCache=atom.config.get('reduced-dark-ui.icons')||{};if(payload instanceof Object)icons=Object.assign(icons,payload);return atom.config.set('reduced-dark-ui.icons',icons)};const clearIcons=()=>{atom.config.set('reduced-dark-ui.icons',{})};export{getHaystack,makeIcon,getIcons,updateIcons,clearIcons,ICON_CLASS_NAME};
