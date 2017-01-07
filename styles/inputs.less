@@ -12,9 +12,15 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 @checkbox:  ~".control-group .checkbox input";
 @select:    ~".controls .select-container";
 
+
+// .controls > .control-label::after {
+//   content: "\f107";
+//   font-family: "FontAwesome";
+// }
+
+
 .checkbox {
-  padding-left: 0;
-}
+  padding-left: 0 }
 
 @{checkbox} {
   @size: unit(1.6, rem);
@@ -42,16 +48,25 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     background-color: lighten(@background-color-highlight, 15%) }
 }
 
+
+
+select.form-control {
+  -webkit-appearance: none;
+  padding: 0 @component-padding;
+  border-radius: @button-border-radius;
+  line-height: @button-height;
+  height: @button-height }
+
 @{select} {
   padding: 0 0 0 @component-padding;
   line-height: @button-height;
   height: @button-height;
 
   select.form-control {
-    line-height: inherit;
-    height: inherit;
     border-top-right-radius: 0;
-    border-bottom-right-radius: 0 }
+    border-bottom-right-radius: 0;
+    height: inherit;
+    line-height: inherit }
 
   button {
     margin-left: 0 }
@@ -59,3 +74,17 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   &:hover, select:hover {
     background: transparent !important;
     color: @text-color-highlight !important }}
+
+
+
+.color {
+  padding: 0;
+
+  input[type="color"] {
+    margin: 0 0 0 -2.5rem;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border: none;
+    background: transparent }}

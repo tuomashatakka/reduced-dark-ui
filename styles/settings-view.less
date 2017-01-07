@@ -14,19 +14,6 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   .text(normal);
   font-size: @font-size;
 
-  // Inputs
-  .color {
-    padding: 0;
-
-    input[type="color"] {
-      margin: 0 0 0 -2.5rem;
-      padding: 0;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 2rem;
-      border: none;
-      background: transparent }}
-
   .breadcrumb {
     .text(caps);
     position: absolute;
@@ -106,6 +93,9 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
         min-width: 32rem;
         padding: 0 @input-height 0 0;
         margin-bottom: @settings-gutter }
+
+      .sub-section-body .control-group {
+        padding: 0 }
     }
 
     .section-container {

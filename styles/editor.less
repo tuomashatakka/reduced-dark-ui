@@ -8,6 +8,7 @@ author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
+@gradient: linear-gradient(135deg, #ff6bac 0%, #f7e5c8 90%);
 
 atom-text-editor,
 atom-text-editor::shadow,
@@ -18,7 +19,7 @@ atom-text-editor[mini],
 atom-text-editor[mini]::shadow {
   transition: all @transition-time ease;
   background-color: @input-background-color;
-  border: 1px solid @input-background-color;
+  border: 1px solid mix(@input-background-color, @input-background-color-active, 75%);
   border-radius: @button-border-radius;
   padding: @component-padding / 2 @component-padding;
   height: @input-height;
@@ -26,11 +27,10 @@ atom-text-editor[mini]::shadow {
   line-height: @input-height - @component-padding;
   overflow: hidden;
 
-  &:hover {
-    border: 1px solid @input-border-color;
-    color: @text-color-highlight }
-
-  .text, .source { color: @text-color }
+  .text,
+  .source {
+    transition: color @transition-time;
+    color: inherit }
 
   .placeholder-text {
     .text(subtle);
@@ -40,19 +40,23 @@ atom-text-editor[mini]::shadow {
 
   .cursor {
     border-color: @text-color-highlight }
-}
-
-atom-text-editor[mini].is-focused, atom-text-editor[mini].is-focused::shadow {
-  border: 1px solid @input-border-color;
-  background-color: @input-background-color-active;
-
-  .text, .source { color: @input-text-color-active }
 
   &:hover {
-    border: 1px solid @text-color-highlight;
-    background-color: @input-background-color-active;
+    background-color: mix(@input-background-color, @input-background-color-active, 75%);
     color: @text-color-highlight }
 
-  .selection .region {
-    background-color: fade(@background-color-highlight, 40%) }
+  &.is-focused {
+    border-color: @input-border-color;
+    background-color: @input-background-color-active;
+
+    .text,
+    .source {
+      color: @input-text-color-active }
+
+    &:hover {
+      border-color: auto;
+      background-color: @input-background-color-active }
+
+    .selection .region {
+      background-color: fade(@background-color-highlight, 40%) }}
 }

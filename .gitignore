@@ -1,5 +1,8 @@
-# NPM & Node
+# Node + npm
 node_modules
+
+# Project-specific
+styles/definitions/config.less
 
 # Symbols
 .tags
