@@ -132,8 +132,9 @@
     "atom-workspace": "reduced-dark-ui:decorate"
   },
   "dependencies": {
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "glob": "7.1.1",
+    "react": "15.4.1",
+    "react-dom": "15.4.1",
     "underscore": "1.6.0"
   },
   "description": "A dark & minimal yet usable theme for atom.",
