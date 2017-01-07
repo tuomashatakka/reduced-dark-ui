@@ -41,6 +41,7 @@ atom-notifications {
     &::after { display: none }
     &::before {
       border-radius: 2px 0 0 2px !important;
+      background: @background-color-info;
       width: @left-bar-width }}
 
   .close {
@@ -73,7 +74,9 @@ atom-notifications {
       &:hover { background: @text-color-subtle }
       &:first-child { border-left-width: 0 !important }}}
 
-  .btn, .btn.close-all, .btn-success, button.btn-success, .btn-default.btn-success {
+  .btn, .btn.close-all,
+  .btn-success,
+  .btn-default.btn-success {
 
     .button-variant(@text-color-info);
     font-weight: 300 !important;

@@ -12,11 +12,12 @@ Overlay                                                                         
 .button(@color) {
   @color-alt: @col-dark;
 
-  &.btn, &.btn.btn-success, &.btn-default.btn-success {
+  &.btn,
+  &.btn.btn-success,
+  &.btn-default.btn-success {
     .text(caps);
     color: @text-color;
     background: transparent;
-    font-size: 1rem;
     line-height: @button-height - 2 * @input-padding-vertical;
     min-height: @button-height;
     border-radius: @button-border-radius;

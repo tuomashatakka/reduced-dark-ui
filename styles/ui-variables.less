@@ -9,7 +9,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 @import 'definitions/config-fallback';
-@import 'definitions/config-user';
+@import 'definitions/config';
 @import 'base';
 
 @color-success: mix(@config-primary, @col-success, 25%);
@@ -36,7 +36,7 @@ Background                                                                      
 @background-color-highlight: @col-dark;
 @background-color-selected: @col-dark;
 
-@background-color-info: darken(@color-main, @app-background-color, 85%);
+@background-color-info: mix(@color-main, @app-background-color, 75%);
 @background-color-success: screen(@color-success, @app-background-color, 50%);
 @background-color-warning: screen(@color-annotation, @app-background-color, 75%);
 @background-color-error: mix(@color-error, @app-background-color, 90%);

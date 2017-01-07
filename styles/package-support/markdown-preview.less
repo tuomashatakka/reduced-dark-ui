@@ -16,20 +16,21 @@ GitHub                                                                          
   atom-text-editor::shadow {
     padding: 16px;
 
-    .editor--private {
-      span.source {
-        color: @markdown-preview-text-color }
-  }}
+    .editor--private span.source {
+      color: @markdown-preview-text-color }}
 
-  atom-text-editor,
-  atom-text-editor::shadow,
   code {
     background-color: #F7F7F7 !important;
     border-radius: 3px }
 
-  em, strong, th { color: @markdown-preview-text-color; font-weight: 300 }
+  em,
+  strong,
+  th {
+    color: @markdown-preview-text-color;
+    font-weight: 500 !important }
 
-  h1, h2, h3, h4, h5 { color: #333333 }}
+  h1, h2, h3, h4, h5 {
+    color: #333333 }}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Style                                                                                                                                                                                                                                                                                                                                                                 */
@@ -64,11 +65,17 @@ Style                                                                           
 
 
     h1, h2, h3, h4, h5 { color: @markdown-preview-text-color }
+
     table {
-      td, th            { border-color: transparent; color: @markdown-preview-text-color }
-      th                { background-color: @markdown-preview-border-color }
-      tr                { background-color: @markdown-preview-table-body-color;
-        &:nth-child(2n) { background-color: darken(@markdown-preview-background-color, 3%) }
-      }}
-  }
-}
+
+      td, th {
+        border-color: transparent;
+        color: @markdown-preview-text-color }
+      th {
+        background-color: @markdown-preview-border-color }
+
+      tr {
+        background-color: @markdown-preview-table-body-color }
+
+      tr:nth-child(2n) {
+        background-color: darken(@markdown-preview-background-color, 3%) }}}}

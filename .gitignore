@@ -1,6 +1,5 @@
 # NPM & Node
 node_modules
-node_modules/**
 
 # Symbols
 .tags
@@ -9,4 +8,6 @@ node_modules/**
 # General
 *.log
 *.lock
+*.local.*
+**/local
 *.ai

@@ -89,6 +89,7 @@
           "title": "UI font family",
           "description": "Font for the regular text in the UI",
           "type": "string",
+          "default": "Arial",
           "enum": [
             "Arial",
             "Helvetica Neue",
@@ -104,17 +105,9 @@
           "order": 3,
           "title": "UI font weight",
           "description": "Font weight for the regular text in the UI",
-          "type": "string",
-          "enum": [
-            "100",
-            "200",
-            "300",
-            "400",
-            "500",
-            "600",
-            "700",
-            "800"
-          ]
+          "type": "number",
+          "default": 300,
+          "enum": [ 100, 200, 300, 400, 500, 600, 700, 800, 900 ]
         }
       }
     },
