@@ -107,7 +107,17 @@
           "description": "Font weight for the regular text in the UI",
           "type": "number",
           "default": 300,
-          "enum": [ 100, 200, 300, 400, 500, 600, 700, 800, 900 ]
+          "enum": [
+            100,
+            200,
+            300,
+            400,
+            500,
+            600,
+            700,
+            800,
+            900
+          ]
         }
       }
     },
@@ -123,7 +133,8 @@
   },
   "dependencies": {
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "underscore": "1.6.0"
   },
   "description": "A dark & minimal yet usable theme for atom.",
   "devDependencies": {},
