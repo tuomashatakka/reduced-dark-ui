@@ -109,6 +109,21 @@ li.ui-sortable-helper {
   background: @background-color-highlight }
 
 
+.catalog {
+  .list-item {
+    padding: 0;
+    text-align: center;
+    .icon::before {
+      font-size: 24px;
+    }
+    .icon:hover::before {
+      font-size: 24px;
+      color: #888;
+    }
+  }
+}
+
+
 .generate-list-item-text-color(@class) {
   li:not(.list-nested-item).text-@{class},
   li.list-nested-item.text-@{class}> .list-item {

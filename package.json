@@ -1,6 +1,6 @@
 {
   "name": "reduced-dark-ui",
-  "version": "0.4.1",
+  "version": "0.3.2",
   "main": "./lib/main.js",
   "theme": "ui",
   "author": {
@@ -71,55 +71,12 @@
         }
       }
     },
-    "decor": {
+    "overrideEditorBackground": {
       "order": 3,
-      "title": "Miscellaneous",
-      "description": "a",
-      "type": "object",
-      "properties": {
-        "overrideEditorBackground": {
-          "order": 1,
-          "title": "Override Editor Background Color",
-          "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
-          "type": "boolean",
-          "default": true
-        },
-        "uiFont": {
-          "order": 2,
-          "title": "UI font family",
-          "description": "Font for the regular text in the UI",
-          "type": "string",
-          "default": "Arial",
-          "enum": [
-            "Arial",
-            "Helvetica Neue",
-            "Roboto",
-            "Open Sans",
-            "Montserrat",
-            "Lato",
-            "Raleway",
-            "Work Sans"
-          ]
-        },
-        "uiFontWeight": {
-          "order": 3,
-          "title": "UI font weight",
-          "description": "Font weight for the regular text in the UI",
-          "type": "number",
-          "default": 300,
-          "enum": [
-            100,
-            200,
-            300,
-            400,
-            500,
-            600,
-            700,
-            800,
-            900
-          ]
-        }
-      }
+      "title": "Override Editor Background Color",
+      "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
+      "type": "boolean",
+      "default": true
     },
     "icons": {
       "order": 4,
@@ -132,10 +89,9 @@
     "atom-workspace": "reduced-dark-ui:decorate"
   },
   "dependencies": {
-    "glob": "7.1.1",
-    "react": "15.4.1",
-    "react-dom": "15.4.1",
-    "underscore": "1.6.0"
+    "react": "^15.4.1",
+    "atom-space-pen-views": "^2.2.0",
+    "react-dom": "^15.4.1"
   },
   "description": "A dark & minimal yet usable theme for atom.",
   "devDependencies": {},
