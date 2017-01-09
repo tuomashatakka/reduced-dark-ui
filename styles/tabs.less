@@ -9,7 +9,7 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-@icon-size: 1em;
+@icon-size: 2em;
 
 .tab-bar {
   display: flex;
@@ -17,6 +17,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   height: @tab-height;
   justify-content: center;
   overflow-x: auto;
+  overflow-y: hidden;
   background: @tab-bar-background-color;
   border-radius: 0 !important;
   -webkit-transform: scale(1);
@@ -66,35 +67,50 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       background-color: @tab-background-color-active;
       .accent;
 
-      .title { color: inherit; padding: 0 }}
+      .title {
+        color: inherit;
+        padding: 0 }}
 
     .tab-state() }}
 
 .platform-darwin {
   .tab .close-icon {
-    left: @icon-size !important;
+    left: 0 !important;
     right: auto !important }
 
   .tab.modified:not(:hover) .close-icon {
-    left: @icon-size !important;
+    left: 0 !important;
     border: none;
     right: auto !important }}
 
 .close-icon-generator(@state: none) {
   position: absolute;
-  top: @tab-height / 2;
-  left: @icon-size;
-  width: @icon-size;
-  height: @icon-size;
-  line-height: @icon-size;
+  // top: @tab-height / 2;
+  // left: @icon-size;
+  // width: @icon-size;
+  // height: @icon-size;
+  position: absolute;
+  height: @tab-height;
+  line-height: @tab-height;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: @tab-height;
   text-align: center;
   font-size: @icon-size;
-  transform: translate(0%, -50%);
+  // transform: translate(0%, -50%);
+  background: rgba(255,255,255, 0.01);
   box-sizing: border-box;
   transition: all @transition-time ease;
+  border-radius: 0;
 
   &::before {
     display: block;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    line-height: inherit;
+    text-align: inherit;
     border-radius: 50%;
     transition: all @transition-time ease;
     transform: rotate(45deg);
