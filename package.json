@@ -54,10 +54,10 @@
           "type": "string",
           "default": "Right",
           "enum": [
-            "No collapsing",
+            "Neither",
             "Left",
             "Right",
-            "Left and right"
+            "Both"
           ]
         }
       }
@@ -71,25 +71,61 @@
         "primary": {
           "order": 1,
           "title": "Primary color",
-          "description": "The primary highlight color. Used in the main GUI component interaction",
+          "description": "The primary highlight color. Used in the main GUI interaction",
           "type": "color",
           "default": "#59edbc"
         },
         "accentColor": {
           "order": 2,
           "title": "Secondary color",
-          "description": "A complementary highlight accent.",
+          "description": "A complementary highlight accent, used mainly for hostile states' representation.",
           "type": "color",
           "default": "#3bb3f6"
+        },
+        "state": {
+          "order": 3,
+          "title": "State colors",
+          "description": "Colors for representing different states (such as git file events)",
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "order": 1,
+              "title": "Enable custom state colors",
+              "description": "If enabled, the eye-catching default state colors are overridden with your lame-ass tryhard custom 'design' color palette",
+              "type": "boolean",
+              "default": false
+            },
+            "success": {
+              "order": 2,
+              "title": "Success",
+              "description": "New files in the repository, success messages, affirmative buttons",
+              "type": "color",
+              "default": "#6ceba2"
+            },
+            "warning": {
+              "order": 3,
+              "title": "Warning",
+              "description": "Edited files, warning labels",
+              "type": "color",
+              "default": "#e6f69a"
+            },
+            "annotation": {
+              "order": 4,
+              "title": "Annotate",
+              "description": "Serious warnings",
+              "type": "color",
+              "default": "#e87565"
+            },
+            "error": {
+              "order": 5,
+              "title": "Error",
+              "description": "Fatal errors, cancel actions, all that negative stuff",
+              "type": "color",
+              "default": "#f63b84"
+            }
+          }
         }
       }
-    },
-    "overrideEditorBackground": {
-      "order": 3,
-      "title": "Override Editor Background Color",
-      "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
-      "type": "boolean",
-      "default": true
     },
     "decor": {
       "order": 3,

@@ -119,36 +119,25 @@ atom-workspace when (@config-overrideEditorBackground = true) {
 }
 
 // Collapsing
-atom-workspace when (@config-collapsing = left) {
-  .collapsePanels(@config-collapsing);
-}
+@clss: ~"atom-panel-container.@{config-collapsing}";
 
-.collapsePanels(@side) {
-  @cls: ~".@{side}";
-  @clss: ~"atom-panel-container.@{side}";
-  @{clss} {
-      atom-panel {
-        background: @app-background-color;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0 }
+atom-workspace @{clss} {
+    atom-panel {
+      background: @app-background-color;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      transition: all @transition-time;
+      transform: translateX(-100%);
+      margin-right: -@tab-height;
 
-      atom-panel {
-        transition: all @transition-time;
-        transform: translateX(-100%);
-        margin-right: -@tab-height;
+      &:hover { transform: translateX(0) }
+      &:hover ~ atom-panel { margin-left: -@tab-height }
 
-        &:hover { transform: translateX(0) }
-        &:hover ~ atom-panel { margin-left: -@tab-height }
-
-        &:nth-child(1) { z-index: 101; margin-top: 0 * @tab-height }
-        &:nth-child(2) { z-index: 102; margin-top: 1 * @tab-height }
-        &:nth-child(3) { z-index: 103; margin-top: 2 * @tab-height }
-        &:nth-child(4) { z-index: 104; margin-top: 3 * @tab-height }
-        &:nth-child(5) { z-index: 105; margin-top: 4 * @tab-height }
-        &:nth-child(6) { z-index: 106; margin-top: 5 * @tab-height }}
-
-  }
-
-}
+      &:nth-child(1) { z-index: 101; margin-top: 0 * @tab-height }
+      &:nth-child(2) { z-index: 102; margin-top: 1 * @tab-height }
+      &:nth-child(3) { z-index: 103; margin-top: 2 * @tab-height }
+      &:nth-child(4) { z-index: 104; margin-top: 3 * @tab-height }
+      &:nth-child(5) { z-index: 105; margin-top: 4 * @tab-height }
+      &:nth-child(6) { z-index: 106; margin-top: 5 * @tab-height }}}
