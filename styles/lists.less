@@ -109,17 +109,50 @@ li.ui-sortable-helper {
   background: @background-color-highlight }
 
 
+icon-picker header {
+    background-color: @app-background-color;
+  }
 .catalog {
   .list-item {
-    padding: 0;
+    padding: 0 1px !important;
+    flex: 1 1 4rem auto;
+    margin: 0;
     text-align: center;
+
+    .icon {
+      display: block;
+      height: inherit;
+      position: relative;
+      width: inherit;
+      text-align: center;
+      vertical-align: middle;
+      line-height: @tab-height;
+      height: @tab-height;
+      cursor: pointer;
+    }
     .icon::before {
-      font-size: 24px;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: inherit;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 2rem !important;
+      padding: 0;
+      margin: 0;
+      transition:
+        color @transition-time,
+        font-size @transition-time/2;
     }
+
     .icon:hover::before {
-      font-size: 24px;
-      color: #888;
+      color: @color-highlight;
+      font-size: 2rem !important;
     }
+  }
+  footer a.btn {
+    margin-right: @button-height / 4
   }
 }
 

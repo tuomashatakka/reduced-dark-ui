@@ -78,11 +78,67 @@
       "type": "boolean",
       "default": true
     },
+    "decor": {
+      "order": 3,
+      "title": "Miscellaneous",
+      "description": "a",
+      "type": "object",
+      "properties": {
+        "overrideEditorBackground": {
+          "order": 1,
+          "title": "Override Editor Background Color",
+          "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
+          "type": "boolean",
+          "default": true
+        },
+        "uiFont": {
+          "order": 2,
+          "title": "UI font family",
+          "description": "Font for the regular text in the UI",
+          "type": "string",
+          "default": "Arial",
+          "enum": [
+            "Arial",
+            "Avenir Next",
+            "Comic Sans",
+            "Gill Sans",
+            "Helvetica Neue",
+            "Lato",
+            "Montserrat",
+            "Open Sans",
+            "Raleway",
+            "Roboto",
+            "Roboto Mono",
+            "Source Sans Pro",
+            "Work Sans"
+          ]
+        },
+        "uiFontWeight": {
+          "order": 3,
+          "title": "UI font weight",
+          "description": "Font weight for the regular text in the UI",
+          "type": "number",
+          "default": 300,
+          "enum": [
+            100,
+            200,
+            300,
+            400,
+            500,
+            600,
+            700,
+            800,
+            900
+          ]
+        }
+      }
+    },
     "icons": {
       "order": 4,
       "title": "Icons",
       "description": "Icons for the workspace's panels (run reduced-dark-ui:decorate to refresh)",
-      "type": "object"
+      "type": "object",
+      "default": {}
     }
   },
   "activationCommands": {
