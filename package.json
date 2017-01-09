@@ -19,7 +19,7 @@
       "properties": {
         "uiScale": {
           "order": 1,
-          "title": "UI Scale",
+          "title": "UI scale",
           "description": "Scale the user interface (does not affect the text editor font size)",
           "type": "integer",
           "default": 100,
@@ -35,17 +35,30 @@
         },
         "fixedTabBar": {
           "order": 3,
-          "title": "Fixed Tab Bar",
+          "title": "Fixed tab tar",
           "description": "Display tabs above everything else. Enabling this setting allows tabs to spread amongst the whole screen. **Has some issues while the screen is split horizontally**",
           "type": "boolean",
           "default": false
         },
         "fixedProjectRoot": {
           "order": 4,
-          "title": "Fixed Project Root",
+          "title": "Fixed project root",
           "description": "Set the project root(s) in the tree view to be fixed to the top of the view. If enabled, the root folders remain fixed to the top of the view while the tree view is scrolled.",
           "type": "boolean",
           "default": true
+        },
+        "collapsing": {
+          "order": 5,
+          "title": "Collapsing panels",
+          "description": "Collapse the side panels. Panels are shown on mouseover.",
+          "type": "string",
+          "default": "Right",
+          "enum": [
+            "No collapsing",
+            "Left",
+            "Right",
+            "Left and right"
+          ]
         }
       }
     },
