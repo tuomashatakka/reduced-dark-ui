@@ -178,26 +178,31 @@ Colors & accent                                                                 
   color: @text-color-success }
 
 
-.accent {
+.accent.inverse {
+  background: @color-highlight;
+
+  & when (lightness(@color-highlight) < 0.5) { &, &:focus, &:active {
+    color: @col-white;
+    border-color: @color-highlight !important }}
+
+  & when (lightness(@color-highlight) >= 0.5) { &, &:focus, &:active {
+    color: @col-bg;
+    border-color: @color-highlight !important }}}
+
+.accent(@state: normal) {
   background: @background-color-highlight;
   color: @color-highlight;
 
+  & when (@state = inverse) {
+    .accent.inverse }
+
+  // TODO: Assign highlighting
   &.active,
-  &.selected {
-    }
+  &.selected {}
 
+  // TODO: Assign a slight screen filter
   &:hover,
-  &:focus {}
-  &.inverse {
-    background: @color-highlight;
-
-    & when (lightness(@color-highlight) < 0.5) { &, &:focus, &:active {
-      color: @col-white;
-      border-color: @color-highlight !important }}
-
-    & when (lightness(@color-highlight) >= 0.5) { &, &:focus, &:active {
-      color: @col-bg;
-      border-color: @color-highlight !important }}}}
+  &:focus {}}
 
 .selection(disabled) {
   -webkit-user-select: none;
