@@ -32,7 +32,9 @@ atom-panel {
     color: @text-color;
     z-index: 1000;
     box-sizing: border-box;
-    transition: transform @transition-time;
+    transition:
+      transform @transition-time,
+      width @transition-time;
     transform: translateX(0);
     border-radius: 50%;
     // border: 1px solid fade(@text-color, 1%);
@@ -49,8 +51,10 @@ atom-panel {
       width: 100%;
     }
   }
+  &.open .display-icon,
   &:hover .display-icon {
     transform: translateX(-@tab-height);
+    width: 100%;
   }
 }
 

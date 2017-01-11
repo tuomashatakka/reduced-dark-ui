@@ -15,6 +15,11 @@ atom-text-editor::shadow,
 :host {
   .scroll-view { padding: 0 }}
 
+atom-workspace-axis.vertical atom-pane > .item-views {
+  left: 0;
+  transition:
+    left @transition-time,
+    margin @transition-time }
 atom-text-editor[mini],
 atom-text-editor[mini]::shadow {
   transition: all @transition-time ease;
