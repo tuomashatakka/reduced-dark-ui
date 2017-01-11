@@ -122,23 +122,32 @@ atom-workspace when (@config-overrideEditorBackground = true) {
 @clss: ~"atom-panel-container.@{config-collapsing}";
 
 atom-workspace @{clss} {
-    atom-panel {
-      background: @app-background-color;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      transition: all @transition-time;
-      transform: translateX(-100%);
-      margin-right: -@tab-height;
+  // Horizontal spacing is 1/8
+  @gutter-y: 1 / 8;
 
-      &.open,
-      &:hover { transform: translateX(0) }
-      &:hover ~ atom-panel { margin-left: -@tab-height }
+  atom-panel {
+    background: @app-background-color;
+    position: absolute;
+    margin-right: -@tab-height;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    transition:
+        margin @transition-time @transition-curve,
+        transform @transition-time @transition-curve;
 
-      &:nth-child(1) { z-index: 101; margin-top: 0 * @tab-height }
-      &:nth-child(2) { z-index: 102; margin-top: 1 * @tab-height }
-      &:nth-child(3) { z-index: 103; margin-top: 2 * @tab-height }
-      &:nth-child(4) { z-index: 104; margin-top: 3 * @tab-height }
-      &:nth-child(5) { z-index: 105; margin-top: 4 * @tab-height }
-      &:nth-child(6) { z-index: 106; margin-top: 5 * @tab-height }}}
+    &.open,
+    &:hover { transform: translateX(0) }
+
+    &.open  ~ atom-panel,
+    &:hover ~ atom-panel { 
+      margin-left: -@tab-height }
+
+    @advance: @tab-height * (3 / 4 + @gutter-y);
+    &:nth-child(1) { z-index: 101; margin-top: 0 * @advance }
+    &:nth-child(2) { z-index: 102; margin-top: 1 * @advance }
+    &:nth-child(3) { z-index: 103; margin-top: 2 * @advance }
+    &:nth-child(4) { z-index: 104; margin-top: 3 * @advance }
+    &:nth-child(5) { z-index: 105; margin-top: 4 * @advance }
+    &:nth-child(6) { z-index: 106; margin-top: 5 * @advance }}}

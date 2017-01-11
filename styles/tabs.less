@@ -9,7 +9,7 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-@icon-size: 2em;
+@icon-size: 3.2em;
 
 .tab-bar {
   display: flex;
@@ -52,7 +52,9 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     .status-added, &.added { color: @text-color-added }
     .status-ignored, &.ignored { color: @text-color-ignored }
     .title, .title::before {
-      line-height: inherit;
+      height: @tab-height / 3;
+      line-height: @tab-height / 3;
+      vertical-align: middle;
       font-size: 1rem !important }
 
     // Hovered
@@ -74,37 +76,40 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     .tab-state() }}
 
 .platform-darwin {
+
   .tab .close-icon {
-    left: 0 !important;
     right: auto !important }
 
   .tab.modified:not(:hover) .close-icon {
-    left: 0 !important;
     border: none;
     right: auto !important }}
 
 .close-icon-generator(@state: none) {
+  @size: @tab-height;
   position: absolute;
   // top: @tab-height / 2;
   // left: @icon-size;
   // width: @icon-size;
   // height: @icon-size;
   position: absolute;
-  height: @tab-height;
-  line-height: @tab-height;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: @tab-height;
+  height: @size/2;
+  line-height: @size/2;
+  top: @size/4;
+  left: @size/4;
+  bottom: @size/4;
+  width: @size/2;
   text-align: center;
   font-size: @icon-size;
   // transform: translate(0%, -50%);
-  background: rgba(255,255,255, 0.01);
+  background: rgba(255,255,255, 0.02);
   box-sizing: border-box;
   transition: all @transition-time ease;
-  border-radius: 0;
+  border-radius: 50%;
 
   &::before {
+    content: "\f404";
+    font-family: 'ionicons';
+    font-size: inherit;
     display: block;
     position: absolute;
     width: inherit;
@@ -113,17 +118,17 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     text-align: inherit;
     border-radius: 50%;
     transition: all @transition-time ease;
-    transform: rotate(45deg);
     opacity: 0 }
-
 
   // Not modified, non-hovered
   &::before when (@state = none) {
-    color: transparent }
+    transform: rotate(-30deg);
+    color: rgba(0, 0, 0, 0.1) }
 
   // Hovered
   &::before when (@state = hover) {
-    color: inherit;
+    cursor: pointer;
+    color: @text-color-highlight;
     background: @tab-background-color-active;
     border-width: 0px;
     transform: rotate(0deg);
@@ -132,6 +137,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   // Modified
   &::before when (@state = modified) {
     border-width: 0px;
+    transform: rotate(45deg);
     opacity: 1 }
 }
 

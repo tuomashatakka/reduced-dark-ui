@@ -16,8 +16,12 @@ atom-panel-container.bottom {
   z-index: 3 }
 
 atom-pane-container {
-  atom-pane-axis.horizontal > * { border-right: 1px solid @base-border-color }
-  atom-pane-axis.horizontal > *:last-child { border-right: none }
+  atom-pane-axis.horizontal > * {
+    border-right: 1px solid @base-border-color }
+
+  atom-pane-axis.horizontal > *:last-child {
+    border-right: none }
+
   atom-pane-axis.vertical atom-pane-resize-handle.vertical {
     border-bottom: 1px solid @base-border-color;
     margin-bottom: -1px }}
@@ -30,7 +34,7 @@ atom-panel {
 
 atom-panel.bottom {
     background: @app-background-color;
-    padding-bottom: 1em }
+    padding: 0 !important }
 
 atom-panel.bottom > *:not(:empty) {
     background: @app-background-color;
@@ -47,6 +51,7 @@ atom-panel.bottom > *:not(:empty) {
 
   & .btn {
     .button(@button-border-color);
+
     font-size: 0.85rem !important;
     padding: 0 0.5em !important;
     height: 2em !important;
@@ -58,10 +63,12 @@ atom-panel.bottom > *:not(:empty) {
     &.btn-warning { .button-variant(@text-color-warning) }
     &.btn-error { .button-variant(@text-color-error) }}}
 
+
 // Item views
 .panel-body {
   background: @tool-panel-background-color;
   border-radius: inherit }
+
 
 // Misc
 .pane-item,
@@ -72,6 +79,7 @@ atom-pane-container atom-pane .item-views {
 .focusable-panel,
 .item-views .focusable-panel {
   padding: @component-padding }
+
 
 // Resizers
 @handle: ~"*[class*='resize']:empty";
