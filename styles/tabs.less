@@ -85,15 +85,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     right: auto !important }}
 
 .close-icon-generator(@state: none) {
-  @size: @tab-height;
+  @size: @tab-height/3;
+
   position: absolute;
-  // top: @tab-height / 2;
-  // left: @icon-size;
-  // width: @icon-size;
-  // height: @icon-size;
-  position: absolute;
-  height: @size/2;
-  line-height: @size/2;
+  height: @tab-height - @size/2;
+  line-height: @tab-height - @size/2;
   top: @size/4;
   left: @size/4;
   bottom: @size/4;
@@ -101,7 +97,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   text-align: center;
   font-size: @icon-size;
   // transform: translate(0%, -50%);
-  background: rgba(255,255,255, 0.02);
+  // background: rgba(255,255,255, 0.02);
+  background: transparent;
   box-sizing: border-box;
   transition: all @transition-time ease;
   border-radius: 50%;
@@ -137,7 +134,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   // Modified
   &::before when (@state = modified) {
     border-width: 0px;
-    transform: rotate(45deg);
+    transform: rotate(135deg);
     opacity: 1 }
 }
 

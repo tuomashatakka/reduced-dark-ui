@@ -65,3 +65,20 @@ atom-panel.modal.overlay.from-top.expose-panel {
       .close-icon {
         color: @text-color-highlight }}}
 }
+
+atom-workspace-axis.expose-blur {
+  -webkit-filter: blur(1.2rem) saturate(25%);
+}
+.expose-view.animate {
+ transform: scale(0.9) }
+
+.expose-view .tab-list .expose-tab {
+  border-radius: 2px !important;
+  border-width: 0 !important;
+
+  &.active {
+    border: 1px solid @col-light !important;
+  }
+
+  .tab-body {
+    border-width: 0 !important }}

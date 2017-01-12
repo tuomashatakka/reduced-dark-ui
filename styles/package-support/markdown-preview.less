@@ -79,3 +79,24 @@ Style                                                                           
 
       tr:nth-child(2n) {
         background-color: darken(@markdown-preview-background-color, 3%) }}}}
+
+
+.markdown-preview {
+  background: transparent !important;
+  * {
+    color: @col-light !important;
+    font-weight: 100 !important;
+    font-family: Helvetica Neue;
+    letter-spacing: 0.03em }
+
+  th {
+    background: @col-dark }
+
+  th, td {
+    border-color: @col-dark !important }
+
+  h1, h2, h3, h4 {
+    font-weight: 100 !important;
+    text-transform: lowercase;
+  }
+}
