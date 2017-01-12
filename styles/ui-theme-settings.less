@@ -129,6 +129,8 @@ atom-workspace @{clss} {
     background: @app-background-color;
     position: absolute;
     margin-right: -@tab-height;
+    padding-top: @tab-height;
+    border-radius: @tab-height / 2.05;
     top: 0;
     left: 0;
     bottom: 0;
@@ -138,10 +140,11 @@ atom-workspace @{clss} {
         transform @transition-time @transition-curve;
 
     &.open,
-    &:hover { transform: translateX(0) }
+    &:hover {
+      transform: translateX(0) }
 
     &.open  ~ atom-panel,
-    &:hover ~ atom-panel { 
+    &:hover ~ atom-panel {
       margin-left: -@tab-height }
 
     @advance: @tab-height * (3 / 4 + @gutter-y);

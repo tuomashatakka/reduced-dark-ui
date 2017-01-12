@@ -9,13 +9,14 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 linter-panel {
   line-height: 2em;
+  overflow: visible;
 
   &:not(:empty) {
-    padding: @handle-size 0 0 !important }
+    padding: 1px 0 0 !important }
 
   linter-message {
     display: block;
-    padding: 0.5em 1em 0;
+    padding: 0 0 @component-padding / 4;
 
     .badge, .linter-highlight.badge {
       .badge;

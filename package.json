@@ -88,13 +88,6 @@
           "description": "Colors for representing different states (such as git file events)",
           "type": "object",
           "properties": {
-            "enabled": {
-              "order": 1,
-              "title": "Enable custom state colors",
-              "description": "If enabled, the eye-catching default state colors are overridden with your lame-ass tryhard custom 'design' color palette",
-              "type": "boolean",
-              "default": false
-            },
             "success": {
               "order": 2,
               "title": "Success",
