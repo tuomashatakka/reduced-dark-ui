@@ -48,6 +48,10 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
         color: inherit !important;
         border-color: auto !important }}
 
+    &::before {
+      display: none; // For the material design icons
+    }
+
     .status-modified, &.modified { color: @text-color-modified }
     .status-added, &.added { color: @text-color-added }
     .status-ignored, &.ignored { color: @text-color-ignored }
