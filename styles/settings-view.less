@@ -7,7 +7,7 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-@settings-gutter: 1.5rem;
+@settings-gutter: 0.5rem;
 @size-pkg-name: 6rem;
 
 .settings-view {
@@ -79,8 +79,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
         min-height: 36px }}}
 
   .section {
-    margin: @settings-gutter @settings-gutter 0 0;
-    background-color: mix(@app-background-color, @background-color-highlight);
+    margin: @settings-gutter 0 0;
+    background-color: mix(@app-background-color, @background-color-highlight, 70%);
     border-radius: @component-border-radius;
 
     .section-body {
