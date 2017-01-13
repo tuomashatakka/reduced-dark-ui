@@ -15,12 +15,8 @@ Variable definitions                                                            
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 User Interface                                                                                                                                                                                                                                                                                                                                                          */
-//.config(tabSizing);
-// .config(fixedTabBar);
-// .config(fixedProjectRoot);
-// .config(overrideEditorBackground);
-// .config(@arg) {
-//[@{attr-config}*=@{arg}] {
+
+// Full-width tabs
 atom-workspace when (@config-tabSizing = true) {
   .tab-bar .tab {
     max-width: none;
@@ -28,6 +24,7 @@ atom-workspace when (@config-tabSizing = true) {
 }
 
 
+// Tab bar fixed to the top of the screen
 atom-workspace when (@config-fixedTabBar = true) {
   & > atom-workspace-axis {
     margin-top: @tab-height !important }
@@ -49,6 +46,7 @@ atom-workspace when (@config-fixedTabBar = true) {
 }
 
 
+// Project root(s) fixed to the top of the tree view
 atom-workspace when (@config-fixedProjectRoot = true) {
 
   .tree-view-scroller {
@@ -111,6 +109,7 @@ atom-workspace when (@config-fixedProjectRoot = true) {
             display: none }}}}}
 }
 
+// Editor bgcol override
 atom-workspace when (@config-overrideEditorBackground = true) {
   atom-text-editor,
   atom-text-editor::shadow,
@@ -118,9 +117,13 @@ atom-workspace when (@config-overrideEditorBackground = true) {
     background: @tab-background-color-active }
 }
 
-// Collapsing
+
+// Collapsing for panels
 @clss: ~"atom-panel-container.@{config-collapsing}";
 
+atom-workspace atom-panel-container {
+  atom-panel .display-icon{
+    display: none }}
 atom-workspace @{clss} {
   // Horizontal spacing is 1/8
   @gutter-y: 1 / 8;
@@ -138,6 +141,9 @@ atom-workspace @{clss} {
     transition:
         margin @transition-time @transition-curve,
         transform @transition-time @transition-curve;
+
+    .display-icon {
+      display: block }
 
     &.open,
     &:hover {

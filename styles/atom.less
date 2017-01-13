@@ -27,6 +27,9 @@ atom-workspace {
 
   atom-workspace-axis.vertical {
     transition: filter 250ms;
+    left: 0 !important }
+
+  atom-workspace-axis.vertical when (@config-collapsing = left) {
     margin-left: @tab-height }}
 
 .modal-open {

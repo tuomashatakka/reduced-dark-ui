@@ -19,7 +19,15 @@ atom-workspace-axis.vertical atom-pane > .item-views {
   left: 0;
   transition:
     left @transition-time,
-    margin @transition-time }
+    margin @transition-time;
+
+  & when (@config-collapsing = neither) {
+    left: 0 !important }
+  & when (@config-collapsing = right) {
+    left: 0 !important }
+  & when (@config-collapsing = both) {
+    left: 0 !important }}
+
 atom-text-editor[mini],
 atom-text-editor[mini]::shadow {
   transition: all @transition-time ease;
