@@ -14,13 +14,15 @@ atom-workspace > atom-panel-container.header {
 
   .title-bar {
     .text(caps);
-    font-size: unit(@size-tiny, rem);
+    font-size: unit(@size-tiny, em);
+    background-color: @app-background-color;
+    border: none;
     position: absolute;
     right: 0;
     top: 0;
     z-index: 10;
-    padding: 0;
-    height: 20px;
-    line-height: 20px;
+    padding: 0 0.2em;
+    height: 1em;
+    line-height: 1em;
   }
 }

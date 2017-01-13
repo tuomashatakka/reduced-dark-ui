@@ -7,20 +7,14 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 // Containers
-atom-panel-container {
-  background: @base-background-color }
-
 atom-panel-container.bottom {
   margin-top: 0;
   border-top: 1px solid @tool-panel-border-color;
   z-index: 3 }
 
 atom-pane-container {
-  atom-pane-axis.horizontal > * {
+  atom-pane-axis.horizontal > *:not(:last-child) {
     border-right: 1px solid @base-border-color }
-
-  atom-pane-axis.horizontal > *:last-child {
-    border-right: none }
 
   atom-pane-axis.vertical atom-pane-resize-handle.vertical {
     border-bottom: 1px solid @base-border-color;
