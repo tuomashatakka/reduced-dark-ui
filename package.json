@@ -191,7 +191,8 @@
     "auto-updater": "^1.0.2",
     "jasmine": "^2.5.3",
     "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react-dom": "^15.4.1",
+    "underscore": "^1.8.3"
   },
   "description": "A dark & minimal yet usable theme for atom.",
   "devDependencies": {},
