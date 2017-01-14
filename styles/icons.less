@@ -18,6 +18,22 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 // Custom injected panel icons
 atom-panel {
+  &.left .display-icon {
+    right: -@tab-height }
+
+  &.open.left .display-icon,
+  &:hover.left .display-icon {
+    transform: translateX(-@tab-height);
+    width: 100% }
+
+  &.right .display-icon {
+    left: -@tab-height }
+
+  &.open.right .display-icon,
+  &:hover.right .display-icon {
+    transform: translateX(@tab-height);
+    width: 100% }
+
   .display-icon {
     .selection(disabled);
     position: absolute;
@@ -27,7 +43,6 @@ atom-panel {
     height: @tab-height !important;
     line-height: @tab-height;
     top: 0;
-    right: -@tab-height;
     text-align: center;
     font-size: 2em;
     color: @text-color;
@@ -41,7 +56,6 @@ atom-panel {
         transform @transition-time,
         width @transition-time;
     transition-timing-function: @transition-curve;
-    // border: 1px solid fade(@text-color, 1%);
 
     &::before {
       font-size: inherit !important;
@@ -50,17 +64,12 @@ atom-panel {
       display: block;
       text-align: center;
       width: auto;
+      height: initial !important;
       line-height: @tab-height * 3/4;
-      margin-right: -@tab-height;
       border-radius: @tab-height / 2;
       transition-timing-function: @transition-curve;
       background: @base-border-color;
     }
-  }
-  &.open .display-icon,
-  &:hover .display-icon {
-    transform: translateX(-@tab-height);
-    width: 100%;
   }
 }
 

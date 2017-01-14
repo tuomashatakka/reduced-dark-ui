@@ -119,28 +119,48 @@ atom-workspace when (@config-overrideEditorBackground = true) {
 
 
 // Collapsing for panels
-@clss: ~"atom-panel-container.@{config-collapsing}";
 
-atom-workspace atom-panel-container {
-  atom-panel .display-icon{
-    display: none }}
-atom-workspace @{clss} {
+atom-workspace atom-panel-container atom-panel .display-icon {
+  display: none }
+
+atom-workspace when (@config-collapsing = left) {
+  .applyCollapsing(left) }
+
+atom-workspace when (@config-collapsing = right) {
+  .applyCollapsing(right) }
+
+atom-workspace when (@config-collapsing = both) {
+  .applyCollapsing(left);
+  .applyCollapsing(right) }
+
+.applyCollapsing(@cls: neither) {
   // Horizontal spacing is 1/8
   @gutter-y: 1 / 8;
+  @clss: ~"atom-panel-container.@{cls}";
+
+  @{clss} {
 
   atom-panel {
     background: @app-background-color;
     position: absolute;
-    margin-right: -@tab-height;
     padding-top: @tab-height;
     border-radius: @tab-height / 2.05;
     top: 0;
-    left: 0;
     bottom: 0;
-    transform: translateX(-100%);
     transition:
         margin @transition-time @transition-curve,
         transform @transition-time @transition-curve;
+
+    &.left {
+      left: 0;
+      transform: translateX(-100%);
+      margin-right: -@tab-height;
+    }
+    &.right {
+      right: 0;
+      transform: translateX(100%);
+      margin-left: -@tab-height;
+    }
 
     .display-icon {
       display: block }
@@ -159,4 +179,4 @@ atom-workspace @{clss} {
     &:nth-child(3) { z-index: 103; margin-top: 2 * @advance }
     &:nth-child(4) { z-index: 104; margin-top: 3 * @advance }
     &:nth-child(5) { z-index: 105; margin-top: 4 * @advance }
-    &:nth-child(6) { z-index: 106; margin-top: 5 * @advance }}}
+    &:nth-child(6) { z-index: 106; margin-top: 5 * @advance }}}}
