@@ -7,73 +7,94 @@
 
 <p align="center">
 
-  <img src="https://tuomashatakka.github.io/reduced-dark-ui/assets/re-logo.svg" width=24 height=24/>
+  <img src="https://github.com/tuomashatakka/reduced-dark-ui/blob/master/assets/logo/logo-glyph.png" width=16 height=16 />
   <a href="https://atom.io/themes/reduced-dark-ui">
     <img src="https://img.shields.io/apm/dm/reduced-dark-ui.svg?style=flat-square">
-    </a>&nbsp;&nbsp;
+    </a>
 
   <img src="https://github.com/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
   <a href="https://github.com/tuomashatakka/reduced-dark-ui/releases/latest">
     <img src="https://img.shields.io/github/issues/tuomashatakka/reduced-dark-ui.svg?style=flat-square">
-    </a>&nbsp;&nbsp;
+    </a>
 
   <img src="https://atom.io/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
   <a href="https://atom.io/themes/reduced-dark-ui">
     <img src="https://img.shields.io/apm/v/reduced-dark-ui.svg?style=flat-square">
-    </a>&nbsp;&nbsp;
+    </a>
 </p>
 
-<p align="center">
-  <img style='width:25%; max-width: 14em;' src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/re-logo.svg"/>
-</p>
+<table><tr>
 
-<h2 style='text-align: center'><span class='icon icon-alert' /> PLEASE NOTE</h2>
-<p align="center">
-  This theme is currently under development and should be considered barely as a preview.
-  Contributions and issues are more than welcome - as well as any other feedback!
-  Tree-view works currently best when at the right side of the screen.
-  Tool-bar package is currently configured only for its left panel layout.
-  Linter is fully themed.
-  </em>
-</p>
+ <td>
+  <img style='margin: 0 auto; width: 25%; max-width: 14em; min-width: 8em;' src="https://github.com/tuomashatakka/reduced-dark-ui/blob/master/assets/logo/logo.png"/>
+ </td>
+
+
+ <td>
+  <h2 style='text-align: left'><span class='icon icon-alert' /> PLEASE NOTE</h2>
+  <p align="left">
+    This theme is currently under development and should be considered barely as a preview.
+    Contributions and issues are more than welcome - as well as any other feedback!
+    Tree-view works currently best when at the right side of the screen.
+    Tool-bar package is currently configured only for its left panel layout.
+    Linter is fully themed.
+  </p>
+ </td>
+ 
+</tr></table>
 
 ## About
 
-<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-10.png' style='float: right; width: 25%; margin: 4%' />
 
-While being clean and simple, does not compromise usability.
+<table><tr>
 
-This theme is an attempt to wrap the currently-not-as-intuitive-as-it-could-be paneling scheme in Atom for reduced obstruction (by obsolete panels that fill the screen and reduce your precious code editor into a thin line with max line length of ~50 characters (😄) at best)
-by making the side panels collapse into a tool-bar of sort. **Feedback is great**ly valuable and appreciated here.
+ <td>
 
-If a package's panel fails to display correctly, please raise an issue and I'll do my best at supporting it. Or better, submit a pull request! Panel collapsing should be generically implemented enough to cause few to none inconsistencies though.
+  <p>While being clean and simple, does not compromise usability.</p>
 
-Also hella lotta configuration options (on their way).
-Seriously, it will be like candyland.
+  <p>This theme is an attempt to wrap the currently-not-as-intuitive-as-it-could-be paneling scheme in Atom for reduced obstruction (by obsolete panels that fill the screen and reduce your precious code editor into a thin line with max line length of ~50 characters (😄) at best)
+  by making the side panels collapse into a tool-bar of sort. **Feedback is great**ly valuable and appreciated here.</p>
 
+  <p>If a package's panel fails to display correctly, please raise an issue and I'll do my best at supporting it. Or better, submit a pull request! Panel collapsing should be generically implemented enough to cause few to none inconsistencies though.</p>
+
+  <p>Also hella lotta configuration options (on their way).
+  Seriously, it will be like candyland.</p>
+
+  <a href="https://atom.io/themes/reduced-dark-ui">atom.io/themes/reduced-dark-ui</a>
+
+ </td>
+  <td>
+   <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 25%; margin: 4%' />
+  </td>
+  
+</tr></table>
 
 
 ### Feats || hilites && config
 
- - COMING SOON™ - **Any accent color**. Please note that the highlight option is not yet thoroughly implemented.
-
-
- - **Custom icons for any and every package**. Configure any icon you want to. Automatic initial resolving by walking the DOM.
+ - [x] **Any accent color**. Please note that the highlight option is not yet thoroughly implemented.
+ - [ ] COMING SOON™ **Custom icons for any and every package**. Configure any icon you want to. Automatic initial resolving by walking the DOM.
    THIS IS STILL IN AN EARLY STATE, but works already. The theme needs to be reloaded for changes to become visible. Assigned icons
    can be changed from the theme's settings
- - **Fixed tab bar**. Window-wide tab bar - finally you can see 'em all at once
- - **Fixed project root**. Tree view's root folder always visible
- - **Full-width tab sizing**. No blank space wasted whatsoever
- - **UI Scale**. Each and every part of the UI is scaled with the editor's font size as a basis. Gracefully.
+ - [x] **Fixed tab bar**. Window-wide tab bar - finally you can see 'em all at once
+ - [x] **Fixed project root**. Tree view's root folder always visible
+ - [x] **Full-width tab sizing**. No blank space wasted whatsoever
+ - [x] **UI Scale**. Each and every part of the UI is scaled with the editor's font size as a basis. Gracefully.
    Pick a number (from 25 to 200) and see the magic happen. I know you hate too fat interfaces too ;)
 
 
 ### Screenshots
+<table><tr>
 
-<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 42%; margin: 4%' />
-
-<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-12.png' style='float: right; width: 42%; margin: 4%' />
-
+ <td>
+  <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-12.png' />
+ </td>
+ 
+ <td>
+  <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-10.png' />
+ </td>
+  
+</tr></table>
 
 
 ### Inspiration and thanks
