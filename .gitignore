@@ -2,7 +2,7 @@
 node_modules
 
 # Project-specific
-styles/definitions/config.less
+**/config.less
 
 # Symbols
 .tags
