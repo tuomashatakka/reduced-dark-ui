@@ -261,3 +261,22 @@ catalog {
       font-size: 0.9em;
       color: mix(@color, @background-color-selected, 88%) } }
 }
+
+
+.sub-section.icon-selector,
+.section.icon-selector {
+  display: flex;
+
+  > *:not(.sub-section-heading) {
+    flex-grow: 1 }
+
+  .sub-section-heading {
+    margin: 0 !important;
+    padding: 1rem @component-padding !important }
+
+  .sub-section-body {
+    margin: 0 !important;
+    padding: 0 }
+
+  .sub-section-heading.has-items::after {
+    display: none !important }}
