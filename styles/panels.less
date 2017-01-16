@@ -28,7 +28,7 @@ atom-panel {
 
 atom-panel.bottom {
     background: @app-background-color;
-    padding: @component-padding !important }
+    padding: @component-padding 0 !important }
 
 atom-panel.bottom > *:not(:empty) {
     background: @app-background-color;
@@ -41,7 +41,8 @@ atom-panel.bottom > *:not(:empty) {
 .inset-panel .panel-heading {
   .text(heading);
   font-size: 2em;
-  border-radius: 0;
+  border-radius: @component-border-radius;
+  background: @panel-heading-background-color;
 
   & .btn {
     .button(@button-border-color);
@@ -73,6 +74,9 @@ atom-pane-container atom-pane .item-views {
 .focusable-panel,
 .item-views .focusable-panel {
   padding: @component-padding }
+
+.tool-panel {
+  background: transparent }
 
 
 // Resizers
