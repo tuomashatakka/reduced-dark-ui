@@ -92,11 +92,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   @size: @tab-height/3;
 
   position: absolute;
-  height: @tab-height - @size/2;
-  line-height: @tab-height - @size/2;
-  top: @size/4;
+  height: @tab-height - @size;
+  line-height: @tab-height - @size;
+  top: @size/2;
   left: @size/4;
-  bottom: @size/4;
+  bottom: @size/2;
   width: @size/2;
   text-align: center;
   font-size: @icon-size;
@@ -104,6 +104,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   // background: rgba(255,255,255, 0.02);
   background: transparent;
   box-sizing: border-box;
+  border-width: 0;
   transition: all @transition-time ease;
   border-radius: 50%;
 
@@ -130,15 +131,14 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   &::before when (@state = hover) {
     cursor: pointer;
     color: @text-color-highlight;
-    background: @tab-background-color-active;
     border-width: 0px;
     transform: rotate(0deg);
     opacity: 1 }
 
   // Modified
   &::before when (@state = modified) {
-    border-width: 0px;
-    transform: rotate(135deg);
+    border-width: 0px !important;
+    transform: rotate(45deg);
     opacity: 1 }
 }
 

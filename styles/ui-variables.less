@@ -45,13 +45,7 @@ Background                                                                      
 @color-success:               mix(@config-primary, @config-success, 50%);
 @color-warning:               mix(@config-accentColor, @config-warning, 25%);
 @color-annotation:            mix(@config-accentColor, @config-annotation, 25%);
-@color-error:                 mix(@config-accentColor, @config-error, 25%);
-
-@background-color-success:    screen(@color-success, @app-background-color, 50%);
-@background-color-info:       mix(@color-main, @app-background-color, 90%);
-@background-color-warning:    screen(@color-annotation, @app-background-color, 75%);
-@background-color-annotation: @background-color-warning;
-@background-color-error:      mix(@color-error, @app-background-color, 50%);
+@color-error:                 mix(@config-accentColor, @config-error, 5%);
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text                                                                                                                                                                                                                                                                                                                                                                 */
@@ -71,6 +65,12 @@ Text                                                                            
 @text-color-warning:                mix(@color-warning, @config-annotation, 50%);
 @text-color-removed:                mix(@color-annotation, @config-annotation, 50%);
 @text-color-error:                  mix(@color-error, @config-error, 50%);
+
+@background-color-success:    screen(@color-success, @app-background-color, 50%);
+@background-color-info:       mix(@color-main, @app-background-color, 90%);
+@background-color-warning:    screen(@text-color-warning, @app-background-color, 75%);
+@background-color-annotation: @background-color-warning;
+@background-color-error:      mix(@text-color-error, @base-background-color, 75%);
                                                                                                                                                                                                                                                                                                                                                                         /*
 Components                                                                                                                                                                                                                                                                                                                                                              */
 

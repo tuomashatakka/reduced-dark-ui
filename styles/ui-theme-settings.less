@@ -15,12 +15,8 @@ Variable definitions                                                            
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 User Interface                                                                                                                                                                                                                                                                                                                                                          */
-//.config(tabSizing);
-// .config(fixedTabBar);
-// .config(fixedProjectRoot);
-// .config(overrideEditorBackground);
-// .config(@arg) {
-//[@{attr-config}*=@{arg}] {
+
+// Full-width tabs
 atom-workspace when (@config-tabSizing = true) {
   .tab-bar .tab {
     max-width: none;
@@ -28,6 +24,7 @@ atom-workspace when (@config-tabSizing = true) {
 }
 
 
+// Tab bar fixed to the top of the screen
 atom-workspace when (@config-fixedTabBar = true) {
   & > atom-workspace-axis {
     margin-top: @tab-height !important }
@@ -49,6 +46,7 @@ atom-workspace when (@config-fixedTabBar = true) {
 }
 
 
+// Project root(s) fixed to the top of the tree view
 atom-workspace when (@config-fixedProjectRoot = true) {
 
   .tree-view-scroller {
@@ -111,6 +109,7 @@ atom-workspace when (@config-fixedProjectRoot = true) {
             display: none }}}}}
 }
 
+// Editor bgcol override
 atom-workspace when (@config-overrideEditorBackground = true) {
   atom-text-editor,
   atom-text-editor::shadow,
@@ -118,26 +117,53 @@ atom-workspace when (@config-overrideEditorBackground = true) {
     background: @tab-background-color-active }
 }
 
-// Collapsing
-@clss: ~"atom-panel-container.@{config-collapsing}";
 
-atom-workspace @{clss} {
+// Collapsing for panels
+
+atom-workspace atom-panel-container atom-panel .display-icon {
+  display: none }
+
+atom-workspace when (@config-collapsing = left) {
+  .applyCollapsing(left) }
+
+atom-workspace when (@config-collapsing = right) {
+  .applyCollapsing(right) }
+
+atom-workspace when (@config-collapsing = both) {
+  .applyCollapsing(left);
+  .applyCollapsing(right) }
+
+.applyCollapsing(@cls: neither) {
   // Horizontal spacing is 1/8
   @gutter-y: 1 / 8;
+  @clss: ~"atom-panel-container.@{cls}";
+
+  @{clss} {
 
   atom-panel {
     background: @app-background-color;
     position: absolute;
-    margin-right: -@tab-height;
     padding-top: @tab-height;
     border-radius: @tab-height / 2.05;
     top: 0;
-    left: 0;
     bottom: 0;
-    transform: translateX(-100%);
     transition:
         margin @transition-time @transition-curve,
         transform @transition-time @transition-curve;
+
+    &.left {
+      left: 0;
+      transform: translateX(-100%);
+      margin-right: -@tab-height;
+    }
+    &.right {
+      right: 0;
+      transform: translateX(100%);
+      margin-left: -@tab-height;
+    }
+
+    .display-icon {
+      display: block }
 
     &.open,
     &:hover {
@@ -153,4 +179,4 @@ atom-workspace @{clss} {
     &:nth-child(3) { z-index: 103; margin-top: 2 * @advance }
     &:nth-child(4) { z-index: 104; margin-top: 3 * @advance }
     &:nth-child(5) { z-index: 105; margin-top: 4 * @advance }
-    &:nth-child(6) { z-index: 106; margin-top: 5 * @advance }}}
+    &:nth-child(6) { z-index: 106; margin-top: 5 * @advance }}}}

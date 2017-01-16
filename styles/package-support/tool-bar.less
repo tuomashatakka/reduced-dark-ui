@@ -25,6 +25,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     position: relative;
     border: none !important;
     margin: 0 !important;
+    background: transparent !important;
     padding: 0 @component-padding / 2 !important;
     border-radius: @component-border-radius }
 
@@ -55,11 +56,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     background: transparent }}
 
 @{horizontal} {
-  &.tool-bar {
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding: @component-padding / 2 @component-padding }
+  background: @background-color-dark;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: @component-padding / 2 @component-padding;
 
   hr, .tool-bar-spacer {
     margin: 0 @component-padding }
