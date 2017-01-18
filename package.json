@@ -84,8 +84,15 @@
           "type": "color",
           "default": "#f93995"
         },
-        "state": {
+        "backgroundTint": {
           "order": 3,
+          "title": "Background tint",
+          "description": "Applies a tinting for the whole workspace",
+          "type": "color",
+          "default": "#ffffff"
+        },
+        "state": {
+          "order": 4,
           "title": "State colors",
           "description": "Colors for representing different states (such as git file events)",
           "type": "object",
