@@ -17,12 +17,24 @@ Variable definitions                                                            
 User Interface                                                                                                                                                                                                                                                                                                                                                          */
 
 // Full-width tabs
-atom-workspace when (@config-tabSizing = true) {
-  .tab-bar .tab {
-    max-width: none;
-    flex-basis: auto }
-}
+.tab-bar {
 
+  .tab {
+    flex-grow: 0 }
+
+  & when (@config-tabPosition = left) {
+    justify-content: flex-start }
+
+  & when (@config-tabPosition = center) {
+    justify-content: center }
+
+  & when (@config-tabPosition = right) {
+    flex-basis: none;
+    justify-content: flex-end }
+
+  .tab when (@config-tabPosition = stretch) {
+    max-width: none;
+    flex-basis: auto }}
 
 // Tab bar fixed to the top of the screen
 atom-workspace when (@config-fixedTabBar = true) {
@@ -144,7 +156,7 @@ atom-workspace when (@config-collapsing = both) {
     background: @app-background-color;
     position: absolute;
     padding-top: @tab-height;
-    border-radius: @tab-height / 2.05;
+    // border-radius: @tab-height / 2.05;
     top: 0;
     bottom: 0;
     transition:

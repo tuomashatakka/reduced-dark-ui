@@ -32,11 +32,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     width: auto;
     height: @tab-height;
     line-height: @tab-height/3;
-    padding: @tab-height/3 0.5rem !important;
+    padding: @tab-height/3 @component-padding * 1.5 !important;
     border-width: 1px 0 0;
     border-top-style: solid;
     color: @text-color-subtle;
-    background: @tab-background-color;
+    background: transparent;
     transition: all @transition-time ease !important;
 
     [class*='status-'], &.modified, &.added {
@@ -68,7 +68,9 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
     // Current
     &.active {
-      flex: 1 1 auto;
+      flex: 0 1 auto;
+      max-width: none;
+      width: auto;
       color: @text-color-selected;
       background-color: @tab-background-color-active;
       .accent;

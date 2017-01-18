@@ -13,12 +13,14 @@ Workspace                                                                       
 
 html {
   background: @app-background-color;
-  font-size: @font-size}
+  font-size: @font-size }
 
 * {
   font-size: 1em }
 
 body {
+  width: 100vw;
+  overflow: hidden;
   position: relative }
 
 
@@ -31,7 +33,18 @@ atom-workspace {
     left: 0 !important }
 
   atom-workspace-axis.vertical when (@config-collapsing = left) {
-    margin-left: @tab-height }}
+    margin-left: @tab-height }
+
+  atom-workspace-axis.vertical when (@config-collapsing = right) {
+    margin-right: @tab-height }
+
+  atom-workspace-axis.vertical when (@config-collapsing = both) {
+    margin-right: @tab-height;
+    margin-left: @tab-height }
+
+  atom-workspace-axis.horizontal {
+    width: 100vw;
+    overflow: hidden }}
 
 .modal-open {
   atom-panel-container.footer,
