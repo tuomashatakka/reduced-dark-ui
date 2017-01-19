@@ -3,6 +3,7 @@ node_modules
 
 # Project-specific
 # **/config.less
+process-palette.json
 
 # Symbols
 .tags
