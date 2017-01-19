@@ -80,11 +80,14 @@ Components                                                                      
 @button-background-color:           transparent;
 @gutter-background-color:           transparent;
 @gutter-background-color-selected:  transparent;
+@tab-background-color:              transparent;
+@tab-bar-background-color:          transparent;
 
+@editor-background-color:           mix(@app-background-color, @config-primary, 95%);
+@tab-background-color-active:       mix(@app-background-color, @config-primary, 95%);
+@tab-background-color-hover:        mix(@app-background-color, @config-primary, 90%);
 
 @pane-item-background-color:        @col-dark;
-@tab-background-color-hover:        @col-dark;
-@tab-background-color-active:       @col-dark;
 @tooltip-background-color:          @col-dark;
 
 @input-background-color:            @col-darker;
@@ -100,12 +103,10 @@ Components                                                                      
 @tab-bar-border-color:              @base-border-color;
 @tree-view-border-color:            @base-border-color;
 
-@tooltip-key-background-color:      @base-background-color;
-@tool-panel-background-color:       @base-background-color;
 @overlay-background-color:          @base-background-color;
 @tree-view-background-color:        @base-background-color;
-@tab-bar-background-color:          @base-background-color;
-@tab-background-color:              @base-background-color;
+@tool-panel-background-color:       @base-background-color;
+@tooltip-key-background-color:      @base-background-color;
 @input-text-color-active:           @base-background-color;
 
 @button-background-color-hover:     @text-color;

@@ -10,9 +10,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 atom-text-editor,
-atom-text-editor::shadow,
-:host {
-  .scroll-view { padding: 0 }}
+atom-text-editor.editor {
+  background-color: @editor-background-color;
+  
+  .scroll-view {
+    padding: 0 }}
 
 atom-workspace-axis.vertical atom-pane > .item-views {
   left: 0;
@@ -28,9 +30,9 @@ atom-workspace-axis.vertical atom-pane > .item-views {
     left: 0 !important }}
 
 atom-text-editor[mini],
-atom-text-editor[mini]::shadow {
+atom-text-editor[mini].editor {
   transition: all @transition-time ease;
-  background-color: @input-background-color;
+  background-color: @editor-background-color;
   border: 1px solid mix(@input-background-color, @input-background-color-active, 75%);
   border-radius: @button-border-radius;
   padding: @component-padding / 2 @component-padding;

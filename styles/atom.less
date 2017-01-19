@@ -81,7 +81,6 @@ kbd,
 }
                                                                                                                                                                                                                                                                                                                                                                         /*
 Scrollbars                                                                                                                                                                                                                                                                                                                                                                 */
-
 .scrollbars-visible-always,
 atom-text-editor,
 .settings-view {
@@ -102,6 +101,10 @@ atom-text-editor,
     &:active, &:hover {
       border-color: @scrollbar-color;
       background: @scrollbar-color-active }}}
+
+.scrollbars-visible-always .panes > .pane.active {
+  ul::-webkit-scrollbar {
+    display: none }}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Select Forms                                                                                                                                                                                                                                                                                                                                                                 */
