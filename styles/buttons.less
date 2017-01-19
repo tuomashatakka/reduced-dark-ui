@@ -35,7 +35,7 @@ button, button.icon, .btn-default, .btn {
     line-height: @button-height * 2 }
 
   &.icon {
-    font-size: 1em;
+    // font-size: 1em;
     vertical-align: middle;
     &::before {
       vertical-align: middle;
@@ -95,22 +95,25 @@ button, button.icon, .btn-default, .btn {
   margin: 0 auto;
 
   button, .btn {
-    font-size: 0;
+    font-size: 0 !important;
     width: @button-height;
     height: @button-height;
     line-height: @button-height;
     text-align: center;
-    padding: 0;
+    padding: 0 !important;
     box-sizing: border-box;
     border-color: @base-border-color;
 
     &::before,
     .icon::before {
       font-size: unit(@size-large, rem);
+      color: inherit;
       width: 100%;
-      height: 100%;
-      line-height: @button-height;
-      margin: -2px 0 2px;
+      height: inherit;
+      line-height: inherit;
+      margin: -1px 0 0;
+      padding: 0;
+      display: block;
       box-sizing: border-box;
     }
   }

@@ -26,6 +26,15 @@
           "minimum": 25,
           "maximum": 200
         },
+        "spacing": {
+          "order": 2,
+          "title": "Layout spacing",
+          "description": "Adjust the layout gutters & line height. Smaller values mean more dense UI",
+          "type": "integer",
+          "default": 100,
+          "minimum": 25,
+          "maximum": 200
+        },
         "tabPosition": {
           "title": "Tab alignment",
           "description": "Spread the tabs to fill the whole tab bar.",
