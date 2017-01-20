@@ -12,9 +12,17 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 atom-text-editor,
 atom-text-editor.editor {
   background-color: @editor-background-color;
-  
+
   .scroll-view {
     padding: 0 }}
+
+// Set the editor to be transparent pls
+// atom-text-editor /deep/ {
+//   background-color: transparent !important }
+
+// Get rid of the gutter as well
+atom-text-editor .gutter-container * {
+  background: inherit }
 
 atom-workspace-axis.vertical atom-pane > .item-views {
   left: 0;
