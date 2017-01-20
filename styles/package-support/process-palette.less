@@ -10,7 +10,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 .process-palette {
-  @radius: 4px;
+  @radius: @button-border-radius;
 
   .main-content {
     padding-top: 2em }
@@ -23,32 +23,43 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       flex: 1 1 auto;
 
       button {
-        float: left }
+        float: none }
+
       .header {
+        .text(caps);
         display: block;
-        .text(normal);
-        text-indent: -7.3em;
-        overflow: hidden;
-      }
+        overflow: hidden }
+
       table, tbody, tr, td, th {
-        display: inline-block;
-        .text(subtle)
-      }
+        .text(subtle);
+        display: inline-block }
+
       td {
         padding-right: 0.5em;
-        font-size: 0.75em;
-      }
-      &:empty { display: none }}
-  }
+        font-size: 0.75em }
+
+      &:empty {
+        display: none }}}
+
+  .button-group {
+    text-align: right;
+    position: relative }
 
 
-  button.btn.btn-xs {
+  button.btn.btn-xs,
+  button.btn.btn-sm {
+    box-sizing: border-box;
     border-radius: 0;
-    line-height: 3em;
-    height: 3em;
     margin: 0 -1px 0 0;
+    padding: 0 @component-padding;
     border-width: 0;
+    float: none;
+    display: inline-block;
 
+    &.btn-sm + .btn {
+      border-top-left-radius: @radius;
+      border-bottom-left-radius: @radius;
+    }
     &:first-of-type {
       border-top-left-radius: @radius;
       border-bottom-left-radius: @radius;
@@ -60,6 +71,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     }
 
     &::before {
-      padding-top: 2px }
+      margin-top: -2px;
+      vertical-align: middle}
   }
 }

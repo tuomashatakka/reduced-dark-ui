@@ -1,27 +1,26 @@
-
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced UI variables
-project     reduced-dark-ui
-repository  https://github.com/tuomashatakka/reduced-dark-ui
+
+    user.interface.variables _ reduced-dark-ui
+
+
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
+@import 'ui';
 @import 'definitions/config-fallback';
 @import 'definitions/config';
 @import 'definitions/font';
-@import 'base';
-@gradient: linear-gradient(135deg, #ff6bac 0%, #f7e5c8 90%);
+@import 'colors';
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Animation                                                                                                                                                                                                                                                                                                                                                               */
 @transition-time: 400ms;
 @transition-curve: cubic-bezier(0.65, 0.02, 0.35, 0.2);
                                                                                                                                                                                                                                                                                                                                                                     /*
-Config                                                                                                                                                                                                                                                                                                                                                                  */
-@ui-theme-name: 'reduced-dark-ui';
-@use-custom-controls: true;
+General                                                                                                                                                                                                                                                                                                                                                                  */
+@gradient: linear-gradient(135deg, #ff6bac 0%, #f7e5c8 90%);
                                                                                                                                                                                                                                                                                                                                                                         /*
 Size factors                                                                                                                                                                                                                                                                                                                                                                 */
 @size: 6;
@@ -153,10 +152,11 @@ Sizes                                                                           
 @handle-size:                      12px;
 @component-padding:                1rem;
 @menu-width:                       20vw;
-@font-size:                        1em;
+@font-size:                        1rem;
 @input-font-size:                  @font-size;
 @list-active-icon-size:            @font-size;
 @line-height:                  2 * @font-size;
+@overlay-input-size:           3 * @font-size;
 
 @tab-height:                  unit(@size-base,   rem);
 @component-icon-size:         unit(@size-large,  rem);

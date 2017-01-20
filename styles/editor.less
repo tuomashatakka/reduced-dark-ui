@@ -8,6 +8,9 @@ author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
+@input-text-color: @base-background-color;
+@input-background-color: @background-color-highlight;
+@input-background-color-highlight: lighten(@background-color-highlight, 15%);
 
 atom-text-editor,
 atom-text-editor.editor {
@@ -40,7 +43,8 @@ atom-workspace-axis.vertical atom-pane > .item-views {
 atom-text-editor[mini],
 atom-text-editor[mini].editor {
   transition: all @transition-time ease;
-  background-color: @editor-background-color;
+  color: @input-text-color;
+  background-color: @input-background-color;
   border: 1px solid mix(@input-background-color, @input-background-color-active, 75%);
   border-radius: @button-border-radius;
   padding: @component-padding / 2 @component-padding;

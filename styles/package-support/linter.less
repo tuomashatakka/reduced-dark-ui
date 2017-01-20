@@ -12,7 +12,7 @@ linter-panel {
   overflow: visible;
 
   &:not(:empty) {
-    padding: 1px 0 0 !important }
+    padding: 0 1em !important }
 
   linter-message {
     display: block;
@@ -23,9 +23,7 @@ linter-panel {
       margin: 0;
       border-radius: @button-border-radius }
 
-    .linter-message-item {
-      font-size: unit(@size-small, rem) }}
-}
+    .linter-message-item { }}}
 
 linter-bottom-container {
   display: inline-block;
@@ -35,5 +33,4 @@ linter-bottom-container {
   linter-bottom-tab {
     border-color: transparent;
     height: inherit;
-    line-height: inherit }
-}
+    line-height: inherit }}

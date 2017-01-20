@@ -73,8 +73,10 @@ kbd,
   border-radius: @component-border-radius;
   margin-left: @component-padding/2 }
 
-.badge {
+.badge,
+.badge-flexible {
   padding: @component-padding / 2;
+  font-size: 1em;
 
   &.info, &.success, &.warning, &.error,
   &.badge-info, &.badge-success, &.badge-warning, &.badge-error {
@@ -85,6 +87,7 @@ Scrollbars                                                                      
 .scrollbars-visible-always,
 atom-text-editor,
 .settings-view {
+
   /deep/ ::-webkit-scrollbar {
     width: @handle-size;
     height: @handle-size }
@@ -106,31 +109,3 @@ atom-text-editor,
 .scrollbars-visible-always .panes > .pane.active {
   ul::-webkit-scrollbar {
     display: none }}
-
-                                                                                                                                                                                                                                                                                                                                                                        /*
-Select Forms                                                                                                                                                                                                                                                                                                                                                                 */
-.select-container {
-  border-radius: @button-border-radius;
-  overflow: hidden;
-  border: 1px solid;
-  height: @input-height;
-  line-height: @input-height;
-
-  button.btn.btn {
-    border-width: 0 0 0 1px !important;
-    border-radius: 0 @button-border-radius @button-border-radius 0;
-    padding: 0 1.5em 0 1em }
-
-  select.form-control {
-    border-width: 0 }}
-
-select.form-control {
-  .text(normal);
-  height: @input-height;
-  line-height: @input-height;
-  text-transform: none;
-
-  &:focus,
-  &:hover {
-   background: @input-background-color-active !important;
-   color: @input-text-color-active !important }}

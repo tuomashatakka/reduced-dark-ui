@@ -1,8 +1,7 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
+title       reduced.style.input
 project     reduced-dark-ui
-version     0.0.0
 repository  https://github.com/tuomashatakka/reduced-dark-ui
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
@@ -11,12 +10,42 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 // Selectors
 @checkbox:  ~".control-group .checkbox input";
 @select:    ~".controls .select-container";
+@input:     ~"atom-text-editor[mini], atom-text-editor[mini].editor";
+@input-text-color: @col-white;
+@input-background-color: lighten(@background-color-highlight, 8%);
+@input-text-color-highlight: @input-background-color;
+@input-background-color-highlight: @input-text-color;
 
 
 // .controls > .control-label::after {
 //   content: "\f107";
 //   font-family: "FontAwesome";
 // }
+input, select, @{select}, @{input} {
+  font-family: inherit;
+  color: @input-text-color !important;
+  border-color: @input-background-color !important;
+  background: @input-background-color !important;
+  transition:
+  color @transition-time,
+  background-color @transition-time;
+
+  & * {
+    background-color: transparent !important }
+
+  &:focus,
+  &:active,
+  &:hover,
+  &.is-focused {
+    color: @input-text-color-active !important;
+    border-color: @input-background-color !important;
+    background: @input-background-color-highlight !important }
+
+  ::selection,
+  .selection .region {
+    border-radius: @button-border-radius;
+    background-color: fade(@input-background-color, 25%) !important;
+  }}
 
 
 .checkbox {
@@ -36,6 +65,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   text-align: center;
   margin-top: -0.3em;
   margin-left: -@size - 0.6em;
+  color: @input-text-color;
+  background-color: @input-background-color;
 
   &:focus { box-shadow: none !important }
   &::before, &::after {
@@ -45,36 +76,44 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     min-height: 1px;
     height: 1px;
     transform: translate(-50%, -50%);
-    background-color: lighten(@background-color-highlight, 15%) }
+    background-color: @input-background-color-highlight }
 }
-
-
-
-select.form-control {
-  -webkit-appearance: none;
-  padding: 0 @component-padding;
-  border-radius: @button-border-radius;
-  line-height: @button-height;
-  height: @button-height }
-
+                                                                                                                                                                                                                                                                                                                                                                    /*
+Select Forms                                                                                                                                                                                                                                                                                                                                                                 */
+select.form-control,
 @{select} {
-  padding: 0 0 0 @component-padding;
+  padding: 0;
   line-height: @button-height;
   height: @button-height;
+  border-radius: @button-border-radius;
+  overflow: hidden;
+  border: 1px solid;
+  display: flex;
+  box-sizing: content-box;
+  -webkit-appearance: none;
+  padding: 0 @component-padding;
 
   select.form-control {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    // border-top-right-radius: 0;
+    // border-bottom-right-radius: 0;
+    border-radius: 0;
+    border: 0;
+    color: inherit;
     height: inherit;
     line-height: inherit }
 
-  button {
-    margin-left: 0 }
+  button.btn {
+    all: initial;
+    font-size: inherit;
+    color: inherit;
+    border-radius: 0;
+    border-width: 0 0 0 1px !important;
+    margin-left: -1px;
+    padding: 0 @component-padding 0 @component-padding * .75;
+    display: block !important }}
 
-  &:hover, select:hover {
-    background: transparent !important;
-    color: @text-color-highlight !important }}
-
+@{select} {
+  padding: 0 }
 
 
 .color {

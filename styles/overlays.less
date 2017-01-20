@@ -9,8 +9,6 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-@overlay-input-size: 6rem;
-
 atom-panel.modal,
 .overlay {
   .text(normal);
@@ -35,26 +33,27 @@ atom-panel.modal,
     font-weight: 200 }
 
   atom-text-editor.mini,
-  atom-text-editor.mini::shadow,
+  atom-text-editor.mini.editor,
   atom-text-editor[mini],
-  atom-text-editor[mini]::shadow {
+  atom-text-editor[mini].editor {
     .text(heading);
+    color: @input-text-color !important;
+    background-color: transparent !important;
     font-size: @overlay-input-size;
     font-weight: 100;
     line-height: 1.2em;
     height: auto;
     max-height: none;
-    background-color: transparent;
     margin: 0 -@component-padding*2;
     padding: 0 @component-padding*2 @component-padding @component-padding*4;
     border: 0;
     border-radius: 0;
-    border-bottom: 1px solid @base-border-color;
+    border-bottom: 0px solid @base-border-color;
 
     .text {
       color: @text-color-highlight }
 
-    ::selection, .selection .region {
+    @{selected} {
       background-color: fade(multiply(@color-main, @col-keyword), 75%);
       border-radius: 4px }
 
