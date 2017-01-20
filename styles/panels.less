@@ -13,7 +13,7 @@ atom-panel-container.bottom {
   z-index: 3 }
 
 atom-pane-container {
-  
+
   atom-pane-axis.horizontal > *:not(:last-child) {
     border-right: 1px solid @base-border-color }
 
@@ -69,7 +69,8 @@ atom-panel.bottom > *:not(:empty) {
 // Misc
 .pane-item,
 atom-pane-container atom-pane .item-views {
-  background: @app-background-color !important;
+  // TODO: Is this really needed?!?
+  background: fade(@app-background-color, 5%) !important;
   border: 0 }
 
 .focusable-panel,

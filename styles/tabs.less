@@ -12,18 +12,18 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 @icon-size: 3.2em;
 
 .tab-bar {
-  display: flex;
-  // margin-left: @tab-height;
-  height: @tab-height;
   justify-content: center;
-  overflow-x: auto;
-  overflow-y: hidden;
-  background: @tab-bar-background-color;
-  border-radius: 0 !important;
+  height:          @tab-height;
+  background:      @tab-bar-background-color;
+  display:         flex;
+  overflow-x:      auto;
+  overflow-y:      hidden;
+  border-radius:   0 !important;
   -webkit-transform: scale(1);
 
   .tab {
     .text(normal);
+
     box-sizing: border-box;
     position: relative;
     display: block;
@@ -32,17 +32,21 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     width: auto;
     height: @tab-height;
     line-height: @tab-height/3;
-    padding: @tab-height/3 @tab-height/2 @tab-height/3 @icon-size !important;
+    padding: @tab-height/3
+             @tab-height/2
+             @tab-height/3
+             @icon-size !important;
     border-width: 1px 0 0;
     border-top-style: solid;
     color: @text-color-subtle;
     background: transparent;
-    transition: all @transition-time ease !important;
+    transition:
+    all @transition-time ease !important;
 
     [class*='status-'], &.modified, &.added {
       transition:
-        color @transition-time ease,
-        background @transition-time ease;
+      color @transition-time ease,
+      background @transition-time ease;
 
       .title, *::before {
         color: inherit !important;
@@ -63,7 +67,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
     // Hovered
     &:hover {
-      color: @text-color-highlight;
+      color:      @text-color-highlight;
       background: @tab-background-color-hover }
 
     // Current
@@ -79,7 +83,9 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
         color: inherit;
         padding: 0 }}
 
-    .tab-state() }}
+    .tab-state()
+}}
+
 
 .platform-darwin {
 
@@ -141,12 +147,15 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   &::before when (@state = modified) {
     border-width: 0px !important;
     transform: rotate(45deg);
-    opacity: 1 }
-}
+    opacity: 1 }}
 
 
 .tab-state() {
-  .close-icon { .close-icon-generator() }
-  &:hover .close-icon { .close-icon-generator(hover) }
-  &.modified:not(:hover) .close-icon { .close-icon-generator(modified) }
-}
+  .close-icon {
+    .close-icon-generator() }
+
+  &:hover .close-icon {
+    .close-icon-generator(hover) }
+
+  &.modified:not(:hover) .close-icon {
+    .close-icon-generator(modified) }}

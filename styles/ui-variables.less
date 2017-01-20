@@ -96,9 +96,10 @@ Components                                                                      
 @tab-bar-background-color:              transparent;
 @scrollbar-track-color:                 transparent;
 
-@editor-background-color:           mix(@app-background-color, @config-primary, 95%);
-@tab-background-color-active:       mix(@app-background-color, @config-primary, 95%);
-@tab-background-color-hover:        mix(@app-background-color, @config-primary, 90%);
+
+@editor-background-color:               @tinted-sub;
+@tab-background-color-active:      fade(@tinted-base, 5%);
+@tab-background-color-hover:       fade(@tinted-base, 12%);
 
 @overlay-background-color:              @tinted-base;
 @tree-view-background-color:            @tinted-base;
