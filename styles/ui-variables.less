@@ -55,140 +55,141 @@ Background                                                                      
 @background-color-selected:   @tinted-dark;
 
 @color-highlight:             @config-primary;
-@color-main:                  mix(@config-primary, @col-main, 92%);
-@color-info:                  mix(@config-primary, @col-main, 75%);
-@color-success:               mix(@config-primary, @config-success, 50%);
-@color-warning:               mix(@config-accentColor, @config-warning, 25%);
+@color-main:                  mix(@config-primary,     @col-main,          92%);
+@color-info:                  mix(@config-primary,     @col-main,          75%);
+@color-success:               mix(@config-primary,     @config-success,    50%);
+@color-warning:               mix(@config-accentColor, @config-warning,    25%);
 @color-annotation:            mix(@config-accentColor, @config-annotation, 25%);
-@color-error:                 mix(@config-accentColor, @config-error, 5%);
-
+@color-error:                 mix(@config-accentColor, @config-error,      5%);
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text                                                                                                                                                                                                                                                                                                                                                                 */
-@text-color:                        @tinted-light;
-@text-color-highlight:              @tinted-white;
-@text-color-selected:               @tinted-white;
+@text-color:                      @tinted-light;
+@text-color-highlight:            @tinted-white;
+@text-color-selected:             @tinted-white;
+@text-color-subtle:          fade(@text-color, 40%);
+@text-color-ignored:              @text-color-subtle;
 
-@text-color-subtle:                 fade(@text-color, 40%);
-@text-color-ignored:                @text-color-subtle;
+@text-color-success:              @color-success;
+@text-color-added:                @color-success;
+@text-color-info:                 @color-info;
+@text-color-renamed:              @color-info;
 
-@text-color-success:                @color-success;
-@text-color-added:                  @color-success;
-@text-color-info:                   @color-info;
-@text-color-renamed:                @color-info;
+@text-color-modified:         mix(@col-warning,           @config-warning,        50%);
+@text-color-warning:          mix(@color-warning,         @config-annotation,     50%);
+@text-color-removed:          mix(@color-annotation,      @config-annotation,     50%);
+@text-color-error:            mix(@color-error,           @config-error,          50%);
 
-@text-color-modified:           mix(@col-warning,           @config-warning,        50%);
-@text-color-warning:            mix(@color-warning,         @config-annotation,     50%);
-@text-color-removed:            mix(@color-annotation,      @config-annotation,     50%);
-@text-color-error:              mix(@color-error,           @config-error,          50%);
-
-@background-color-success:   screen(@color-success,         @app-background-color,  50%);
-@background-color-info:         mix(@color-main,            @app-background-color,  90%);
-@background-color-warning:   screen(@text-color-warning,    @app-background-color,  75%);
-@background-color-annotation:screen(@text-color-warning,    @app-background-color,  75%);
-@background-color-error:   multiply(@text-color-error,      @base-background-color, 75%);
-
+@background-color-success:      screen(@color-success,         @app-background-color,  50%);
+@background-color-info:            mix(@color-main,            @app-background-color,  90%);
+@background-color-warning:      screen(@text-color-warning,    @app-background-color,  75%);
+@background-color-annotation:   screen(@text-color-warning,    @app-background-color,  75%);
+@background-color-error:      multiply(@text-color-error,      @base-background-color, 75%);
                                                                                                                                                                                                                                                                                                                                                                         /*
 Components                                                                                                                                                                                                                                                                                                                                                              */
-@button-background-color:               transparent;
-@gutter-background-color:               transparent;
-@gutter-background-color-selected:      transparent;
-@tab-background-color:                  transparent;
-@tab-bar-background-color:              transparent;
-@scrollbar-track-color:                 transparent;
+@button-background-color:              transparent;
+@gutter-background-color:              transparent;
+@gutter-background-color-selected:     transparent;
+@tab-background-color:                 transparent;
+@tab-bar-background-color:             transparent;
+@scrollbar-track-color:                transparent;
 
 
-@editor-background-color:               @tinted-sub;
-@tab-background-color-active:      fade(@tinted-base, 5%);
-@tab-background-color-hover:       fade(@tinted-base, 12%);
+@editor-background-color:              @tinted-sub;
+@tab-background-color-active:     fade(@tinted-base, 5%);
+@tab-background-color-hover:      fade(@tinted-base, 12%);
 
-@overlay-background-color:              @tinted-base;
-@tree-view-background-color:            @tinted-base;
-@tool-panel-background-color:           @tinted-base;
-@tooltip-key-background-color:          @tinted-base;
-@input-text-color-active:               @tinted-base;
+@overlay-background-color:             @tinted-base;
+@tree-view-background-color:           @tinted-base;
+@tool-panel-background-color:          @tinted-base;
+@tooltip-key-background-color:         @tinted-base;
+@input-text-color-active:              @tinted-base;
 
-@pane-item-background-color:            @tinted-dark;
-@tooltip-background-color:              @tinted-dark;
+@pane-item-background-color:           @tinted-dark;
+@tooltip-background-color:             @tinted-dark;
 
-@input-background-color:                @tinted-darker;
-@inset-panel-background-color:          @tinted-darker;
-@panel-heading-background-color:        @tinted-darker;
-@tool-panel-border-color:               @tinted-darker;
-@inset-panel-border-color:              @tinted-darker;
-@panel-heading-border-color:            @tinted-darker;
-@overlay-border-color:                  @tinted-darker;
-@pane-item-border-color:                @tinted-darker;
-@tab-border-color:                      @tinted-darker;
-@tab-bar-border-color:                  @tinted-darker;
-@tree-view-border-color:                @tinted-darker;
+@input-background-color:               @tinted-darker;
+@inset-panel-background-color:         @tinted-darker;
+@panel-heading-background-color:       @tinted-darker;
+@tool-panel-border-color:              @tinted-darker;
+@inset-panel-border-color:             @tinted-darker;
+@panel-heading-border-color:           @tinted-darker;
+@overlay-border-color:                 @tinted-darker;
+@pane-item-border-color:               @tinted-darker;
+@tab-border-color:                     @tinted-darker;
+@tab-bar-border-color:                 @tinted-darker;
+@tree-view-border-color:               @tinted-darker;
 
-@button-background-color-hover:         @text-color;
-@button-background-color-selected:      @text-color;
-@input-background-color-active:         @text-color;
-@input-border-color:                    @text-color;
-@button-border-color:                   @text-color;
-@tooltip-text-color:                    @text-color;
+@button-background-color-hover:        @text-color;
+@button-background-color-selected:     @text-color;
+@input-background-color-active:        @text-color;
+@input-border-color:                   @text-color;
+@button-border-color:                  @text-color;
+@tooltip-text-color:                   @text-color;
 
-@gutter-text-color:                     @text-color-subtle;
-@gutter-text-color-selected:            @text-color-selected;
+@gutter-text-color:                    @text-color-subtle;
+@gutter-text-color-selected:           @text-color-selected;
 
-@scrollbar-color-active:                @tinted-light;
-@scrollbar-color:                       @tinted-darker;
-@scrollbar-border-color:            mix(@tinted-darker, @tinted-light, 50%);
+@scrollbar-color-active:               @tinted-light;
+@scrollbar-color:                      @tinted-darker;
+@scrollbar-border-color:           mix(@tinted-darker, @tinted-light, 50%);
 
 // Highlights
-@tooltip-key-text-color:                @color-main;
-@progress-loading-bar-background-color: @color-main;
-@ui-site-color-1:                       @color-main;
-@ui-site-color-2:                       @color-info;
-@ui-site-color-3:                       @color-success;
-@ui-site-color-4:                       @color-warning;
-@ui-site-color-5:                       @color-error;
+@tooltip-key-text-color:               @color-main;
+@progress-loading-bar-background-color:@color-main;
+@ui-site-color-1:                      @color-main;
+@ui-site-color-2:                      @color-info;
+@ui-site-color-3:                      @color-success;
+@ui-site-color-4:                      @color-warning;
+@ui-site-color-5:                      @color-error;
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Sizes                                                                                                                                                                                                                                                                                                                                                                 */
 
 // Base
-@size-base:                        6;
-@handle-size:                      12px;
-@component-padding:                1rem;
-@menu-width:                       20vw;
-@font-size:                        1em;
-@input-font-size:                  @font-size;
-@list-active-icon-size:            @font-size;
-@line-height:                  2 * @font-size;
-@overlay-input-size:           3 * @font-size;
+@dsize:                 unit(@size-base,   rem)
+@large:                 unit(@size-large,  rem)
+@xlarge:                unit(@size-xlarge, rem)
 
-@tab-height:                  unit(@size-base,   rem);
-@component-icon-size:         unit(@size-large,  rem);
-@component-line-height:       unit(@size-xlarge, rem);
-@input-height:          1.5 * unit(@size-xlarge, rem);
+@size-base:                  6;
+@handle-size:                12px;
+@component-padding:          1rem;
+@menu-width:                 20vw;
+@font-size:                  1em;
+@tab-height:                 @dsize;
+@component-icon-size:        @large;
+@component-line-height:      @xlarge;
+@input-height:         1.5 * @xlarge;
 
-@button-height:                    @input-height;
-@button-border-radius:             @input-height;
+@input-font-size:            @font-size;
+@list-active-icon-size:      @font-size;
+@line-height:            2 * @font-size;
+@overlay-input-size:     3 * @font-size;
+@button-height:           @input-height;
+@button-border-radius:    @input-height;
 
-@component-icon-padding:           @component-padding / 2;
-@component-border-radius:          @component-padding / 2;
-@input-padding-vertical:           @component-padding / 2;
-@input-padding-horizontal:         @component-padding;
-@disclosure-arrow-size:            @component-padding;
+@component-icon-padding:     @component-padding / 2;
+@component-border-radius:    @component-padding / 2;
+@input-padding-vertical:     @component-padding / 2;
+@input-padding-horizontal:   @component-padding;
+@disclosure-arrow-size:      @component-padding;
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Package Support                                                                                                                                                                                                                                                                                                                                                                 */
-@build-terminal-background-color:   darken(@tinted-base, 2%);
-@imdone-atom-task-background-color: darken(@tinted-darker, 2%);
-@imdone-atom-task-background-color-draged: @tinted-darker;
-@markdown-preview-code-background-color:   @tinted-dark;
-@markdown-preview-text-color:              @tinted-base;
-@markdown-preview-background-color:        transparent;
-@markdown-preview-table-body-color:        transparent;
-@markdown-preview-border-color:            transparent;
+@build-terminal-background-color:  darken(@tinted-darker, 2%);
+@imdone-atom-task-background-color:darken(@tinted-darker, 2%);
+@imdone-atom-task-background-color-drag:  @tinted-darker;
+
+@markdown-preview-text-color:             @text-color;
+@markdown-preview-code-background-color:  transparent;
+@markdown-preview-background-color:       transparent;
+@markdown-preview-table-body-color:       transparent;
+@markdown-preview-border-color:           transparent;
 
                                                                                                                                                                                                                                                                                                                                                                       /*
 Typography                                                                                                                                                                                                                                                                                                                                                              */
-@font-family:             @config-uiFont,  @base-font-family;
-@font-family-menu: "Montserrat",           @base-font-family;
-@font-family-caps: "Novecento Sans Wide",  @font-family-menu;
+@font-family:       @config-uiFont,       @base-font-family;
+@font-family-menu: "Montserrat",          @base-font-family;
+@font-family-caps: "Novecento Sans Wide", @font-family-menu;
 @base-font-family: "Helvetica Neue",
                    "Open Sans",
                    "Lato",
