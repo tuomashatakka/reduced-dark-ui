@@ -52,9 +52,6 @@ atom-panel.modal,
     .text {
       color: @text-color-highlight }
 
-    @{selected} {
-      background-color: fade(multiply(@color-main, @col-keyword), 75%);
-      border-radius: 4px }
 
     &.is-focused:hover,
     &:hover {
@@ -90,9 +87,13 @@ atom-panel.modal,
       .status.icon {
         float: right;
         margin-left: @component-icon-padding;
-        &:before { margin-right: 0 } }
+
+        &:before {
+          margin-right: 0 } }
 
       &.selected {
         border-radius: 0 !important;
-        .status.icon { color: @text-color-selected }}}}
+
+        .status.icon {
+          color: @text-color-selected }}}}
 }

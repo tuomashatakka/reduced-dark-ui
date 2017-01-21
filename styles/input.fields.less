@@ -7,52 +7,19 @@ author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
-
 // Selectors
-@checkbox:  ~".control-group .checkbox input";
-@select:    ~".controls .select-container";
-@input:     ~"atom-text-editor[mini], atom-text-editor[mini].editor";
-@input-text-color: @col-white;
-@input-background-color: lighten(@background-color-highlight, 8%);
-@input-text-color-highlight: @input-background-color;
-@input-background-color-highlight: @input-text-color;
 
 
 // .controls > .control-label::after {
 //   content: "\f107";
-//   font-family: "FontAwesome";
-// }
-input, select, @{select}, @{input} {
-  font-family: inherit;
-  color: @input-text-color !important;
-  border-color: @input-background-color !important;
-  background: @input-background-color !important;
-  transition:
-  color @transition-time,
-  background-color @transition-time;
+//   font-family: "FontAwesome" }
 
-  & * {
-    background-color: transparent !important }
+atom-workspace {
 
-  &:focus,
-  &:active,
-  &:hover,
-  &.is-focused {
-    color: @input-text-color-active !important;
-    border-color: @input-background-color !important;
-    background: @input-background-color-highlight !important }
-
-  ::selection,
-  .selection .region {
-    border-radius: @button-border-radius;
-    background-color: fade(@input-background-color, 25%) !important;
-  }}
-
-
-.checkbox {
+@{checkbox-field} {
   padding-left: 0 }
 
-@{checkbox} {
+@{checkbox-input} {
   @size: unit(1.6, rem);
 
   vertical-align: middle;
@@ -81,8 +48,9 @@ input, select, @{select}, @{input} {
 }
                                                                                                                                                                                                                                                                                                                                                                     /*
 Select Forms                                                                                                                                                                                                                                                                                                                                                                 */
-select.form-control,
-@{select} {
+@{select-field},
+@{select-input} {
+  .inputfield(field);
   padding: 0;
   line-height: @button-height;
   height: @button-height;
@@ -90,37 +58,43 @@ select.form-control,
   overflow: hidden;
   border: 1px solid;
   display: flex;
-  box-sizing: content-box;
+  box-sizing: border-box;
   -webkit-appearance: none;
-  padding: 0 @component-padding;
+  padding: 0 @component-padding }
 
-  select.form-control {
+@{select-field} {
+  padding: 0;
+  border-radius: @button-border-radius;
+
+  @{select-input} {
+    .inputfield(field);
     // border-top-right-radius: 0;
     // border-bottom-right-radius: 0;
-    border-radius: 0;
-    border: 0;
+    border-radius: 0 !important;
+    border: 0 !important;
     color: inherit;
-    height: inherit;
+    height: auto;
     line-height: inherit }
 
   button.btn {
     all: initial;
+    border-radius: 0;
     font-size: inherit;
     color: inherit;
-    border-radius: 0;
+    height: auto;
+    line-height: inherit;
+    border-color: inherit !important;
     border-width: 0 0 0 1px !important;
     margin-left: -1px;
     padding: 0 @component-padding 0 @component-padding * .75;
     display: block !important }}
 
-@{select} {
-  padding: 0 }
 
-
-.color {
+@{color-field} {
+  .inputfield(field);
   padding: 0;
 
-  input[type="color"] {
+  @{color-input} {
     margin: 0 0 0 -2.5rem;
     padding: 0;
     width: 2rem;
@@ -130,7 +104,8 @@ select.form-control,
     background: transparent }}
 
 
-.input-range {
+@{range-input} {
+  .inputfield(field);
   .selection(disabled);
   @size: @input-height / 2;
   margin: @size 0;
@@ -154,4 +129,4 @@ select.form-control,
     display: block;
     border-radius: 50%;
     z-index: 50;
-    background-color: @text-color-success }}
+    background-color: @text-color-success }}}

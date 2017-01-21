@@ -32,14 +32,11 @@ Tab alignment                                                                   
 Tab bar fixed to the top of the screen                                                                                                                                                                                                                                                                                                                                */
 atom-workspace > atom-workspace-axis when (@config-fixedTabBar = true) {
 
-
   margin-top: @tab-height !important;
 
-  .tree-view-resizer {
-    overflow: hidden;
-
-    .project-root > .list-tree {
-      top: 0 }}
+  // Display primarily the focused editor's tabs
+  .pane.active .tab-bar {
+    z-index: 1000 }
 
   .tab-bar {
     position: fixed;
@@ -47,11 +44,7 @@ atom-workspace > atom-workspace-axis when (@config-fixedTabBar = true) {
     transform: translateY(-100%);
     left: 0;
     right: 0;
-    z-index: 300;
-
-    .tab.active,
-    .tab:hover.active {
-      width: inherit }}}
+    z-index: 300 }}
 
                                                                                                                                                                                                                                                                                                                                                                            /*
 Project root(s) fixed to the top of the tree view                                                                                                                                                                                                                                                                                                                                */
@@ -137,8 +130,16 @@ atom-workspace when (@config-overrideEditorBackground = true) {
 
                                                                                                                                                                                                                                                                                                                                                                            /*
 Collapsing panels                                                                                                                                                                                                                                                                                                                                                          */
-atom-workspace atom-panel-container atom-panel .display-icon {
-  display: none }
+atom-workspace atom-panel-container {
+
+  atom-pane .item-views {
+    left: 0;
+    transition:
+    left @transition-time,
+    margin @transition-time }
+
+  atom-panel .display-icon {
+    display: none }}
 
 atom-workspace when (@config-collapsing = left) {
   .applyCollapsing(left) }

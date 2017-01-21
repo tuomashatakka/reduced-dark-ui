@@ -1,3 +1,4 @@
+console.log describe
 describe "Reduced Dark UI theme", ->
   beforeEach ->
     waitsForPromise ->
@@ -7,4 +8,5 @@ describe "Reduced Dark UI theme", ->
     expect(document.documentElement.getAttribute('theme-reduced-dark-ui-tabsizing')).toBe null
 
     atom.config.set('reduced-dark-ui.tabSizing', false)
+    console.log "asd basd" 
     expect(document.documentElement.getAttribute('theme-reduced-dark-ui-tabsizing')).toBe 'nofullwidth'

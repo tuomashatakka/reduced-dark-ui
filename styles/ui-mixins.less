@@ -77,6 +77,37 @@ Overlay                                                                         
     border-color: transparent !important;
     color: @text-color-subtle !important }
 }
+
+.inputfield() {
+  .userselect({
+    border-radius: @button-border-radius;
+    color: @selection-text-color;
+    background-color: @selection-background-color !important })}
+
+.inputfield(editor) {
+  .userselect({
+    border-radius: 2px;
+    color: @selection-text-color;
+    background-color: fade(@selection-background-color, 15%) })}
+
+.inputfield(field) {
+  font-family:     inherit;
+  font-size:       @input-font-size;
+  color:           @input-text-color !important;
+  border-color:    @input-background-color !important;
+  background:      @input-background-color !important;
+  box-shadow:      @field-shadow;
+  transition:      color @transition-time,
+        background-color @transition-time;
+  & * { background-color: transparent !important }
+
+  .userselect({;
+       border-radius: @button-border-radius;
+    background-color: @selection-background-color !important;
+               color: @selection-text-color });
+  .focused({   color: @input-text-color-active !important;
+        border-color: @input-background-color  !important;
+    background-color: @input-background-color-highlight !important })}
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text                                                                                                                                                                                                                                                                                                                                                                 */
 

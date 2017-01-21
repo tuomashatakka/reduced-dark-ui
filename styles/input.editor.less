@@ -8,12 +8,9 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-@input-text-color: @base-background-color;
-@input-background-color: @background-color-highlight;
-@input-background-color-highlight: lighten(@background-color-highlight, 15%);
-
 atom-text-editor,
 atom-text-editor.editor {
+  .inputfield(editor);
   background-color: @editor-background-color;
 
   .custom-decorations:empty {
@@ -30,21 +27,9 @@ atom-text-editor.editor {
 atom-text-editor .gutter-container * {
   background: inherit }
 
-atom-workspace-axis.vertical atom-pane > .item-views {
-  left: 0;
-  transition:
-    left @transition-time,
-    margin @transition-time;
-
-  & when (@config-collapsing = neither) {
-    left: 0 !important }
-  & when (@config-collapsing = right) {
-    left: 0 !important }
-  & when (@config-collapsing = both) {
-    left: 0 !important }}
-
-atom-text-editor[mini],
-atom-text-editor[mini].editor {
+@{editor},
+@{editor-alt} {
+  .inputfield(field);
   transition: all @transition-time ease;
   color: @input-text-color;
   background-color: @input-background-color;
@@ -87,5 +72,5 @@ atom-text-editor[mini].editor {
       background-color: @input-background-color-active }
 
     .selection .region {
-      background-color: fade(@background-color-highlight, 40%) }}
+      background-color: fade(@config-accentColor, 80%) }}
 }
