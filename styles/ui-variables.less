@@ -32,15 +32,16 @@ Size factors                                                                    
 @size-huge: 4;
                                                                                                                                                                                                                                                                                                                                                                         /*
 Tints                                                                                                                                                                                                                                                                                                                                                                    */
-@tint:                        desaturate(mix(#ffffff, @config-backgroundTint, 62%), 12%);
-@tinted-sub:                  darken(multiply(@col-bg, @tint), 3%);
-@tinted-base:                 multiply(@col-bg, @tint);
-@tinted-darker:               multiply(@col-darker, @tint);
-@tinted-dark:                 multiply(@col-dark, @tint);
-@tinted-gray:                 multiply(@col-gray, @tint);
-@tinted-light:                screen(@col-light, @tint);
-@tinted-lighter:              screen(@col-lighter, @tint);
-@tinted-white:                screen(@col-white, @tint);
+@tint:         desaturate(mix(@config-backgroundTint, #ffffff, 30%), 20%);
+@tinted-sub:  darken(multiply(@col-bg,         @tint),         3%);
+@tinted-base:        multiply(@col-bg,         @tint);
+@tinted-darker:      multiply(@col-darker,     @tint);
+@tinted-dark:        multiply(@col-dark,       @tint);
+@tinted-gray:        multiply(@col-gray,       @tint);
+@tinted-light:         screen(@col-light,      @tint);
+@tinted-lighter:       screen(@col-lighter,    @tint);
+@tinted-white:         screen(@col-white,      @tint);
+@tinted-dusk:          darken(@tinted-base,    4%);
                                                                                                                                                                                                                                                                                                                                                                         /*
 Base                                                                                                                                                                                                                                                                                                                                                                    */
 @sub-background-color:        @tinted-sub;
@@ -49,7 +50,7 @@ Base                                                                            
 @base-border-color:           @tinted-darker;
                                                                                                                                                                                                                                                                                                                                                                         /*
 Background                                                                                                                                                                                                                                                                                                                                                                 */
-@background-color-dark:       darken(@base-background-color, 4%);
+@background-color-dark:       @tinted-dusk;
 @background-color-highlight:  @tinted-dark;
 @background-color-selected:   @tinted-dark;
 
