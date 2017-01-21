@@ -8,8 +8,10 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-@background-color-dark: #17171a;
 @tree-view-border-color-disabled: rgba(0,0,0,0.05);
+
+@active: ~".project-root.selected";
+@inactive: ~".project-root.collapsed, .project-root.selected.collapsed, .project-root.expanded ~ .project-root:not(.selected)";
 
 .list-tree,
 .list-group,
@@ -54,9 +56,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       opacity: 1 }}
 
   // Inactive tabs
-  .project-root.collapsed,
-  .project-root.selected.collapsed,
-  .project-root.expanded ~ .project-root:not(.selected) {
+  @{inactive} {
     height: @tab-height !important;
     flex-grow: 0 !important;
     z-index: 0;
@@ -67,16 +67,15 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       height: inherit }
 
     .entries {
-        display: none !important } }
+      display: none !important } }
 
   // Active tab
-  .project-root.selected {
+  @{active} {
     z-index: 1000;
 
     .project-root-header {
       background: @tree-view-background-color;
-      border-bottom-color: transparent }}
-}
+      border-bottom-color: transparent }}}
 
 .tree-view-resizer .tree-view-resize-handle {
   width: @handle-size }

@@ -1,26 +1,30 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
-project     reduced-dark-ui
-version     0.0.0
-repository  https://github.com/tuomashatakka/reduced-dark-ui
+    props.notifications _ reduced-dark-ui
+
+
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
+@shadow-opacity: 15; // this per 100
+@shadow-blur: 14;    // this per 10
+@left-bar-width: 3rem;
+@hide-factor: 0; //.85;
+
+@border-radius: 1px;
+@padding: unit(@size-xlarge, rem);
+
 atom-notifications {
-  @shadow-opacity: 15; // this per 100
-  @shadow-blur: 14;    // this per 10
-  @left-bar-width: 3rem;
-  @hide-factor: 0.85;
+  @icon-size: 10px;
 
   .text(normal);
   top: 1rem;
   background-color: transparent;
   margin-left: -@left-bar-width;
 
-  &:hover atom-notification {
+  atom-notification:hover {
     transition-delay: 0s;
     transition-duration: @transition-time/2;
     transform: translateX(0) }
@@ -30,18 +34,32 @@ atom-notifications {
     border: 0px solid rgba(0,0,0,0.2);
     border-radius: 2px !important;
     overflow: hidden;
-    transition: transform @transition-time*3 @transition-curve @transition-time*2;
+    transition: transform @transition-time/2 @transition-curve @transition-time;
     transform: translateX(unit(@hide-factor * 100, %));
 
     &:not(.has-close) { transform: translateX(0) }
     &:not(.has-close) .close-all { display: none }
     &.has-close .message { padding-right: 2rem }
     &:first-child.has-close .message { padding-right: 6rem }
-    &::after { display: none }
-    &::before {
-      border-radius: 2px 0 0 2px !important;
-      background: @background-color-info;
-      width: @left-bar-width }}
+
+    &::after {
+      display: none }
+
+    &.icon::before {
+      display: block;
+      //display: none;
+      position: absolute;
+      box-sizing: border-box;
+      text-align: center;
+      height: inherit;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: @left-bar-width;
+      padding: @left-bar-width/3;
+      font-size: @left-bar-width/3;
+      border-radius: @border-radius 0 0 @border-radius !important;
+      background: @background-color-info }}
 
   .close {
     transition: all @transition-time ease;
@@ -69,9 +87,14 @@ atom-notifications {
       background-color: rgba(0, 0, 0, 0.1);
       box-sizing: border-box;
 
-      &:not(:hover) { color: @text-color-subtle !important }
-      &:hover { background: @text-color-subtle }
-      &:first-child { border-left-width: 0 !important }}}
+      &:not(:hover) {
+        color: @text-color-subtle !important }
+
+      &:hover {
+        background: @text-color-subtle }
+
+      &:first-child {
+        border-left-width: 0 !important }}}
 
   .btn, .btn.close-all,
   .btn-success,
@@ -90,33 +113,39 @@ atom-notifications {
       position: fixed; background: @base-background-color }}
 
   .error {
-    code { .state(error) }}
+    code {
+      .state(error) }}
 
   .content,
   .detail,
   .message,
   .meta {
     background-clip: inherit;
+    padding: @padding 1rem;
+    line-height: 1.4em;
     border-width: 0;
-    padding: unit(@size-xlarge, rem) 1rem;
     color: @text-color;
     background-color: @overlay-background-color;
 
   .stack-toggle {
+    line-height: @left-bar-width;
+    border-top: 1px solid fade(@text-color-subtle, 5%);
+    color: @text-color-info;
+
     .icon, .icon::before {
       line-height: inherit;
-      font-size: inherit }
-
-    line-height: 2em;
-    color: @text-color-info }}
+      font-size: inherit }}}
 
   .detail {
     padding-top: 0;
+    line-height: 1.5em;
 
-    code { .text(subtle) }
+    code {
+      .text(subtle) }
+
     .detail-content {
       .text(subtle);
-      line-height: 2em }}
+      line-height: 1.5em }}
 
   .content {
     border-radius: 0;
