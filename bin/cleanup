@@ -1,0 +1,31 @@
+#!/bin/sh
+
+clear
+
+# UPDATE THESE IF YOU RUN THIS ON YOUR OWN MACHINE
+NAME=reduced-dark-ui
+PROJECT_DIR=~/Projects/Atom/$NAME
+PACKAGE_DIR=~/.atom/packages/$NAME
+PROJECT_DEFS_DIR=$PROJECT_DIR/styles/definitions
+DEFS_DIR=$PACKAGE_DIR/styles/definitions
+
+cd $PROJECT_DIR
+
+echo \\n
+echo "Unlinking the package $NAME "
+apm-beta unlink $PROJECT_DIR && apm-beta unlink $PROJECT_DIR --dev
+
+echo \\n
+echo "Linking the package $NAME as a regular pkg "
+apm-beta link $PROJECT_DIR
+
+echo \\n
+echo "Forcibly clearing the config.less & font.less "
+chmod -R 0755 $PROJECT_DEFS_DIR  $DEFS_DIR
+ > $DEFS_DIR/config.less
+ > $DEFS_DIR/font.less
+
+echo \\n
+echo "Doing the same for the project directory ($PROJECT_DEFS_DIR) "
+ > $PROJECT_DEFS_DIR/config.less
+ > $PROJECT_DEFS_DIR/font.less

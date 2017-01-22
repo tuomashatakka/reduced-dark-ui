@@ -1,0 +1,16 @@
+#!/bin/sh
+
+
+NAME=reduced-dark-ui
+PROJECT_DIR=~/Projects/Atom/$NAME
+
+cd $PROJECT_DIR
+echo "Cleaning up"
+./bin/cleanup
+echo "Running tests"
+./bin/test
+./bin/cleanup
+
+git add .
+git status
+git commit -m "$2" && git push && apm-beta publish $1

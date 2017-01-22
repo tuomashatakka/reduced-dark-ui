@@ -11,20 +11,20 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka
 
 
 Tab alignment                                                                                                                                                                                                                                                                                                                                                          */
-.tab-bar when (@config-tabPosition = left) {
+.tab-bar when (@config-tabPosition = "left") {
   justify-content: flex-start }
 
-.tab-bar when (@config-tabPosition = center) {
+.tab-bar when (@config-tabPosition = "center") {
   justify-content: center }
 
-.tab-bar when (@config-tabPosition = right) {
+.tab-bar when (@config-tabPosition = "right") {
   flex-basis: none;
   justify-content: flex-end }
 
 .tab-bar .tab {
   flex-grow: 0 }
 
-.tab-bar .tab when (@config-tabPosition = stretch) {
+.tab-bar .tab when (@config-tabPosition = "stretch") {
   max-width: none;
   flex-basis: auto }
 
@@ -168,6 +168,7 @@ atom-workspace when (@config-collapsing = "both") {
       transform @transition-time @transition-curve;
 
     .display-icon {
+      cursor: pointer;
       display: block }
 
     &.left {

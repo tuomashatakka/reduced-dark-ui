@@ -1,0 +1,16 @@
+#!/bin/sh
+
+clear
+
+NAME=reduced-dark-ui
+PROJECT_DIR=~/Projects/Atom/$NAME
+
+echo "Unlinking the package $NAME\n"
+apm-beta unlink $PROJECT_DIR
+apm-beta unlink $PROJECT_DIR --dev
+
+echo "Linking the package $NAME as a regular pkg\n"
+apm-beta link $PROJECT_DIR
+
+echo "Running tests for the $NAME\n"
+atom-beta --test .
