@@ -2,18 +2,18 @@
 <h1 style='text-align: center'>Reduced Dark</h1>
 
 <p align="center">
-  *Minimal + plain - yet usable + functional* UI theme for Atom.io.
+  Minimal + plain + usable + functional / UI theme for Atom.io
 </p>
 
 <p align="center">
 
-  <img src="https://github.com/tuomashatakka/reduced-dark-ui/blob/master/assets/logo/logo-glyph.png" width=16 height=16 />
+  <img src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo-glyph.png" width=16 height=16 />
   <a href="https://atom.io/themes/reduced-dark-ui">
     <img src="https://img.shields.io/apm/dm/reduced-dark-ui.svg?style=flat-square">
     </a>
 
   <img src="https://github.com/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
-  <a href="https://github.com/tuomashatakka/reduced-dark-ui/releases/latest">
+  <a href="https://github.com/tuomashatakka/reduced-dark-ui/issues">
     <img src="https://img.shields.io/github/issues/tuomashatakka/reduced-dark-ui.svg?style=flat-square">
     </a>
 
@@ -23,25 +23,30 @@
     </a>
 </p>
 
-<table><tr>
+<table style="border: none; color: white">
+<tbody style="border: none; color: white">
+   <tr style="border: none; color: white">
 
- <td>
-  <img style='margin: 0 auto; width: 25%; max-width: 14em; min-width: 8em;' src="https://github.com/tuomashatakka/reduced-dark-ui/blob/master/assets/logo/logo.png"/>
- </td>
+   <td style="border-width: 0 !important; color: white">
+     <img style='margin: 0 auto; width: 25%; max-width: 14em; min-width: 8em;' src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo.png"/>
+   </td>
 
 
- <td>
-  <h2 style='text-align: left'><span class='icon icon-alert' /> PLEASE NOTE</h2>
-  <p align="left">
-    This theme is currently under development and should be considered barely as a preview.
-    Contributions and issues are more than welcome - as well as any other feedback!
-    Tree-view works currently best when at the right side of the screen.
-    Tool-bar package is currently configured only for its left panel layout.
-    Linter is fully themed.
-  </p>
- </td>
- 
-</tr></table>
+   <td style="border-width: 0 !important; color: initial;">
+     <h2 style='text-align: left'><span class='icon icon-alert' /> PLEASE NOTE</h2>
+     <p align="left">
+       This theme is currently under development and should be considered barely as a preview.
+       Contributions and issues are more than welcome - as well as any other feedback!
+       Tree-view works currently best when at the right side of the screen.
+       Tool-bar package is currently configured only for its left panel layout.
+       Linter is fully themed.
+     </p>
+   </td>
+
+</tr>
+</tbody>
+</table>
+
 
 ## About
 
@@ -72,7 +77,7 @@
 
 ### Feats || hilites && config
 
- - [x] **Any accent color**. Please note that the highlight option is not yet thoroughly implemented.
+ - [x] **Any accent color**
  - [ ] COMING SOON™ **Custom icons for any and every package**. Configure any icon you want to. Automatic initial resolving by walking the DOM.
    THIS IS STILL IN AN EARLY STATE, but works already. The theme needs to be reloaded for changes to become visible. Assigned icons
    can be changed from the theme's settings
