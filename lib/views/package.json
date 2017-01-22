@@ -1,0 +1,11 @@
+{
+  "name": "views",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": {
+    "name": "Tuomas Hatakka",
+    "email": "tuomas.hatakka@gmail.com"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/tuomashatakka/reduced-dark-ui"
+}

@@ -142,13 +142,13 @@ atom-workspace atom-panel-container {
   atom-panel .display-icon {
     display: none }}
 
-atom-workspace when (@config-collapsing = left) {
+atom-workspace when (@config-collapsing = "left") {
   .applyCollapsing(left) }
 
-atom-workspace when (@config-collapsing = right) {
+atom-workspace when (@config-collapsing = "right") {
   .applyCollapsing(right) }
 
-atom-workspace when (@config-collapsing = both) {
+atom-workspace when (@config-collapsing = "both") {
   .applyCollapsing(left);
   .applyCollapsing(right) }
 
