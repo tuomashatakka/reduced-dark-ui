@@ -9,8 +9,10 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 @import 'ui';
-@import (reference) 'definitions/config-fallback';
 @import 'colors';
+@import (reference) 'definitions/config-fallback';
+@import (reference) "definitions/config";
+@import (reference) "definitions/font";
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Animation                                                                                                                                                                                                                                                                                                                                                               */
@@ -79,9 +81,9 @@ Text                                                                            
 
 @background-color-success:      screen(@color-success,      @app-background-color,  50%);
 @background-color-info:            mix(@color-main,         @app-background-color,  90%);
-@background-color-warning:      screen(@text-color-warning, @app-background-color,  75%);
-@background-color-annotation:   screen(@text-color-warning, @app-background-color,  75%);
-@background-color-error:      multiply(@text-color-error,   @base-background-color, 75%);
+@background-color-warning:      screen(@text-color-warning, @color-warning,         50%);
+@background-color-annotation:   screen(@text-color-warning, @app-background-color,  50%);
+@background-color-error:      multiply(@text-color-error,   @base-background-color, 25%);
                                                                                                                                                                                                                                                                                                                                                                         /*
 Components                                                                                                                                                                                                                                                                                                                                                              */
 @button-background-color:              transparent;
