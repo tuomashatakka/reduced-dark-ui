@@ -75,8 +75,7 @@ Overlay                                                                         
     opacity: 1;
     background-color: transparent !important;
     border-color: transparent !important;
-    color: @text-color-subtle !important }
-}
+    color: @text-color-subtle !important }}
 
 .inputfield() {
   font-family:     inherit;
@@ -93,6 +92,7 @@ Overlay                                                                         
 }
 
 .inputfield(field) {
+  .inputfield();
   transition:
     color @transition-time,
     background-color @transition-time;
@@ -181,6 +181,7 @@ Text                                                                            
 Overlay                                                                                                                                                                                                                                                                                                                                                                    */
 .overlay-shadow() {
   box-shadow: 0.2rem 0.4rem 2rem 0 rgba(0, 0, 0, 0.33) !important }
+  
 
 .icon(@content) {
   color: @text-color-subtle;
