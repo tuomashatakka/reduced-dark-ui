@@ -2,3 +2,11 @@
 # Node
 node_modules
 npm-debug.log
+.gitlab-ci.yml
+.travis.yml
+circle.yml
+pigments-report.yml
+process-palette.yml
+assets/logo/*.svg
+assets/logo/*.ai
+assets/logo/*-*.png

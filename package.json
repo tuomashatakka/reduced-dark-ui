@@ -11,7 +11,8 @@
     "url": "https://github.com/tuomashatakka/reduced-dark-ui/issues"
   },
   "activationCommands": {
-    "atom-workspace": "reduced-dark-ui:decorate"
+    "atom-workspace": "reduced-dark-ui:decorate",
+    "atom-workspace": "reduced-dark-ui:initialize"
   },
   "dependencies": {
     "atom-space-pen-views": "^2.2.0",

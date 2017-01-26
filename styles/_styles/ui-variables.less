@@ -1,0 +1,203 @@
+
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+
+    user.interface.variables _ reduced-dark-ui
+
+
+author      Tuomas Hatakka
+email       tuomas.hatakka@gmail.com
+copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Animation                                                                                                                                                                                                                                                                                                                                                               */
+@transition-time: 400ms;
+@transition-curve: cubic-bezier(0.65, 0.02, 0.35, 0.2);
+                                                                                                                                                                                                                                                                                                                                                                    /*
+General                                                                                                                                                                                                                                                                                                                                                                  */
+@import '../colors';
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Size factors                                                                                                                                                                                                                                                                                                                                                                 */
+@size-tiny:   0.72;
+@size-xsmall: 0.82;
+@size-small:  0.875;
+@size-large:  1.2;
+@size-xlarge: 2.4;
+@size-huge:   4;
+@size-base:   6;
+@size:        6;
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Tints                                                                                                                                                                                                                                                                                                                                                                    */
+@tint:         desaturate(mix(@config-backgroundTint, #ffffff, 30%), 20%);
+@tinted-sub:  darken(multiply(@col-bg,         @tint),         3%);
+@tinted-base:        multiply(@col-bg,         @tint);
+@tinted-darker:      multiply(@col-darker,     @tint);
+@tinted-dark:        multiply(@col-dark,       @tint);
+@tinted-gray:        multiply(@col-gray,       @tint);
+@tinted-light:         screen(@col-light,      @tint);
+@tinted-lighter:       screen(@col-lighter,    @tint);
+@tinted-white:         screen(@col-white,      @tint);
+@tinted-dusk:          darken(@tinted-base,    4%);
+                                                                                                                                                                                                                                                                                                                                                                          /*
+Main palette                                                                                                                                                                                                                                                                                                                                                             */
+@color-highlight:             @config-primary;
+@color-main:                  mix(@config-primary,     @col-main,          92%);
+@color-info:                  mix(@config-primary,     @col-main,          75%);
+@color-success:               mix(@config-primary,     @config-success,    50%);
+@color-annotation:            mix(@config-accentColor, @config-annotation, 75%);
+@color-warning:               mix(@config-accentColor, @config-warning,    25%);
+@color-error:                 mix(@config-accentColor, @config-error,      68%);
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Base / backfase                                                                                                                                                                                                                                                                                                                                                                    */
+@app-background-color:        @tinted-base;
+@sub-background-color:        @tinted-sub;
+@base-background-color:       @tinted-base;
+@background-color-dark:       @tinted-dusk;
+@background-color-highlight:  @tinted-dark;
+@background-color-selected:   @tinted-dark;
+@base-border-color:           @tinted-darker;
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Text                                                                                                                                                                                                                                                                                                                                                                 */
+@text-color:                  @tinted-lighter;
+@text-color-highlight:        @tinted-white;
+@text-color-selected:         @tinted-white;
+@text-color-subtle:      fade(@text-color, 40%);
+@text-color-ignored:          @text-color-subtle;
+
+@text-color-info:             @color-info;
+@text-color-success:          @color-success;
+@text-color-added:            @color-success;
+@text-color-renamed:          @color-highlight;
+@text-color-modified:         mix(@col-warning,             @config-warning,        50%);
+@text-color-warning:          mix(@color-warning,           @config-annotation,     50%);
+@text-color-removed:          mix(@color-annotation,        @config-annotation,     50%);
+@text-color-error:            mix(@color-error,             @config-error,          50%);
+
+@background-color-success:      screen(@color-success,      @app-background-color,  50%);
+@background-color-info:            mix(@color-main,         @app-background-color,  90%);
+@background-color-warning:      screen(@text-color-warning, @color-warning,         50%);
+@background-color-annotation:   screen(@text-color-warning, @app-background-color,  50%);
+@background-color-error:      multiply(@text-color-error,   @base-background-color, 25%);
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Components                                                                                                                                                                                                                                                                                                                                                              */
+@button-background-color:              transparent;
+@gutter-background-color:              transparent;
+@gutter-background-color-selected:     transparent;
+@tab-background-color:                 transparent;
+@scrollbar-track-color:                transparent;
+@editor-background-color:         fade(@tinted-sub,  50%);
+
+@input-text-color-active:              @tinted-base;
+@input-text-color-highlight:           @tinted-base;
+
+@overlay-background-color:             @tinted-base;
+@tool-panel-background-color:          @tinted-base;
+@tree-view-background-color:           @tinted-base;
+@tooltip-key-background-color:         @tinted-base;
+@tab-bar-background-color:             @tinted-base;
+@tab-background-color-active:     fade(@tinted-base, 5%);
+@tab-background-color-hover:      fade(@tinted-base, 12%);
+
+@input-background-color:               @tinted-darker;
+@inset-panel-background-color:         @tinted-darker;
+@inset-panel-border-color:             @tinted-darker;
+@panel-heading-background-color:       @tinted-darker;
+@panel-heading-border-color:           @tinted-darker;
+@pane-item-border-color:               @tinted-darker;
+@tool-panel-border-color:              @tinted-darker;
+@tree-view-border-color:               @tinted-darker;
+@overlay-border-color:                 @tinted-darker;
+@tab-bar-border-color:                 @tinted-darker;
+@tab-border-color:                     @tinted-darker;
+
+@pane-item-background-color:           @tinted-dark;
+@tooltip-background-color:             @tinted-dark;
+
+@tooltip-text-color:                   @tinted-light;
+@button-background-color-hover:        @tinted-light;
+@button-background-color-selected:     @tinted-lighter;
+@input-border-color:                   @tinted-lighter;
+@button-border-color:                  @tinted-lighter;
+@input-text-color:                     @tinted-lighter;
+
+@scrollbar-color-active:               @tinted-light;
+@scrollbar-color:                      @tinted-darker;
+@scrollbar-border-color:           mix(@tinted-darker, @tinted-light, 50%);
+
+@gutter-text-color:                    @text-color-subtle;
+@gutter-text-color-selected:           @text-color-selected;
+
+@input-background-color-active:               @tinted-white;
+@input-background-color-highlight:    lighten(@tinted-white,        8%);
+@selection-text-color:                lighten(@config-accentColor, 12%);
+@selection-background-color:          fade(@config-accentColor,    60%);
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Highlights and accents                                                                                                                                                                                                                                                                                                                                                                 */
+@progress-loading-bar-background-color:@color-main;
+@tooltip-key-text-color:               @color-main;
+
+@ui-site-color-1:                  mix(@color-main, @color-highlight,    25%);
+@ui-site-color-2:                  mix(@color-info, @config-accentColor, 50%);
+@ui-site-color-3:                      @color-success;
+@ui-site-color-4:                      @color-warning;
+@ui-site-color-5:                      @color-error;
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Sizes                                                                                                                                                                                                                                                                                                                                                                 */
+@dsize:                 unit(@size-base,   rem);
+@large:                 unit(@size-large,  rem);
+@xlarge:                unit(@size-xlarge, rem);
+
+@font-size:                  1em;
+@handle-size:                11px;
+@menu-width:                 20vw; // Wtf
+@component-padding:          1rem;
+
+@tab-height:                 @dsize;
+@component-icon-size:        @large;
+@component-line-height:      @xlarge;
+@input-height:         1.5 * @xlarge;
+
+@input-font-size:            @font-size;
+@list-active-icon-size:      @font-size;
+@line-height:            2 * @font-size;
+@overlay-input-size:     3 * @font-size;
+@button-height:           @input-height;
+@button-border-radius:    @input-height;
+
+@component-icon-padding:     @component-padding / 2;
+@component-border-radius:    @component-padding / 2;
+@input-padding-vertical:     @component-padding / 2;
+@input-padding-horizontal:   @component-padding;
+@disclosure-arrow-size:      @component-padding;
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Package Support                                                                                                                                                                                                                                                                                                                                                                 */
+@build-terminal-background-color:  darken(@tinted-darker, 2%);
+@imdone-atom-task-background-color:darken(@tinted-darker, 2%);
+@imdone-atom-task-background-color-drag:  @tinted-darker;
+
+@markdown-preview-text-color:             @tinted-lighter;
+@markdown-preview-code-background-color:  transparent;
+@markdown-preview-background-color:       transparent;
+@markdown-preview-table-body-color:       transparent;
+@markdown-preview-border-color:           transparent;
+
+                                                                                                                                                                                                                                                                                                                                                                      /*
+Typography                                                                                                                                                                                                                                                                                                                                                              */
+@font-family:       @config-uiFont,       @base-font-family;
+@font-family-menu: "Montserrat",          @base-font-family;
+@font-family-caps: "Novecento Sans Wide", @font-family-menu;
+@base-font-family: "Helvetica Neue",
+                   "Open Sans",
+                   "Lato",
+                   "Roboto",
+                   "Cantarell",
+                   "Ubuntu",
+                   "BlinkMacSystemFont",
+                   "System Font",
+                   "Lucida Grande",
+                   "Segoe UI",
+                   "Noto Sans",
+                   sans-serif;
