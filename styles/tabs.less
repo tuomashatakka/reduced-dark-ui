@@ -1,101 +1,141 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
-project     reduced-dark-ui
-version     0.0.0
-repository  https://github.com/tuomashatakka/reduced-dark-ui
+    component.tabs _ reduced-dark-ui
+
+
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
-copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+copyright   Copyright (C) 2016-2017 Tuomas Hatakka
+
+    ............
 
 
+Namespace                                                                                                                                                                                                                                                                                                                                                          */
+.tab-bar {
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Local variables                                                                                                                                                                                                                                                                                                                                                          */
 @icon-size: 3.2em;
 
-.tab-bar {
-  justify-content: center;
-  height:          @tab-height;
-  background:      @tab-bar-background-color;
-  display:         flex;
-  overflow-x:      auto;
-  overflow-y:      hidden;
-  border-radius:   0 !important;
-  -webkit-transform: scale(1);
+justify-content:    center;
+height:             @tab-height;
+line-height:        @tab-height;
+background:         @tab-bar-background-color;
+display:            flex;
+overflow-x:         auto;
+overflow-y:         hidden;
+border-radius:      0 !important;
+-webkit-transform:  scale(1);
 
-  .tab {
-    .text(normal);
+                                                                                                                                                                                                                                                                                                                                                                          /*
+Tabs                                                                                                                                                                                                                                                                                                                                                          */
+.tab {
+  .text(normal);
 
-    box-sizing: border-box;
-    position: relative;
-    display: block;
-    flex: 0 0 auto;
-    text-align: center;
-    width: auto;
-    height: @tab-height;
-    line-height: @tab-height/3;
-    padding: @tab-height/3
-             @tab-height/2
-             @tab-height/3
-             @icon-size !important;
-    border-width: 1px 0 0;
-    border-top-style: solid;
-    color: @text-color-subtle;
-    background: transparent;
+  box-sizing:       border-box;
+  position:         relative;
+  display:          block;
+  flex:             0 0 auto;
+  text-align:       center;
+  width:            auto;
+  height:           @tab-height;
+  line-height:      @tab-height/3;
+  padding:          @tab-height/3
+                    @tab-height/2
+                    @tab-height/3
+                    @icon-size !important;
+  border-width:     1px 0 0;
+  border-top-style: solid;
+  color:            @text-color-subtle;
+  background:       transparent;
+  transition:       all @transition-time ease !important;
+
+  [class*='status-'],
+  &.modified,
+  &.added {
     transition:
-    all @transition-time ease !important;
-
-    [class*='status-'], &.modified, &.added {
-      transition:
       color @transition-time ease,
       background @transition-time ease;
 
-      .title, *::before {
-        color: inherit !important;
-        border-color: auto !important }}
+    .title,
+    *::before {
+      color: inherit !important;
+      border-color: auto !important }}
 
-    &::before {
-      display: none; // For the material design icons
-    }
+  &::before {
+    display: none; } // For the material design icons
 
-    .status-modified, &.modified { color: @text-color-modified }
-    .status-added, &.added { color: @text-color-added }
-    .status-ignored, &.ignored { color: @text-color-ignored }
-    .title, .title::before {
-      height: @tab-height / 3;
-      line-height: @tab-height / 3;
-      vertical-align: middle;
-      font-size: inherit !important }
+  .title, .title::before {
+    height: @tab-height / 3;
+    line-height: @tab-height / 3;
+    vertical-align: middle;
+    font-size: inherit !important }
 
-    // Hovered
-    &:hover {
-      color:      @text-color-highlight;
-      background: @tab-background-color-hover }
+  // Hovered
+  &:hover {
+    color:      @text-color-highlight;
+    background: @tab-background-color-hover }
 
-    // Current
-    &.active {
-      flex: 0 0 auto;
-      max-width: none;
-      width: auto;
-      color: @text-color-selected;
-      background-color: @tab-background-color-active;
-      .accent;
+  &:hover .close-icon {
+    .close-icon-generator(hover) }
 
-      .title {
-        color: inherit;
-        padding: 0 }}
+  // Current
+  &.active {
+    flex: 0 0 auto;
+    max-width: none;
+    width: auto;
+    color: @text-color-selected;
+    background-color: @tab-background-color-active;
+    .accent;
 
-    .tab-state()
-}}
+    .title {
+      color: inherit;
+      padding: 0 }}
 
+  &:not(:hover) {
+    .state(added);
+    .state(modified);
+    .state(ignored);
 
-.platform-darwin {
+    .close-icon {
+      .close-icon-generator() }
 
-  .tab .close-icon {
-    right: auto !important }
+  &.modified .close-icon {
+    .close-icon-generator(modified) }}
 
-  .tab.modified:not(:hover) .close-icon {
-    border: none;
-    right: auto !important }}
+  // Platform-specific
+  .platform-darwin {
+    & .close-icon,
+    &.modified:not(:hover) .close-icon {
+      border: none;
+      right: auto !important }}
+}
 
+                                                                                                                                                                                                                                                                                                                                                                              /*
+Inline tabs for the settings config view                                                                                                                                                                                                                                                                                                                                                          */
+&.inline-tabs {
+  background: transparent;
+  position: relative;
+  display: flex;
+  line-height: @tab-height / 2;
+  height: @tab-height / 2;
+
+  .tab {
+    flex: 1 0 auto !important;
+    padding: 0 1em !important;
+    line-height: inherit;
+    height: inherit;
+    border-top: none }
+
+  + displayed-item {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: @component-padding 0 !important;
+    margin: 0;
+    background: #25252a }}
+}
+                                                                                                                                                                                                                                                                                                                                                                              /*
+Local mixins                                                                                                                                                                                                                                                                                                                                                          */
 .close-icon-generator(@state: none) {
   @size: @tab-height/3;
 
@@ -104,12 +144,10 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   line-height: @tab-height - @size;
   top: @size/2;
   left: @size/4;
-  bottom: @size/2;
   width: @size/2;
+  bottom: @size/2;
   text-align: center;
   font-size: @icon-size;
-  // transform: translate(0%, -50%);
-  // background: rgba(255,255,255, 0.02);
   background: transparent;
   box-sizing: border-box;
   border-width: 0;
@@ -147,15 +185,5 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   &::before when (@state = modified) {
     border-width: 0px !important;
     transform: rotate(45deg);
-    opacity: 1 }}
-
-
-.tab-state() {
-  .close-icon {
-    .close-icon-generator() }
-
-  &:hover .close-icon {
-    .close-icon-generator(hover) }
-
-  &.modified:not(:hover) .close-icon {
-    .close-icon-generator(modified) }}
+    opacity: 1 }
+  }

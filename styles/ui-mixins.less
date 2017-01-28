@@ -181,7 +181,7 @@ Text                                                                            
 Overlay                                                                                                                                                                                                                                                                                                                                                                    */
 .overlay-shadow() {
   box-shadow: 0.2rem 0.4rem 2rem 0 rgba(0, 0, 0, 0.33) !important }
-  
+
 
 .icon(@content) {
   color: @text-color-subtle;
@@ -210,6 +210,18 @@ Colors & accent                                                                 
 .state(success) {
   background-color: @background-color-success;
   color: @text-color-success }
+
+.state(added) {
+  &.modified, & .status-added {
+  color: @text-color-added }}
+
+.state(modified) {
+  &.modified, & .status-modified {
+  color: @text-color-modified }}
+
+.state(ignored) {
+  &.ignored, & .status-ignored {
+  color: @text-color-ignored }}
 
 
 .accent.inverse {
