@@ -1,0 +1,16 @@
+// @scope: atom-workspace > atom-workspace-axis
+@import 'ui-variables';
+
+margin-top: @tab-height !important;
+
+// Display primarily the focused editor's tabs
+.pane.active .tab-bar {
+  z-index: 1000 }
+
+.tab-bar {
+  position: fixed;
+  height: @tab-height;
+  transform: translateY(-100%);
+  left: 0;
+  right: 0;
+  z-index: 300 }

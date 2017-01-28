@@ -32,7 +32,10 @@ atom-workspace {
 
   atom-workspace-axis.vertical {
     transition: filter 250ms;
-    left: 0 !important }
+    left: 0 !important;
+    transition:
+      left @transition-time,
+      margin @transition-time }
 
   atom-workspace-axis.vertical when (@config-collapsing = left) {
     margin-left: @tab-height }

@@ -15,7 +15,8 @@ Namespace                                                                       
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Local variables                                                                                                                                                                                                                                                                                                                                                          */
-@icon-size: 3.2em;
+@icon-size:         3.2em;
+@flex:              1 0 auto;
 
 justify-content:    center;
 height:             @tab-height;
@@ -35,9 +36,10 @@ Tabs                                                                            
   box-sizing:       border-box;
   position:         relative;
   display:          block;
-  flex:             0 0 auto;
+  flex:             @flex;
   text-align:       center;
   width:            auto;
+  max-width:        none; 
   height:           @tab-height;
   line-height:      @tab-height/3;
   padding:          @tab-height/3
@@ -81,7 +83,7 @@ Tabs                                                                            
 
   // Current
   &.active {
-    flex: 0 0 auto;
+    flex: @flex;
     max-width: none;
     width: auto;
     color: @text-color-selected;

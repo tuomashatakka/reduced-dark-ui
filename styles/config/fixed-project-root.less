@@ -1,0 +1,72 @@
+@import 'ui-variables';
+
+.tree-view-scroller {
+  position: relative;
+  margin-left: 0;
+  overflow: initial;
+  z-index: 301;
+
+  .tree-view {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-left: 0;
+    padding: 0;
+    overflow: initial;
+    display: flex;
+    flex-flow: column nowrap;
+
+    > .project-root {
+      position: static;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      padding: 0;
+      max-width: 100%;
+      transition: all .3s;
+
+      &.selected {
+        z-index: 1000 }
+
+      &::before {
+        content: none; }
+
+      .project-root-header {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        display: block;
+        max-width: 100%;
+        z-index: 1000;
+        height: @tab-height }
+
+      > .list-tree {
+        position: absolute;
+        overflow: auto;
+        display: block;
+        top: @tab-height;
+        bottom: 0;
+        left: 0;
+        right: 0 }
+
+    &.expanded {
+      background-color: inherit;
+      opacity: 1;
+      z-index: 1001;
+
+      .project-root-header {
+        background-color: inherit !important;
+        display: block;
+        z-index: 100000000;
+        right: 0;
+        position: absolute }}
+
+    &.expanded ~ .project-root {
+      display: none;
+      opacity: 0 }}}}
