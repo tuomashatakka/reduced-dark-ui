@@ -85,9 +85,11 @@ kbd,
   padding: @component-padding / 2;
   font-size: 1em;
 
+  &.error { .state(error) }
+
   &.info, &.success, &.warning, &.error,
   &.badge-info, &.badge-success, &.badge-warning, &.badge-error {
-    color: @tooltip-key-background-color }
+    color: @tooltip-key-text-color }
 }
                                                                                                                                                                                                                                                                                                                                                                         /*
 Scrollbars                                                                                                                                                                                                                                                                                                                                                                 */
