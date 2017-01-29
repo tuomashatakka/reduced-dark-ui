@@ -294,4 +294,98 @@ background-color: @app-background-color;
       margin: 0 1em 1em 0;
       padding: 0em 1.6em;
       display: inline-block }}}
+
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+↛ Color palette config                                                                                                                                                                                                                                                                                                                                                                 */
+div[title="color"] {
+  width: 100%;
+  position: relative;
+
+  > * > .controls {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  label.control-group {
+    flex-flow:      column nowrap;
+    position:       static;
+    position:       absolute;
+    display:        flex;
+    flex:           none;
+    vertical-align: middle;
+    text-align:     left;
+    width:          100%;
+    margin:         0;
+    min-width:      0;
+    top:            0;
+    bottom:         0;
+    font-size:      0.75em;
+    line-height:    1.5;
+    font-weight:    100;
+    padding:        @component-padding;
+  }
+
+  .settings-title,
+  .settings-description {
+    z-index: 1 }
+
+  .color-cell-display,
+  .color-cell.color-display {
+    position: relative;
+    flex: 1 0 33.33%;
+    padding-bottom: 33.33%;
+    height: 0;
+    box-sizing: padding-box;
+  }
+  .color-cell-small,
+  .color-cell.color-minor {
+    position: relative;
+    flex: 0 0 25%;
+    padding-bottom: 25%;
+  }
+  @{color-input} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background: transparent !important;
+    border-width: 0 !important;
+    margin: 0;
+    padding-bottom: 100%;
+
+    &::-webkit-color-swatch-wrapper {
+      padding: 0;
+      margin: 0;
+      // margin: @component-padding / 2;
+      width: auto;
+      height: auto;
+      overflow: hidden;
+      border-radius: 0% }
+
+    &::-webkit-color-swatch {
+      -webkit-appearance: none;
+      transition: padding @transition-time;
+      transform: translate(0.5px, 0.5px);
+      border-radius: 0 }
+
+  }
+
+  label.control-group:hover {
+    cursor: pointer;
+    color: @base-background-color;
+
+    * {
+      cursor: pointer;
+      color: inherit;
+      transition: color @transition-time;
+    }
+
+    ::-webkit-color-swatch {
+      cursor: pointer;
+      padding-top: 100% }
+  }
+}}
 }

@@ -194,18 +194,28 @@ Overlay                                                                         
   @size: 1.5em;
   @scale: 0.75;
 
-  border: 1px solid;
-  border-radius: 50%;
-  border-color: #404040;
-  width: @size;
-  height: @size;
-  line-height: @size;
-  margin-right: @component-padding / 4;
-  position: relative;
-  vertical-align: middle;
+  border-color:     auto;
+
+  width:            @size;
+  height:           @size;
+  line-height:      @size;
+  margin-right:     @component-padding / 4;
+  position:         relative;
+  vertical-align:   middle;
   text-align: center;
   box-sizing: content-box;
 
+  &::after {
+    position:       absolute;
+    top:            0;
+    left:           0;
+    right:          0;
+    bottom:         0;
+    border:         1px solid;
+    border-radius:  50%;
+    content:        "";
+    opacity:        0.4;
+    }
   &::before {
     font-size: unit(@scale, em);
     position: absolute;

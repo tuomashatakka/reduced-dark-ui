@@ -145,6 +145,7 @@ Select Forms                                                                    
   .selection(disabled);
   @size: @input-height / 2;
   margin: @size 0;
+  border-radius: @component-border-radius;
 
   .input-range-container {
     height: @size;
@@ -153,7 +154,33 @@ Select Forms                                                                    
     cursor: pointer !important;
     position: relative;
     box-sizing: content-box }
+  ::-webkit-slider-container {
+  // &::-webkit-media-slider-container
+  }
+  &::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    height: 4px;
+    background: inherit;
+  }
+  // &::-webkit-media-slider-thumb
+  &::-webkit-slider-thumb {
 
+    border: 6px solid;
+    border-width: 2px 6px;
+    outline: none;
+    box-shadow: 1px 0px 0.3em rgba(28, 26, 26, 0.5);
+    -webkit-appearance: none;
+    width: @size;
+    height: @size;
+    display: block;
+    box-sizing: content-box;
+    margin: -@size / 2 0;
+    border-radius: 50%;
+    background: @text-color-info;
+    border-color: @app-background-color;
+  }
   .input-range-knob {
     .accent(inverse);
     height: @size;
