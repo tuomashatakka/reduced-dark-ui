@@ -17,9 +17,12 @@ html {
   line-height: @line-height }
 
 * {
-  font-size: 1em }
+  font-size: inherit }
 
 body {
+  animation-name: prelude;
+  animation-duration: 3s;
+  animation-play-state: paused;
   width: 100vw;
   overflow: hidden;
   position: relative }
@@ -28,6 +31,7 @@ body {
 // Blur for the modal bg
 atom-workspace {
   background: darken(@app-background-color, 1%);
+  transition: background 1.2s;
   //background-image: @gradient !important;
 
   atom-workspace-axis.vertical {
