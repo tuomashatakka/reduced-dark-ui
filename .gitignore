@@ -1,9 +1,13 @@
 # Node + npm
 node_modules
+npm-debug.log
 
 # Project-specific
+.imdone
 # **/config.less
-process-palette.json
+pigments-report.*
+process-palette.*
+.tern-project
 
 # Symbols
 .tags

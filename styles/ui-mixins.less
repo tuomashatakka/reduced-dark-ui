@@ -190,6 +190,37 @@ Overlay                                                                         
   content: @content;
   transition: all @transition-time }
 
+.displayicon() {
+  @size: 1.5em;
+  @scale: 0.75;
+
+  border: 1px solid;
+  border-radius: 50%;
+  border-color: #404040;
+  width: @size;
+  height: @size;
+  line-height: @size;
+  margin-right: @component-padding / 4;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  box-sizing: content-box;
+
+  &::before {
+    font-size: unit(@scale, em);
+    position: absolute;
+    line-height: inherit;
+    text-align: center;
+    display: block;
+    width: auto;
+    height: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+  }
+}
                                                                                                                                                                                                                                                                                                                                                                              /*
 Colors & accent                                                                                                                                                                                                                                                                                                                                                              */
 .state() {
@@ -242,11 +273,11 @@ Colors & accent                                                                 
   & when (@state = inverse) {
     .accent.inverse }
 
-  // TODO: Assign highlighting
+  // TODO: Assign highlighting id:17
   &.active,
   &.selected {}
 
-  // TODO: Assign a slight screen filter
+  // TODO: Assign a slight screen filter id:18
   &:hover,
   &:focus {}}
 

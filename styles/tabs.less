@@ -39,7 +39,7 @@ Tabs                                                                            
   flex:             @flex;
   text-align:       center;
   width:            auto;
-  max-width:        none; 
+  max-width:        none;
   height:           @tab-height;
   line-height:      @tab-height/3;
   padding:          @tab-height/3
@@ -119,8 +119,12 @@ Inline tabs for the settings config view                                        
   background: transparent;
   position: relative;
   display: flex;
+  overflow-x: hidden;
   line-height: @tab-height / 2;
   height: @tab-height / 2;
+
+  .icon,
+  + .displayed-item .icon { .displayicon(); }
 
   .tab {
     flex: 1 0 auto !important;
