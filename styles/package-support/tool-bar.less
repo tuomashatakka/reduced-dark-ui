@@ -7,7 +7,7 @@ author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
-@size:        @tab-height * 0.75;
+@size:        @tab-height * 0.635;
 @horizontal:  ~".tool-bar.tool-bar-horizontal";
 @vertical:    ~".tool-bar.tool-bar-vertical";
 // color: crimson;
@@ -27,7 +27,6 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     border: none !important;
     margin: 0 !important;
     background: transparent !important;
-    padding: 0 @component-padding / 2 !important;
     border-radius: @component-border-radius }
 
   button:hover {
@@ -56,19 +55,21 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     border-color: none;
     background: transparent }}
 
+
 @{horizontal} {
   background: @sub-background-color;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap !important;
-  padding: @component-padding / 3 @component-padding;
+  padding: 0 @component-padding / 2;
 
   hr, .tool-bar-spacer {
-    margin: 0 @component-padding }
+    margin: 0 @component-padding * 2 }
 
   button {
     flex: 0 1 @size * 2.5;
     width: auto !important;
+    padding: 0 !important;
     height: auto !important }
 
   button::before {
