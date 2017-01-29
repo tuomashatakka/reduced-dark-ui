@@ -17,29 +17,29 @@ Tab alignment                                                                   
 .tab-bar .tab.active {
   flex-grow: 0 }
 
-.tab-bar when (@__tabPosition = "left") {
+.tab-bar when (@__tabPosition = "Left") {
   justify-content: flex-start }
 
-.tab-bar when (@__tabPosition = "center") {
+.tab-bar when (@__tabPosition = "Center") {
   justify-content: center }
 
-.tab-bar when (@__tabPosition = "right") {
+.tab-bar when (@__tabPosition = "Right") {
   flex-basis: none;
   justify-content: flex-end }
 
-.tab-bar when (@__tabPosition = "stretch") {
-  justify-content: flex-start }
+.tab-bar when (@__tabPosition = "Stretch") {
+  justify-content: flex-start;
 
-.tab-bar .tab when (@__tabPosition = "stretch") {
-  max-width: none;
-  flex-grow: 1 !important;
-  flex-basis: auto }
+  .tab {
+    max-width: none;
+    flex-grow: 1 !important;
+    flex-basis: auto }
 
-.tab-bar .tab.active when (@__tabPosition = "stretch") {
-  max-width: none;
-  flex-grow: 1 !important;
-  flex-basis: auto }
-
+  .tab.active {
+    max-width: none;
+    flex-grow: 1 !important;
+    flex-basis: auto }
+}
                                                                                                                                                                                                                                                                                                                                                                                     /*
 Tab bar fixed to the top of the screen                                                                                                                                                                                                                                                                                                                                */
 atom-workspace > atom-workspace-axis when (@__fixedTabBar = true) {

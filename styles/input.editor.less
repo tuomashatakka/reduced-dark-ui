@@ -10,8 +10,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 atom-text-editor,
 atom-text-editor.editor {
-  .inputfield(editor);
-  background-color: @editor-background-color;
+  //background-color: @editor-background-color;
 
   .custom-decorations:empty {
     width: 0 }
@@ -25,14 +24,14 @@ atom-text-editor.editor {
 
 // Get rid of the gutter as well
 atom-text-editor .gutter-container * {
-  background: inherit }
+  // background: inherit
+}
 
 @{editor},
 @{editor-alt} {
   .inputfield(field);
   transition: all @transition-time ease;
   color: @input-text-color;
-  background-color: @input-background-color;
   border: 1px solid mix(@input-background-color, @input-background-color-active, 75%);
   border-radius: @button-border-radius;
   padding: @component-padding / 2 @component-padding;
