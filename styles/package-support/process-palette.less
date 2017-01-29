@@ -1,79 +1,111 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Process Palette Panel
-project     reduced-dark-ui
-version     0.0.0
-repository  https://github.com/tuomashatakka/reduced-dark-ui
-author      Tuomas Hatakka
-email       tuomas.hatakka@gmail.com
-copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+ panels ⟩ process-palette ⟩ reduced-dark-ui
 
 
+ author Tuomas Hatakka
+  email tuomas.hatakka@gmail.com
+      © 2016-2017 Tuomas Hatakka
+
+
+↛ Namespace                                                                                                                                                                                                                                                                                                                                                                 */
 .process-palette {
-  @radius: @button-border-radius;
 
-  .main-content {
-    padding-top: 2em }
+                                                                                                                                                                                                                                                                                                                                                                            /*
+↛ Local variables                                                                                                                                                                                                                                                                                                                                                                 */
+@radius: @button-border-radius;
 
-  .process-palette-scrollable {
-    display: flex;
-    flex-wrap: wrap;
+.main-content {
+  padding-top: 2em }
 
-    & > div {
-      flex: 1 1 auto;
+.process-palette-scrollable {
+  display: flex;
+  flex-flow: column wrap }
 
-      button {
-        float: none }
+.process-palette-scrollable  > div {
+  flex: 1 1 auto;
 
-      .header {
-        .text(caps);
-        display: block;
-        overflow: hidden }
+  button {
+    float: none }
 
-      table, tbody, tr, td, th {
-        .text(subtle);
-        display: inline-block }
+  table, tbody, tr, td, th {
+    .text(subtle);
+    flex: 1 1 auto;
+    display: block }
 
-      td {
-        padding-right: 0.5em;
-        font-size: 0.75em }
+  td {
+    padding-right: 0.5em;
+    font-size: 0.75em }
 
-      &:empty {
-        display: none }}}
+  &:empty {
+    display: none }}
 
   .button-group {
-    text-align: right;
+    display: flex !important;
+    align-items: stretch;
+    text-align: center;
+    display: block;
+    left: 0;
     position: relative }
 
+  .process-palette-button-view {
+    display: flex;
 
-  button.btn.btn-xs,
-  button.btn.btn-sm {
-    box-sizing: border-box;
-    border-radius: 0;
-    margin: 0 -1px 0 0;
-    padding: 0 @component-padding;
-    border-width: 0;
-    float: none;
-    display: inline-block;
-
-    &.btn-sm + .btn {
-      border-top-left-radius: @radius;
-      border-bottom-left-radius: @radius;
+    .btn {
+      line-height: @button-height;
+      padding: 0 @component-padding;
+      vertical-align: middle;
+      &::before {
+        vertical-align: middle;
+        margin-top: -2px }
     }
-    &:first-of-type {
-      border-top-left-radius: @radius;
-      border-bottom-left-radius: @radius;
-    }
-    &:last-of-type {
-      margin-right: 0.5em;
-      border-top-right-radius: @radius;
-      border-bottom-right-radius: @radius;
-    }
-
-    &::before {
-      margin-top: -2px;
-      vertical-align: middle}
   }
+
+
+button.btn.btn-xs,
+button.btn.btn-sm {
+  float: none;
+  flex: 1 0 auto;
+  width: auto;
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 0;
+  border-width: 0 !important;
+  margin: 0 @component-padding/2;
+  padding: 0 @component-padding;
+  border-width: 0;
+
+  // &.btn-sm + .btn {
+  //   border-top-left-radius: @radius;
+  //   border-bottom-left-radius: @radius;
+  // }
+  // &:first-of-type {
+  //   border-top-left-radius: @radius;
+  //   border-bottom-left-radius: @radius;
+  // }
+  // &:last-of-type {
+  //   margin-right: 0.5em;
+  //   border-top-right-radius: @radius;
+  //   border-bottom-right-radius: @radius;
+  // }
+
+  &::before {
+    margin-top: -2px;
+    vertical-align: middle}
+}
+
+
+.process-palette-process {
+  display: flex;
+  align-items: center;
+
+  .header {
+    .text(caps);
+    display: block;
+    white-space: nowrap }
+}
+
+
 }
 
 
@@ -133,7 +165,6 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     }
   }
   .process-palette-output-panel {
-    font-family: "Cutive Mono";
     position: absolute;
     box-sizing: border-box;
     left: 1rem !important;

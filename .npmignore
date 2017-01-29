@@ -16,4 +16,5 @@ assets/logo/*-*.png
 .imdone
 bin/**
 pigments-report.*
-process-palette.*
+process-palette.json
+process-palette.yml

@@ -41,13 +41,13 @@ atom-workspace {
       left @transition-time,
       margin @transition-time }
 
-  atom-workspace-axis.vertical when (@config-collapsing = left) {
+  atom-workspace-axis.vertical when (@__collapsing = left) {
     margin-left: @tab-height }
 
-  atom-workspace-axis.vertical when (@config-collapsing = right) {
+  atom-workspace-axis.vertical when (@__collapsing = right) {
     margin-right: @tab-height }
 
-  atom-workspace-axis.vertical when (@config-collapsing = both) {
+  atom-workspace-axis.vertical when (@__collapsing = both) {
     margin-right: @tab-height;
     margin-left: @tab-height }
 
