@@ -83,12 +83,14 @@ Tabs                                                                            
 
   // Current
   &.active {
+    @import (reference) 'syntax-variables';
     flex: @flex;
     max-width: none;
     width: auto;
     color: @text-color-selected;
     background-color: @tab-background-color-active;
     .accent;
+    background-color: @syntax-background-color;
 
     .title {
       color: inherit;
