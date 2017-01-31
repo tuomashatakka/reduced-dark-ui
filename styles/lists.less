@@ -160,7 +160,7 @@ catalog {
   //   },
   // }
 
-  @size: 4rem;
+  @size: 1.5rem;
   @c: mix(@color-error, rgba(159, 48, 89, 0.25));
   @inset-shadow-marble: inset -12px -10px 36px @c;
   h3 {
@@ -224,6 +224,9 @@ catalog {
 
   main article.icon:hover::before {
     color: inherit }
+
+  main article.icon.selected {
+    border: 1px solid; }
 
   footer.btn-toolbar {
     margin: 3rem 1rem 2rem }

@@ -4,18 +4,18 @@
 atom-panel .display-icon {
   display: none }
 
-atom-workspace-axis.vertical when (@__collapsing = "neither") {
+atom-workspace-axis.vertical when (@__collapsing = "Neither") {
   margin-left: 0 !important }
 
 
 
-& when (@__collapsing = "left") {
+& when (@__collapsing = "Left") {
   .applyCollapsing(left) }
 
-& when (@__collapsing = "right") {
+& when (@__collapsing = "Right") {
   .applyCollapsing(right) }
 
-& when (@__collapsing = "both") {
+& when (@__collapsing = "Both") {
   .applyCollapsing(left);
   .applyCollapsing(right) }
 
