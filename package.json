@@ -262,6 +262,7 @@
       "Promise": true,
       "module": true,
       "process": true,
+      "emit": true,
       "require": true,
       "document": true,
       "window": true,

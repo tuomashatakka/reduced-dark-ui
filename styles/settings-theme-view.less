@@ -1,0 +1,46 @@
+
+
+.tab-bar.inline-tabs .tab {
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-bottom-color: @base-border-color;
+
+  &.active {
+    border-color: @base-border-color;
+    border-bottom-color: transparent;
+    background-color: @sub-background-color;
+  }
+
+  .icon {
+    margin-top:     0.4em;
+    margin-bottom: -0.4em }}
+
+    .displayed-item {
+      background-color: @sub-background-color;
+      margin: 0;
+    }
+
+.section-heading {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  h2 {
+    margin: 0;
+    padding: 0;
+
+    .icon {
+      margin-right: @component-padding }
+  }
+}
+
+.control-group {
+  padding: @component-padding;
+  position: relative }
+
+.boolean-container {
+  position: absolute;
+  top: 0;
+
+  @{checkbox-input} {
+    margin: -3px 0 0 3px }}

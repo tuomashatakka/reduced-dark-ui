@@ -27,17 +27,21 @@ background-color: @app-background-color;
   right: 0;
   width: auto;
   position: absolute;
+  display: flex;
   padding: @component-padding;
   background-color: @app-background-color;
   z-index: 500;
 
   & > li {
+    display: flex;
     padding: 0 @component-padding 0 0;
     a {
       display: block }}
 
   & > li + li::before {
-    .icon("\f105") }
+    .icon("\f105");
+    padding-right: @component-padding;
+    line-height: inherit }
 
   + * {
   margin-top: 4rem }}
@@ -188,6 +192,7 @@ background-color: @app-background-color;
 
     /////////////////////////////
 .package-config-view {
+  @import "./settings-theme-view.less";
 }
 
 
@@ -300,7 +305,7 @@ background-color: @app-background-color;
 
                                                                                                                                                                                                                                                                                                                                                                                   /*
 ↛ Color palette config                                                                                                                                                                                                                                                                                                                                                                 */
-div[title="color"] {
+section[title="color"] {
   width: 100%;
   position: relative;
 
