@@ -118,12 +118,13 @@ Tabs                                                                            
                                                                                                                                                                                                                                                                                                                                                                               /*
 Inline tabs for the settings config view                                                                                                                                                                                                                                                                                                                                                          */
 &.inline-tabs {
-  background: transparent;
-  position: relative;
-  display: flex;
-  overflow-x: hidden;
-  line-height: @tab-height * 0.75;
-  height: @tab-height * 1.5;
+  background:       transparent;
+  position:         relative;
+  display:          flex;
+  overflow-x:       hidden;
+  transform:        none;
+  line-height:      @tab-height * 0.75;
+  height:           @tab-height * 1.5;
 
   .icon,
   + .displayed-item .icon {

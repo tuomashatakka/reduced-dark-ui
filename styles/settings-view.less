@@ -86,6 +86,7 @@ background-color: @app-background-color;
     .text(highlight) }
 
   label {
+    padding: @component-padding;
   .text(normal);
 
   &.control-label .theme-description {
@@ -113,9 +114,9 @@ background-color: @app-background-color;
       margin-bottom: @settings-gutter }
 
     .sub-section-body .control-group {
-      flex: 1 1 50%;
-      min-width: 16em;
-      padding: 0 }}
+      flex: 0 0 100%;
+      min-width: 0;
+      padding: @component-padding }}
 
   .section-container {
     max-width: none }

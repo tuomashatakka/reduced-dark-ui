@@ -15,10 +15,14 @@
     margin-top:     0.4em;
     margin-bottom: -0.4em }}
 
-    .displayed-item {
-      background-color: @sub-background-color;
-      margin: 0;
-    }
+> .section {
+  padding: 0;
+}
+
+.displayed-item {
+  background-color: @sub-background-color;
+  margin: 0;
+}
 
 .section-heading {
   margin: 0;
@@ -33,6 +37,12 @@
       margin-right: @component-padding }
   }
 }
+
+
+.sub-section-body .control-group {
+  flex: 1 1 50%;
+  min-width: 16em;
+  padding: @component-padding }
 
 .control-group {
   padding: @component-padding;
