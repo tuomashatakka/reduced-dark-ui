@@ -28,7 +28,7 @@ Size factors                                                                    
 @size:        6;
                                                                                                                                                                                                                                                                                                                                                                         /*
 Tints                                                                                                                                                                                                                                                                                                                                                                    */
-@tint:         desaturate(mix(@__backgroundTint, #ffffff, 30%), 20%);
+@tint:         desaturate(mix(@__backgroundTint, #ffffff, 40%), 25%);
 @tinted-sub:  darken(multiply(@col-bg,         @tint),         3%);
 @tinted-base:        multiply(@col-bg,         @tint);
 @tinted-darker:      multiply(@col-darker,     @tint);
@@ -41,8 +41,8 @@ Tints                                                                           
                                                                                                                                                                                                                                                                                                                                                                           /*
 Main palette                                                                                                                                                                                                                                                                                                                                                             */
 @color-highlight:             @__primary;
-@color-main:                  mix(@__primary,     @col-main,          92%);
-@color-info:                  mix(@__primary,     @col-main,          75%);
+@color-main:                  mix(@__primary,     @col-main,     92%);
+@color-info:                  mix(@__primary,     @col-main,     75%);
 @color-success:               mix(@__primary,     @__success,    50%);
 @color-warning:               mix(@__accentColor, @__warning,    25%);
 @color-annotation:            mix(@__accentColor, @__annotation, 75%);
@@ -74,11 +74,11 @@ Text                                                                            
 @text-color-removed:          mix(@color-annotation,        @__annotation,     50%);
 @text-color-error:            mix(@color-error,             @__error,          50%);
 
-@background-color-success:      screen(@color-success,      @app-background-color,  50%);
-@background-color-info:            mix(@color-main,         @app-background-color,  90%);
+@background-color-success:      screen(@color-success,      @base-background-color,  50%);
+@background-color-info:            mix(@color-main,         @base-background-color,  90%);
 @background-color-warning:      screen(@text-color-warning, @color-warning,         50%);
-@background-color-annotation:   screen(@text-color-warning, @app-background-color,  50%);
-@background-color-error:      multiply(@text-color-error,   @base-background-color, 25%);
+@background-color-annotation:   screen(@text-color-warning, @base-background-color,  50%);
+@background-color-error:      multiply(@text-color-error,   @base-background-color, 50%);
                                                                                                                                                                                                                                                                                                                                                                         /*
 Components                                                                                                                                                                                                                                                                                                                                                              */
 @button-background-color:              transparent;
@@ -86,7 +86,7 @@ Components                                                                      
 @gutter-background-color-selected:     transparent;
 @tab-background-color:                 transparent;
 @scrollbar-track-color:                transparent;
-@editor-background-color:         fade(@tinted-sub,  50%);
+@editor-background-color:              transparent;
 
 @input-text-color-active:              @tinted-base;
 @input-text-color-highlight:           @tinted-base;
