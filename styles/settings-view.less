@@ -17,8 +17,10 @@ background-color: @app-background-color;
 
                                                                                                                                                                                                                                                                                                                                                                             /*
 ↛ Local variables                                                                                                                                                                                                                                                                                                                                                                 */
-@settings-gutter: 0.5rem;
-@size-pkg-name: 6rem;
+@settings-gutter:       0.5 * @component-padding;
+@cards-gutter:          2.5px;
+@size-pkg-name:         6rem;
+@status-indicator-size: 2.3px;
 
 
 .breadcrumb {
@@ -200,18 +202,22 @@ background-color: @app-background-color;
 /////////////////////////////
 .package-card {
   .text(normal);
-  position: relative;
-  background: @background-color-highlight;
-  border-width: 0px;
-  border-radius: 2px;
-  padding: @component-padding;
-  transition: all @transition-time;
+  min-width:        20em;
+  height:           100%;
+
+  position:         relative;
+  background:       @background-color-highlight;
+  border-width:     0px;
+  border-radius:    2px;
+  padding:          2.5 * @component-padding;
+  margin:           0;
+  transition:       all @transition-time;
 
   &:hover {
-    transform: translateY(-6px);
-    z-index: 100;
-    background-color: #19191b !important;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2) }
+    transform:      translateY(-6px);
+    z-index:        100;
+    box-shadow:     0 7px 1.5 * @component-padding rgba(0, 0, 0, 0.15);
+    background-color: mix(@inset-panel-background-color, @__accentColor, 97.5%) !important }
 
   .card-name { .h4 }
 
@@ -220,7 +226,8 @@ background-color: @app-background-color;
     .install-button,
     .uninstall-button {
 
-      &.is-installing, &.is-uninstalling {
+      &.is-installing,
+      &.is-uninstalling {
         background-image: none;
         -webkit-animation: none;
 
@@ -233,17 +240,19 @@ background-color: @app-background-color;
       position: static }
 
     .status-indicator {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      top: 0;
-      height: auto !important;
-      width: 1px !important;
-      margin: 0 !important;
-      padding: 0 !important;
+      position:     absolute;
+      right:        6px;
+      bottom:       2px;
+      top:          3px;
+      height:       auto !important;
+      margin:       0 !important;
+      padding:      0 !important;
       border-width: 0 !important;
-      min-width: 1px;
-      z-index: 10000 }}}
+      border-radius:0 !important;
+      width:        @status-indicator-size !important;
+      min-width:    @status-indicator-size;
+      transform:    translateX(4.2px);
+      z-index:      100 }}}
 
 .package-detail .package-card:hover {
   background-color: transparent }
@@ -253,6 +262,19 @@ background-color: @app-background-color;
 
 
 /////////////////////////////
+.container.package-container {
+  @minimumWidth:  20em;
+  display:        flex;
+  flex-wrap:      wrap;
+
+  > .row {
+    flex:         1 0 30%;
+    padding:      0 @cards-gutter @cards-gutter 0;
+    margin:       0;
+    width:        auto;
+    min-width:    @minimumWidth;
+  }
+}
 .package-update-view {
 
   .thumbnail {
@@ -303,95 +325,4 @@ background-color: @app-background-color;
       margin: 0 1em 1em 0;
       padding: 0em 1.6em;
       display: inline-block }}}
-
-                                                                                                                                                                                                                                                                                                                                                                                  /*
-↛ Color palette config                                                                                                                                                                                                                                                                                                                                                                 */
-section[title="color"] {
-  width: 100%;
-  position: relative;
-
-  > .sub-section > .controls {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-
-  label.control-group {
-    flex-flow:      column nowrap;
-    position:       static;
-    position:       absolute;
-    display:        flex;
-    flex:           none;
-    vertical-align: middle;
-    text-align:     left;
-    width:          100%;
-    margin:         0;
-    min-width:      0;
-    top:            0;
-    bottom:         0;
-    font-size:      1em;
-    line-height:    1.5;
-    padding:        @component-padding;
-  }
-
-  .settings-title,
-  .settings-description {
-    z-index: 1 }
-
-  .color-cell.color-display {
-    position: relative;
-    flex: 1 0 33.33%;
-    padding-bottom: 33.33%;
-    height: 0;
-    box-sizing: padding-box;
-  }
-  .color-cell.color-minor {
-    position: relative;
-    flex: 0 0 25%;
-    padding-bottom: 25%;
-  }
-  @{color-input} {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    background: transparent !important;
-    border-width: 0 !important;
-    margin: 0;
-    padding-bottom: 100%;
-
-    &::-webkit-color-swatch-wrapper {
-      padding: 0;
-      margin: 0;
-      // margin: @component-padding / 2;
-      width: auto;
-      height: auto;
-      overflow: hidden;
-      border-radius: 0% }
-
-    &::-webkit-color-swatch {
-      -webkit-appearance: none;
-      transition: padding @transition-time;
-      transform: translate(0.5px, 0.5px);
-      border-radius: 0 }
-
-  }
-
-  label.control-group:hover {
-    cursor: pointer;
-    color: @base-background-color;
-
-    * {
-      cursor: pointer;
-      color: inherit;
-      transition: color @transition-time;
-    }
-
-    ::-webkit-color-swatch {
-      cursor: pointer;
-      padding-top: 100% }
-  }
-}}
 }

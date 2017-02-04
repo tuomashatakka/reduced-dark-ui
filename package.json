@@ -186,15 +186,26 @@
     "decor": {
       "order": 3,
       "title": "Miscellaneous",
-      "description": "a",
+      "description": "",
       "type": "object",
       "properties": {
         "overrideEditorBackground": {
-          "order": 1,
           "title": "Override Editor Background Color",
           "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
           "type": "boolean",
           "default": true
+        },
+        "fading": {
+          "title": "Override Editor Background Color",
+          "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
+          "type": "boolean",
+          "default": true
+        },
+        "enhancedFx": {
+          "title": "Blend modes and gradient background",
+          "description": "This is some seriously GPU-intensive stuff.",
+          "type": "boolean",
+          "default": false
         },
         "uiFont": {
           "order": 2,
@@ -220,6 +231,31 @@
             800,
             900
           ]
+        },
+        "animations": {
+          "title": "Animations & Transitions",
+          "description": "Settings for UI animations",
+          "type": "object",
+          "properties": {
+            "duration": {
+              "order": 1,
+              "title": "Duration",
+              "description": "Duration for transitions. Set to 0 to disable",
+              "type": "number",
+              "default": 0.2,
+              "minimum": 0,
+              "maximum": 0.6
+            },
+            "blurIntensity": {
+              "order": 2,
+              "title": "Blur intensity",
+              "description": "Intensity for backdrop blur effect. Set to 0 to disable",
+              "type": "number",
+              "default": 0.6,
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
         }
       }
     },
