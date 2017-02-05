@@ -1,39 +1,27 @@
 
-<h1 style='text-align: center'>Reduced Dark</h1>
+# Reduced Dark ![logo](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo.png)[width=50]
+
+
+__Minimal + plain + usable + functional__
+
+ / UI theme for Atom.io
 
 <p align="center">
-  Minimal + plain + usable + functional / UI theme for Atom.io
-</p>
-
-<p align="center">
-
   <img src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo-glyph.png" width=16 height=16 />
   <a href="https://atom.io/themes/reduced-dark-ui">
     <img src="https://img.shields.io/apm/dm/reduced-dark-ui.svg?style=flat-square">
     </a>
-
   <img src="https://github.com/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
   <a href="https://github.com/tuomashatakka/reduced-dark-ui/issues">
     <img src="https://img.shields.io/github/issues/tuomashatakka/reduced-dark-ui.svg?style=flat-square">
     </a>
-
   <img src="https://atom.io/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
   <a href="https://atom.io/themes/reduced-dark-ui">
     <img src="https://img.shields.io/apm/v/reduced-dark-ui.svg?style=flat-square">
     </a>
 </p>
 
-<table style="border: none; color: white">
-<tbody style="border: none; color: white">
-   <tr style="border: none; color: white">
-
-   <td style="border-width: 0 !important; color: white">
-     <img style='margin: 0 auto; width: 25%; max-width: 14em; min-width: 8em;' src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo.png"/>
-   </td>
-
-
-   <td style="border-width: 0 !important; color: initial;">
-     <h2 style='text-align: left'><span class='icon icon-alert' /> PLEASE NOTE</h2>
+# PLEASE NOTE
      <p align="left">
        This theme is currently under development and should be considered barely as a preview.
        Contributions and issues are more than welcome - as well as any other feedback!
@@ -71,7 +59,7 @@
   <td>
    <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 25%; margin: 4%' />
   </td>
-  
+
 </tr></table>
 
 
@@ -94,11 +82,11 @@
  <td>
   <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-12.png' />
  </td>
- 
+
  <td>
   <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-10.png' />
  </td>
-  
+
 </tr></table>
 
 
