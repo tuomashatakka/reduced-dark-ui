@@ -35,30 +35,37 @@ atom-panel.modal,
   atom-text-editor.mini.editor,
   atom-text-editor[mini],
   atom-text-editor[mini].editor {
+
+    @air:               @component-padding * 2;
+    @line:              unit(@air, em);
     .text(heading);
-    color: @input-text-color !important;
-    background-color: transparent !important;
-    font-size: @overlay-input-size;
-    font-weight: 100;
-    line-height: 1.2em;
-    height: auto;
-    max-height: none;
-    margin: 0 -@component-padding*2;
-    padding: 0 @component-padding*2 @component-padding @component-padding*4;
-    border: 0;
-    border-radius: 0;
-    border-bottom: 0px solid @base-border-color;
+
+    font-weight:        100;
+    color:              @text-color-subtle !important;
+    background-color:   transparent !important;
+    font-size:          @overlay-input-size;
+    line-height:        @line;
+    height:             auto;
+    max-height:         none;
+    margin:             0
+                       -@air;
+    padding:            @air / 2 @air @air @air * 3;
+    border:             0;
+    border-radius:      0;
+    border-bottom:      0px solid @base-border-color;
+    box-shadow:         none;
 
     .text {
-      color: @text-color-highlight }
-
+      color: inherit }
+    .cursor {
+      margin-top: 0.45em;
+      border-color: initial;
+      height: 1.2em !important }
 
     &.is-focused:hover,
     &:hover {
-      border-top: 0 !important;
-      border-left: 0 !important;
-      border-right: 0 !important;
-      border-bottom: 1px solid @base-border-color !important;
+      border-bottom: p1px solid @base-border-color !important;
+      border-width: 0 0 0 1px !important;
       background-color: transparent !important }}
 
   &.from-top { top: 5vh }

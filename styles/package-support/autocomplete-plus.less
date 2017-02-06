@@ -8,11 +8,84 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-autocomplete-suggestion-list.select-list.popover-list ol.list-group li > .word-container,
-autocomplete-suggestion-list.select-list.popover-list ol.list-group li > .word-container span {
+autocomplete-suggestion-list.select-list.popover-list {
+@block-size: 4rem;
 
-  font-family: "Source Code Pro", "Fira Code", "Menlo", "Consolas", "DejaVu Sans Mono", monospace;
-  .character-match { font-weight: 600 }}
 
-autocomplete-suggestion-list.select-list.popover-list .suggestion-description-content {
-  color: @text-color }
+width: auto;
+display: inline-block;
+min-width: 200px;
+max-width:  800px;
+padding: 0;
+color:      @text-color-subtle;
+border:     none !important;
+background: @pane-item-background-color;
+
+
+.suggestion-description {
+  background: transparent;
+  min-height: 2em;
+  font-weight: 300;
+  line-height: inherit;
+  font-size: unit(@size-tiny, rem);
+  background: @overlay-background-color;
+  border-radius: 0 0 @component-border-radius @component-border-radius;
+  padding: @component-padding @component-padding * 2 }
+
+.suggestion-description-content {
+  color: inherit }
+
+
+.suggestion-list-scroller {
+  overflow-y: auto;
+  border-bottom: 1px solid @base-border-color }
+
+.list-group {
+    background: transparent;
+
+  li {
+    display:  flex;
+    height: @block-size;
+    line-height: @block-size;
+    color: @text-color;
+    background: transparent;
+    padding: 0 }
+
+  li.selected,
+  li:hover,
+  li:focus {
+    background-color: rgba(255, 255, 255, 0.05) !important }
+
+  li > span {
+    display: block;
+    height: inherit;
+    line-height: inherit;
+    flex: 0 0 auto }
+
+
+  li > .word-container {
+    display: block;
+    padding: 0 @component-padding;
+    -webkit-font-smoothing: antialiased;
+
+    .character-match {
+      font-weight: 700;
+      padding: 0 }}}
+
+.icon-container {
+  width: @block-size;
+  padding: 0 }
+
+.icon,
+.icon .icon-letter {
+  display: block;
+  width: inherit;
+  height: inherit;
+  line-height: inherit }
+
+.icon {
+  margin: 0}
+
+.icon .icon-letter {
+  font-weight: 200;
+  font-size: 1em }}

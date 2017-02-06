@@ -1,14 +1,14 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
-project     reduced-dark-ui
-version     0.0.0
-repository  https://github.com/tuomashatakka/reduced-dark-ui
-author      Tuomas Hatakka
-email       tuomas.hatakka@gmail.com
-copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+ button ⟩ components ⟩ reduced-dark-ui
 
 
+ author Tuomas Hatakka
+  email tuomas.hatakka@gmail.com
+      © 2016-2017 Tuomas Hatakka
+
+
+↛ Defaults                                                                                                                                                                                                                                                                                                                                                                 */
 button, button.icon, .btn-default, .btn {
   .button(@button-border-color);
 
@@ -41,7 +41,7 @@ button, button.icon, .btn-default, .btn {
       vertical-align: middle;
       margin-top: -3px;
       font-size: 2.2em;
-      color: mix(@text-color, @app-background-color) }
+      color: inherit }
   }
 
   &.btn-info, &.btn-primary { .button-variant(@text-color-info) }
@@ -50,16 +50,27 @@ button, button.icon, .btn-default, .btn {
   &.btn-error { .button-variant(@text-color-error) }
   &.status-indicator { border-width: 0 !important }
 }
+                                                                                                                                                                                                                                                                                                                                                                        /*
+↛ Toolbars and grouped buttons                                                                                                                                                                                                                                                                                                                                                                 */
 
-.btn-toolbar,
+
 .btn-group {
+  padding: 0 0 2px;
+  box-sizing: content-box;
 
+  > .btn.icon::before {
+    margin: -1px 0 0 }}
+
+.btn-group,
+button .btn-toolbar,
+button {
+  height: @button-height !important;
   border: 0;
   margin: 0px;
 
-  & > .btn {
+  > .btn {
     border: 1px solid;
-    height: @button-height !important;
+    height: 100%;
     box-sizing: border-box }
 
   .btn:hover {
@@ -68,13 +79,13 @@ button, button.icon, .btn-default, .btn {
   .btn:first-child {
     border-left-width: 1px !important;
     border-left-style: solid !important;
-    border-top-left-radius: @button-border-radius !important;
-    border-bottom-left-radius: @button-border-radius !important }
+    border-top-left-radius: @button-border-radius;
+    border-bottom-left-radius: @button-border-radius }
   .btn:last-child {
     border-right-width: 1px !important;
     border-right-style: solid !important;
-    border-top-right-radius: @button-border-radius !important;
-    border-bottom-right-radius: @button-border-radius !important }
+    border-top-right-radius: @button-border-radius;
+    border-bottom-right-radius: @button-border-radius }
 
   &.btn-toolbar > &,
   .btn-toolbar > & {
@@ -91,10 +102,11 @@ button, button.icon, .btn-default, .btn {
       border-radius: @button-border-radius !important }}
 }
 
-.meta-controls .btn-toolbar {
+.settings-view .meta-controls .btn-toolbar {
   margin: 0 auto;
 
-  button, .btn {
+  button, .btn,
+  button.btn {
     font-size: 0 !important;
     width: @button-height;
     height: @button-height;
@@ -118,7 +130,19 @@ button, button.icon, .btn-default, .btn {
     }
   }
 }
-button:first-child, button.icon:first-child, .btn-default:first-child, .btn:first-child {
+
+.pull-right.btn {
+  height:         @button-height * 0.6 !important;
+  min-height:     @button-height * 0.6 !important;
+  line-height:    @button-height * 0.6 !important;
+  padding-top:    @button-height * 0.2 !important;
+  padding-bottom: @button-height * 0.2 !important;
+  box-sizing:     content-box !important;
+}
+button:first-child,
+button.icon:first-child,
+.btn-default:first-child,
+.btn:first-child {
   border-top-left-radius: 3.6rem;
   border-bottom-left-radius: 3.6rem;
 }

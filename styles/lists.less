@@ -8,25 +8,51 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
+.litem(@type: none) {
+  li:not(.list-nested-item),
+  li.list-nested-item > .list-item {
+    .text(normal);
+    font-family: inherit;
+    color: mix(@text-color, @text-color-subtle, 75%);
+    transition:
+      color @transition-time / 4,
+      background-color @transition-time / 4;
+    &.selected,
+    &:focus,
+    &:hover {
+    transition: none }}
+
+  li:not(.list-nested-item).selected,
+  li.list-nested-item.selected > .list-item {
+    // TODO: Safe to remove the font-size definition? Check it
+    .text(selected);
+    font-family: inherit;
+    color: @text-color-highlight;
+    transition-delay: 0;
+    transition-duration: 0 }
+
+  .icon::before {
+    font-size: 0.9em }
+
+  }
+
 .list-group,
 .list-tree {
   li {
-    &.selected:before { background: @background-color-selected }
-    &.selected .word { color: @text-color-selected !important }
+    &.selected:before {
+      background: @background-color-selected }
 
-    & .character-match { .text(normal); transition: color @transition-time/2 ease }
-    &:hover .character-match { .text(highlight); transition: color @transition-time/2 ease }
-    &.selected .character-match { .text(selected); font-size: @font-size }
+    &.selected .word {
+      color: @text-color-selected !important }
 
-    &, &.list-item { transition: color @transition-time/2 ease }
-    &:hover, &.list-item:hover { .text(highlight) }
-    &:not(.list-nested-item), &.list-nested-item > .list-item {
-      .text(normal);
-      .icon::before {
-        font-size: 0.9em;
-        }}
-  }
+    &, &.list-item {
+      transition: color @transition-time/2 ease }
 
+    &:hover, &.list-item:hover {
+      .text(highlight);
+      font-family: inherit }}
+
+  .litem();
   .generate-list-item-text-color(subtle);
   .generate-list-item-text-color(info);
   .generate-list-item-text-color(success);
@@ -37,65 +63,100 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   .generate-list-item-status-color(@text-color-added, added);
   .generate-list-item-status-color(@text-color-renamed, renamed);
   .generate-list-item-status-color(@text-color-modified, modified);
-  .generate-list-item-status-color(@text-color-removed, removed);
+  .generate-list-item-status-color(@text-color-removed, removed)}
 
-  li:not(.list-nested-item).selected,
-  li.list-nested-item.selected > .list-item {
-    .text(selected);
-    font-size: @font-size }}
+
+.modal.select-list,
+.modal .select-list {
+  max-height: 80vh;
+
+  ol.list-group > li {
+    font-size: 1.2em !important;
+    padding: @component-padding * 1.2 @component-padding * 2.4 !important }}
+
 
 .select-list ol.list-group,
 .modal.select-list ol.list-group,
 .modal .select-list ol.list-group {
   max-height: 80vh;
+  font-family: inherit;
 
-  li pre { margin-bottom: 0 }
+  .litem();
+  li pre {
+    margin-bottom: 0 }
 
   li.two-lines {
-    .secondary-line { .text(subtle) }
-    &.selected .secondary-line { .text(selected) }}
+    padding: @component-padding 0;
 
-  li.selected {
-    background-color: @background-color-selected;
+    .secondary-line {
+      .text(subtle);
+      margin: -@component-padding / 2 0 0 }
 
-    &:before { display: none }
-    pre { border-color: @text-color-highlight }}
+    &.selected .secondary-line {
+      .text(selected) }}
 
-  &.mark-active {
-    li:before {
-      content: '';
-      background-color: transparent;
-      position: static;
-      display: inline-block;
-      left: auto;
-      right: auto;
-      height: @list-active-icon-size;
-      width: @list-active-icon-size }
+  li.selected,
+  li:hover,
+  li:focus {
+    font-weight:         900 !important;
+    background-color:    @background-color-selected;
+    transition-delay:    0;
+    transition-duration: 0;
 
-    > li:not(.active):before { margin-right: @component-icon-padding }
+    &:before {
+      display: none }
 
-    li.active {
-      .octicon(check, @list-active-icon-size);
+    pre {
+      border-color: @text-color-highlight }}
 
-      &:before {
-        margin-right: @component-icon-padding;
-        color: @text-color-success }}}
-}
+  kbd {
+    background: @background-color-selected;
+    color: @text-color-subtle;
+    border-radius: @component-border-radius;
+    padding: @component-padding / 4 @component-padding / 2;
+    font-size: 1.2em;
+    border-color: transparent }
+
+  &.mark-active li:before {
+    content: '';
+    background-color: transparent;
+    position: static;
+    display: inline-block;
+    left: auto;
+    right: auto;
+    height: @list-active-icon-size;
+    width: @list-active-icon-size }
+
+  > li:not(.active):before {
+    margin-right: @component-icon-padding }
+
+  li.active {
+    .octicon(check, @list-active-icon-size) }
+
+  li.active:before {
+    margin-right: @component-icon-padding;
+    color: @text-color-success }}
+
 
 .select-list.popover-list {
+  font-size: 1em;
   .overlay-shadow();
   background-color: @overlay-background-color;
   border-radius: @component-border-radius !important;
   border: 1px solid @overlay-border-color !important;
 
-  atom-text-editor { margin-bottom: @component-padding/2 }
+  atom-text-editor {
+    margin-bottom: @component-padding/2 }
 
   .list-group li {
     padding-left: @component-padding/2;
     transition: color @transition-time/2 ease }}
 
+
 .ui-sortable {
-  li { line-height: 2.5em }
+  li {
+    line-height: 2.5em }
+
   li.ui-sortable-placeholder {
     visibility: visible !important;
     background-color: darken(@pane-item-background-color, 10%) }}
@@ -107,7 +168,6 @@ li.ui-sortable-helper {
   list-style: none;
   padding: 0 @component-padding;
   background: @background-color-highlight }
-
 
 
 .list-group .icon,
@@ -123,6 +183,9 @@ li.ui-sortable-helper {
 
 
 catalog {
+  @size: 2.5rem;
+  @c: mix(@color-error, rgba(159, 48, 89, 0.25));
+  @inset-shadow-marble: inset -12px -10px 36px @c;
 
   header {
     .h1;
@@ -132,43 +195,12 @@ catalog {
     padding: 0 1rem;
     background-color: @app-background-color }
 
-  // const styles = {
-  //   title: {
-  //     height: 'auto',
-  //     position: 'absolute',
-  //     zIndex: 100000,
-  //     height: '6rem',
-  //     lineHeight: '6rem',
-  //     left: 0,
-  //     right: 0,
-  //     top: 0,
-  //     padding: '0 2rem',
-  //     fontSize: '3rem',
-  //     fontWeight: '100',
-  //   },
-  //   footer: {
-  //     margin: '3rem 1rem 2rem',
-  //   },
-  //   section: {
-  //     display: 'flex',
-  //     flexFlow: 'row wrap',
-  //     justifyContent: 'center',
-  //     textAlign: 'center',
-  //   },
-  //   cell: {
-  //     display: 'block',
-  //   },
-  // }
-
-  @size: 1.5rem;
-  @c: mix(@color-error, rgba(159, 48, 89, 0.25));
-  @inset-shadow-marble: inset -12px -10px 36px @c;
   h3 {
     .text(caps);
     font-size: 9rem;
     text-align: center;
-    width: 100%;
-  }
+    width: 100% }
+
   main {
     margin-top: -1rem;
     padding-top: 6rem;
@@ -186,8 +218,8 @@ catalog {
 
   main article.icon {
     font-size: @size !important;
-    line-height: @size * 3;
-    height: @size * 3;
+    line-height: @size * 2;
+    height: @size * 2;
     display: block;
     width: auto;
     text-align: center;
@@ -195,7 +227,7 @@ catalog {
     position: relative;
     padding: 0 !important;
     margin: 0;
-    flex: 0 0 @size * 3;
+    flex: 0 0 @size * 2;
     cursor: pointer;
     border-radius: 50%;
     transition:
@@ -243,27 +275,24 @@ catalog {
       vertical-align: middle }
     .icon::before {
       line-height: inherit;
-      height: inherit;
-
-      } } }
+      height: inherit }}}
 
 
 .generate-list-item-text-color(@class) {
-  li:not(.list-nested-item).text-@{class},
-  li.list-nested-item.text-@{class}> .list-item {
-    .text(@class) }}
+li:not(.list-nested-item).text-@{class},
+li.list-nested-item.text-@{class}> .list-item {
+  .text(@class) }}
 
 .generate-list-item-status-color(@color, @status) {
-  li:not(.list-nested-item).status-@{status},
-  li.list-nested-item.status-@{status}> .list-item,
-  li:not(.list-nested-item).selected.status-@{status},
-  li.list-nested-item.selected.status-@{status}> .list-item {
-    color: @color;
+li:not(.list-nested-item).status-@{status},
+li.list-nested-item.status-@{status}> .list-item,
+li:not(.list-nested-item).selected.status-@{status},
+li.list-nested-item.selected.status-@{status}> .list-item {
+  color: @color;
 
-    .icon::before {
-      font-size: 0.9em;
-      color: mix(@color, @background-color-selected, 88%) } }
-}
+  .icon::before {
+    font-size: 0.9em;
+    color: mix(@color, @background-color-selected, 88%) }}}
 
 
 .sub-section.icon-selector,

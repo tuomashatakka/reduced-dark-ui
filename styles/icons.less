@@ -1,22 +1,53 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
-project     reduced-dark-ui
-version     0.0.0
-repository  https://github.com/tuomashatakka/reduced-dark-ui
-author      Tuomas Hatakka
-email       tuomas.hatakka@gmail.com
-copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+ button ⟩ components ⟩ reduced-dark-ui
 
-.settings-view .sub-section .sub-section-heading.has-items::after {
-  .icon("\f106");
-  transform: rotate(0deg);
-  transform-origin: center }
 
-.settings-view .sub-section.collapsed .sub-section-heading::after {
-  transform: rotate(180deg) }
+ author Tuomas Hatakka
+  email tuomas.hatakka@gmail.com
+      © 2016-2017 Tuomas Hatakka
 
-// Custom injected panel icons
+
+↛ Local variables                                                                                                                                                                                                                                                                                                                                                                 */
+@outline-width: 0.67px;
+
+                                                                                                                                                                                                                                                                                                                                                                            /*
+↛ General definitions                                                                                                                                                                                                                                                                                                                                                                 */
+.icon::before {
+  -webkit-filter: blur(0.08px);
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2) }
+
+                                                                                                                                                                                                                                                                                                                                                                            /*
+↛ Modal icon redefinitions                                                                                                                                                                                                                                                                                                                                                               */
+atom-panel.modal {
+  .icon(command-palette,   '\f449', ion);
+  .icon(encoding-selector, "\f094", default);
+  .icon(grammar-selector,  "\f010", default);
+  .icon(symbols-view,      "\f0c0", default);
+  .icon(fuzzy-finder,      "\f02e", default);
+  .icon(diff-list-view,    "\f0d6", default);
+  @icon: ~"> atom-text-editor[mini]::before";
+
+  & > div @{icon} {
+    font-family:    "Octicons Regular";
+    content:        "\f011";
+    color:          @text-color-subtle;
+    padding-right:  @component-padding;
+    border-right:   0.5px solid fade(@text-color-subtle, 7.5%);
+    margin:         0 @component-padding 0 -@component-padding * 2;
+    -webkit-font-smoothing: subpixel-antialiased }
+
+  .icon(@for, @replace, @set: default) {
+    @cls: ~"> .@{for} @{icon}";
+    & @{cls} when (@set = ion) { font-family: ionicons }
+    & @{cls} when (@set = fa) {  font-family: FontAwesome, "Font Awesome", "font-awesome" }
+    & @{cls} {
+       content: @replace }}}
+
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+↛ Custom injected panel icons                                                                                                                                                                                                                                                                                                                                                               */
 atom-panel {
   &.left .display-icon {
     right: -@tab-height }
@@ -78,18 +109,25 @@ atom-panel {
   padding: 0 1rem }
 
 
-atom-panel.modal {
-  & > div > atom-text-editor[mini]:before {
-    color: @text-color-subtle;
-    font-family: "Octicons Regular";
-    padding-right: @component-padding;
-    -webkit-font-smoothing: antialiased;
-    content: "\f011";
-    margin-left: -@component-padding*2 }
+.icon.icon-gear {
+  &::before {
+    color: inherit;
+    -webkit-text-stroke-width: @outline-width;
+    -webkit-filter: blur(0.25px);
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+    -webkit-text-fill-color: transparent }}
 
-  & > .command-palette > atom-text-editor[mini]::before { content: "\f0c8" }
-  & > .encoding-selector > atom-text-editor[mini]::before { content: "\f094" }
-  & > .grammar-selector > atom-text-editor[mini]::before { content: "\f010" }
-  & > .symbols-view > atom-text-editor[mini]::before { content: "\f0c0" }
-  & > .fuzzy-finder > atom-text-editor[mini]::before { content: "\f02e" }
-  & > .diff-list-view > atom-text-editor[mini]::before { content: "\f0d6" }}
+                                                                                                                                                                                                                                                                                                                                                                                /*
+↛ Settings view wrap group toggles                                                                                                                                                                                                                                                                                                                                                                 */
+.icon::before {
+  -webkit-filter: blur(0.08px);
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2) }
+
+.sub-section-heading.has-items::after {
+  .icon("\f106");
+  transform: rotate(0deg);
+  transform-origin: center;
+
+  .collapsed & {
+  transform: rotate(180deg) }}

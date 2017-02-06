@@ -50,10 +50,10 @@ Main palette                                                                    
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Base / backfase                                                                                                                                                                                                                                                                                                                                                                    */
-@app-background-color:        @tinted-base;
 @sub-background-color:        @tinted-sub;
-@base-background-color:       @tinted-base;
 @background-color-dark:       @tinted-dusk;
+@app-background-color:        @tinted-base;
+@base-background-color:       @tinted-base;
 @background-color-highlight:  @tinted-dark;
 @background-color-selected:   @tinted-dark;
 @base-border-color:           @tinted-darker;
@@ -91,9 +91,9 @@ Components                                                                      
 @input-text-color-active:              @tinted-base;
 @input-text-color-highlight:           @tinted-base;
 
-@overlay-background-color:             @tinted-base;
-@tool-panel-background-color:          @tinted-base;
-@tree-view-background-color:           @tinted-base;
+@overlay-background-color:             @tinted-darker;
+@tool-panel-background-color:          @tinted-darker;
+@tree-view-background-color:           @tinted-darker;
 @tooltip-key-background-color:         @tinted-base;
 @tab-bar-background-color:             @tinted-base;
 @tab-background-color-active:     fade(@tinted-base, 5%);
@@ -163,8 +163,8 @@ Sizes                                                                           
 @list-active-icon-size:      @font-size;
 @line-height:            2 * @font-size;
 @overlay-input-size:     3 * @font-size;
-@button-height:           @input-height;
-@button-border-radius:    @input-height;
+@button-height:              @input-height;
+@button-border-radius:       @input-height;
 
 @component-icon-padding:     @component-padding / 2;
 @component-border-radius:    @component-padding / 2;
@@ -186,7 +186,7 @@ Package Support                                                                 
 
                                                                                                                                                                                                                                                                                                                                                                       /*
 Typography                                                                                                                                                                                                                                                                                                                                                              */
-@font-family:       @__uiFont,       @base-font-family;
+@font-family:       @__uiFont,            @base-font-family;
 @font-family-menu: "Montserrat",          @base-font-family;
 @font-family-caps: "Novecento Sans Wide", @font-family-menu;
 @base-font-family: "Helvetica Neue",
