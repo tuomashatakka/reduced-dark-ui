@@ -8,90 +8,106 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka
 
 
-Overlay                                                                                                                                                                                                                                                                                                                                                                 */
-.center() {
-  position: fixed;
-  top: 50vh;
-  left: 50vw }
+Variables                                                                                                                                                                                                                                                                                                                                                                 */
+
+@roundness:         @button-border-radius;
+
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+Buttons                                                                                                                                                                                                                                                                                                                                                                 */
 
 .button(@color) {
-  @color-alt: @col-dark;
+  @color-alt:       @col-dark;
+  @color-disabled:  @text-color-subtle;
+  @inner-height:    @button-height - 2 * @input-padding-vertical;
+  @padding:         @input-padding-vertical @input-padding-horizontal;
 
   &.btn,
-  &.btn.btn-success,
-  &.btn-default.btn-success {
+  &.btn-info,
+  &.btn-default {
     .text(caps);
-    color: @text-color;
-    background: transparent;
-    line-height: @button-height - 2 * @input-padding-vertical;
-    min-height: @button-height;
-    border-radius: @button-border-radius;
-    transition: all @transition-time / 2;
-    border-width: 1px !important;
-    border-style: solid !important;
-    box-shadow: none !important;
-    height: auto;
-    margin: 0;
-    padding: @input-padding-vertical @input-padding-horizontal !important;
-    box-sizing: border-box }
+
+    color:          @text-color;
+    background:     @button-background-color;
+    border-radius:  @roundness;
+    margin:         0;
+    padding:        @padding !important;
+    height:         @inner-height;
+    min-height:     @inner-height;
+    line-height:    @inner-height;
+    border-width:   1px   !important;
+    border-style:   solid !important;
+    box-shadow:     none  !important;
+    transition:     all   @transition-time / 2;
+    box-sizing:     content-box }
 
   &:active, &:active:focus,
   &.selected:hover,
   &:focus, &:hover {
-    outline: none;
-    background: @color !important;
-    color: @color-alt !important;
-    border-color: @color-alt !important;
-    border: 1px solid !important }
+    outline:          none;
+    background:       @color      !important;
+    color:            @color-alt  !important;
+    border-color:     @color-alt  !important;
+    border-width:     1px         !important;
+    border-style:     solid       !important }
 
   &.selected {
-    color: @color-alt;
-    background: @button-background-color-selected;
-    border: 1px solid @color !important }
+    color:            @color-alt;
+    background:       @button-background-color-selected;
+    border:           1px solid @color !important }
 
   &[disabled], &.disabled {
-    opacity: 1;
+    opacity:          1;
     background-color: transparent !important;
-    border-color: transparent !important;
-    color: @text-color-subtle !important }
+    border-color:     transparent !important;
+    color:            @color-disabled !important }
 
   &:first-child {
-    border-top-left-radius: @button-border-radius;
-    border-bottom-left-radius: @button-border-radius }
+    border-top-left-radius:     @roundness;
+    border-bottom-left-radius:  @roundness }
 
   &:last-child {
-    border-top-right-radius: @button-border-radius;
-    border-bottom-right-radius: @button-border-radius }}
+    border-top-right-radius:    @roundness;
+    border-bottom-right-radius: @roundness }}
 
 .button-variant(@color) {
   .button(@color);
-  color: @color !important;
-  border-color: @color !important;
-  background: transparent;
+  color:              @color !important;
+  border-color:       @color !important;
+  background:         @button-background-color;
 
   &:hover {
-    border-color: @color !important }
+    border-color:     @color !important }
 
   &.selected {
-    color: @base-background-color !important;
-    background: @color !important }
+    color:            @base-background-color !important;
+    background:       @color !important }
 
   &[disabled], &.disabled {
-    opacity: 1;
-    background-color: transparent !important;
-    border-color: transparent !important;
-    color: @text-color-subtle !important }}
+    opacity:          1;
+    border-color:     @base-background-color !important;
+    background-color: @base-background-color !important;
+    color:            @text-color-subtle !important }}
+
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+User interaction and inputs                                                                                                                                                                                                                                                                                                                                                                 */
+
+.selection(disabled) {
+  -webkit-user-select: none;
+  -webkit-user-drag: none }
 
 .inputfield() {
   -webkit-appearance: none;
-  font-family:     inherit;
-  font-size:       @input-font-size;
-  color:           @input-text-color !important;
-  border-color:    @input-background-color !important;
-  background:      @input-background-color !important;
+  font-family:        inherit;
+  font-size:          @input-font-size;
+  color:              @input-text-color !important;
+  border-color:       @input-background-color !important;
+  background:         @input-background-color !important;
+
   .userselect({
-    border-radius: @button-border-radius;
-    color: @selection-text-color;
+    border-radius:    @roundness;
+    color:            @selection-text-color;
     background-color: @selection-background-color !important })}
 
 .inputfield(editor) {
@@ -100,80 +116,58 @@ Overlay                                                                         
 .inputfield(field) {
   .inputfield();
   transition:
-    color @transition-time,
-    background-color @transition-time;
+    color             @transition-time,
+    background-color  @transition-time;
 
-  * {
-    color: inherit !important;
-    background-color: transparent !important }
+  // * {
+  //   color:            inherit !important;
+  //   background-color: transparent !important }
 
   .focused({
-    box-shadow: @field-shadow;
-    color: @input-text-color-active !important;
-    border-color: @input-background-color  !important;
+    box-shadow:       @field-shadow;
+    color:            @input-text-color-active !important;
+    border-color:     @input-background-color  !important;
     background-color: @input-background-color-highlight !important })}
+
+
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text                                                                                                                                                                                                                                                                                                                                                                 */
 
 .text(heading) {
-  color: @text-color;
-  font-family: @font-family-menu;
-  font-weight: 200 }
+  color:        @text-color;
+  font-family:  @font-family-menu;
+  font-weight:  200 }
 
 .text(caps) {
-  color: @text-color;
-  font-family: @font-family-caps;
-  text-transform: uppercase;
-  font-weight: 400;
+  color:          @text-color;
   font-size: unit(@size-tiny, rem);
+  font-family:    @font-family-caps;
+  text-transform: uppercase;
+  font-weight:    400;
   letter-spacing: 0.1em; }
-
-.text(highlight) {
-  .text(normal);
-  font-size: inherit;
-  color: @text-color-highlight }
 
 .text(menu) {
   font: 400 0.9em/26px @font-family-menu;
   text-transform: lowercase;
-  font-size: 0.9em;
+  font-size:      0.9em;
   letter-spacing: 0.05em }
 
-.text(info) {
-  .text(normal);
-  color: @text-color-info }
 
-.text(error) {
-  .text(normal);
-  color: @text-color-error }
-
-.text() {
-  .text(normal) }
-
+.text() {           .text(normal) }
+.text(highlight) {  .text(normal); color: @text-color-highlight; font-size: inherit }
+.text(selected) {   .text(normal); color: @text-color-selected; font-size: inherit }
+.text(subtle) {     .text(normal); color: @text-color-subtle; font-size: inherit }
+.text(info) {       .text(normal); color: @text-color-info }
+.text(success) {    .text(normal); color: @text-color-success }
+.text(warning) {    .text(normal); color: @text-color-warning }
+.text(error) {      .text(normal); color: @text-color-error }
 .text(normal) {
   color: @text-color;
   font-family: @__uiFont, @font-family;
+  font-size: inherit;
   font-size: @font-size;
   font-weight: 300;
   font-weight: @__uiFontWeight }
-
-.text(selected) {
-  .text(normal);
-  font-size: inherit;
-  color: @text-color-selected }
-
-.text(subtle) {
-  .text(normal);
-  font-size: inherit;
-  color: @text-color-subtle }
-
-.text(success) {
-  .text(normal);
-  color: @text-color-success }
-
-.text(warning) {
-  .text(normal);
-  color: @text-color-warning }
 
 .state(@class, @type) {
   @selector: ~".@{class}-@{type}";
@@ -183,8 +177,16 @@ Text                                                                            
   @selector {
     background-color: @@bg;
     color: @@col }}
+
+
                                                                                                                                                                                                                                                                                                                                                                           /*
 Overlay                                                                                                                                                                                                                                                                                                                                                                    */
+
+.center() {
+  position: fixed;
+  top: 50vh;
+  left: 50vw }
+
 .overlay-shadow() {
   box-shadow: 0.2rem 0.4rem 2rem 0 rgba(0, 0, 0, 0.33) !important }
 
@@ -196,6 +198,19 @@ Overlay                                                                         
   content: @content;
   transition: all @transition-time }
 
+
+/*&::before {
+  font-family: "ionicons";
+  content: "\f404";
+  position: absolute;
+  right: 0;
+  width: 4.8rem;
+  height: 4.8rem;
+  line-height: 4.8rem;
+  text-align: center;
+  font-size: 24px;
+  transform: translateX(100%);
+  background: inherit }*/
 .displayicon() {
   @size: 1.5em;
   @scale: 0.75;
@@ -220,8 +235,8 @@ Overlay                                                                         
     border:         1px solid;
     border-radius:  50%;
     content:        "";
-    opacity:        0.4;
-    }
+    opacity:        0.4 }
+
   &::before {
     font-size: unit(@scale, em);
     position: absolute;
@@ -234,50 +249,24 @@ Overlay                                                                         
     bottom: 0;
     left: 0;
     right: 0;
-    margin: 0;
-  }
-}
+    margin: 0 }}
+
                                                                                                                                                                                                                                                                                                                                                                              /*
 Colors & accent                                                                                                                                                                                                                                                                                                                                                              */
-.state() {
-  background: @background-color-highlight }
-
-.state(error) {
-  background-color: @background-color-error;
-  color: @text-color-error }
-
-.state(warning) {
-  background-color: @background-color-warning;
-  color: @text-color-warning }
-
-.state(info) {
-  background-color: @background-color-info;
-  color: @text-color-info }
-
-.state(success) {
-  background-color: @background-color-success;
-  color: @text-color-success }
-
-.state(added) {
-  &.modified, & .status-added {
-  color: @text-color-added }}
-
-.state(modified) {
-  &.modified, & .status-modified {
-  color: @text-color-modified }}
-
-.state(ignored) {
-  &.ignored, & .status-ignored {
-  color: @text-color-ignored }}
-
+.state() {          background-color: @background-color-highlight }
+.state(error) {     background-color: @background-color-error;    color: @text-color-error }
+.state(warning) {   background-color: @background-color-warning;  color: @text-color-warning }
+.state(info) {      background-color: @background-color-info;     color: @text-color-info }
+.state(success) {   background-color: @background-color-success;  color: @text-color-success }
+.state(added) {     &.modified, & .status-added {                 color: @text-color-added }}
+.state(modified) {  &.modified, & .status-modified {              color: @text-color-modified }}
+.state(ignored) {   &.ignored, & .status-ignored {                color: @text-color-ignored }}
 
 .accent.inverse {
   background: @color-highlight;
-
   & when (lightness(@color-highlight) < 0.5) { &, &:focus, &:active {
     color: @col-white;
     border-color: @color-highlight !important }}
-
   & when (lightness(@color-highlight) >= 0.5) { &, &:focus, &:active {
     color: @col-bg;
     border-color: @color-highlight !important }}}
@@ -285,43 +274,16 @@ Colors & accent                                                                 
 .accent(@state: normal) {
   background: @background-color-highlight;
   color: @color-highlight;
-
-  & when (@state = inverse) {
-    .accent.inverse }
-
+  & when (@state = inverse) { .accent.inverse }
   // TODO: Assign highlighting id:17
-  &.active,
-  &.selected {}
-
+  &.active, &.selected {}
   // TODO: Assign a slight screen filter id:18
-  &:hover,
-  &:focus {}}
-
-.selection(disabled) {
-  -webkit-user-select: none;
-  -webkit-user-drag: none }
-
+  &:hover, &:focus {}}
 
                                                                                                                                                                                                                                                                                                                                                                            /*
 Media Queries                                                                                                                                                                                                                                                                                                                                                              */
-
 .small(@args) { .media(768px, @args) }
 .medium(@args) { .media(1200px, @args) }
-
 .media(@breakpoint: 768px, @args) {
-
   @media (max-width: @breakpoint) {
     @args(); }}
-
-      /*&::before {
-        font-family: "ionicons";
-        content: "\f404";
-        position: absolute;
-        right: 0;
-        width: 4.8rem;
-        height: 4.8rem;
-        line-height: 4.8rem;
-        text-align: center;
-        font-size: 24px;
-        transform: translateX(100%);
-        background: inherit }*/
