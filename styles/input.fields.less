@@ -92,29 +92,38 @@ Select Forms                                                                    
 @{select-field} {
   padding: 0;
   border-radius: @button-border-radius;
+  height: unit(@input-height, em);
+  line-height: unit(@input-height, em);
 
   @{select-input} {
     .inputfield(field);
+    height:         inherit !important;
+    line-height:    inherit !important;
     // border-top-right-radius: 0;
     // border-bottom-right-radius: 0;
     border-radius: 0 !important;
-    border: 0 !important;
-    color: inherit;
-    height: auto;
-    line-height: inherit }
+    border:        0 !important;
+    color:         inherit;
+    box-sizing:    content-box }
 
   button.btn {
-    all: initial;
-    border-radius: 0;
-    font-size: inherit;
-    color: inherit;
-    height: auto;
-    line-height: inherit;
-    border-color: inherit !important;
-    border-width: 0 0 0 1px !important;
-    margin-left: -1px;
-    padding: 0 @component-padding 0 @component-padding * .75;
-    display: block !important }}
+    border-radius:  0;
+    font-size:      inherit;
+    color:          inherit;
+    height:         inherit !important;
+    line-height:    inherit !important;
+    border-color:   inherit !important;
+    border-width:   0 0 0 0px !important;
+    margin:         1px 0 0 !important;
+    padding:        0 @component-padding 0 @component-padding * .75 !important;
+    display:        block !important;
+
+    &::before {
+      display:        inherit !important;
+      height:         inherit !important;
+      line-height:    inherit !important;
+      border-color:   inherit !important;
+      margin:         0 !important }}}
 
 
 @{color-field} {
