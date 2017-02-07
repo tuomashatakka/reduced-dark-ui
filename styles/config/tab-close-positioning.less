@@ -1,0 +1,11 @@
+
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+Tab bar close icon position toggle                                                                                                                                                                                                                                                                                                                                */
+@pad: @tab-height / 3 / 4;
+.close-icon when (@__tabClosePosition = "Left")                   { left: @pad;
+                                                                    right: auto !important }
+.close-icon when (@__tabClosePosition = "Right")                  { left: auto !important;
+                                                                    right: @pad }
+.close-icon when (@__tabClosePosition = "Hidden")                 { display: none }
+&.modified .close-icon when (@__tabClosePosition = "Unmodified")  { display: none }
+&:not(.active) .close-icon when (@__tabClosePosition = "Active")  { display: none }

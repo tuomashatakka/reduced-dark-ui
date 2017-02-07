@@ -12,22 +12,15 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka
 
 Tab alignment                                                                                                                                                                                                                                                                                                                                                          */
 
-
 .tab-bar .tab,
 .tab-bar .tab.active {
+  @import 'config/tab-close-positioning';
   flex-grow: 0 }
 
-.tab-bar when (@__tabPosition = "Left") {
-  justify-content: flex-start }
-
-.tab-bar when (@__tabPosition = "Center") {
-  justify-content: center }
-
-.tab-bar when (@__tabPosition = "Right") {
-  flex-basis: none;
-  justify-content: flex-end }
-
-.tab-bar when (@__tabPosition = "Stretch") {
+.tab-bar when (@__tabPosition = "Left")     { justify-content: flex-start }
+.tab-bar when (@__tabPosition = "Center")   { justify-content: center }
+.tab-bar when (@__tabPosition = "Right")    { justify-content: flex-end; flex-basis: none }
+.tab-bar when (@__tabPosition = "Stretch")  {
   justify-content: flex-start;
 
   .tab {

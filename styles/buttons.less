@@ -35,16 +35,16 @@ button, button.icon, .btn-default, .btn {
     line-height: @button-height * 2 }
 
   &.icon {
-    // font-size: 1em;
     vertical-align: middle;
-    &::before {
-      vertical-align: middle;
-      margin-top: -3px;
-      font-size: 2.2em;
-      display: block;
-      position: relative;
-      vertical-align: middle;
-      color: inherit }
+
+  &::before {
+    vertical-align: middle;
+    margin-top: -1px;
+    font-size: 2.2em;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    color: inherit }
   }
 
   &.btn-info, &.btn-primary { .button-variant(@text-color-info) }

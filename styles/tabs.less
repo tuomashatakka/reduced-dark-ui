@@ -1,79 +1,85 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-    component.tabs _ reduced-dark-ui
+ tabs ⟩ components ⟩ reduced-dark-ui
 
 
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka
 
-    ............
 
 
-Namespace                                                                                                                                                                                                                                                                                                                                                          */
+✕ Namespace                                                                                                                                                                                                                                                                                                                                                          */
 .tab-bar {
 
-                                                                                                                                                                                                                                                                                                                                                                        /*
-Local variables                                                                                                                                                                                                                                                                                                                                                          */
-@icon-size:         3.2em;
-@flex:              1 0 auto;
 
-justify-content:    center;
-height:             @tab-height;
-line-height:        @tab-height;
-background:         @tab-bar-background-color;
-display:            flex;
-overflow-x:         auto;
-overflow-y:         hidden;
-border-radius:      0 !important;
--webkit-transform:  scale(1);
+                                                                                                                                                                                                                                                                                                                                                                        /*
+✕ Local variables                                                                                                                                                                                                                                                                                                                                                          */
+
+@icon-size:           3.2em;
+@flex:                1 0 auto;
+@line:                @tab-height / 3;
+@horizontal-padding:  @tab-height / 2;
+@vertical-padding:    @tab-height - 2 * @line;
+@border:              1px 0 0;
+
+justify-content:      center;
+height:               @tab-height;
+line-height:          @tab-height;
+background:           @tab-bar-background-color;
+display:              flex;
+overflow-x:           auto;
+overflow-y:           hidden;
+border-radius:        0 !important;
+-webkit-transform:    scale(1);
+
 
                                                                                                                                                                                                                                                                                                                                                                           /*
-Tabs                                                                                                                                                                                                                                                                                                                                                          */
-.tab {
-  .text(normal);
+✕ Tabs                                                                                                                                                                                                                                                                                                                                                          */
 
-  box-sizing:       border-box;
-  position:         relative;
-  display:          block;
-  flex:             @flex;
-  text-align:       center;
-  width:            auto;
-  max-width:        none;
-  height:           @tab-height;
-  line-height:      @tab-height/3;
-  padding:          @tab-height/3
-                    @tab-height/2
-                    @tab-height/3
-                    @icon-size !important;
-  border-width:     1px 0 0;
-  border-top-style: solid;
-  color:            @text-color-subtle;
+.tab {
+  .text(caps);
+
   background:       transparent;
-  transition:       all @transition-time ease !important;
+  color:            @text-color-subtle;
+  flex:             @flex;
+
+  max-width:        none;
+  width:            auto;
+  display:          block;
+  text-align:       center;
+  position:         relative;
+  box-sizing:       border-box;
+  border-style:     solid;
+  border-width:     @border;
+  line-height:      @line;
+  height:           @tab-height;
+  padding:          @vertical-padding @horizontal-padding @vertical-padding
+                    @icon-size / 2 + @horizontal-padding !important;
+  transition:       all @transition-time / 3 ease !important;
 
   [class*='status-'],
   &.modified,
   &.added {
     transition:
-      color @transition-time ease,
-      background @transition-time ease;
+    color @transition-time ease,
+    background @transition-time ease;
 
     .title,
     *::before {
       color: inherit !important;
       border-color: auto !important }}
 
-  &::before {
-    display: none; } // For the material design icons
+  &::before { display: none; } // For the material design icons
 
   .title, .title::before {
-    height: @tab-height / 3;
-    line-height: @tab-height / 3;
+    height:         @line;
+    line-height:    @line;
     vertical-align: middle;
-    font-size: inherit !important }
+    font-size:      inherit !important }
 
-  // Hovered
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  → Tab hover state                                                                                                                                                                                                                                                                                                                                                         */
   &:hover {
     color:      @text-color-highlight;
     background: @tab-background-color-hover }
@@ -81,50 +87,72 @@ Tabs                                                                            
   &:hover .close-icon {
     .close-icon-generator(hover) }
 
-  // Current
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  → Currently active tab                                                                                                                                                                                                                                                                                                                                                         */
   &.active {
     @import (reference) 'syntax-variables';
-    flex: @flex;
-    max-width: none;
-    width: auto;
-    color: @text-color-selected;
-    background-color: @tab-background-color-active;
     .accent;
+
+    flex:             @flex;
+    max-width:        none;
+    width:            auto;
+    color:            @text-color-selected;
+    background-color: @tab-background-color-active;
     background-color: @syntax-background-color;
 
     .title {
       color: inherit;
       padding: 0 }}
 
+  .close-icon:hover {
+    -webkit-filter: blur(0.11em) }
+
   &:not(:hover) {
     .state(added);
     .state(modified);
     .state(ignored);
-
-    .close-icon {
-      .close-icon-generator() }
+    .close-icon { .close-icon-generator() }}
 
   &.modified .close-icon {
     .close-icon-generator(modified) }}
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  → Platform-specific                                                                                                                                                                                                                                                                                                                                                         */
+  // .platform-darwin {
+  //   & .close-icon,
+  //   &.modified:not(:hover) .close-icon {
+  //     border: none;
+  //     right: auto !important }}
 
-  // Platform-specific
-  .platform-darwin {
-    & .close-icon,
-    &.modified:not(:hover) .close-icon {
-      border: none;
-      right: auto !important }}
-}
+
+
+                                                                                                                                                                                                                                                                                                                                                                                    /*
+✕ Decorations                                                                                                                                                                                                                                                                                                                                                          */
+
+&::before {
+  border-width: @border;
+  top:          0;
+  left:         0;
+  right:        0;
+  content:      "";
+  display:      block;
+  position:     absolute }
+
+
 
                                                                                                                                                                                                                                                                                                                                                                               /*
-Inline tabs for the settings config view                                                                                                                                                                                                                                                                                                                                                          */
+✕ Inline tabs for the settings config view                                                                                                                                                                                                                                                                                                                                                          */
+
 &.inline-tabs {
+  @line:            @tab-height * 3/4;
+  position:         relative    !important;
+  transform:        none        !important;
+  top:              initial     !important;
   background:       transparent;
-  position:         relative;
   display:          flex;
   overflow-x:       hidden;
-  transform:        none;
-  line-height:      @tab-height * 0.75;
-  height:           @tab-height * 1.5;
+  margin:           0;
+  line-height:      @line;
+  height:       2 * @line;
 
   .icon,
   + .displayed-item .icon {
@@ -132,78 +160,81 @@ Inline tabs for the settings config view                                        
 
   .tab {
     .text(menu);
-    flex: 1 0 auto !important;
-    padding: 0 1em !important;
-    cursor: pointer;
-    line-height: inherit;
-    height: inherit;
-    border-top: none }
+    flex:           1 0 auto !important;
+    padding:        0 @component-padding !important;
+    cursor:         pointer;
+    line-height:    inherit;
+    height:         inherit;
+    border-top:     none }
 
   .tab.active {
-    background: transparent }
+    background:     transparent }
 
   .tab .icon {
-    font-size: @tab-height / 2;
-    margin: 0 auto;
-    display: block }
+    font-size:      @tab-height / 2;
+    margin:         0 auto;
+    display:        block }
 
   + displayed-item {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    padding: 0 0 @component-padding 0 !important;
-    margin: 0;
-    background: #25252a }}
+    border-top-left-radius:   0;
+    border-top-right-radius:  0;
+    padding:        0 0 @component-padding 0 !important;
+    margin:         0;
+    background:     @base-background-color }}
 }
-                                                                                                                                                                                                                                                                                                                                                                              /*
-Local mixins                                                                                                                                                                                                                                                                                                                                                          */
-.close-icon-generator(@state: none) {
-  @size: @tab-height/3;
 
-  position: absolute;
-  height: @tab-height - @size;
-  line-height: @tab-height - @size;
-  top: @size/2;
-  left: @size/4;
-  width: @size/2;
-  bottom: @size/2;
-  text-align: center;
-  font-size: @icon-size;
-  background: transparent;
-  box-sizing: border-box;
-  border-width: 0;
-  transition: all @transition-time ease;
-  border-radius: 50%;
+
+                                                                                                                                                                                                                                                                                                                                                                              /*
+✕ Local mixins                                                                                                                                                                                                                                                                                                                                                          */
+
+.close-icon-generator(@state: none) {
+  @size:            @tab-height / 2;
+  @angle-hidden:   -30deg;
+  @angle-modified:  45deg;
+
+  position:       absolute;
+  width:          @size;
+  height:         @size;
+  line-height:    @size;
+  top:            (@tab-height - @size) / 2;
+  left:           (@tab-height - @size) / 2;
+  bottom:         (@tab-height - @size) / 2;
+  text-align:     center;
+  background:     transparent;
+  box-sizing:     border-box;
+  border-width:   0;
+  transition:     all @transition-time ease;
+  border-radius:  50%;
 
   &::before {
-    content: "\f404";
-    font-family: 'ionicons';
-    font-size: inherit;
-    display: block;
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    line-height: inherit;
-    text-align: inherit;
-    border-radius: 50%;
-    transition: all @transition-time ease;
-    opacity: 0 }
-
-  // Not modified, non-hovered
+    content:       '\f404';
+    font-family:   'ionicons';
+    border-radius:  50%;
+    display:        block;
+    position:       absolute;
+    width:          inherit;
+    height:         inherit;
+    line-height:    inherit;
+    text-align:     inherit;
+    font-size:      @icon-size !important;
+    transition:     all @transition-time ease;
+    opacity:        0 }
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  → Not modified, non-hovered                                                                                                                                                                                                                                                                                                                                                         */
   &::before when (@state = none) {
-    transform: rotate(-30deg);
+    transform: rotate(@angle-hidden);
     color: rgba(0, 0, 0, 0.1) }
-
-  // Hovered
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  → Hovered state                                                                                                                                                                                                                                                                                                                                                      */
   &::before when (@state = hover) {
     cursor: pointer;
     color: @text-color-highlight;
     border-width: 0px;
     transform: rotate(0deg);
     opacity: 1 }
-
-  // Modified
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  → Modified state                                                                                                                                                                                                                                                                                                                                                         */
   &::before when (@state = modified) {
     border-width: 0px !important;
-    transform: rotate(45deg);
-    opacity: 1 }
-  }
+    transform: rotate(@angle-modified);
+    opacity: 1 }}

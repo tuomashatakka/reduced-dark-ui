@@ -89,6 +89,20 @@
             "Stretch"
           ]
         },
+        "tabClosePosition": {
+          "order": 7,
+          "title": "Tab close button visibility",
+          "description": "Set the positioning & visibility for the tabs' close buttons. 'Active' option displays the close icon only on current icon, and 'Unmodified' option hides the close icon from the files that have unsaved changes.",
+          "type": "string",
+          "default": "Left",
+          "enum": [
+            "Hidden",
+            "Unmodified",
+            "Active",
+            "Left",
+            "Right"
+          ]
+        },
         "fixedTabBar": {
           "order": 4,
           "title": "Fixed tab tar",
