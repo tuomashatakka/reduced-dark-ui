@@ -42,9 +42,6 @@ border-radius:        0 !important;
 
   font-size:        0.92em;
   background:       transparent;
-  color:            @text-color-subtle;
-  flex:             @flex;
-
   max-width:        none;
   width:            auto;
   display:          block;
@@ -52,14 +49,15 @@ border-radius:        0 !important;
   position:         relative;
   box-sizing:       border-box;
   border-style:     solid;
+
+  color:            @text-color-subtle;
+  flex:             @flex;
   border-width:     @border;
   line-height:      @line;
   height:           @tab-height;
-  padding:          @vertical-padding @horizontal-padding @vertical-padding
-                    @icon-size / 2 + @horizontal-padding !important;
+  padding:          @vertical-padding @horizontal-padding !important;
   transition:       all @transition-time / 3 ease !important;
 
-  [class*='status-'],
   &.modified,
   &.added {
     transition:
@@ -85,14 +83,10 @@ border-radius:        0 !important;
     color:      @text-color-highlight;
     background: @tab-background-color-hover }
 
-  &:hover .close-icon {
-    .close-icon-generator(hover) }
-
                                                                                                                                                                                                                                                                                                                                                                                   /*
   → Currently active tab                                                                                                                                                                                                                                                                                                                                                         */
   &.active {
     @import (reference) 'syntax-variables';
-    .accent;
 
     flex:             @flex;
     max-width:        none;
@@ -100,34 +94,20 @@ border-radius:        0 !important;
     color:            @text-color-selected;
     background-color: @tab-background-color-active;
     background-color: @syntax-background-color;
+    .accent;
 
     .title {
       color: inherit;
       padding: 0 }}
 
 
-
-  &.modified .close-icon {
-    .close-icon-generator(modified) }
-
-  &:hover {
-    .close-icon {
-      -webkit-filter: blur(0.11em) }
-    .close-icon {
-      .close-icon-generator(hover) }}
-
+  .close-icon { .close-icon-generator(none) }
+  &:hover .close-icon { .close-icon-generator(hover) }
   &:not(:hover) {
-    .close-icon { .close-icon-generator(none) }
+    &.modified .close-icon { .close-icon-generator(modified) }
     .state(added);
     .state(modified);
     .state(ignored); }}
-                                                                                                                                                                                                                                                                                                                                                                                  /*
-  → Platform-specific                                                                                                                                                                                                                                                                                                                                                         */
-  // .platform-darwin {
-  //   & .close-icon,
-  //   &.modified:not(:hover) .close-icon {
-  //     border: none;
-  //     right: auto !important }}
 
 
 
@@ -210,7 +190,7 @@ border-radius:        0 !important;
   text-align:     center;
   background:     transparent;
   box-sizing:     border-box;
-  border-width:   0;
+  border-width:   0 !important;
   transition:     all @transition-time ease;
   border-radius:  50%;
 
@@ -224,6 +204,7 @@ border-radius:        0 !important;
     height:         inherit;
     line-height:    inherit;
     text-align:     inherit;
+    border-width:   0 !important;
     font-size:      @icon-size !important;
     transition:     all @transition-time ease;
     opacity:        0 }
@@ -235,14 +216,13 @@ border-radius:        0 !important;
                                                                                                                                                                                                                                                                                                                                                                                   /*
   → Hovered state                                                                                                                                                                                                                                                                                                                                                      */
   &::before when (@state = hover) {
+    transform: rotate(0deg);
     cursor: pointer;
     color: @text-color-highlight;
-    border-width: 0px;
-    transform: rotate(0deg);
     opacity: 1 }
                                                                                                                                                                                                                                                                                                                                                                                   /*
   → Modified state                                                                                                                                                                                                                                                                                                                                                         */
   &::before when (@state = modified) {
+    transform: rotate(@angle-modified) !important;
     border-width: 0px !important;
-    transform: rotate(@angle-modified);
     opacity: 1 }}

@@ -16,24 +16,22 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 atom-workspace {
   input, select, @{select-input}, @{txt-input}, @{txtarea-input} {
-    font-family: inherit;
-    color: @input-text-color !important;
-    border-color: @input-background-color !important;
-    background: @input-background-color !important;
+    background:     @input-background-color !important;
+    border-color:   @input-background-color !important;
+    border-radius:  @button-border-radius !important;
+    color:          @input-text-color !important;
+    font-family:    inherit;
     transition:
-    color @transition-time,
-    background-color @transition-time;
-
-    & * {
-      background-color: transparent !important }
+      color            @transition-time,
+      background-color @transition-time;
 
     &:focus,
     &:active,
     &:hover,
     &.is-focused {
-      color: @input-text-color-active !important;
-      border-color: @input-background-color !important;
-      background: @input-background-color-highlight !important }
+      color:          @input-text-color-active !important;
+      border-color:   @input-background-color !important;
+      background:     @input-background-color-highlight !important }
 
     ::selection,
     .selection .region {
@@ -71,8 +69,7 @@ atom-workspace {
     min-height: 1px;
     height: 1px;
     transform: translate(-50%, -50%);
-    background-color: @input-background-color-highlight }
-}
+    background-color: @input-background-color-highlight }}
                                                                                                                                                                                                                                                                                                                                                                     /*
 Select Forms                                                                                                                                                                                                                                                                                                                                                                 */
 @{select-field},
@@ -171,7 +168,7 @@ Select Forms                                                                    
     box-shadow: none;
     border: none;
     height: 4px;
-    background: inherit;
+    background-color: fade(@sub-background-color, 50%);
   }
   // &::-webkit-media-slider-thumb
   &::-webkit-slider-thumb {
@@ -188,7 +185,7 @@ Select Forms                                                                    
     margin: -@size / 2 0;
     border-radius: 50%;
     background: @text-color-info;
-    border-color: @app-background-color;
+    border-color: @sub-background-color;
   }
   .input-range-knob {
     .accent(inverse);

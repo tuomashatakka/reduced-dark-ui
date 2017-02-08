@@ -9,8 +9,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 autocomplete-suggestion-list.select-list.popover-list {
-@block-size: 4rem;
-
+@block-size: 2.4rem;
 
 width: auto;
 display: inline-block;
@@ -20,7 +19,6 @@ padding: 0;
 color:      @text-color-subtle;
 border:     none !important;
 background: @pane-item-background-color;
-
 
 .suggestion-description {
   background: transparent;
@@ -33,6 +31,10 @@ background: @pane-item-background-color;
   padding: @component-padding @component-padding * 2 }
 
 .suggestion-description-content {
+  font-size: 1.5em;
+  line-height: 2em;
+  max-height: 6em;
+  height: 6em;
   color: inherit }
 
 
@@ -41,7 +43,7 @@ background: @pane-item-background-color;
   border-bottom: 1px solid @base-border-color }
 
 .list-group {
-    background: transparent;
+  background: transparent;
 
   li {
     display:  flex;

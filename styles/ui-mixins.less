@@ -19,27 +19,28 @@ Buttons                                                                         
 .button(@color) {
   @color-alt:       @col-dark;
   @color-disabled:  @text-color-subtle;
-  @inner-height:    @button-height - 2 * @input-padding-vertical;
-  @padding:         @input-padding-vertical @input-padding-horizontal;
+  @inner-height:    @button-height - @input-padding-vertical;
+  @btn-size:        @button-height - @component-padding;
+  @padding:         @component-padding / 2 @component-padding / 2 * 3;
 
   &.btn,
-  &.btn-info,
-  &.btn-default {
+  button {
     .text(caps);
 
-    color:          @text-color;
-    background:     @button-background-color;
-    border-radius:  @roundness;
-    margin:         0;
-    padding:        @padding !important;
-    height:         @inner-height;
-    min-height:     @inner-height;
-    line-height:    @inner-height;
-    border-width:   1px   !important;
-    border-style:   solid !important;
-    box-shadow:     none  !important;
-    transition:     all   @transition-time / 2;
-    box-sizing:     content-box }
+    margin:           0;
+    color:            @text-color;
+    background:       @button-background-color;
+    border-radius:    @roundness;
+    padding:          @padding  !important;
+    height:           @btn-size !important;
+    min-width:        @btn-size !important;
+    min-height:       @btn-size !important;
+    line-height:      @btn-size !important;
+    border-width:     1px       !important;
+    border-style:     solid     !important;
+    box-shadow:       none      !important;
+    transition:       all       @transition-time / 2;
+    box-sizing:       content-box }
 
   &:active, &:active:focus,
   &.selected:hover,
@@ -119,10 +120,6 @@ User interaction and inputs                                                     
     color             @transition-time,
     background-color  @transition-time;
 
-  // * {
-  //   color:            inherit !important;
-  //   background-color: transparent !important }
-
   .focused({
     box-shadow:       @field-shadow;
     color:            @input-text-color-active !important;
@@ -132,26 +129,6 @@ User interaction and inputs                                                     
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text                                                                                                                                                                                                                                                                                                                                                                 */
-
-.text(heading) {
-  color:        @text-color;
-  font-family:  @font-family-menu;
-  font-weight:  200 }
-
-.text(caps) {
-  color:          @text-color;
-  font-size: unit(@size-tiny, rem);
-  font-family:    @font-family-caps;
-  text-transform: uppercase;
-  font-weight:    400;
-  letter-spacing: 0.1em; }
-
-.text(menu) {
-  font: 400 0.9em/26px @font-family-menu;
-  text-transform: lowercase;
-  font-size:      0.9em;
-  letter-spacing: 0.05em }
-
 
 .text() {           .text(normal) }
 .text(highlight) {  .text(normal); color: @text-color-highlight; font-size: inherit }
@@ -167,16 +144,27 @@ Text                                                                            
   font-size: inherit;
   font-size: @font-size;
   font-weight: 300;
-  font-weight: @__uiFontWeight }
+  font-weight: @font-weight !important }
 
-.state(@class, @type) {
-  @selector: ~".@{class}-@{type}";
-  @selector2: ~".@{class}-default.@{class}-@{type}";
-  @col: ~"text-color-@{type}";
-  @bg: ~"background-color-@{type}";
-  @selector {
-    background-color: @@bg;
-    color: @@col }}
+.text(heading) {
+  color:        @text-color;
+  font-family:  @font-family-menu;
+  font-weight: @font-weight !important }
+
+.text(caps) {
+  color:          @text-color;
+  font-size: unit(@size-tiny, rem);
+  font-family:    @font-family-caps;
+  text-transform: uppercase;
+  font-weight: @font-weight !important;
+  letter-spacing: 0.1em; }
+
+.text(menu) {
+  font: 400 0.9em/26px @font-family-menu;
+  font-weight: @font-weight !important;
+  text-transform: lowercase;
+  font-size:      0.9em;
+  letter-spacing: 0.05em }
 
 
                                                                                                                                                                                                                                                                                                                                                                           /*
@@ -261,6 +249,14 @@ Colors & accent                                                                 
 .state(added) {     &.modified, & .status-added {                 color: @text-color-added }}
 .state(modified) {  &.modified, & .status-modified {              color: @text-color-modified }}
 .state(ignored) {   &.ignored, & .status-ignored {                color: @text-color-ignored }}
+.state(@class, @type) {
+  @selector: ~".@{class}-@{type}";
+  @selector2: ~".@{class}-default.@{class}-@{type}";
+  @col: ~"text-color-@{type}";
+  @bg: ~"background-color-@{type}";
+  @selector {
+    background-color: @@bg;
+    color: @@col }}
 
 .accent.inverse {
   background: @color-highlight;

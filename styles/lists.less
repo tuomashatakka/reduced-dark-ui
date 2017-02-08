@@ -312,3 +312,48 @@ li.list-nested-item.selected.status-@{status}> .list-item {
 
   .sub-section-heading.has-items::after {
     display: none !important }}
+
+
+.controls .select-list.popover-list {
+  font-size:      1em;
+  box-shadow:     none !important;
+  border-radius:  0 !important;
+  border-width:   0 !important;
+  width: 48em;
+  max-width: 100%;
+
+  atom-text-editor[mini],
+  atom-text-editor[mini].editor {
+    -webkit-appearance: none;
+    border-radius: @component-border-radius;
+    padding: 0.5em 0.25em 0.5em 1rem;
+    font-size: 4em;
+    font-weight: 100;
+    height: 1.5em;
+    line-height: 1.5em;
+    max-height: 1.5em;
+    overflow: hidden }
+
+  ol.list-group {
+    border-radius: @component-border-radius;
+    box-shadow: 0.2rem 0.4rem 2rem 0 rgba(0, 0, 0, 0.33) !important;
+    position: absolute;
+    transform: translateY(100%);
+    margin: 0;
+    bottom: 0.2rem;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height @transition-time ease-in-out }
+
+  atom-text-editor.is-focused + .list-group,
+  atom-text-editor:focus + .list-group,
+  atom-text-editor:hover + .list-group,
+  .list-group:hover,
+  .list-group:focus {
+    max-height: 16em;
+    overflow-y: scroll;
+  }
+}

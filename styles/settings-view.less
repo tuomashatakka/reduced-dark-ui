@@ -10,10 +10,9 @@
 
 ↛ Namespace                                                                                                                                                                                                                                                                                                                                                                 */
 .settings-view {
-
-.text(normal);
-font-size: @font-size;
-background-color: @app-background-color;
+.text;
+font-size:              @font-size;
+background-color:       transparent !important;
 
                                                                                                                                                                                                                                                                                                                                                                             /*
 ↛ Local variables                                                                                                                                                                                                                                                                                                                                                                 */
@@ -38,6 +37,7 @@ background-color: @app-background-color;
     display: flex;
     padding: 0 @component-padding 0 0;
     a {
+      padding: @component-padding;
       display: block }}
 
   & > li + li::before {
@@ -55,25 +55,22 @@ background-color: @app-background-color;
                                                                                                                                                                                                                                                                                                                                                                             /*
 ↛ Alerts & notifications                                                                                                                                                                                                                                                                                                                                                                 */
 .alert, *[class*="alert-"] {
+  padding: @component-padding;
   border: 0;
 
   button.close {
-    background: transparent;
     text-shadow: none;
     border: 0 !important;
     padding: 0 !important;
     opacity: 1;
-    &:hover {
-      background: transparent;
-    &:hover::before {
-      color: @text-color-highlight }
-    &:before {
+
+    &:hover         { background: transparent }
+    &:hover::before { .text(highlight) }
+    &:before        {
       margin-right: 0;
       color: inherit;
-      transition: color @transition-time ease }}}
+      transition: color @transition-time ease }}
 
-  *[class*="alert-"] {
-    padding: @component-padding }
   .alert-info {
     color: @text-color-info;
     background: mix(@text-color-info, @base-background-color, 2%) }
@@ -146,17 +143,12 @@ background-color: @app-background-color;
   z-index: +1;
   border-right-width: 0;
 
-  .button-area {
-    margin: @component-padding /2 @component-padding /4 }
+  .button-area { margin: @component-padding /2 @component-padding /4 }
+  .button-area > .btn { width: auto }
 
-  .nav > li {
-
-    > a {
-      transition: color @transition-time ease;
-      &:hover { background: transparent }}
-
-    &.active > a:hover {
-      background: @background-color-selected }}}
+  .nav > li > a               { transition: color @transition-time ease }
+  .nav > li > a:hover         { background: transparent }
+  .nav > li.active > a:hover  { background: @background-color-selected }}
 
 
       /////////////////////////////
@@ -168,27 +160,20 @@ background-color: @app-background-color;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: stretch }
 
-    & > * {
-      display: block;
-      flex: 1 0 25%;
-      border-radius: @component-border-radius;
-      border: 1px solid mix(@base-border-color, @app-background-color);
-      margin: 0 2px 2px 0 }
+  .container > * {
+    display: block;
+    flex: 1 0 25%;
+    border-radius: @component-border-radius;
+    border: 1px solid mix(@base-border-color, @app-background-color);
+    margin: 0 2px 2px 0 }
 
-    & > * > * {
-      margin: 0 }}
+  .container > * > * {
+    margin: 0 }
 
   .row div {
     background-color: transparent }}
-
-
-
-    /////////////////////////////
-.package-config-view {
-  @import "./settings-theme-view.less";
-}
 
                                                                                                                                                                                                                                                                                                                                                                                   /*
 ↛ Package listings                                                                                                                                                                                                                                                                                                                                                                 */
@@ -232,30 +217,31 @@ background-color: @app-background-color;
 
   .card-name { .h4 }
   .meta-controls {
-    .install-button[class*='installing'],
-    .uninstall-button[class*='installing'] {
-      background-image:     none;
-      -webkit-animation:    none;
+    [class*='installing'] {
+      background-image:   none;
+      -webkit-animation:  none;
       &::before {
       -webkit-animation:  spin 1s linear infinite;
+      margin:             0;
       content:            '\f087' }}
 
     .btn-toolbar > .btn-group {
-      border-radius:  0;
-      position:       static }
+      border-radius:      0;
+      position:           static }
 
     .status-indicator {
       position:       absolute;
-      right:          6px;
+      right:          2px;
       bottom:         2px;
-      top:            3px;
+      top:            2px;
       height:         auto !important;
       margin:         0 !important;
       padding:        0 !important;
       border-width:   0 !important;
       border-radius:  0 !important;
       width:          @status-indicator-size !important;
-      min-width:      @status-indicator-size;
+      min-width:      @status-indicator-size !important;
+      min-width:      @status-indicator-size !important;
       transform:      translateX(4.2px);
       z-index:        100 }}
 
@@ -268,26 +254,18 @@ background-color: @app-background-color;
   .package-status.icon-cloud-download {
     color: @text-color-info }}
 
+
+
 /////////////////////////////
-.package-update-view {}
+.package-config-view {
+  @import "./settings-theme-view.less";
+}
 
-.package-readme,
-section[title="readme"]  {
-  line-height: 1.7;
-  font-size:     1.2em;
-  img            { max-width: 100%; }
-  &, *           { color: inherit; }
-  h1, h2, h3, h4 { .text(heading) }
+/////////////////////////////
+.package-update-view {
 
-  h1 {
 
-  font-size: 4em;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 1em;
-  font-family: "Novecento sans wide", "Montserrat", "Helvetica Neue", "Open Sans", "Lato", "Roboto", "Cantarell", "Ubuntu", "BlinkMacSystemFont", "System Font", "Lucida Grande", "Segoe UI", "Noto Sans", sans-serif;
-  margin: 0;
-  font-weight: 100 }}
+}
 
 
 // Package details view
@@ -325,5 +303,27 @@ section[title="readme"]  {
     .btn {
     margin: 0 1em 1em 0;
     padding: 0em 1.6em;
-    display: inline-block }}}
+    display: inline-block }}
+}
+
+
+.package-readme,
+section[title="readme"]  {
+  line-height: 1.7;
+  font-size:     1.2em;
+  img            { max-width: 100%; }
+  &, *           { color: inherit; }
+  h1, h2, h3, h4 { .text(heading) }
+
+  h1 {
+
+  font-size: 4em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1em;
+  font-family: "Novecento sans wide", "Montserrat", "Helvetica Neue", "Open Sans", "Lato", "Roboto", "Cantarell", "Ubuntu", "BlinkMacSystemFont", "System Font", "Lucida Grande", "Segoe UI", "Noto Sans", sans-serif;
+  margin: 0;
+  font-weight: 100 }}
+
+
 }
