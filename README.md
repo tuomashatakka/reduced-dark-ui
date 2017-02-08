@@ -1,8 +1,12 @@
 
-# Reduced Dark ![logo](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo.png)[width=50]
+# Reduced Dark 
 
+![logo](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo.png)
 
-__Minimal + plain + usable + functional__
+![display](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_colors.png) 
+
+**Minimal + plain + usable + functional**
+
 
  / UI theme for Atom.io
 
@@ -22,46 +26,30 @@ __Minimal + plain + usable + functional__
 </p>
 
 # PLEASE NOTE
-     <p align="left">
-       This theme is currently under development and should be considered barely as a preview.
-       Contributions and issues are more than welcome - as well as any other feedback!
-       Tree-view works currently best when at the right side of the screen.
-       Tool-bar package is currently configured only for its left panel layout.
-       Linter is fully themed.
-     </p>
-   </td>
-
-</tr>
-</tbody>
-</table>
-
+     	
+> This theme is currently under development and should be considered barely as a preview.
+> Contributions and issues are more than welcome - as well as any other feedback!
+> Tree-view works currently best when at the right side of the screen.
+> Tool-bar package is currently configured only for its left panel layout.
+> Linter is fully themed.
+     
+ 
 
 ## About
+     
+Clean and dead simple, superior configuration schema with tons of loads of thoroughly thought settings to tweak and color to one's personal preference, and a nice guy as a developer 🙋
 
-
-<table><tr>
-
- <td>
-
-  <p>While being clean and simple, does not compromise usability.</p>
-
-  <p>This theme is an attempt to wrap the currently-not-as-intuitive-as-it-could-be paneling scheme in Atom for reduced obstruction (by obsolete panels that fill the screen and reduce your precious code editor into a thin line with max line length of ~50 characters (😄) at best)
-  by making the side panels collapse into a tool-bar of sort. **Feedback is great**ly valuable and appreciated here.</p>
-
-  <p>If a package's panel fails to display correctly, please raise an issue and I'll do my best at supporting it. Or better, submit a pull request! Panel collapsing should be generically implemented enough to cause few to none inconsistencies though.</p>
-
-  <p>Also hella lotta configuration options (on their way).
-  Seriously, it will be like candyland.</p>
-
+This theme'sconfiguration includes an option to make side panels collapse. It is an attempt to wrap the currently-not-as-intuitive-as-it-could-be paneling scheme in Atom for reduced obstruction (imagine having the obsolete panels that fill the screen and reduce your precious code editor into a thin line with max line length of ~50 characters (😄) at best automatically hidden whenever not needed)
+  by making the side panels collapse into a tool-bar of sort. **Feedback is great** ly valuable and appreciated here.
+  
+  If a package's panel fails to display correctly, please raise an issue and I'll do my best at supporting it. Or better, submit a pull request! Panel collapsing should be generically implemented enough to cause few to none inconsistencies though. 
+  
+  Also hella lotta configuration options (on their way).
+  Seriously, it will be like candyland.
+  
   <a href="https://atom.io/themes/reduced-dark-ui">atom.io/themes/reduced-dark-ui</a>
-
- </td>
-  <td>
-   <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 25%; margin: 4%' />
-  </td>
-
-</tr></table>
-
+   <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 25%; margin: 4%' />
+ 
 
 ### Feats || hilites && config
 
