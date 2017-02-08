@@ -54,7 +54,7 @@ background-color: @app-background-color;
 
                                                                                                                                                                                                                                                                                                                                                                             /*
 ↛ Alerts & notifications                                                                                                                                                                                                                                                                                                                                                                 */
-.alert {
+.alert, *[class*="alert-"] {
   border: 0;
 
   button.close {
@@ -63,22 +63,20 @@ background-color: @app-background-color;
     border: 0 !important;
     padding: 0 !important;
     opacity: 1;
-
     &:hover {
       background: transparent;
-
     &:hover::before {
       color: @text-color-highlight }
-
     &:before {
       margin-right: 0;
       color: inherit;
       transition: color @transition-time ease }}}
 
+  *[class*="alert-"] {
+    padding: @component-padding }
   .alert-info {
     color: @text-color-info;
     background: mix(@text-color-info, @base-background-color, 2%) }
-
   .alert-danger {
     color: @text-color-error;
     background: mix(@text-color-error, @base-background-color, 2%) }
@@ -88,8 +86,9 @@ background-color: @app-background-color;
     .text(highlight) }
 
   label {
+    .text(normal);
+    font-weight: inherit;
     padding: @component-padding;
-  .text(normal);
 
   &.control-label .theme-description {
       min-height: 36px }}}
@@ -122,14 +121,10 @@ background-color: @app-background-color;
 
   .section-container {
     max-width: none }
-
   .sub-section {
-
     .sub-section-heading {
       .h3 }}
-
   .sub-section .sub-section {
-
     .sub-section-heading {
       .h4 }}}
 
@@ -152,10 +147,7 @@ background-color: @app-background-color;
   border-right-width: 0;
 
   .button-area {
-    margin: @component-padding /2 @component-padding /4;
-
-    > .btn {
-      padding: @component-padding /4 0 }}
+    margin: @component-padding /2 @component-padding /4 }
 
   .nav > li {
 
@@ -169,8 +161,8 @@ background-color: @app-background-color;
 
       /////////////////////////////
 .sub-section {
-  margin: 0;
   padding-bottom: @component-padding;
+  margin: 0;
 
   .container {
     display: flex;
