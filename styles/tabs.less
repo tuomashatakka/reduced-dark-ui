@@ -60,22 +60,21 @@ border-radius:        0 !important;
 
   &.modified,
   &.added {
-    transition:
-    color @transition-time ease,
-    background @transition-time ease;
+    transition-duration: @transition-time !important }
 
-    .title,
-    *::before {
-      color: inherit !important;
-      border-color: auto !important }}
-
-  &::before { display: none; } // For the material design icons
+  &::before {
+    display: none; } // For the material design icons
 
   .title, .title::before {
     height:         @line;
     line-height:    @line;
     vertical-align: middle;
-    font-size:      inherit !important }
+    border-color:   auto    !important;
+    color:          inherit !important;
+    font-size:      inherit !important;
+    &::before {
+      color: inherit !important;
+      border-color: auto !important }}
 
                                                                                                                                                                                                                                                                                                                                                                                   /*
   → Tab hover state                                                                                                                                                                                                                                                                                                                                                         */
@@ -97,6 +96,8 @@ border-radius:        0 !important;
     .accent;
 
     .title {
+      font-weight: 700;
+      letter-spacing: -0.02em;
       color: inherit;
       padding: 0 }}
 
