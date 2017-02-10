@@ -23,30 +23,32 @@ Buttons                                                                         
   @btn-size:        @button-height - @component-padding;
   @padding:         @component-padding / 2 @component-padding / 2 * 3;
 
-  &.btn,
-  button {
-    .text(caps);
+  .text(caps);
+  margin:           0;
+  color:            @text-color;
+  background:       @button-background-color;
+  border-radius:    @roundness;
+  padding:          @padding  !important;
+  height:           @btn-size !important;
+  min-width:        @btn-size !important;
+  min-height:       @btn-size !important;
+  line-height:      @btn-size !important;
+  border-width:     1px       !important;
+  border-style:     solid     !important;
+  box-shadow:       none      !important;
+  transition:       all       @transition-time / 2;
+  box-sizing:       content-box;
 
-    margin:           0;
-    color:            @text-color;
-    background:       @button-background-color;
-    border-radius:    @roundness;
-    padding:          @padding  !important;
-    height:           @btn-size !important;
-    min-width:        @btn-size !important;
-    min-height:       @btn-size !important;
-    line-height:      @btn-size !important;
-    border-width:     1px       !important;
-    border-style:     solid     !important;
-    box-shadow:       none      !important;
-    transition:       all       @transition-time / 2;
-    box-sizing:       content-box }
+  &.icon::before {
+    font-size:      inherit;
+    color:          inherit;
+    vertical-align: middle }
 
   &:active, &:active:focus,
   &.selected:hover,
   &:focus, &:hover {
     outline:          none;
-    background:       @color      !important;
+    background:       @color;
     color:            @color-alt  !important;
     border-color:     @color-alt  !important;
     border-width:     1px         !important;
@@ -139,32 +141,30 @@ Text                                                                            
 .text(warning) {    .text(normal); color: @text-color-warning }
 .text(error) {      .text(normal); color: @text-color-error }
 .text(normal) {
-  color: @text-color;
-  font-family: @__uiFont, @font-family;
-  font-size: inherit;
-  font-size: @font-size;
-  font-weight: 300;
-  font-weight: @font-weight !important }
+  color:            @text-color;
+  font-family:      @__uiFont, @font-family;
+  font-size:        inherit;
+  font-size:        @font-size;
+  font-weight:      300;
+  font-weight:      @font-weight !important }
 
 .text(heading) {
-  color:        @text-color;
-  font-family:  @font-family-menu;
-  font-weight: @font-weight !important }
+  color:            @text-color;
+  font-family:      @font-family-menu;
+  font-weight:      @font-weight !important }
 
 .text(caps) {
-  color:          @text-color;
-  font-size: unit(@size-tiny, rem);
-  font-family:    @font-family-caps;
-  text-transform: uppercase;
-  font-weight: @font-weight !important;
-  letter-spacing: 0.1em; }
+  font-size:   unit(@size-tiny, rem);
+  color:            @text-color;
+  font-family:      @font-family-caps;
+  font-weight:      @font-weight !important;
+  text-transform:   uppercase;
+  letter-spacing:   0.1em; }
 
 .text(menu) {
-  font: 400 0.9em/26px @font-family-menu;
-  font-weight: @font-weight !important;
-  text-transform: lowercase;
-  font-size:      0.9em;
-  letter-spacing: 0.05em }
+  font:             @font-weight 0.9em/26px @font-family-menu;
+  text-transform:   uppercase;
+  letter-spacing:   0.05em }
 
 
                                                                                                                                                                                                                                                                                                                                                                           /*
@@ -211,8 +211,8 @@ Overlay                                                                         
   margin-right:     @component-padding / 4;
   position:         relative;
   vertical-align:   middle;
-  text-align: center;
-  box-sizing: content-box;
+  text-align:       center;
+  box-sizing:       content-box;
 
   &::after {
     position:       absolute;
@@ -258,28 +258,33 @@ Colors & accent                                                                 
     background-color: @@bg;
     color: @@col }}
 
-.accent.inverse {
-  background: @color-highlight;
-  & when (lightness(@color-highlight) < 0.5) { &, &:focus, &:active {
-    color: @col-white;
-    border-color: @color-highlight !important }}
-  & when (lightness(@color-highlight) >= 0.5) { &, &:focus, &:active {
-    color: @col-bg;
-    border-color: @color-highlight !important }}}
-
 .accent(@state: normal) {
-  background: @background-color-highlight;
-  color: @color-highlight;
+  @color: @color-highlight;
+  @light: @col-lighter;
+  @dark: @col-dark;
+
+  border-color: auto;
+  color: @color;
+
+  & when (lightness(@color) < 0.5) { background-color: @light }
+  & when (lightness(@color) >= 0.5) { background-color: @dark }
   & when (@state = inverse) { .accent.inverse }
-  // TODO: Assign highlighting id:17
-  &.active, &.selected {}
-  // TODO: Assign a slight screen filter id:18
-  &:hover, &:focus {}}
+  &.active, &.selected { color: lighten(@color, 10%) }
+  &:hover, &:focus { color: lighten(@color, 5%) }
+
+  &.inverse {
+    background-color: @color;
+
+    & when (lightness(@color) < 0.5) { &, &:focus, &:active {
+      color: @light;
+      border-color: @color !important }}
+
+    & when (lightness(@color) >= 0.5) { &, &:focus, &:active {
+      color: @dark;
+      border-color: @color !important }}}}
 
                                                                                                                                                                                                                                                                                                                                                                            /*
 Media Queries                                                                                                                                                                                                                                                                                                                                                              */
-.small(@args) { .media(768px, @args) }
-.medium(@args) { .media(1200px, @args) }
-.media(@breakpoint: 768px, @args) {
-  @media (max-width: @breakpoint) {
-    @args(); }}
+.small(@args)  {                    .media(768px, @args)  }
+.medium(@args) {                    .media(1200px, @args) }
+.media(@breakpoint: 768px, @args) { @media (max-width: @breakpoint) { @args(); }}

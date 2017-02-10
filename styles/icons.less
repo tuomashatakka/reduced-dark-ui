@@ -10,6 +10,16 @@
 
 ↛ Local variables                                                                                                                                                                                                                                                                                                                                                                 */
 @outline-width: 0.67px;
+.replace(@for, @replace, @set: default) {
+  @cls: ~".icon.icon-@{for}::before";
+  & @{cls} when (@set = ion) { font-family: ionicons !important }
+  & @{cls} when (@set = fa) {  font-family: FontAwesome, "Font Awesome", "font-awesome" !important }
+  & @{cls} {
+    color: inherit      !important;
+    font-size: inherit  !important;
+    content: @replace   !important;
+    &:hover {
+      background: none }}}
 
                                                                                                                                                                                                                                                                                                                                                                             /*
 ↛ General definitions                                                                                                                                                                                                                                                                                                                                                                 */
@@ -17,6 +27,8 @@
   -webkit-filter: blur(0.08px);
   -webkit-font-smoothing: antialiased;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.2) }
+
+.replace(x, "\f404", ion);
 
                                                                                                                                                                                                                                                                                                                                                                             /*
 ↛ Modal icon redefinitions                                                                                                                                                                                                                                                                                                                                                               */

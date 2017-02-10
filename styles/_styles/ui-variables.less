@@ -28,57 +28,60 @@ Size factors                                                                    
 @size:        6;
                                                                                                                                                                                                                                                                                                                                                                         /*
 Tints                                                                                                                                                                                                                                                                                                                                                                    */
-@tint:         desaturate(mix(@__backgroundTint, #ffffff, 40%), 25%);
-@tinted-sub:  darken(multiply(@col-bg,         @tint),         3%);
-@tinted-base:        multiply(@col-bg,         @tint);
-@tinted-darker:      multiply(@col-darker,     @tint);
-@tinted-dark:        multiply(@col-dark,       @tint);
-@tinted-gray:        multiply(@col-gray,       @tint);
-@tinted-light:         screen(@col-light,      @tint);
-@tinted-lighter:       screen(@col-lighter,    @tint);
-@tinted-white:         screen(@col-white,      @tint);
-@tinted-dusk:          darken(@tinted-base,    4%);
+@tint:                  desaturate(mix(@__backgroundTint, #ffffff, 40%), 25%);
+@tinted-sub:           darken(multiply(@col-bg,         @tint),         3%);
+@tinted-base:                 multiply(@col-bg,         @tint);
+@tinted-darker:               multiply(@col-darker,     @tint);
+@tinted-dark:                 multiply(@col-dark,       @tint);
+@tinted-gray:                 multiply(@col-gray,       @tint);
+@tinted-light:                  screen(@col-light,      @tint);
+@tinted-lighter:                screen(@col-lighter,    @tint);
+@tinted-white:                  screen(@col-white,      @tint);
+@tinted-dusk:                   darken(@tinted-base,    4%);
+
                                                                                                                                                                                                                                                                                                                                                                           /*
 Main palette                                                                                                                                                                                                                                                                                                                                                             */
-@color-highlight:             @__primary;
-@color-main:                  mix(@__primary,     @col-main,     92%);
-@color-info:                  mix(@__primary,     @col-main,     75%);
-@color-success:               mix(@__primary,     @__success,    50%);
-@color-warning:               mix(@__accentColor, @__warning,    25%);
-@color-annotation:            mix(@__accentColor, @__annotation, 75%);
-@color-error:                 mix(@__accentColor, @__error,      68%);
+@color-main:                       mix(@tinted-white,   @__primary,    80%);
+@color-info:                       mix(@tinted-light,   @__primary,    50%);
+@color-highlight:                  mix(@tinted-lighter, @__primary,    10%);
+@color-success:                    mix(@__primary,      @__success,    50%);
+@color-warning:                    mix(@__accentColor,  @__warning,    50%);
+@color-annotation:                 mix(@__accentColor,  @__annotation, 50%);
+@color-error:                      mix(@__accentColor,  @__error,      50%);
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Base / backfase                                                                                                                                                                                                                                                                                                                                                                    */
-@sub-background-color:        @tinted-sub;
-@background-color-dark:       @tinted-dusk;
-@app-background-color:        @tinted-base;
-@base-background-color:       @tinted-base;
-@background-color-highlight:  @tinted-dark;
-@background-color-selected:   @tinted-dark;
-@base-border-color:           @tinted-darker;
+@sub-background-color:                 @tinted-sub;
+@app-background-color:                 @tinted-base;
+@base-background-color:                @tinted-base;
+@background-color-dark:                @tinted-dusk;
+@background-color-highlight:           @tinted-dark;
+@background-color-selected:            @tinted-dark;
+@base-border-color:                    @tinted-darker;
+
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text                                                                                                                                                                                                                                                                                                                                                                 */
-@text-color:                  @tinted-lighter;
-@text-color-highlight:        @tinted-white;
-@text-color-selected:         @tinted-white;
-@text-color-subtle:      fade(@text-color, 40%);
-@text-color-ignored:          @text-color-subtle;
+@text-color:                           @tinted-lighter;
+@text-color-selected:                  @color-main;
+@text-color-highlight:                 @color-highlight;
+@text-color-ignored:                   @text-color-subtle;
+@text-color-subtle:               fade(@text-color, 40%);
 
-@text-color-info:             @color-info;
-@text-color-success:          @color-success;
-@text-color-added:            @color-success;
-@text-color-renamed:          @color-highlight;
-@text-color-modified:         mix(@col-warning,             @__warning,        50%);
-@text-color-warning:          mix(@color-warning,           @__annotation,     50%);
-@text-color-removed:          mix(@color-annotation,        @__annotation,     50%);
-@text-color-error:            mix(@color-error,             @__error,          50%);
+@text-color-info:                      @color-info;
+@text-color-success:                   @color-success;
+@text-color-added:                     @color-success;
+@text-color-modified:                  @color-warning;
+@text-color-warning:                   @color-warning;
+@text-color-renamed:                   @color-annotation;
+@text-color-removed:                   @color-annotation;
+@text-color-error:                     @color-error;
 
-@background-color-success:      screen(@color-success,      @base-background-color,  50%);
-@background-color-info:            mix(@color-main,         @base-background-color,  90%);
-@background-color-warning:      screen(@text-color-warning, @color-warning,         50%);
-@background-color-annotation:   screen(@text-color-warning, @base-background-color,  50%);
-@background-color-error:      multiply(@text-color-error,   @base-background-color, 50%);
+@background-color-info:            mix(@base-background-color, @color-info,       60%);
+@background-color-success:         mix(@base-background-color, @color-success,    60%);
+@background-color-warning:         mix(@base-background-color, @color-warning,    60%);
+@background-color-annotation:      mix(@base-background-color, @color-annotation, 60%);
+@background-color-error:           mix(@base-background-color, @color-error,      60%);
+
                                                                                                                                                                                                                                                                                                                                                                         /*
 Components                                                                                                                                                                                                                                                                                                                                                              */
 @button-background-color:              transparent;
@@ -92,8 +95,8 @@ Components                                                                      
 @input-text-color-highlight:           @tinted-base;
 
 @overlay-background-color:             @tinted-darker;
-@tool-panel-background-color:          @tinted-darker;
-@tree-view-background-color:           @tinted-darker;
+@tool-panel-background-color:          @tinted-base;
+@tree-view-background-color:           @tinted-base;
 @tooltip-key-background-color:         @tinted-base;
 @tab-bar-background-color:             @tinted-base;
 @tab-background-color-active:     fade(@tinted-base, 5%);
