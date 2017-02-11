@@ -1,5 +1,8 @@
 
 
+.tab-bar.inline-tabs {
+  border-top-width: 0;
+}
 .tab-bar.inline-tabs .tab {
   box-sizing: border-box;
   border: 1px solid transparent;
@@ -43,6 +46,23 @@
   border-color: fade(@base-border-color, 50%) }
 
 
+.config-general {
+
+  > header {
+    display: none; }
+
+  > main {
+    margin: 0;
+    padding-top: 0 }
+
+.general-package-view > section {
+  display: block;
+  width: 100%;
+
+.package-container .package-card:hover {
+  background: transparent !important }}}
+
+
 .section .section-body .sub-section-body .control-group {
   flex: 1 1 50%;
   min-width: 16em;
@@ -66,20 +86,20 @@
 
 
                                                                                                                                                                                                                                                                                                                                                                                 /*
-    ↛ Color palette config                                                                                                                                                                                                                                                                                                                                                                 */
-    section[title="color"] {
-    width: 100%;
-    position: relative;
+↛ Color palette config                                                                                                                                                                                                                                                                                                                                                                 */
+section[title="color"] {
+  width: 100%;
+  position: relative;
 
-    > .sub-section > .controls {
+  > .sub-section > .controls {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
 
-    label.control-group {
+  label.control-group {
     flex-flow:      column nowrap;
     position:       static;
-    position:       absolute;
+    // position:       absolute;
     display:        flex;
     flex:           none;
     vertical-align: middle;
@@ -91,25 +111,22 @@
     bottom:         0;
     font-size:      1em;
     line-height:    1.5;
-    padding:        @component-padding;
-    }
+    padding:        @component-padding; }
 
-    .settings-title,
-    .settings-description {
+  .settings-title,
+  .settings-description {
     z-index: 1 }
 
-    .color-cell.color-display {
+  .color-cell.color-display {
     position: relative;
     flex: 1 0 33.33%;
     padding-bottom: 33.33%;
-    height: 0;
-    box-sizing: padding-box;
-    }
-    .color-cell.color-minor {
+    height: 16rem !important;
+    box-sizing: padding-box;}
+  .color-cell.color-minor {
     position: relative;
     flex: 0 0 25%;
-    padding-bottom: 25%;
-    }
+    padding-bottom: 25%;}
     @{color-input} {
     position: absolute;
     top: 0;
@@ -132,25 +149,24 @@
     overflow: hidden;
     border-radius: 0% }
 
-    &::-webkit-color-swatch {
+  &::-webkit-color-swatch {
     -webkit-appearance: none;
     transition: padding @transition-time;
     transform: translate(0.5px, 0.5px);
     border-radius: 0 }
-
     }
 
-    label.control-group:hover {
+  label.control-group:hover {
     cursor: pointer;
     color: @base-background-color;
 
-    * {
+  * {
     cursor: pointer;
     color: inherit;
     transition: color @transition-time;
     }
 
-    ::-webkit-color-swatch {
+  ::-webkit-color-swatch {
     cursor: pointer;
     padding-top: 100% }
     }

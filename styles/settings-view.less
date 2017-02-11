@@ -29,7 +29,7 @@ background-color:       transparent !important;
   width: auto;
   position: absolute;
   display: flex;
-  padding: @component-padding;
+  padding: 0;
   background-color: @app-background-color;
   z-index: 500;
 
@@ -42,8 +42,18 @@ background-color:       transparent !important;
 
   & > li + li::before {
     .icon("\f105");
-    padding-right: @component-padding;
+    font-size: 2em;
+    padding: @component-padding / 2;
+    margin-top: 0.32em;
     line-height: inherit }
+
+  & > li a:hover {
+    text-decoration: none;
+    .accent(inverse);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    border-radius: 2px;
+  }
 
   + * {
   margin-top: 4rem }}

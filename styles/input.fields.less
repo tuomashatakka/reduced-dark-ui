@@ -87,41 +87,52 @@ Select Forms                                                                    
   padding: 0 @component-padding }
 
 @{select-field} {
-  padding: 0;
-  border-radius: @button-border-radius;
-  height: unit(@input-height, em);
+  padding:          0;
+  height:      unit(@input-height, em);
   line-height: unit(@input-height, em);
+  border-radius:    @button-border-radius;
+
+  &:hover {
+    background-color: @background-color-highlight !important;
+  }
 
   @{select-input} {
     .inputfield(field);
-    height:         inherit !important;
+    border-radius:  0       !important;
+    border:         0       !important;
     line-height:    inherit !important;
-    // border-top-right-radius: 0;
-    // border-bottom-right-radius: 0;
-    border-radius: 0 !important;
-    border:        0 !important;
-    color:         inherit;
-    box-sizing:    content-box }
+    height:         inherit !important;
+    color:          inherit;
+    box-sizing:     content-box }
 
   button.btn {
     border-radius:  0;
-    font-size:      inherit;
     color:          inherit;
-    height:         inherit !important;
-    line-height:    inherit !important;
-    border-color:   inherit !important;
+    font-size:      inherit;
+    display:        block     !important;
+    height:         inherit   !important;
+    line-height:    inherit   !important;
+    border-color:   inherit   !important;
     border-width:   0 0 0 0px !important;
-    margin:         1px 0 0 !important;
+    margin:         0 0 0     !important;
+    border-radius:  50%;
     padding:        0 @component-padding 0 @component-padding * .75 !important;
-    display:        block !important;
-
+    padding:        0 @component-padding / 2
+                    0 @component-padding !important;
     &::before {
+      -webkit-text-stroke-width:  1px;
+      -webkit-font-smoothing:     auto;
+      text-shadow:    none;
       display:        inherit !important;
       height:         inherit !important;
       line-height:    inherit !important;
       border-color:   inherit !important;
-      margin:         0 !important }}}
+      font-size:      2em;
+      margin:         0 !important }
 
+    &:hover { &, &::before {
+      background: transparent !important;
+      color: @text-color-subtle }}}}
 
 @{color-field} {
   .inputfield(field);
@@ -152,6 +163,7 @@ Select Forms                                                                    
   @size: @input-height / 2;
   margin: @size 0;
   border-radius: @component-border-radius;
+  height: 1px;
 
   .input-range-container {
     height: @size;
@@ -164,29 +176,27 @@ Select Forms                                                                    
   // &::-webkit-media-slider-container
   }
   &::-webkit-slider-runnable-track {
+    background-color: fade(@sub-background-color, 50%);
+    height: @component-padding * 3;
     -webkit-appearance: none;
     box-shadow: none;
     border: none;
-    height: 4px;
-    background-color: fade(@sub-background-color, 50%);
-  }
+    margin: 0 }
   // &::-webkit-media-slider-thumb
   &::-webkit-slider-thumb {
-
-    border: 6px solid;
-    border-width: 2px 6px;
-    outline: none;
-    box-shadow: 1px 0px 0.3em rgba(28, 26, 26, 0.5);
-    -webkit-appearance: none;
+    box-shadow: 1px 0px @component-padding * 1.5 @sub-background-color;
+    border: @component-padding solid @sub-background-color;
+    margin: -(3 * @component-padding - @size) / 3 0;
+    background: @text-color-info;
+    border-radius: 50%;
     width: @size;
     height: @size;
+    outline: none;
     display: block;
+    padding: 0 !important;
     box-sizing: content-box;
-    margin: -@size / 2 0;
-    border-radius: 50%;
-    background: @text-color-info;
-    border-color: @sub-background-color;
-  }
+    -webkit-appearance: none }
+
   .input-range-knob {
     .accent(inverse);
     height: @size;

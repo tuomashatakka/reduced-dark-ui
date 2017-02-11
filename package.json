@@ -10,9 +10,6 @@
   "bugs": {
     "url": "https://github.com/tuomashatakka/reduced-dark-ui/issues"
   },
-  "activationCommands": {
-    "atom-workspace": "reduced-dark-ui:initialize"
-  },
   "dependencies": {
     "atom-space-pen-views": "^2.2.0",
     "auto-updater": "^1.0.2",
@@ -58,6 +55,13 @@
       "description": "General user interface definitions",
       "type": "object",
       "properties": {
+        "SILLYMODE": {
+          "order": 1,
+          "title": "ACTIVATE SILLY MODE (experimental but highly recommended)",
+          "description": "ACTIVATE SILLY MODE FOR ENHANCED USER EXPERIENCE AND INCREASED PRODUCTIVITY! A BIT LIKE POMODORO BUT BETTER",
+          "type": "boolean",
+          "default": false
+        },
         "uiScale": {
           "order": 1,
           "title": "User interface scale",
@@ -210,13 +214,13 @@
           "default": true
         },
         "fading": {
-          "title": "Override Editor Background Color",
-          "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
+          "title": "Contrast for the ui elements (experimental)",
+          "description": "Increase the contrast between ui elements for increased visual clues (ease of access)",
           "type": "boolean",
-          "default": true
+          "default": false
         },
         "enhancedFx": {
-          "title": "Blend modes and gradient background",
+          "title": "Blend modes and gradient background (experimental)",
           "description": "This is some seriously GPU-intensive stuff.",
           "type": "boolean",
           "default": false
