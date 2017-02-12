@@ -1,7 +1,18 @@
 
+.headline() {
+  letter-spacing: 0.1em;
+  font-weight: 100 !important;
+  font-size: 4.8em;
+  font-size: 3em;
+  text-align: left;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(195, 141, 141, 0.33);
+  margin: 0;
+  padding: 0;
+}
 
 .tab-bar.inline-tabs {
-  border-top-width: 0;
+  border-top-width: 0 !important;
 }
 .tab-bar.inline-tabs .tab {
   box-sizing: border-box;
@@ -26,7 +37,6 @@
   background-color: fade(@sub-background-color, 50%);
   margin: 0 0 4 * @component-padding;
 }
-
 .section-heading {
   margin: 0;
   padding: 0;
@@ -35,10 +45,54 @@
   h2 {
     margin: 0;
     padding: 0;
+    font-size: inherit !important;
+
+    .icon::before {
+      font-size: inherit !important;
+      width: 1em !important;
+      position: relative !important;
+      display: inline !important;
+      float: none;
+      -webkit-text-stroke: 1px white;
+      color: transparent;
+    }
 
     .icon {
+      width: 1em;
       margin-right: @component-padding }
   }
+}
+.section-heading h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 4em;
+  padding: 0.2em !important;
+}
+.section-heading h2 .icon {
+  width: 3em;
+  height: 3em;
+  vertical-align: middle;
+  font-size: 0.5em;
+  line-height: 3em;
+  text-align: center;
+}
+.section-heading h2 .icon::before {
+  font-size: inherit !important;
+  width: 1em !important;
+  position: relative !important;
+  line-height: inherit !important;
+  display: inline !important;
+  text-align: center;
+  float: none;
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+  vertical-align: middle;
+  font-size: 2em !important;
+  height: 1em;
+  margin: 0 !important;
+  display: block !important;
+  width: inherit !important;
+  position: relative;
 }
 
 .btn-group > .btn,
@@ -54,6 +108,10 @@
   > main {
     margin: 0;
     padding-top: 0 }
+
+// .package-config-view
+.section-heading h2 { .headline }
+.package-container .package-card .card-name { .headline }
 
 .general-package-view > section {
   display: block;
