@@ -42,6 +42,7 @@
   padding: 0;
   text-align: center;
 
+  h1 { .headline }
   h2 {
     margin: 0;
     padding: 0;
@@ -111,6 +112,25 @@
 
 // .package-config-view
 .section-heading h2 { .headline }
+
+main.section-body > section {
+  display: flex;
+  flex-flow: row wrap;
+
+  > *:first-child {
+    flex: 1 0 100% }
+
+  .field-primary {
+    flex: 1 0 100%;
+    padding: @component-padding * 4 @component-padding * 2 }
+
+  .controls > [style*='flex'] {
+    align-items: center }
+  .controls .bound,
+  .controls output {
+    padding: 0 @component-padding / 2 }
+}
+
 .package-container .package-card .card-name { .headline }
 
 .general-package-view > section {
@@ -120,8 +140,7 @@
 .package-container .package-card:hover {
   background: transparent !important }}}
 
-
-.section .section-body .sub-section-body .control-group {
+.section .section-body .control-group {
   flex: 1 1 50%;
   min-width: 16em;
   margin: 0 0 @component-padding * 2;

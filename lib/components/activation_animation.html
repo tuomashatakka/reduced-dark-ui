@@ -1,0 +1,58 @@
+<div style="
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  text-shadow: 0 0 16px black;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1em;
+  display: block;">
+
+  <span
+    class="icon icon-gear"
+    style="
+      display: inline-block;
+      font-size: inherit !important;
+      display: block;
+      font-size: 6em !important;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke: 3px !important;
+      animation: spin 2s infinite;">
+  </span>
+</div>
+<style>
+
+atom-workspace ~ .activating.hidden {
+  display: block !important }
+
+atom-workspace ~ .activating > div {
+  display: block !important;
+  max-height: 100vh;
+  opacity: 1;
+  overflow: hidden;
+  transition:
+    opacity 0s,
+    max-height 0s }
+
+atom-workspace ~ .activating.hidden > div {
+  display: block !important;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    opacity 2s,
+    max-height 2s }
+
+.activating .icon::before {
+  -webkit-text-stroke-width: 2px;
+  -webkit-filter: none;
+  text-shadow: none;
+  transform: translate(0%, 0%);
+  -webkit-text-fill-color: transparent;
+  transform-origin: center;
+  width: 1em;
+  height: 1em;
+  display: block;
+  font-size: inherit !important;
+}
+</style>
