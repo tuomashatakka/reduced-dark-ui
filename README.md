@@ -30,7 +30,8 @@
 
 #### **minimal, highly customizable, plain yet usable & functional** user interface theme for the atom.io. you **do** love it.
 
-> This theme is currently under development and should be considered barely as a preview.
+> While this theme is currently under development and should be considered barely as a preview,
+> it ships with a solid base at its current state. No major usage-blocking bugs should be expected.
 > Contributions and raising issues are more than welcome - as well as any other feedback!
 
 ![display](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_colors_compact.png)
@@ -76,6 +77,7 @@ I actually surprised myself how f***ing awesome and usable it turned out to be!
 ### ☂ Screenshots
 
 The following are actual footage from the theme. Screenshots may be a version or two old, so minor differences to the actual end-product may occur :(
+More screenshots may be found on the repository's [assets/preview](http://github.com/tuomashatakka/reduced-dark-ui/blob/master/assets/preview) folder.
 
 <table>
 <tr>
