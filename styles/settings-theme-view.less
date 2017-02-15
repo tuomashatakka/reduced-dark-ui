@@ -100,23 +100,29 @@
 .btn-toolbar > .btn {
   border-color: fade(@base-border-color, 50%) }
 
+  // .package-config-view
+  .section-heading h1 { .headline }
+  .section-heading h2 { .headline }
 
-.config-general {
+
+.displayed-item main > .section {
+  display:        flex;
+  flex-flow:      row wrap;
+  flex:           none;
+  position:       static;
+  vertical-align: middle;
+  text-align:     left;
+  width:          100%;
+  margin:         0;
+  min-width:      0;
+  top:            0;
+  bottom:         0;
+  font-size:      1em;
+  line-height:    1.5;
+  padding:        @component-padding;
 
   > header {
     display: none; }
-
-  > main {
-    margin: 0;
-    padding-top: 0 }
-
-// .package-config-view
-.section-heading h2 { .headline }
-
-main.section-body > section {
-  display: flex;
-  flex-flow: row wrap;
-
   > *:first-child {
     flex: 1 0 100% }
 
@@ -124,103 +130,76 @@ main.section-body > section {
     flex: 1 0 100%;
     padding: @component-padding * 4 @component-padding * 2 }
 
+
   .controls > [style*='flex'] {
     align-items: center }
   .controls .bound,
   .controls output {
     padding: 0 @component-padding / 2 }
+
+  .field-primary-color {
+    position: relative;
+    flex: 1 0 33.33% !important;
+    padding-bottom: 33.33%;
+    height: 16rem !important;
+    box-sizing: padding-box;}
+
+  .control-group[class*="-color"] {
+    position: relative;
+    flex: 0 0 25%;
+    padding-bottom: 25%;}
+
+  .package-container .package-card:hover {
+    background: transparent !important }}
+
+  .section .section-body .control-group {
+    flex: 1 1 50%;
+    min-width: 16em;
+    margin: 0 0 @component-padding * 2;
+    padding: @component-padding * 2 }
+
+  .control-group {
+    padding: @component-padding;
+    position: relative }
+
+  .setting-description {
+    padding: @component-padding / 2 0;
+    font-weight: 300 }
+
+  .boolean-container {
+    position: absolute;
+    top: 0;
+
+    @{checkbox-input} {
+      margin: -3px 0 0 3px }
+
 }
 
-.package-container .package-card .card-name { .headline }
-
-.general-package-view > section {
-  display: block;
-  width: 100%;
-
-.package-container .package-card:hover {
-  background: transparent !important }}}
-
-.section .section-body .control-group {
-  flex: 1 1 50%;
-  min-width: 16em;
-  margin: 0 0 @component-padding * 2;
-  padding: @component-padding * 2 }
-
-.control-group {
-  padding: @component-padding;
-  position: relative }
-
-.setting-description {
-  padding: @component-padding / 2 0;
-  font-weight: 300 }
-
-.boolean-container {
-  position: absolute;
-  top: 0;
-
-  @{checkbox-input} {
-    margin: -3px 0 0 3px }}
 
 
                                                                                                                                                                                                                                                                                                                                                                                 /*
 ↛ Color palette config                                                                                                                                                                                                                                                                                                                                                                 */
-section[title="color"] {
-  width: 100%;
-  position: relative;
-
-  > .sub-section > .controls {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-
-  label.control-group {
-    flex-flow:      column nowrap;
-    position:       static;
-    // position:       absolute;
-    display:        flex;
-    flex:           none;
-    vertical-align: middle;
-    text-align:     left;
-    width:          100%;
-    margin:         0;
-    min-width:      0;
-    top:            0;
-    bottom:         0;
-    font-size:      1em;
-    line-height:    1.5;
-    padding:        @component-padding; }
-
   .settings-title,
   .settings-description {
     z-index: 1 }
 
-  .color-cell.color-display {
-    position: relative;
-    flex: 1 0 33.33%;
-    padding-bottom: 33.33%;
-    height: 16rem !important;
-    box-sizing: padding-box;}
-  .color-cell.color-minor {
-    position: relative;
-    flex: 0 0 25%;
-    padding-bottom: 25%;}
-    @{color-input} {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    background: transparent !important;
-    border-width: 0 !important;
-    margin: 0;
-    padding-bottom: 100%;
+@{color-input} {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background: transparent !important;
+  border-width: 0 !important;
+  margin: 0;
+  padding-bottom: 100%;
 
-    &::-webkit-color-swatch-wrapper {
+  &::-webkit-color-swatch-wrapper {
+    // margin: @component-padding / 2;
     padding: 0;
     margin: 0;
-    // margin: @component-padding / 2;
     width: auto;
     height: auto;
     overflow: hidden;
@@ -231,20 +210,18 @@ section[title="color"] {
     transition: padding @transition-time;
     transform: translate(0.5px, 0.5px);
     border-radius: 0 }
-    }
+}
 
-  label.control-group:hover {
-    cursor: pointer;
-    color: @base-background-color;
+label.control-group:hover {
+  cursor: pointer;
+  color: @base-background-color;
 
   * {
     cursor: pointer;
     color: inherit;
-    transition: color @transition-time;
-    }
+    transition: color @transition-time }
 
   ::-webkit-color-swatch {
     cursor: pointer;
     padding-top: 100% }
-    }
-    }}
+}
