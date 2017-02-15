@@ -1,14 +1,7 @@
 
-# Reduced Dark 
+# Reduced Dark
 
-![logo](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo.png)
-
-![display](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_colors.png) 
-
-**Minimal + plain + usable + functional**
-
-
- / UI theme for Atom.io
+### **Minimal + highly customizable + plain + usable + functional** UI theme for Atom.io
 
 <p align="center">
   <img src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo-glyph.png" width=16 height=16 />
@@ -24,61 +17,80 @@
     <img src="https://img.shields.io/apm/v/reduced-dark-ui.svg?style=flat-square">
     </a>
 </p>
+    
+![logo](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo.png)
 
-# PLEASE NOTE
-     	
+
+> ### PLEASE NOTE
 > This theme is currently under development and should be considered barely as a preview.
-> Contributions and issues are more than welcome - as well as any other feedback!
-> Tree-view works currently best when at the right side of the screen.
-> Tool-bar package is currently configured only for its left panel layout.
-> Linter is fully themed.
-     
- 
+> Contributions and raising issues are more than welcome - as well as any other feedback!
+
+![display](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_colors.png)
+
 
 ## About
-     
+    
 Clean and dead simple, superior configuration schema with tons of loads of thoroughly thought settings to tweak and color to one's personal preference, and a nice guy as a developer 🙋
+Hella lotta configuration options. Seriously, it is like candyland.
 
-This theme'sconfiguration includes an option to make side panels collapse. It is an attempt to wrap the currently-not-as-intuitive-as-it-could-be paneling scheme in Atom for reduced obstruction (imagine having the obsolete panels that fill the screen and reduce your precious code editor into a thin line with max line length of ~50 characters (😄) at best automatically hidden whenever not needed)
-  by making the side panels collapse into a tool-bar of sort. **Feedback is great** ly valuable and appreciated here.
-  
-  If a package's panel fails to display correctly, please raise an issue and I'll do my best at supporting it. Or better, submit a pull request! Panel collapsing should be generically implemented enough to cause few to none inconsistencies though. 
-  
-  Also hella lotta configuration options (on their way).
-  Seriously, it will be like candyland.
-  
-  <a href="https://atom.io/themes/reduced-dark-ui">atom.io/themes/reduced-dark-ui</a>
-   <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 25%; margin: 4%' />
- 
+**Feedback is great** ly valuable and appreciated. Please do raise an issue if you have any problems.
 
-### Feats || hilites && config
+<a href="https://atom.io/themes/reduced-dark-ui">atom.io/themes/reduced-dark-ui</a>
 
- - [x] **Any accent color**
- - [ ] COMING SOON™ **Custom icons for any and every package**. Configure any icon you want to. Automatic initial resolving by walking the DOM.
-   THIS IS STILL IN AN EARLY STATE, but works already. The theme needs to be reloaded for changes to become visible. Assigned icons
-   can be changed from the theme's settings
- - [x] **Fixed tab bar**. Window-wide tab bar - finally you can see 'em all at once
- - [x] **Fixed project root**. Tree view's root folder always visible
- - [x] **Full-width tab sizing**. No blank space wasted whatsoever
- - [x] **UI Scale**. Each and every part of the UI is scaled with the editor's font size as a basis. Gracefully.
-   Pick a number (from 25 to 200) and see the magic happen. I know you hate too fat interfaces too ;)
+<img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 25%; margin: 4%' />
 
 
-### Screenshots
-<table><tr>
+## Key features
 
- <td>
-  <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-12.png' />
- </td>
-
- <td>
-  <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-10.png' />
- </td>
-
-</tr></table>
+ - **Any accent color**
+ - **Custom settings view** Maxed-out usability
+ - **UI Scaling and spacing** Two handy sliders for making the editor just the size you like it
+ - **Custom icons for panels** Each panel has an automatically applied icon that you may change to whichever
+   icon you want with a handy icon picker modal.
+ - **Fixed tab bar**. Window-wide tab bar - finally you can see 'em all at once
+ - **Fixed project root**. Tree view's root folder always visible
+ - **Full-width tab sizing**. No blank space wasted whatsoever
 
 
-### Inspiration and thanks
+## Screenshots
+<table>
+<tr>
+
+  <td>
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_core.png' />
+  </td>
+
+  <td>
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/iconpicker_vertical.png' />
+  </td>
+
+</tr>
+<tr>
+
+  <td>
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_layout_fullscreen.png' />
+  </td>
+
+  <td>
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/treeview_overview2.png' />
+  </td>
+
+</tr>
+<tr>
+
+  <td>
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_colors_fullscreen.png' />
+  </td>
+
+  <td>
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_package_cards.png' />
+  </td>
+
+</tr>
+</table>
+
+
+## Inspiration and thanks
 
 This theme was inspired by the
 - Northem
