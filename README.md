@@ -1,110 +1,141 @@
 
-# Reduced Dark
+<p align="center" style="display: block; vertical-align: middle">
 
-### **Minimal + highly customizable + plain + usable + functional** UI theme for Atom.io
+  <img src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo-glyph.png" width=20 height=20 style="display: inline-block; vertical-align: baseline" />
+  <a href="https://atom.io/themes/reduced-dark-ui" style="display: inline-block; vertical-align: baseline">
+  <img src="https://img.shields.io/apm/dm/reduced-dark-ui.svg?style=flat-square" style="display: inline-block; vertical-align: baseline">
+  </a>
 
-<p align="center">
-  <img src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo-glyph.png" width=16 height=16 />
-  <a href="https://atom.io/themes/reduced-dark-ui">
-    <img src="https://img.shields.io/apm/dm/reduced-dark-ui.svg?style=flat-square">
-    </a>
-  <img src="https://github.com/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
-  <a href="https://github.com/tuomashatakka/reduced-dark-ui/issues">
-    <img src="https://img.shields.io/github/issues/tuomashatakka/reduced-dark-ui.svg?style=flat-square">
-    </a>
-  <img src="https://atom.io/favicon.ico" width=16 height=16/>&nbsp;&nbsp;
-  <a href="https://atom.io/themes/reduced-dark-ui">
-    <img src="https://img.shields.io/apm/v/reduced-dark-ui.svg?style=flat-square">
-    </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+
+  <img src="https://github.com/favicon.ico" width=20 height=20 style="display: inline-block; vertical-align: baseline" />
+  <a href="https://github.com/tuomashatakka/reduced-dark-ui/issues" style="display: inline-block; vertical-align: baseline">
+  <img src="https://img.shields.io/github/issues/tuomashatakka/reduced-dark-ui.svg?style=flat-square" style="display: inline-block; vertical-align: baseline">
+  </a>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;
+
+  <img src="https://atom.io/favicon.ico" width=20 height=20 style="display: inline-block; vertical-align: baseline"/>
+  <a href="https://atom.io/themes/reduced-dark-ui" style="display: inline-block; vertical-align: baseline">
+  <img src="https://img.shields.io/apm/v/reduced-dark-ui.svg?style=flat-square" style="display: inline-block; vertical-align: baseline">
+  </a>
+
 </p>
+
     
-![logo](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo.png)
+<img src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo.png" style="width: auto; height: 8vh; margin: 0 auto; display: block; text-align: center;" alt="Reduced Dark UI" />
 
 
-> ### PLEASE NOTE
+# ✂︎ - **Reduced Dark** UI theme <sup><sub><sub> - - - - cut here </sub></sub></sup>
+
+#### **minimal, highly customizable, plain yet usable & functional** user interface theme for the atom.io. you **do** love it.
+
 > This theme is currently under development and should be considered barely as a preview.
 > Contributions and raising issues are more than welcome - as well as any other feedback!
 
-![display](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_colors.png)
+![display](https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_colors_compact.png)
 
 
-## About
+### ⏚ About
     
+[atom.io/themes/reduced-dark-ui](https://atom.io/themes/reduced-dark-ui)
+
 Clean and dead simple, superior configuration schema with tons of loads of thoroughly thought settings to tweak and color to one's personal preference, and a nice guy as a developer 🙋
 Hella lotta configuration options. Seriously, it is like candyland.
 
 **Feedback is great** ly valuable and appreciated. Please do raise an issue if you have any problems.
 
-<a href="https://atom.io/themes/reduced-dark-ui">atom.io/themes/reduced-dark-ui</a>
-
 <img src='https://tuomashatakka.github.io/reduced-dark-ui/assets/ss2016-11.png' style='float: right; width: 25%; margin: 4%' />
 
 
-## Key features
+### ∞ Key features
 
- - **Any accent color**
- - **Custom settings view** Maxed-out usability
- - **UI Scaling and spacing** Two handy sliders for making the editor just the size you like it
- - **Custom icons for panels** Each panel has an automatically applied icon that you may change to whichever
-   icon you want with a handy icon picker modal.
- - **Fixed tab bar**. Window-wide tab bar - finally you can see 'em all at once
- - **Fixed project root**. Tree view's root folder always visible
- - **Full-width tab sizing**. No blank space wasted whatsoever
+If you like configurability, I kindly advice you to check the [Hue Shift syntax](http://atom.io/themes/hue-shift-syntax) out too!
+It is basically a syntax theme generator with slider inputs to adjust hue, luminance, brightness, contrast, aberration and other
+properties for the application of syntax colors.
+
+I actually surprised myself how f***ing awesome and usable it turned out to be!
+
+ - **UI Scaling and spacing** Two *handy* sliders for scaling the UI scale with pin-point accuracy to match *your* preference
+ - **Apply your favorite colors** Seven configurable colors:
+   - Primary highlight color
+   - Accent color
+   - Background tint color
+   - Color for success state highlights
+   - Color for warning state highlights
+   - Annotation color
+   - Color for error state highlights
+ - **Custom settings view** for the theme configuration. Maxed-out usability. Also, multi-column views for all configuration views & package cards!
+ - **Togglable-state(-of-the-art) panels with custom icons** Each panel has an automatically applied icon
+   that you may change to whichever icon you want with a *handy icon picker modal.*
+ - **Fixed tab bar & tab alignment**. Window-wide tab bar - finally you can see 'em all at once. Tabs' alignment is also selectable: (center, left, right or stretch)
+ - **Fixed project root**. Tree view's root folder fixed to the top of the tree view when scrolling down; *handy* for multi-root projects!
+ - **And so on**... Make your voice matter: tell me what you want and I'll do it for you 🤗
 
 
-## Screenshots
+### ☂ Screenshots
+
+The following are actual footage from the theme. Screenshots may be a version or two old, so minor differences to the actual end-product may occur :(
+
 <table>
 <tr>
 
   <td>
-    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_core.png' />
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_core.png' /><br/>
+    Core settings
   </td>
 
   <td>
-    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/iconpicker_vertical.png' />
-  </td>
-
-</tr>
-<tr>
-
-  <td>
-    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_layout_fullscreen.png' />
-  </td>
-
-  <td>
-    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/treeview_overview2.png' />
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/iconpicker_vertical.png' /><br/>
+    Icon picker
   </td>
 
 </tr>
 <tr>
 
   <td>
-    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_colors_fullscreen.png' />
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_layout_fullscreen.png' /><br/>
+    Theme layout settings view
   </td>
 
   <td>
-    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_package_cards.png' />
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/treeview_overview2.png' /><br/>
+    Tree view
+  </td>
+
+</tr>
+<tr>
+
+  <td>
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_colors_fullscreen.png' /><br/>
+    Color configuration view
+  </td>
+
+  <td>
+    <img src='https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/preview/2017%20February/settings_package_cards.png' /><br/>
+    Package listing in settings
   </td>
 
 </tr>
 </table>
 
 
-## Inspiration and thanks
+### ❁ Inspiration and thanks
 
 This theme was inspired by the
-- Northem
-- Material; and
-- Seti
+- Northem UI themes (especially the dark variant)
+- Material UI; and
+- Seti UI
+
 themes.
 
-I liked the structuring of Northem so much that I actually used the Northem's source (with some heavy modifications though) for creating the bootstrap from which this masterpiece emerged.
+Initially, the source for [Northem Dark UI](http://atom.io/themes/northem-dark-ui) was used as a foundation for this project (with some heavy modifications though).
+So especially big thank you and a nod of deepest kind for the contributors of the Northem theme. You guys really made me inspired!
 
-So, thanks to all authors and contributors involved in making my Atom experience top notch!
+Thanks to all other fellow Atom package authors and contributors too involved, for making my Atom experience of a top-notch kind!
 
 
-
-### Motivation
+### ⏎ Motivation / epilogue
 
 Atom needs more well written & throughoutly thought themes. Code editor running on webkit? Why aren't you making a package already?
 
@@ -114,17 +145,13 @@ If you get an idea, write it down. Testing happens naturally when you continue w
 
 The key is that not an inch of screen estate should be wasted to something that does not provide usability or functionality, but that doesn't mean things could not be beautiful. Just try and do implement only the features that make sense, postpone the polishing until the end.
 
----
-
-
 
 ### Copyright
 
 Copyright (C) 2016-2017 Tuomas Copyright
 
-
-Feel free to fork for creating a new theme, but please mention this repo
-
+Feel free to fork for creating a new theme, but please kindly mention this repo.
+See [LICENSE.md](license) for the regular boring license detail stuff.
 
 
 [logo]: https://tuomashatakka.github.io/reduced-dark-ui/assets/re-logo.svg
