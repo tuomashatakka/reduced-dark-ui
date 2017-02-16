@@ -24,39 +24,39 @@ background-color:       transparent !important;
 
 .breadcrumb {
   .text(caps);
-  left: 0;
-  right: 0;
-  width: auto;
-  position: absolute;
-  display: flex;
-  padding: 0;
-  background-color: @app-background-color;
-  z-index: 500;
+  position:           absolute;
+  display:            flex;
+  width:              auto;
+  z-index:            500;
+  left:               0;
+  right:              0;
+  padding:            0;
+  background-color:   @app-background-color;
 
   & > li {
-    display: flex;
-    padding: 0 @component-padding 0 0;
+    display:          flex;
+    padding:          0 @component-padding 0 0;
+
     a {
-      padding: @component-padding;
-      display: block }}
+      padding:        @component-padding;
+      display:        block }}
 
   & > li + li::before {
     .icon("\f105");
-    font-size: 2em;
-    padding: @component-padding / 2;
-    margin-top: 0.32em;
-    line-height: inherit }
+    font-size:        2em;
+    padding:          @component-padding / 2;
+    margin-top:       0.32em;
+    line-height:      inherit }
 
   & > li a:hover {
-    text-decoration: none;
     .accent(inverse);
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    border-radius: 2px;
-  }
+    text-decoration:  none;
+    letter-spacing:   0.1em;
+    font-weight:      500;
+    border-radius:    2px }
 
   + * {
-  margin-top: 4rem }}
+  margin-top:         4rem }}
 
 // input[type="checkbox"]:checked {
 //   background-color: @text-color-highlight }
@@ -65,7 +65,7 @@ background-color:       transparent !important;
                                                                                                                                                                                                                                                                                                                                                                             /*
 ↛ Alerts & notifications                                                                                                                                                                                                                                                                                                                                                                 */
 .alert, *[class*="alert-"] {
-  padding: @component-padding;
+  padding: @component-padding !important;
   border: 0;
 
   button.close {
@@ -81,10 +81,13 @@ background-color:       transparent !important;
       color: inherit;
       transition: color @transition-time ease }}
 
-  .alert-info {
+   .alert-info,
+  &.alert-info {
     color: @text-color-info;
     background: mix(@text-color-info, @base-background-color, 2%) }
-  .alert-danger {
+
+   .alert-danger,
+  &.alert-danger {
     color: @text-color-error;
     background: mix(@text-color-error, @base-background-color, 2%) }
 
@@ -94,43 +97,45 @@ background-color:       transparent !important;
 
   label {
     .text(normal);
-    font-weight: inherit;
-    padding: @component-padding;
+    font-weight:      inherit;
+    padding:          @component-padding;
 
   &.control-label .theme-description {
-      min-height: 36px }}}
+      min-height:     36px }}}
 
                                                                                                                                                                                                                                                                                                                                                                                   /*
 ↛ Sections                                                                                                                                                                                                                                                                                                                                                                 */
 .section {
-  border-radius: @component-border-radius;
-  margin: @settings-gutter 0 0;
+  border-radius:      @component-border-radius;
+  margin:             @settings-gutter 0 0;
 
   .section-heading {
     .h2 }
 
   .sub-section-body,
   .section-body {
-    display: flex;
-    max-width: none;
-    flex-flow: row wrap;
+    display:          flex;
+    max-width:        none;
+    flex-flow:        row wrap;
 
     .control-group {
-      flex: 1 0 25%;
-      min-width: 32rem;
-      padding: 0 @input-height 0 0;
-      margin-bottom: @settings-gutter }
+      flex:           1 0 25%;
+      min-width:      24em;
+      padding:        0 @input-height 0 0;
+      margin-bottom:  @settings-gutter }}
 
-    .sub-section-body .control-group {
-      flex: 0 0 100%;
-      min-width: 0;
-      padding: @component-padding }}
+  .sub-section-body .control-group {
+    flex:           0 0 100%;
+    min-width:      0;
+    padding:        @component-padding 0 }
 
   .section-container {
     max-width: none }
+
   .sub-section {
     .sub-section-heading {
       .h3 }}
+
   .sub-section .sub-section {
     .sub-section-heading {
       .h4 }}}
@@ -161,7 +166,6 @@ background-color:       transparent !important;
   .nav > li.active > a:hover  { background: @background-color-selected }}
 
 
-      /////////////////////////////
 .sub-section {
   padding-bottom: @component-padding;
   margin: 0;
@@ -193,7 +197,7 @@ background-color:       transparent !important;
   flex-wrap:      wrap;
 
   > * {
-    flex:         1 0 30%;
+    flex:         1 0 33%;
     margin:       0;
     padding:      0;
     width:        auto;
@@ -219,36 +223,39 @@ background-color:       transparent !important;
   background:       @background-color-highlight;
 
   &:hover {
-    z-index:        100;
-    transform:      translateY(-6px);
-    box-shadow:     0 7px 1.5 * @component-padding rgba(0, 0, 0, 0.15);
-    color:          mix(@text-color-subtle, @__accentColor, 25%);
-    background-color: mix(@inset-panel-background-color, @__accentColor, 95%) !important }
+    z-index:              100;
+    transform:            translateY(-6px);
+    box-shadow:           0 7px 1.5 * @component-padding rgba(0, 0, 0, 0.15);
+    color:                mix(@text-color-subtle, @__accentColor, 25%);
+    background-color:     mix(@inset-panel-background-color, @__accentColor, 95%) !important }
 
-  .card-name { .h4 }
+  .card-name {
+    .h4 }
+
   .meta-controls {
     [class*='installing'] {
       background-image:   none;
       -webkit-animation:  none;
+
       &::before {
-      -webkit-animation:  spin 1s linear infinite;
-      margin:             0;
-      content:            '\f087' }}
+        -webkit-animation:  spin 1s linear infinite;
+        margin:             0;
+        content:            '\f087' }}
 
     .btn-toolbar > .btn-group {
-      border-radius:      0;
-      position:           static }
+      border-radius:  0;
+      position:       static }
 
     .status-indicator {
       position:       absolute;
       right:          2px;
       bottom:         2px;
       top:            2px;
-      height:         auto !important;
-      margin:         0 !important;
-      padding:        0 !important;
-      border-width:   0 !important;
-      border-radius:  0 !important;
+      height:         auto  !important;
+      margin:         0     !important;
+      padding:        0     !important;
+      border-width:   0     !important;
+      border-radius:  0     !important;
       width:          @status-indicator-size !important;
       min-width:      @status-indicator-size !important;
       min-width:      @status-indicator-size !important;
@@ -265,75 +272,62 @@ background-color:       transparent !important;
     color: @text-color-info }}
 
 
-
-/////////////////////////////
-.package-config-view {
-  @import "./settings-theme-view.less";
-}
-
-/////////////////////////////
-.package-update-view {
-
-
-}
-
-
-// Package details view
+.package-config-view { @import "./settings-theme-view.less"; }
+.package-update-view {}
 .package-detail-view {
 
   .package-card {
-    flex: 1 0 100%;
-    border-width: 0 !important;
+    flex:           1 0 100%;
+    border-width:   0 !important;
     padding-bottom: 3em;
-    background: transparent;
+    background:     transparent;
 
     .package-name {
-    .h1;
-    font-weight: 100;
-    font-size: @size-pkg-name;
-    letter-spacing: -0.075em }
+      .h1;
+      font-weight: 100;
+      font-size: @size-pkg-name;
+      letter-spacing: -0.075em }
+
     .package-name:hover {
-    text-decoration: none }}
+      text-decoration: none }}
 
   .package-card:hover {
-    transform: none;
+    transform:  none;
     box-shadow: none;
     background-color: transparent }
 
   > p,
   > .link {
-    float: left;
-    padding: @settings-gutter;
-    margin: 0 !important }
+    float:      left;
+    padding:    @settings-gutter;
+    margin:     0 !important }
 
   > .btn-wrap-group {
     .btn-group;
-    clear: both;
-    padding: @settings-gutter;
+    clear:      both;
+    padding:    @settings-gutter;
     .btn {
-    margin: 0 1em 1em 0;
-    padding: 0em 1.6em;
-    display: inline-block }}
-}
+      margin:   0 1em 1em 0;
+      padding:  0em 1.6em;
+      display:  inline-block }}}
 
 
 .package-readme,
 section[title="readme"]  {
-  line-height: 1.7;
-  font-size:     1.2em;
+  line-height:     1.7;
+  font-size:       1.2em;
   img            { max-width: 100%; }
   &, *           { color: inherit; }
   h1, h2, h3, h4 { .text(heading) }
 
   h1 {
-
-  font-size: 4em;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 1em;
-  font-family: "Novecento sans wide", "Montserrat", "Helvetica Neue", "Open Sans", "Lato", "Roboto", "Cantarell", "Ubuntu", "BlinkMacSystemFont", "System Font", "Lucida Grande", "Segoe UI", "Noto Sans", sans-serif;
-  margin: 0;
-  font-weight: 100 }}
+    font-size:      4em;
+    text-transform: uppercase;
+    text-align:     center;
+    padding:        1em;
+    font-family:    "Novecento sans wide", "Montserrat", "Helvetica Neue", "Open Sans", "Lato", "Roboto", "Cantarell", "Ubuntu", "BlinkMacSystemFont", "System Font", "Lucida Grande", "Segoe UI", "Noto Sans", sans-serif;
+    margin:         0;
+    font-weight:    100 !important }}
 
 
 }

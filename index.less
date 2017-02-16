@@ -2,60 +2,60 @@
  𝘙𝘌𝘋𝘜𝘊𝘌𝘋⦧𝘋𝘈𝘙𝘒
  For more info about the loading of
  the theme's stylesheets, please see
- 𝐅𝐧 appendDependencyToVariablesStyle
+ 𝐅𝐧 setupStorage
  located in the lib/core/configuration
  /index.js file of the theme package.
                                                                                                                                                                                                                                                                                                                                                                         */
-body { background:
-       #161317
-       center center
-       url('/Users/tuomas/Projects/Atom/reduced-dark-ui/assets/logo/logo-glyph.svg')
-       no-repeat;
-
-       background-size:
-       15vh; }
+body {
+  background-size:  15vh !important;
+  background:       #161317
+                    center center
+                    url('/Users/tuomas/Projects/Atom/reduced-dark-ui/assets/logo/logo-glyph.svg')
+                    no-repeat }
 
 body::after {
-  content: "\f087";
-  font-family: 'Octicons Regular';
-  font-weight: normal;
-  font-style: normal;
+  position:     fixed;
+  display:      block;
   -webkit-font-smoothing: antialiased;
-  text-decoration: none;
-  font-size: 2em;
-  width: 3em;
-  height: 3em;
-  max-height: 3em;
-  line-height: 3em !important;
-  text-align: center;
+  font-family:  'Octicons Regular';
+  content:      "\f087";
+  font-weight:  normal;
+  font-style:   normal;
+  margin:       -1em 0 0 -1em;
+  top:          50%;
+  left:         50%;
+  font-size:    2rem;
+  width:        2em;
+  height:       2em;
+  max-height:   6em;
+  line-height:  2em     !important;
+  text-align:           center;
+  text-decoration:      none;
+  -webkit-filter:       none;
+  -webkit-text-stroke:  2px white;
+  border:               1px solid;
+  opacity:              1;
+  animation:            spin 2s linear infinite;
+  transition:           all 0s;
+  border-radius:        50% }
 
-  border: 1px solid;
-  -webkit-text-stroke: 2px white;
-  -webkit-filter: none;
-
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transform-origin: center;
-
-  display: block;
-  opacity: 1;
-  animation: spin 2s linear infinite;
-  border-radius: 50% }
-
-html[style*='font-size'] body::after {
-  font-family: Helvetica Neue, Helvetica, Roboto, Open Sans, Arial, sans-serif;
-  font-weight: 100 !important;
-  text-transform: uppercase;
-  content: "All set";
-  width: auto;
+html body[theme-active]::after {
   -webkit-text-stroke: none;
-  font-size: 4em;
-  animation: none;
-  transition:
-    opacity 2s linear 1s,
-    max-height 0s linear 3s;
-  border: none;
-  opacity: 0;
-  max-height: 0 }
+  text-transform: uppercase;
+  content:        "Welcome.";
+  font-family:    Helvetica Neue, Helvetica, Roboto, Open Sans, Arial, sans-serif;
+  font-weight:    100 !important;
+  font-size:      4rem;
+  line-height:    1em !important;
+  height:         1em !important;
+  width:          6em;
+  margin:         -0.5em 0 0 -3em;
+  overflow:       hidden;
+  width:          auto;
+  animation:      none;
+  border:         none;
+  transition:     opacity 2s linear 1s,
+                  max-height 0s linear 3s;
+  opacity:        0;
+  max-height:     0;
+  border-radius:  0 }

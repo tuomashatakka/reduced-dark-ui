@@ -1,111 +1,90 @@
 
 .headline() {
+  .text(menu);
   letter-spacing: 0.1em;
-  font-weight: 100 !important;
-  font-size: 4.8em;
-  font-size: 3em;
-  text-align: left;
+  font-weight:    100 !important;
+  font-size:      4.8em;
+  font-size:      3em;
+  line-height:    1;
+  text-align:     left;
   text-transform: uppercase;
-  border-bottom: 1px solid rgba(195, 141, 141, 0.33);
-  margin: 0;
-  padding: 0;
-}
+  border-bottom:  1px solid rgba(195, 141, 141, 0.1);
+  margin:         0;
+  padding:        @component-padding }
 
+// Tabs
 .tab-bar.inline-tabs {
-  border-top-width: 0 !important;
-}
+  position:       relative  !important }
+
+.tab-bar.inline-tabs::before {
+  display: none }
+
 .tab-bar.inline-tabs .tab {
-  box-sizing: border-box;
-  border: 1px solid transparent;
-  border-bottom-color: @base-border-color;
+  box-sizing:           border-box;
+  border:               1px solid transparent;
+  border-bottom-color:  @base-border-color;
 
   &.active {
-    border-color: @base-border-color;
-    border-bottom-color: transparent;
-    background-color: fade(@sub-background-color, 50%);
-  }
+    border-color:         @base-border-color;
+    border-bottom-color:  transparent;
+    background-color:     fade(@sub-background-color, 50%) }
 
   .icon {
     margin-top:     0.4em;
     margin-bottom: -0.4em }}
 
-> .section {
-  padding: 0;
-}
+.section {
+  padding: 0 }
+
+h1, h2 {
+  .headline }
 
 .displayed-item {
-  background-color: fade(@sub-background-color, 50%);
-  margin: 0 0 4 * @component-padding;
-}
+  background-color:       fade(@sub-background-color, 50%);
+  margin:                 0 0 4 * @component-padding;
+  padding:                @component-padding }
+
 .section-heading {
-  margin: 0;
-  padding: 0;
-  text-align: center;
+  margin:                 0;
+  padding:                0;
+  text-align:             center;
 
-  h1 { .headline }
-  h2 {
-    margin: 0;
-    padding: 0;
-    font-size: inherit !important;
+  .icon {
+    width:                2em;
+    margin-right:         @component-padding }
 
-    .icon::before {
-      font-size: inherit !important;
-      width: 1em !important;
-      position: relative !important;
-      display: inline !important;
-      float: none;
-      -webkit-text-stroke: 1px white;
-      color: transparent;
-    }
+  .icon::after {
+    border:               none !important }
 
-    .icon {
-      width: 1em;
-      margin-right: @component-padding }
-  }
+  .icon::before {
+    -webkit-text-stroke:  1px white;
+    text-shadow:          none      !important;
+    position:             relative  !important;
+    display:              inline    !important;
+    font-size:            inherit   !important;
+    width:                inherit   !important;
+    float:                none;
+    color:                transparent }
 }
-.section-heading h2 {
-  margin: 0;
-  padding: 0;
-  font-size: 4em;
-  padding: 0.2em !important;
-}
-.section-heading h2 .icon {
-  width: 3em;
-  height: 3em;
-  vertical-align: middle;
-  font-size: 0.5em;
-  line-height: 3em;
-  text-align: center;
-}
-.section-heading h2 .icon::before {
-  font-size: inherit !important;
-  width: 1em !important;
-  position: relative !important;
-  line-height: inherit !important;
-  display: inline !important;
-  text-align: center;
-  float: none;
-  -webkit-text-stroke: 1px white;
-  color: transparent;
-  vertical-align: middle;
-  font-size: 2em !important;
-  height: 1em;
-  margin: 0 !important;
-  display: block !important;
-  width: inherit !important;
-  position: relative;
-}
+
 
 .btn-group > .btn,
 .btn-toolbar > .btn {
-  border-color: fade(@base-border-color, 50%) }
+  border-color: fade(lighten(@base-border-color, 8%), 50%) }
 
-  // .package-config-view
-  .section-heading h1 { .headline }
-  .section-heading h2 { .headline }
+.settings-title,
+.settings-description {
+  z-index: 1 }
 
+.displayed-item > header {
+  padding:    4 * @component-padding
+              3 * @component-padding
+              2 * @component-padding }
 
-.displayed-item main > .section {
+.displayed-item main {
+
+  > .section {
+
   display:        flex;
   flex-flow:      row wrap;
   flex:           none;
@@ -118,110 +97,141 @@
   top:            0;
   bottom:         0;
   font-size:      1em;
-  line-height:    1.5;
-  padding:        @component-padding;
+  line-height:    @line-height;
+  padding:        @component-padding * 4;
 
-  > header {
-    display: none; }
   > *:first-child {
     flex: 1 0 100% }
-
-  .field-primary {
-    flex: 1 0 100%;
-    padding: @component-padding * 4 @component-padding * 2 }
-
-
-  .controls > [style*='flex'] {
-    align-items: center }
-  .controls .bound,
-  .controls output {
-    padding: 0 @component-padding / 2 }
-
-  .field-primary-color {
-    position: relative;
-    flex: 1 0 33.33% !important;
-    padding-bottom: 33.33%;
-    height: 16rem !important;
-    box-sizing: padding-box;}
-
-  .control-group[class*="-color"] {
-    position: relative;
-    flex: 0 0 25%;
-    padding-bottom: 25%;}
-
-  .package-container .package-card:hover {
-    background: transparent !important }}
-
-  .section .section-body .control-group {
-    flex: 1 1 50%;
-    min-width: 16em;
-    margin: 0 0 @component-padding * 2;
-    padding: @component-padding * 2 }
-
-  .control-group {
-    padding: @component-padding;
-    position: relative }
 
   .setting-description {
     padding: @component-padding / 2 0;
     font-weight: 300 }
 
+  .control-group {
+    flex: 1 1 50%;
+    min-width: 16em;
+    margin: 0 0 @component-padding * 2;
+    padding: @component-padding * 2;
+    position: relative;
+
+    &:hover {
+      color: auto;
+      background: transparent }}
+
+  .field-primary {
+    flex: 1 0 100%;
+    padding: @component-padding * 2
+             @component-padding * 2
+             @component-padding * 4 }
+
+  .controls .bound,
+  .controls output {
+    .text(subtle);
+    align-self: center;
+    flex:       1 1 0em;
+    padding:    0 @component-padding / 2 }
+
+  .controls output {
+    .text(highlight) }
+
+  .package-container .package-card:hover {
+    background: transparent !important }
+
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  ↛ Checkboxes                                                                                                                                                                                                                                                                                                                                                                 */
   .boolean-container {
     position: absolute;
-    top: 0;
+    top: 2em;
+    left: -0.35em;
 
     @{checkbox-input} {
-      margin: -3px 0 0 3px }
+      margin: -3px 0 0 3px }}
 
-}
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  ↛ Color palette config                                                                                                                                                                                                                                                                                                                                                                 */
+  .control-group[class*="-color"] {
+    // padding-bottom: 25%;
+    box-sizing: padding-box;
+    position: relative;
+    flex: 0 0 25%;
+
+    header {
+      position: relative;
+      z-index: 1 }
+
+    * {
+      transition:     color @transition-time, height 0s linear @transition-time }
+
+    &:hover  {
+      * {
+        transition:   color @transition-time, height 0s linear 0s;
+        color:        @sub-background-color !important }
+      @{color-input} {
+        height: 100% } }}
+
+  .field-primary-color {
+    // padding-bottom: 33.33%;
+    flex: 1 0 33.33% !important;
+    height: 16rem !important }
+
+  .color-container {
+    position:       absolute;
+    bottom:         0;
+    right:          0;
+    left:           0;
+    top:            0;
+
+    &:hover input {
+      height:       100%;
+
+      &,
+      & * {
+        cursor:       pointer }}}
+
+  @{color-input} {
+    position:       absolute;
+    height:         2px;
+    width:          92%;
+    left:           4%;
+    top:            0;
+    bottom:         0;
+    margin:         0;
+    padding:        0;
+    border-width:   0 !important;
+    background:     transparent !important;
+
+    &::-webkit-color-swatch-wrapper {
+      overflow:       hidden;
+      height:         inherit;
+      width:          auto;
+      padding:        0;
+      margin:         0;
+      border-radius:  0 }
+
+    &::-webkit-color-swatch {
+      transition:     height @transition-time;
+      transform:      translate(0.5px, 0.5px);
+      border-radius:  0 }}
 
 
+  }
 
-                                                                                                                                                                                                                                                                                                                                                                                /*
-↛ Color palette config                                                                                                                                                                                                                                                                                                                                                                 */
-  .settings-title,
-  .settings-description {
-    z-index: 1 }
+                                                                                                                                                                                                                                                                                                                                                                                    /*
+  ↛ Icons tab                                                                                                                                                                                                                                                                                                                                                                 */
+  &.icons-package-view > .section > .control-group {
+   flex: 1 0 33%;
+   border-radius: 2px;
+   cursor: pointer;
 
-@{color-input} {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  background: transparent !important;
-  border-width: 0 !important;
-  margin: 0;
-  padding-bottom: 100%;
+   &:hover {
+     .accent.inverse;
+     transition:  color @transition-time,
+                  background-color @transition-time;
+   }
 
-  &::-webkit-color-swatch-wrapper {
-    // margin: @component-padding / 2;
-    padding: 0;
-    margin: 0;
-    width: auto;
-    height: auto;
-    overflow: hidden;
-    border-radius: 0% }
-
-  &::-webkit-color-swatch {
-    -webkit-appearance: none;
-    transition: padding @transition-time;
-    transform: translate(0.5px, 0.5px);
-    border-radius: 0 }
-}
-
-label.control-group:hover {
-  cursor: pointer;
-  color: @base-background-color;
-
-  * {
-    cursor: pointer;
-    color: inherit;
-    transition: color @transition-time }
-
-  ::-webkit-color-swatch {
-    cursor: pointer;
-    padding-top: 100% }
+   .icon {
+     font-size: 2em;
+     display: inline-block;
+     vertical-align: middle;
+     }}
 }

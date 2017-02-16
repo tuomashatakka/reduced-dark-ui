@@ -10,7 +10,8 @@
 
 ↛ Local variables                                                                                                                                                                                                                                                                                                                                                                 */
 
-@outline-width: 0.67px;
+@outline-width: 1px;
+
 .replace(@for, @replace, @set: default) {
   @cls: ~".icon.icon-@{for}::before";
   & @{cls} when (@set = ion) { font-family: ionicons !important }
@@ -24,12 +25,28 @@
 
                                                                                                                                                                                                                                                                                                                                                                             /*
 ↛ General definitions                                                                                                                                                                                                                                                                                                                                                                 */
+
 .icon::before {
   -webkit-filter: blur(0.08px);
   -webkit-font-smoothing: antialiased;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2) }
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.05) }
 
 .replace(x, "\f404", ion);
+
+
+                                                                                                                                                                                                                                                                                                                                                                            /*
+↛ Tree view icons                                                                                                                                                                                                                                                                                                                                                               */
+
+atom-panel .tree-view.list-tree.has-collapsable-children {
+  @collapsed: ~".list-nested-item.collapsed > .list-item";
+  @expanded:  ~".list-nested-item.expanded  > .list-item";
+
+  @{expanded}::before, @{collapsed}::before {
+    transition:   transform @transition-time / 3;
+    content:      "\f078" }
+  @{collapsed}:hover::before { transform: rotate(10deg) }
+  @{expanded}:hover::before { transform: rotate(80deg) }
+  @{expanded}::before { transform: rotate(90deg) }}
 
                                                                                                                                                                                                                                                                                                                                                                             /*
 ↛ Modal icon redefinitions                                                                                                                                                                                                                                                                                                                                                               */
@@ -61,21 +78,19 @@ atom-panel.modal {
 
                                                                                                                                                                                                                                                                                                                                                                           /*
 ↛ Custom injected panel icons                                                                                                                                                                                                                                                                                                                                                               */
+
 atom-panel {
   &.left .display-icon {
-    right: -@tab-height }
-
-  &.open.left .display-icon,
-  &:hover.left .display-icon {
-    transform: translateX(-@tab-height);
-    width: 100% }
+    transform: translateX(@tab-height);
+    right: 0 }
 
   &.right .display-icon {
-    left: -@tab-height }
+    transform: translateX(-@tab-height);
+    left: 0 }
 
-  &.open.right .display-icon,
-  &:hover.right .display-icon {
-    transform: translateX(@tab-height);
+  &.open .display-icon,
+  &:hover .display-icon {
+    transform: translateX(0);
     width: 100% }
 
   .display-icon {
@@ -116,6 +131,8 @@ atom-panel {
     }
   }
 }
+
+
 .preview-icon {
   font-size: 2rem;
   vertical-align: middle;
@@ -124,19 +141,14 @@ atom-panel {
 
 .icon.icon-gear {
   &::before {
-    color: inherit;
-    -webkit-text-stroke-width: @outline-width;
-    -webkit-filter: blur(0.25px);
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-    -webkit-text-fill-color: transparent }}
+  color: inherit;
+  -webkit-text-stroke-width: @outline-width;
+  -webkit-filter: blur(0.25px);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  -webkit-text-fill-color: transparent }}
 
                                                                                                                                                                                                                                                                                                                                                                                 /*
 ↛ Settings view wrap group toggles                                                                                                                                                                                                                                                                                                                                                                 */
-.icon::before {
-  -webkit-filter: blur(0.08px);
-  -webkit-font-smoothing: antialiased;
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2) }
-
 .sub-section-heading.has-items::after {
   .icon("\f106");
   transform: rotate(0deg);

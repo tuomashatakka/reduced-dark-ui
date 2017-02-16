@@ -12,10 +12,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 .ColorPicker {
-  height: 0;
   top: 0;
   left: 0;
-  height: auto !important;
   position: absolute;
   visibility: hidden;
   opacity: 0;
@@ -23,8 +21,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   user-select: none;
   z-index: 100;
   transition: opacity .15s, visibility 0 .15s;
-  backface-visibility: hidden;
   transform-style: preserve-3d;
+
+  &:not(.is--open) {
+    height: 0 !important;
+    overflow: hidden !important }
 }
 .ColorPicker-color {
   background: red;

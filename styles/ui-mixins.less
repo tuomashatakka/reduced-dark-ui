@@ -133,31 +133,38 @@ User interaction and inputs                                                     
 Text                                                                                                                                                                                                                                                                                                                                                                 */
 
 .text() {           .text(normal) }
-.text(highlight) {  .text(normal); color: @text-color-highlight; font-size: inherit }
-.text(selected) {   .text(normal); color: @text-color-selected; font-size: inherit }
-.text(subtle) {     .text(normal); color: @text-color-subtle; font-size: inherit }
+.text(highlight) {  .text(normal); color: @text-color-highlight;  font-size: inherit }
+.text(selected) {   .text(normal); color: @text-color-selected;   font-size: inherit }
+.text(hover) {      .text(normal); color: @text-color-hover }
+.text(subtle) {     .text(normal); color: @text-color-subtle;     font-size: inherit }
+.text(minor) {      .text(normal); color: @text-color-minor }
 .text(info) {       .text(normal); color: @text-color-info }
 .text(success) {    .text(normal); color: @text-color-success }
 .text(warning) {    .text(normal); color: @text-color-warning }
+.text(ignored) {    .text(normal); color: mix(@text-color-subtle, @base-background-color) }
 .text(error) {      .text(normal); color: @text-color-error }
+.text(added) {      .text(success); color: @text-color-added }
+.text(removed) {    .text(error); color: @text-color-removed }
+.text(renamed) {    .text(warning); color: @text-color-renamed }
+.text(modified) {   .text(warning); color: @text-color-modified }
 .text(normal) {
   color:            @text-color;
   font-family:      @__uiFont, @font-family;
   font-size:        inherit;
   font-size:        @font-size;
   font-weight:      300;
-  font-weight:      @font-weight !important }
+  font-weight:      @font-weight }
 
 .text(heading) {
   color:            @text-color;
   font-family:      @font-family-menu;
-  font-weight:      @font-weight !important }
+  font-weight:      @font-weight }
 
 .text(caps) {
   font-size:   unit(@size-tiny, rem);
   color:            @text-color;
   font-family:      @font-family-caps;
-  font-weight:      @font-weight !important;
+  font-weight:      @font-weight;
   text-transform:   uppercase;
   letter-spacing:   0.1em; }
 
@@ -178,13 +185,12 @@ Overlay                                                                         
 .overlay-shadow() {
   box-shadow: 0.2rem 0.4rem 2rem 0 rgba(0, 0, 0, 0.33) !important }
 
-
-.icon(@content) {
-  color: @text-color-subtle;
-  font-family: FontAwesome;
+.icon(@content, @iconset: FontAwesome) {
   -webkit-font-smoothing: antialiased;
-  content: @content;
-  transition: all @transition-time }
+  color:        @text-color-subtle;
+  content:      @content;
+  font-family:  @iconset;
+  transition:   all @transition-time }
 
 
 /*&::before {
@@ -202,19 +208,18 @@ Overlay                                                                         
 .displayicon() {
   @size: 1.5em;
   @scale: 0.75;
-
-  border-color:     auto;
-
   width:            @size;
   height:           @size;
   line-height:      @size;
   margin-right:     @component-padding / 4;
-  position:         relative;
+  border-color:     auto;
   vertical-align:   middle;
   text-align:       center;
+  position:         relative;
   box-sizing:       content-box;
 
   &::after {
+    content:        "";
     position:       absolute;
     top:            0;
     left:           0;
@@ -222,22 +227,21 @@ Overlay                                                                         
     bottom:         0;
     border:         1px solid;
     border-radius:  50%;
-    content:        "";
     opacity:        0.4 }
 
   &::before {
     font-size: unit(@scale, em);
-    position: absolute;
-    line-height: inherit;
-    text-align: center;
-    display: block;
-    width: auto;
-    height: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 }}
+    position:       absolute;
+    line-height:    inherit;
+    text-align:     center;
+    display:        block;
+    width:          auto;
+    height:         auto;
+    top:            0;
+    bottom:         0;
+    left:           0;
+    right:          0;
+    margin:         0 }}
 
                                                                                                                                                                                                                                                                                                                                                                              /*
 Colors & accent                                                                                                                                                                                                                                                                                                                                                              */
@@ -246,9 +250,13 @@ Colors & accent                                                                 
 .state(warning) {   background-color: @background-color-warning;  color: @text-color-warning }
 .state(info) {      background-color: @background-color-info;     color: @text-color-info }
 .state(success) {   background-color: @background-color-success;  color: @text-color-success }
+
 .state(added) {     &.modified, & .status-added {                 color: @text-color-added }}
 .state(modified) {  &.modified, & .status-modified {              color: @text-color-modified }}
-.state(ignored) {   &.ignored, & .status-ignored {                color: @text-color-ignored }}
+.state(ignored) {   &.ignored,  & .status-ignored {               color: @text-color-ignored }}
+.state(renamed) {   &.renamed,  & .status-renamed {               color: @text-color-renamed }}
+.state(removed) {   &.removed,  & .status-removed {               color: @text-color-removed }}
+
 .state(@class, @type) {
   @selector: ~".@{class}-@{type}";
   @selector2: ~".@{class}-default.@{class}-@{type}";
@@ -257,6 +265,7 @@ Colors & accent                                                                 
   @selector {
     background-color: @@bg;
     color: @@col }}
+
 
 .accent(@state: normal) {
   @color: @color-highlight;
@@ -273,6 +282,9 @@ Colors & accent                                                                 
   &:hover, &:focus { color: lighten(@color, 5%) }
 
   &.inverse {
+    @color: @color-highlight;
+    @light: @col-lighter;
+    @dark: @col-dark;
     background-color: @color;
 
     & when (lightness(@color) < 0.5) { &, &:focus, &:active {

@@ -64,7 +64,9 @@ Text                                                                            
 @text-color:                           @tinted-lighter;
 @text-color-selected:                  @color-main;
 @text-color-highlight:                 @color-highlight;
+@text-color-hover:                 mix(@color-main, @color-highlight, 25%);
 @text-color-ignored:                   @text-color-subtle;
+@text-color-minor:                 mix(@text-color, @text-color-subtle);
 @text-color-subtle:               fade(@text-color, 40%);
 
 @text-color-info:                      @color-info;

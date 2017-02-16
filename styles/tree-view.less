@@ -16,41 +16,49 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 .list-tree,
 .list-group,
 .tree-view {
-  font-size: @font-size;
-  background: @tree-view-background-color;
-  padding: 0;
-  position: relative;
+  position:     relative;
+  font-size:    @font-size;
+  background:   @tree-view-background-color;
+  padding:      0;
 
   > li.separator {
     border-width: 0 }
 
   .directory.selected::before {
-    width: inhert;
-    background: transparent !important }
+    width:        inhert;
+    background:   transparent !important }
 
   .project-root {
-    transition: opacity @transition-time;
+    transition:     opacity @transition-time;
     padding-bottom: @component-padding / 2 }
 
   .project-root-header {
-    color: @text-color-highlight;
-    border-bottom: 1px solid transparent;
+    color:          @text-color-highlight;
+    border-bottom:  1px solid transparent;
 
     span {
-      color: @text-color-subtle }
+      color:        @text-color-subtle }
 
     .name {
       .h3;
-      font-weight: 100;
-      color: inherit;
-      height: @tab-height;
-      line-height: @tab-height }
+      font-weight:    100;
+      color:          inherit;
+      height:         @tab-height;
+      line-height:    @tab-height }
+
+    // Root folder/repo icons
+    .icon-repo::before {
+      .icon("\f380", ionicons);
+      width:          1em;
+      color:          inherit !important;
+      line-height:    inherit;
+      vertical-align: middle }
 
     &::before {
-      margin-left: 16px;
-      color: inherit;
-      transition: all @transition-time ease;
-      opacity: 0.25 }
+      margin-left:    1em;
+      color:          inherit;
+      transition:     all @transition-time ease;
+      opacity:        0.25 }
 
     &:hover::before {
       opacity: 1 }}

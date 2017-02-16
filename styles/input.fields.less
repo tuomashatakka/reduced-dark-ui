@@ -15,7 +15,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 //   font-family: "FontAwesome" }
 
 atom-workspace {
-  input, select, @{select-input}, @{txt-input}, @{txtarea-input} {
+  input,
+  select,
+  @{select-input},
+  @{txt-input},
+  @{txtarea-input} {
     background:     @input-background-color !important;
     border-color:   @input-background-color !important;
     border-radius:  @button-border-radius !important;
@@ -172,17 +176,15 @@ Select Forms                                                                    
     cursor: pointer !important;
     position: relative;
     box-sizing: content-box }
-  ::-webkit-slider-container {
-  // &::-webkit-media-slider-container
-  }
+
   &::-webkit-slider-runnable-track {
-    background-color: fade(@sub-background-color, 50%);
+    background-color: fade(@sub-background-color, 0%);
     height: @component-padding * 3;
     -webkit-appearance: none;
     box-shadow: none;
     border: none;
     margin: 0 }
-  // &::-webkit-media-slider-thumb
+
   &::-webkit-slider-thumb {
     box-shadow: 1px 0px @component-padding * 1.5 @sub-background-color;
     border: @component-padding solid @sub-background-color;
