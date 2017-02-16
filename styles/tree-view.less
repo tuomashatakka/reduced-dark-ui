@@ -40,18 +40,18 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       color:        @text-color-subtle }
 
     .name {
-      .h3;
+      .h1;
       font-weight:    100;
-      color:          inherit;
-      height:         @tab-height;
-      line-height:    @tab-height }
+      font-size:      2em         !important;
+      height:         @tab-height !important;
+      line-height:    @tab-height !important }
 
     // Root folder/repo icons
     .icon-repo::before {
       .icon("\f380", ionicons);
+      font-size:      2em;
       width:          1em;
       color:          inherit !important;
-      line-height:    inherit;
       vertical-align: middle }
 
     &::before {

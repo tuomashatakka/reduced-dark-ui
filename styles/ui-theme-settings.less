@@ -19,7 +19,7 @@ Tab alignment                                                                   
 
 .tab-bar when (@__tabPosition = "Left")     { justify-content: flex-start }
 .tab-bar when (@__tabPosition = "Center")   { justify-content: center }
-.tab-bar when (@__tabPosition = "Right")    { justify-content: flex-end; flex-basis: none }
+.tab-bar when (@__tabPosition = "Right")    { justify-content: flex-start; flex-basis: none; flex-direction: row-reverse }
 .tab-bar when (@__tabPosition = "Stretch")  {
   justify-content: flex-start;
 
