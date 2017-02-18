@@ -186,11 +186,12 @@ Select Forms                                                                    
     margin: 0 }
 
   &::-webkit-slider-thumb {
-    box-shadow: 1px 0px @component-padding * 1.5 @sub-background-color;
+    box-shadow: 1px 0px @component-padding * 1.5 var(--background-base);
     border: @component-padding solid @sub-background-color;
     margin: -(3 * @component-padding - @size) / 3 0;
     background: @text-color-info;
     border-radius: 50%;
+    border-color: var(--background-base);
     width: @size;
     height: @size;
     outline: none;

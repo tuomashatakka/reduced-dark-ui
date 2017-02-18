@@ -12,8 +12,10 @@ Workspace                                                                       
 @blur-intensity: 6px;
 
 html {
-  background: @app-background-color;
-  font-size: @font-size;
+  --background-base: @sub-background-color;
+  --text-size: @font-size;
+  background: var(--background-base);
+  font-size: var(--text-size);
   line-height: @line-height }
 
 // * {
