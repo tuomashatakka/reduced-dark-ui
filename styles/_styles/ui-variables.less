@@ -41,13 +41,13 @@ Tints                                                                           
 
                                                                                                                                                                                                                                                                                                                                                                           /*
 Main palette                                                                                                                                                                                                                                                                                                                                                             */
-@color-main:                       mix(@tinted-white,   @__primary,    80%);
-@color-info:                       mix(@tinted-light,   @__primary,    50%);
-@color-highlight:                  mix(@tinted-lighter, @__primary,    10%);
-@color-success:                    mix(@__primary,      @__success,    50%);
-@color-warning:                    mix(@__accentColor,  @__warning,    50%);
-@color-annotation:                 mix(@__accentColor,  @__annotation, 50%);
-@color-error:                      mix(@__accentColor,  @__error,      50%);
+@color-main:                       mix(@tinted-white, @__primary, 75%);
+@color-highlight:                  mix(@tinted-lighter, @__primary, 25%);
+@color-info:                       mix(@tinted-light, @__accentColor, 50%);
+@color-success:                    mix(@tinted-light, @__success, 50%);
+@color-annotation:                 mix(@tinted-light, @__annotation, 75%);
+@color-warning:                    mix(@tinted-light, @__warning, 75%);
+@color-error:                      mix(@tinted-light, @__error, 75%);
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Base / backfase                                                                                                                                                                                                                                                                                                                                                                    */
@@ -78,11 +78,11 @@ Text                                                                            
 @text-color-removed:                   @color-annotation;
 @text-color-error:                     @color-error;
 
-@background-color-info:            mix(@base-background-color, @color-info,       60%);
-@background-color-success:         mix(@base-background-color, @color-success,    60%);
-@background-color-warning:         mix(@base-background-color, @color-warning,    60%);
-@background-color-annotation:      mix(@base-background-color, @color-annotation, 60%);
-@background-color-error:           mix(@base-background-color, @color-error,      60%);
+@background-color-success:         saturate(mix(@base-background-color, @color-success,    40%), 50%);
+@background-color-info:            saturate(mix(@base-background-color, @color-info,       40%), 50%);
+@background-color-warning:         saturate(mix(@base-background-color, @color-warning,    40%), 50%);
+@background-color-annotation:      saturate(mix(@base-background-color, @color-annotation, 50%), 50%);
+@background-color-error:           saturate(mix(@base-background-color, @color-error,      50%), 50%);
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Components                                                                                                                                                                                                                                                                                                                                                              */
@@ -134,7 +134,7 @@ Components                                                                      
 @gutter-text-color-selected:           @text-color-selected;
 
 @input-background-color-active:               @tinted-white;
-@input-background-color-highlight:    lighten(@tinted-white,        8%);
+@input-background-color-highlight:    lighten(@tinted-white,  8%);
 @selection-text-color:                lighten(@__accentColor, 12%);
 @selection-background-color:          fade(@__accentColor,    60%);
                                                                                                                                                                                                                                                                                                                                                                         /*

@@ -30,46 +30,30 @@ atom-text-editor .gutter-container * {
 @{editor},
 @{editor-alt} {
   .inputfield(field);
-  transition: all @transition-time ease;
   color: @input-text-color;
   border: 1px solid mix(@input-background-color, @input-background-color-active, 75%);
-  border-radius: @button-border-radius;
-  padding: @component-padding / 2 @component-padding;
+  transition: color @transition-time, background-color @transition-time;
+  overflow: hidden;
+  border-radius: @input-height / 2;
   height: @input-height;
   max-height: @input-height;
   line-height: @input-height - @component-padding;
-  overflow: hidden;
+  padding: @component-padding / 2 @component-padding;
 
-  .text,
-  .source {
-    transition: color @transition-time;
-    color: inherit }
-
-  .placeholder-text {
-    .text(subtle);
-    height: inherit;
-    line-height: inherit;
-    box-sizing: border-box }
-
-  .cursor {
-    border-color: @text-color-highlight }
+  .cursor { border-color: @text-color-highlight }
+  .text, .source { transition: color @transition-time; color: inherit }
+  .placeholder-text { .text(subtle) }
 
   &:hover {
     background-color: mix(@input-background-color, @input-background-color-active, 75%);
     color: @text-color-highlight }
 
-  &.is-focused {
+  &[mini].is-focused {
     border-color: @input-border-color;
     background-color: @input-background-color-active;
+    .text, .source { color: @input-text-color-active }
+    .selection .region { background-color: fade(@__accentColor, 80%); border-radius: 2px !important }
+    &:hover { border-color: auto;
+      background-color: @input-background-color-active }}
 
-    .text,
-    .source {
-      color: @input-text-color-active }
-
-    &:hover {
-      border-color: auto;
-      background-color: @input-background-color-active }
-
-    .selection .region {
-      background-color: fade(@__accentColor, 80%) }}
 }

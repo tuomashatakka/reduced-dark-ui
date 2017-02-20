@@ -32,9 +32,7 @@ atom-panel.modal,
     font-weight: 200 }
 
   atom-text-editor.mini,
-  atom-text-editor.mini.editor,
-  atom-text-editor[mini],
-  atom-text-editor[mini].editor {
+  atom-text-editor[mini] {
 
     @air:               @component-padding * 2;
     @line:              unit(@air, em);
@@ -55,18 +53,20 @@ atom-panel.modal,
     border-bottom:      0px solid @base-border-color;
     box-shadow:         none;
 
-    .text {
-      color: inherit }
+    .text { color: inherit }
     .cursor {
       margin-top: 0.45em;
       border-color: initial;
       height: 1.2em !important }
 
+    &.is-focused,
     &.is-focused:hover,
     &:hover {
-      border-bottom: p1px solid @base-border-color !important;
-      border-width: 0 0 0 1px !important;
-      background-color: transparent !important }}
+      &, .text, .source {
+        border-bottom: 1px solid @base-border-color !important;
+        color: @text-color-highlight !important;
+        border-width: 0 0 0 1px !important;
+        background-color: transparent !important }}}
 
   &.from-top { top: 5vh }
 
