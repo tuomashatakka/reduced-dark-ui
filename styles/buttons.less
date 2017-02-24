@@ -21,7 +21,8 @@ button.icon,
     line-height:  inherit !important }
 
 
-  &:focus, &:active:focus {
+  &:focus,
+  &:active:focus {
     outline: 0;
     border: 1px solid @text-color-selected !important }
 
@@ -38,7 +39,7 @@ button.icon,
     line-height: @button-height }
 
   &.btn-lg {
-    font-size: @size-large;
+    font-size: 1em;
     padding: 0 @component-padding;
     height: @button-height * 2;
     line-height: @button-height * 2 }
@@ -55,10 +56,10 @@ button.icon,
     vertical-align: middle;
     color: inherit }}
 
-  &.btn-info, &.btn-primary { .button-variant(@text-color-info) }
-  &.btn-success { .button-variant(@text-color-success) }
-  &.btn-warning { .button-variant(@text-color-warning) }
-  &.btn-error { .button-variant(@text-color-error) }
+  &.btn-info, &.btn-primary { .button-variant(@background-color-info) }
+  &.btn-success { .button-variant(@background-color-success) }
+  &.btn-warning { .button-variant(@background-color-warning) }
+  &.btn-error { .button-variant(@background-color-error) }
   &.status-indicator { border-width: 0 !important }}
                                                                                                                                                                                                                                                                                                                                                                         /*
 ↛ Toolbars and grouped buttons                                                                                                                                                                                                                                                                                                                                                                 */
@@ -69,21 +70,20 @@ button.icon,
 
   > .btn.icon::before {
     margin: -1px 0 0 }}
-
-.btn-toolbar > .btn {
-  border-color: fade(@base-border-color, 50%) }
+//
+// .btn-toolbar > .btn {
+//   border-color: fade(@base-border-color, 50%) }
 
 .btn-group,
-button .btn-toolbar {
+.btn-toolbar {
   height: @button-height !important;
-  border: 0;
+  border-width: 0;
+  border-color: mix(@base-background-color, @button-border-color, 75%);
   margin: 0px;
 
-  > .btn {
-    height: 100% }
-
-  .btn:hover {
-    border-color: transparent !important }
+  > .btn:not(.selected):not(:hover) {
+    height: 100%;
+    border-color: inherit !important }
 
   .btn:first-child {
     border-left-width: 1px !important;
@@ -94,26 +94,25 @@ button .btn-toolbar {
   .btn:last-child {
     border-right-width: 1px !important;
     border-right-style: solid !important;
-    border-top-right-radius: @button-border-radius;
-    border-bottom-right-radius: @button-border-radius }
+    border-top-right-radius: @button-border-radius !important;
+    border-bottom-right-radius: @button-border-radius !important }
 
   .btn-toolbar > & {
     border-radius: @button-border-radius;
     line-height: @button-height;
     overflow: hidden;
-    margin: 0 1px;
+    margin: 0 1px 1px 0;
     border: 0 solid fade(@base-border-color, 75%);
 
     & > .btn {
       border-width: 0;
-      margin: 1px;
+      margin: 0 1px 1px 0;
       line-height: @button-height;
       border-radius: @button-border-radius !important }}}
 
 
 .meta-controls .btn-toolbar {
   @w: @button-height - @component-padding !important;
-
   margin: 0 auto;
 
   > .btn-group {
@@ -152,22 +151,25 @@ button .btn-toolbar {
   padding-top:    @button-height * 0.2 !important;
   padding-bottom: @button-height * 0.2 !important }
 
-button:first-child,
-button.icon:first-child,
-.btn-default:first-child,
-.btn:first-child {
-  border-top-left-radius: 3.6rem;
-  border-bottom-left-radius: 3.6rem;
-}
-
 :root {
-  x: --webkit-var("kakka")
-}
+  x: --webkit-var("kakka") }
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+↛ Rounding for edge cases                                                                                                                                                                                                                                                                                                                                                                 */
+
+button:first-of-type,
+button.icon:first-of-type,
+.btn-default:first-of-type,
+.btn:first-of-type {
+  border-top-left-radius: 3.6rem;
+  border-bottom-left-radius: 3.6rem }
 
 button:last-of-type,
 button.icon:last-of-type,
 .btn-default:last-of-type,
-.btn:last-of-type {
+.btn:last-of-type:not,
+.btn.selected:last-of-type,
+.btn-group:last-of-type,
+.btn-group.selected:last-of-type {
   border-top-right-radius:    3.6rem;
-  border-bottom-right-radius: 3.6rem;
-}
+  border-bottom-right-radius: 3.6rem }

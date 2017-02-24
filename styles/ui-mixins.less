@@ -36,27 +36,37 @@ Buttons                                                                         
   border-width:     1px       !important;
   border-style:     solid     !important;
   box-shadow:       none      !important;
-  transition:       all       @transition-time / 2;
+  transition:       all       @transition-time / 3;
   box-sizing:       content-box;
 
   &.icon::before {
     font-size:      inherit;
-    color:          inherit;
+    color:          inherit !important;
     vertical-align: middle }
 
-  &:active, &:active:focus,
   &.selected:hover,
-  &:focus, &:hover {
-    outline:          none;
-    background:       @color;
-    color:            @color-alt  !important;
-    border-color:     @color-alt  !important;
+  &:hover {
+    transition-duration: @transition-time / 6;
+    outline:          none        !important;
+    background:       @color      !important;
+    color:            @color-alt - #111  !important;
+    border-color:     @color - #111      !important;
     border-width:     1px         !important;
     border-style:     solid       !important }
 
-  &.selected {
-    color:            @color-alt;
-    background:       @button-background-color-selected;
+  &:active,
+  &:focus {
+    outline:          none        !important;
+    color:            @text-color !important;
+    background:       mix(@button-background-color, @color-alt);
+    border-color:     mix(@button-background-color, @color-alt) !important }
+
+  &.selected,
+  &.selected:active:focus,
+  &.selected:focus,
+  &.selected:active {
+    color:            @color-alt !important;
+    background:       @button-background-color-selected !important;
     border:           1px solid @color !important }
 
   &[disabled], &.disabled {
