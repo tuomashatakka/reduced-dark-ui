@@ -11,15 +11,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 Workspace                                                                                                                                                                                                                                                                                                                                                               */
 @blur-intensity: 6px;
 
-html {
-  --background-base: @sub-background-color;
-  --text-size: @font-size;
-  background: var(--background-base);
-  font-size: var(--text-size);
-  line-height: @line-height }
 
-// * {
-//   font-size: inherit }
+html {
+  background: var(--background-color);
+  font-size: var(--text-size);
+  line-height: var(--line-height) }
 
 atom-workspace {
   animation-name: prelude;
@@ -29,10 +25,8 @@ atom-workspace {
   overflow: hidden;
   position: relative }
 
-
-// Blur for the modal bg
 atom-workspace {
-  background: darken(@app-background-color, 0.4%);
+  background-color: var(--background-color);
   transition: background 1.2s;
   //background-image: @gradient !important;
 
@@ -44,19 +38,20 @@ atom-workspace {
       margin @transition-time }
 
   atom-workspace-axis.vertical when (@__collapsing = left) {
-    margin-left: @tab-height }
+    margin-left: var(--size) }
 
   atom-workspace-axis.vertical when (@__collapsing = right) {
-    margin-right: @tab-height }
+    margin-right: var(--size) }
 
   atom-workspace-axis.vertical when (@__collapsing = both) {
-    margin-right: @tab-height;
-    margin-left: @tab-height }
+    margin-right: var(--size);
+    margin-left: var(--size) }
 
   atom-workspace-axis.horizontal {
     width: 100vw;
     overflow: hidden }}
 
+// Blur for the modal bg
 .modal-open {
   atom-panel-container.footer,
   atom-workspace-axis.horizontal {
@@ -75,10 +70,10 @@ Badges & Keybinding Badges                                                      
 kbd,
 .settings-view .package-readme kbd {
   .text(normal);
-  color: @tooltip-key-text-color;
-  background: @tooltip-key-background-color;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  background: var(--background-color);
   font-size: 90%;
-  border: 1px solid @tooltip-key-text-color;
   border-radius: @component-border-radius;
   margin-left: @component-padding/2 }
 
@@ -89,9 +84,9 @@ kbd,
 
   &.error { .state(error) }
 
-  &.info, &.success, &.warning, &.error,
+  &, &.info, &.success, &.warning, &.error,
   &.badge-info, &.badge-success, &.badge-warning, &.badge-error {
-    color: @tooltip-key-text-color }
+    color: var(--text-color) }
 }
                                                                                                                                                                                                                                                                                                                                                                         /*
 Scrollbars                                                                                                                                                                                                                                                                                                                                                                 */

@@ -9,63 +9,47 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
+
+
 .tooltip {
   white-space: nowrap;
+  color: var(--text-color);
 
   .keystroke {
     .text(normal);
-    color: @tooltip-key-text-color;
-    background: @tooltip-key-background-color;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-color: auto;
     font-size: 0.9em;
-    border: 1px solid @tooltip-key-text-color;
+    border: 1px solid;
     border-radius: @component-border-radius/2;
-    padding: 2px 4px;
-  }
+    padding: 2px 4px }
 
   &.in {
-    opacity: 1;
-  }
+    opacity: 1 }
 
   .tooltip-inner {
+    .overlay-shadow();
     .text(normal);
+    background-color: var(--background-color);
+    color: inherit;
     line-height: @component-line-height;
     border-radius: @component-border-radius;
-    background-color: @tooltip-background-color;
-    color: @tooltip-text-color !important;
     white-space: nowrap;
-    max-width: none;
-    .overlay-shadow();
-  }
+    max-width: none }
 
-  &.top .tooltip-arrow {
-    border-top-color: @tooltip-background-color;
-  }
+  .tooltip-arrow {
+    border-color: transparent }
 
-  &.top-left .tooltip-arrow {
-    border-top-color: @tooltip-background-color;
-  }
+  &[class*='bottom'] .tooltip-arrow {
+    border-bottom-color: var(--background-color) }
 
-  &.top-right .tooltip-arrow {
-    border-top-color: @tooltip-background-color;
-  }
+  &[class*='top'] .tooltip-arrow {
+    border-top-color: var(--background-color) }
 
   &.right .tooltip-arrow {
-    border-right-color: @tooltip-background-color;
-  }
+    border-right-color: var(--background-color) }
 
   &.left .tooltip-arrow {
-    border-left-color: @tooltip-background-color;
-  }
-
-  &.bottom .tooltip-arrow {
-    border-bottom-color: @tooltip-background-color;
-  }
-
-  &.bottom-left .tooltip-arrow {
-    border-bottom-color: @tooltip-background-color;
-  }
-
-  &.bottom-right .tooltip-arrow {
-    border-bottom-color: @tooltip-background-color;
-  }
+    border-left-color: var(--background-color) }
 }

@@ -9,14 +9,13 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-body { font-weight: 400 }
+body {
+  font-weight: 400 }
 
  h1,  h2,  h3,  h4,  h5,  h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-
   .text(heading);
-  small { font-weight: 100 }
-}
+  small { font-weight: 100 }}
 
 h1, .h1 { font-size: 2em }
 h2, .h2 { font-size: 1.75em }
@@ -33,30 +32,25 @@ h6, .h6 { font-size: 1em }
 .text-warning { .text(warning) }
 .text-error { .text(error) }
 
-.highlight { .highlight-type(@text-color) }
-.highlight-info { .highlight-type(@text-color-info) }
-.highlight-success { .highlight-type(@text-color-success) }
-.highlight-warning { .highlight-type(@text-color-warning) }
-.highlight-error { .highlight-type(@text-color-error) }
-
-.highlight-type(@color) {
+.highlight, *[class*='highlight-'] {
   .text(normal);
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: inherit !important;
   padding-left: @component-padding / 2;
   padding-right: @component-padding / 2;
-  color: @base-background-color !important;
-  border-radius: @component-border-radius;
-  background-color: @color }
+  border-radius: @component-border-radius }
 
 pre {
+  // border-color: @base-border-color;
   .text(normal);
-  border-color: @base-border-color;
-  border-width: 0;
-  background: @base-background-color }
+  border-width: 0 }
 
 code {
   padding: 2px 4px;
   font-size: 0.9em;
-  color: @text-color-info;
-  background-color: @base-border-color;
   border-radius: 4px }
+
+pre, code {
+  background-color: var(--background-color);
+  color: var(--text-color) }

@@ -9,10 +9,22 @@
 
 
 ↛ Local variables                                                                                                                                                                                                                                                                                                                                                                 */
+.icon {
+  --border-color: fade(@text-color-subtle, 7.5%) }
+
+.display-icon {
+  --background-color: @base-border-color;
+  --text-color: @text-color;
+  --padding: @tab-height / 8;
+  --size: @tab-height;
+  --scale: 2em }
+
+.preview-icon {
+  --scale: 2em }
 
 @outline-width: 1px;
 
-.replace(@for, @replace, @set: default) {
+.apply-icon(@for, @replace, @set: default) {
   @cls: ~".icon.icon-@{for}::before";
   & @{cls} when (@set = ion) { font-family: ionicons !important }
   & @{cls} when (@set = fa) {  font-family: FontAwesome, "Font Awesome", "font-awesome" !important }
@@ -20,18 +32,18 @@
     color: inherit      !important;
     font-size: inherit  !important;
     content: @replace   !important;
-    &:hover {
-      background: none }}}
+    &:hover { background: none }}}
 
                                                                                                                                                                                                                                                                                                                                                                             /*
 ↛ General definitions                                                                                                                                                                                                                                                                                                                                                                 */
-
 .icon::before {
   -webkit-filter: blur(0.08px);
   -webkit-font-smoothing: antialiased;
+  color: inherit;
+  background-color: transparent;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.05) }
 
-.replace(x, "\f404", ion);
+.apply-icon(x, "\f404", ion);
 
 
                                                                                                                                                                                                                                                                                                                                                                             /*
@@ -40,16 +52,22 @@
 atom-panel .tree-view.list-tree.has-collapsable-children {
   @collapsed: ~".list-nested-item.collapsed > .list-item";
   @expanded:  ~".list-nested-item.expanded  > .list-item";
-
-  @{expanded}::before, @{collapsed}::before {
-    transition:   transform @transition-time / 3;
-    content:      "\f078" }
+  @{expanded}::before { transform: rotate(90deg) }
   @{collapsed}:hover::before { transform: rotate(10deg) }
   @{expanded}:hover::before { transform: rotate(80deg) }
-  @{expanded}::before { transform: rotate(90deg) }}
+  @{expanded}::before,
+  @{collapsed}::before {
+    transition:   transform var(--anim-duration);
+    content:      "\f078" }}
 
                                                                                                                                                                                                                                                                                                                                                                             /*
 ↛ Modal icon redefinitions                                                                                                                                                                                                                                                                                                                                                               */
+atom-panel.modal > div atom-text-editor[mini]::before {
+  --padding:    @component-padding;
+  --left:  -2 * @component-padding;
+  --text-color: @text-color-subtle }
+
+
 atom-panel.modal {
   .icon(command-palette,   '\f449', ion);
   .icon(encoding-selector, "\f094", default);
@@ -62,18 +80,17 @@ atom-panel.modal {
   & > div @{icon} {
     font-family:    "Octicons Regular";
     content:        "\f011";
-    color:          @text-color-subtle;
-    padding-right:  @component-padding;
-    border-right:   0.5px solid fade(@text-color-subtle, 7.5%);
-    margin:         0 @component-padding 0 -@component-padding * 2;
+    color:          var(--text-color);
+    padding-right:  var(--padding);
+    border-right:   0.5px solid var(--border-color);
+    margin:         0 var(--padding) 0 var(--left);
     -webkit-font-smoothing: subpixel-antialiased }
 
   .icon(@for, @replace, @set: default) {
     @cls: ~"> .@{for} @{icon}";
     & @{cls} when (@set = ion) { font-family: ionicons }
     & @{cls} when (@set = fa) {  font-family: FontAwesome, "Font Awesome", "font-awesome" }
-    & @{cls} {
-       content: @replace }}}
+    & @{cls} { content: @replace }}}
 
 
                                                                                                                                                                                                                                                                                                                                                                           /*
@@ -81,11 +98,11 @@ atom-panel.modal {
 
 atom-panel {
   &.left .display-icon {
-    transform: translateX(@tab-height);
+    transform: translateX(var(--size));
     right: 0 }
 
   &.right .display-icon {
-    transform: translateX(-@tab-height);
+    transform: translateX(-var(--size));
     left: 0 }
 
   &.open .display-icon,
@@ -95,25 +112,21 @@ atom-panel {
 
   .display-icon {
     .selection(disabled);
-    position: absolute;
-    padding: @tab-height / 8;
-    width: @tab-height;
-    min-width: @tab-height;
-    height: @tab-height !important;
-    line-height: @tab-height;
     top: 0;
-    text-align: center;
-    font-size: 2em;
-    color: @text-color;
     z-index: 1000;
-    box-sizing: border-box;
-    background-color: fade(@text-color, 1%);
-    background-color: inherit;
+    position: absolute;
+    box-sizing: content-box;
+    text-align: center;
+    width: var(--size);
+    height: var(--size) !important;
+    min-width: var(--size);
+    line-height: var(--size);
+    padding: var(--padding);
+    font-size: var(--scale);
+    color: var(--text-color);
     background-color: transparent;
     transform: translateX(0);
-    transition:
-        transform @transition-time,
-        width @transition-time;
+    transition: transform var(--anim-duration), width var(--anim-duration);
     transition-timing-function: @transition-curve;
 
     &::before {
@@ -123,36 +136,27 @@ atom-panel {
       display: block;
       text-align: center;
       width: auto;
-      height: initial !important;
-      line-height: @tab-height * 3/4;
-      border-radius: @tab-height / 2;
+      height: var(--size) !important;
+      line-height: var(--size);
+      border-radius: 50em;
       transition-timing-function: @transition-curve;
-      background: @base-border-color;
-    }
-  }
-}
+      background: var(--background-color) }}}
 
 
 .preview-icon {
-  font-size: 2rem;
+  font-size: var(--scale);
   vertical-align: middle;
   padding: 0 1rem }
 
-
 .icon.icon-gear {
-  &::before {
-  color: inherit;
-  -webkit-text-stroke-width: @outline-width;
-  -webkit-filter: blur(0.25px);
-  text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
-  -webkit-text-fill-color: transparent }}
+  .outline-icon }
 
                                                                                                                                                                                                                                                                                                                                                                                 /*
 ↛ Settings view wrap group toggles                                                                                                                                                                                                                                                                                                                                                                 */
 .sub-section-heading.has-items::after {
   .icon("\f106");
   transform: rotate(0deg);
-  transform-origin: center;
+  transform-origin: center }
 
-  .collapsed & {
-  transform: rotate(180deg) }}
+.collapsed .sub-section-heading.has-items::after {
+  transform: rotate(180deg) }

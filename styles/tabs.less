@@ -9,7 +9,14 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka
 
 
 
+✕ Coloring                                                                                                                                                                                                                                                                                                                                                          */
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
 ✕ Namespace                                                                                                                                                                                                                                                                                                                                                          */
+
 .tab-bar {
 
 
@@ -22,6 +29,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka
 @horizontal-padding:  @tab-height / 2;
 @vertical-padding:    @tab-height - 2 * @line;
 @border:              1px 0 0;
+--background-color:   transparent;
 
 justify-content:      center;
 height:               @tab-height;
@@ -32,6 +40,8 @@ overflow-x:           auto;
 overflow-y:           hidden;
 border-radius:        0 !important;
 -webkit-transform:    scale(1);
+background:           var(--background-color);
+color:                var(--text-color);
 
 
                                                                                                                                                                                                                                                                                                                                                                           /*
@@ -39,9 +49,10 @@ border-radius:        0 !important;
 
 .tab {
   .text(normal);
+  background:       var(--background-color);
+  color:            var(--text-color);
 
   font-size:        0.92em;
-  background:       transparent;
   max-width:        none;
   width:            auto;
   display:          block;
@@ -50,13 +61,15 @@ border-radius:        0 !important;
   box-sizing:       border-box;
   border-style:     solid;
 
-  color:            @text-color-subtle;
   flex:             @flex;
   border-width:     @border;
   line-height:      @line;
   height:           @tab-height;
   padding:          @vertical-padding @horizontal-padding !important;
   transition:       all @transition-time / 3 ease !important;
+
+  &:not(.active):not(.modified):not(.added):not(:hover) {
+    border-color:     transparent }
 
   &.modified,
   &.added {
@@ -75,32 +88,19 @@ border-radius:        0 !important;
     &::before {
       color: inherit !important;
       border-color: auto !important }}
-
-                                                                                                                                                                                                                                                                                                                                                                                  /*
-  → Tab hover state                                                                                                                                                                                                                                                                                                                                                         */
-  &:hover {
-    color:      @text-color-highlight;
-    background: @tab-background-color-hover }
-
                                                                                                                                                                                                                                                                                                                                                                                   /*
   → Currently active tab                                                                                                                                                                                                                                                                                                                                                         */
   &.active {
-    @import (reference) 'syntax-variables';
-
     flex:             @flex;
     max-width:        none;
     width:            auto;
-    color:            @text-color-selected;
-    background-color: @tab-background-color-active;
-    background-color: @syntax-background-color;
     .accent;
 
     .title {
-      font-weight: 700;
+      font-weight:    700;
       letter-spacing: -0.02em;
-      color: inherit;
-      padding: 0 }}
-
+      color:          inherit;
+      padding:        0 }}
 
   .close-icon { .close-icon-generator(none) }
   &:hover .close-icon { .close-icon-generator(hover) }
@@ -169,8 +169,7 @@ border-radius:        0 !important;
     border-top-right-radius:  0;
     padding:        0 0 @component-padding 0 !important;
     margin:         0;
-    background:     @base-background-color }}
-}
+    background:     @base-background-color }}}
 
 
                                                                                                                                                                                                                                                                                                                                                                               /*
@@ -208,6 +207,7 @@ border-radius:        0 !important;
     border-width:   0 !important;
     font-size:      @icon-size !important;
     transition:     all @transition-time ease;
+    color:          inherit;
     opacity:        0 }
                                                                                                                                                                                                                                                                                                                                                                                   /*
   → Not modified, non-hovered                                                                                                                                                                                                                                                                                                                                                         */
@@ -219,7 +219,6 @@ border-radius:        0 !important;
   &::before when (@state = hover) {
     transform: rotate(0deg);
     cursor: pointer;
-    color: @text-color-highlight;
     opacity: 1 }
                                                                                                                                                                                                                                                                                                                                                                                   /*
   → Modified state                                                                                                                                                                                                                                                                                                                                                         */

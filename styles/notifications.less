@@ -51,23 +51,18 @@ atom-notification {
   padding:              0 0 0 @left-bar-width;
   border:               0px solid rgba(0,0,0,0.2);
   border-radius:        @border-radius !important;
-  background-color:     @overlay-background-color;
+  background-color:     var(--background-color);
   transform:            translateX(unit(@hide-factor * 100, %));
   transition:           transform @transition-time/2 @transition-curve @transition-time;
 
   &.has-close .message {
     padding-right:      2rem }
-
   &:first-child.has-close .message {
     padding-right:      6rem }
-
   &:not(.has-close) {
     transform:          translateX(0) }
-
-  &::after,
-  &:not(.has-close) .close-all {
+  &::after, &:not(.has-close) .close-all {
     display:            none }
-
                                                                                                                                                                                                                                                                                                                                                                                       /*
   → Left-side icons                                                                                                                                                                                                                                                                                                                                                         */
   &::before {
@@ -75,7 +70,6 @@ atom-notification {
     box-sizing:         border-box;
     text-align:         center;
     vertical-align:     middle;
-    display:            block;
     display:            table-cell;
     height:             auto;
     top:                0;
@@ -98,7 +92,7 @@ atom-notification {
 
   .close,
   .close::before {
-    transition:         color @transition-time ease;
+    transition:         color var(--anim-duration) ease;
     color:              inherit !important }
 
   .btn-toolbar {
@@ -107,30 +101,23 @@ atom-notification {
 
     & > *,
     & > .btn.btn {
-      transition:       all @transition-time;
+      box-sizing:       border-box;
+      transition:       all var(--anim-duration);
       flex:             1 1 auto;
-      border-radius:    0 !important;
       text-align:       center;
       margin:           0;
       padding:          0 !important;
-      height:           @tab-height * 0.75 !important;
-      line-height:      @tab-height * 0.75 !important;
-
-      box-sizing:       border-box;
       border-width:     0 !important;
-      border-color:     @base-border-color !important;
-      border-collapse:  collapse;
-      background-color: rgba(0, 0, 0, 0.1);
+      border-radius:    0 !important;
+      background-color: var(--background-color);
+      height:           var(--size) !important;
+      line-height:      var(--size) !important;
 
       &:not(:hover) {
-        color:          @text-color-subtle !important }
-
-      &:hover {
-        background:     @text-color-subtle }
+        color:          var(--text-color) !important }
 
       &:first-child {
         border-left-width: 0 !important }}}
-  }
 
 .btn, .btn.close-all,
 .btn-success,
@@ -151,9 +138,9 @@ atom-notification {
     color:              @text-color-highlight !important;
     }}}
 
-.error {
-  code {
-    .state(error) }}
+code.error,
+.error code {
+  .state(error) }
 
 .content,
 .detail,
@@ -199,10 +186,12 @@ atom-notification {
     display:            block; }
 
   .btn-toolbar .icon-clippy {
-    color:              @text-color;
+    color:              var(--text-color);
     line-height:        @button-height;
     padding-left:       @button-height/2 }}
 
+
+}
 
                                                                                                                                                                                                                                                                                                                                                                               /*
 ✕ State colors                                                                                                                                                                                                                                                                                                                                                          */

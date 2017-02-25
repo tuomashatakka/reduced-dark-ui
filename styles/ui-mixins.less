@@ -16,72 +16,7 @@ Variables                                                                       
                                                                                                                                                                                                                                                                                                                                                                         /*
 Buttons                                                                                                                                                                                                                                                                                                                                                                 */
 
-.button(@color) {
-  @color-alt:       @col-dark;
-  @color-disabled:  @text-color-subtle;
-  @inner-height:    @button-height - @input-padding-vertical;
-  @btn-size:        @button-height - @component-padding;
-  @padding:         @component-padding / 2 @component-padding / 2 * 3;
-
-  .text(caps);
-  margin:           0;
-  color:            @text-color;
-  background:       @button-background-color;
-  border-radius:    @roundness;
-  padding:          @padding  !important;
-  height:           @btn-size !important;
-  min-width:        @btn-size !important;
-  min-height:       @btn-size !important;
-  line-height:      @btn-size !important;
-  border-width:     1px       !important;
-  border-style:     solid     !important;
-  box-shadow:       none      !important;
-  transition:       all       @transition-time / 3;
-  box-sizing:       content-box;
-
-  &.icon::before {
-    font-size:      inherit;
-    color:          inherit !important;
-    vertical-align: middle }
-
-  &.selected:hover,
-  &:hover {
-    transition-duration: @transition-time / 6;
-    outline:          none        !important;
-    background:       @color      !important;
-    color:            @color-alt - #111  !important;
-    border-color:     @color - #111      !important;
-    border-width:     1px         !important;
-    border-style:     solid       !important }
-
-  &:active,
-  &:focus {
-    outline:          none        !important;
-    color:            @text-color !important;
-    background:       mix(@button-background-color, @color-alt);
-    border-color:     mix(@button-background-color, @color-alt) !important }
-
-  &.selected,
-  &.selected:active:focus,
-  &.selected:focus,
-  &.selected:active {
-    color:            @color-alt !important;
-    background:       @button-background-color-selected !important;
-    border:           1px solid @color !important }
-
-  &[disabled], &.disabled {
-    opacity:          1;
-    background-color: transparent !important;
-    border-color:     transparent !important;
-    color:            @color-disabled !important }
-
-  &:first-child {
-    border-top-left-radius:     @roundness;
-    border-bottom-left-radius:  @roundness }
-
-  &:last-child {
-    border-top-right-radius:    @roundness;
-    border-bottom-right-radius: @roundness }}
+.button(@color) {}
 
 .button-variant(@color) {
   .button(@color);
@@ -202,6 +137,13 @@ Overlay                                                                         
   font-family:  @iconset;
   transition:   all @transition-time }
 
+
+.outline-icon(@stroke: 1px) {
+  &::before {
+  color: inherit;
+  -webkit-text-stroke-width: @stroke;
+  -webkit-filter: blur(0.25px);
+  -webkit-text-fill-color: transparent }}
 
 /*&::before {
   font-family: "ionicons";

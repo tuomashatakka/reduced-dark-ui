@@ -1,0 +1,198 @@
+
+
+
+
+html {
+  --background-color: @sub-background-color;
+  --text-size: @font-size;
+  --line-height: @line-height }
+
+atom-workspace {
+  --size: @tab-height;
+  --background-color: darken(@app-background-color, 0.4%) }
+                                                                                                                                                                                                                                                                                                                                                                                    /*
+→ Panels                                                                                                                                                                                                                                                                                                                                                         */
+atom-pane-container {
+  --background-color: @tool-panel-background-color;
+  --border-color: @tool-panel-border-color }
+
+atom-panel-container.bottom {
+  --background-color: @app-background-color }
+
+.inset-panel {
+  --background-color: @inset-panel-background-color }
+
+.panel-heading,
+.inset-panel .panel-heading {
+  --background-color: @panel-heading-background-color }
+                                                                                                                                                                                                                                                                                                                                                                                    /*
+→ Text                                                                                                                                                                                                                                                                                                                                                         */
+pre {
+  --text-color: inherit;
+  --background-color: @base-background-color }
+
+code {
+  --text-color: @text-color-info;
+  --background-color: @base-border-color }
+
+.badge {
+  --text-color: @tooltip-key-text-color }
+
+.highlight {
+  --text-color: @base-background-color;
+  --background-color: @text-color }
+
+.highlight-info {
+  --background-color: @text-color-info }
+
+.highlight-success {
+  --background-color: @text-color-success }
+
+.highlight-warning {
+  --background-color: @text-color-warning }
+
+.highlight-error {
+  --background-color: @text-color-error }
+
+input[type='range'] {
+  --text-color: @text-color;
+  --track-color: @text-color;
+  --focus-color: @color-main;
+  --focus-track-color: @text-color-highlight;
+  --size: 1px;
+  --margin: 1em;
+  --handle-size: 1em;
+}
+
+                                                                                                                                                                                                                                                                                                                                                                                      /*
+→ Buttons                                                                                                                                                                                                                                                                                                                                                         */
+.btn {
+  --color:            @text-color;
+  --border-color:     var(--color);
+  --background-color: transparent;
+  --active-color:     @text-color;
+  --disabled-color:   @color-disabled;
+  --size: 8px }
+
+.btn.btn-primary {
+  --color: @background-color-info }
+
+.btn.btn-info {
+  --color: @background-color-info }
+
+.btn.btn-success {
+  --color: @background-color-success }
+
+.btn.btn-warning {
+  --color: @background-color-warning }
+
+.btn.btn-error {
+  --color: @background-color-error }
+
+.btn:focus, .btn:active:focus {
+  --color: @text-color-selected }
+
+.btn-toolbar, .btn-group {
+  --border-color: mix(@base-background-color, @button-border-color, 75%) }
+
+                                                                                                                                                                                                                                                                                                                                                                                      /*
+→ Tooltips                                                                                                                                                                                                                                                                                                                                                         */
+kbd, .tooltip {
+  --background-color: @tooltip-background-color;
+  --text-color: @tooltip-text-color }
+
+.tooltip .keystroke {
+  --background-color: @tooltip-key-background-color;
+  --text-color: @tooltip-key-text-color }
+                                                                                                                                                                                                                                                                                                                                                                                    /*
+→ Tabs                                                                                                                                                                                                                                                                                                                                                         */
+.tab-bar {
+  --background-color: transparent }
+
+.tab-bar .tab {
+  --background-color: @tab-background-color;
+  --text-color:      @text-color-subtle }
+                                                                                                                                                                                                                                                                                                                                                                                    /*
+→ Tab hover state                                                                                                                                                                                                                                                                                                                                                         */
+.tab-bar .tab:hover {
+  --background-color: @tab-background-color-hover;
+  --text-color:       @text-color-highlight }
+                                                                                                                                                                                                                                                                                                                                                                                    /*
+→ Tab active state                                                                                                                                                                                                                                                                                                                                                         */
+.tab-bar .tab.active {
+  @import (reference) 'syntax-variables';
+  --text-color:       @text-color-selected;
+  --background-color: @syntax-background-color }
+
+                                                                                                                                                                                                                                                                                                                                                                                    /*
+→ Status bar                                                                                                                                                                                                                                                                                                                                                         */
+status-bar {
+  --background-color: @sub-background-color;
+  --text-size: unit(@size-small, rem);
+  --size: @input-height }
+
+                                                                                                                                                                                                                                                                                                                                                                                      /*
+→ Tree view                                                                                                                                                                                                                                                                                                                                                         */
+@inactive: ".project-root.collapsed, .project-root.selected.collapsed, .project-root.expanded ~ .project-root:not(.selected)";
+@active: ~".project-root.selected";
+.list-tree, .list-group, .tree-view {
+  --background-color: @tree-view-background-color;
+  --text-size: @font-size;
+
+  .project-root-header {
+    --text-color: @text-color-highlight;
+    span { --text-color: @text-color-subtle } }
+
+  @{inactive} {
+    .project-root-header {
+    --size: @tab-height;
+    --background-color: @background-color-dark;
+    --border-color: @tree-view-border-color-disabled }}
+
+  @{active} {
+    .project-root-header {
+    --background-color: @tree-view-background-color;
+    --border-color: transparent }}}
+
+                                                                                                                                                                                                                                                                                                                                                                                      /*
+→ Overlays                                                                                                                                                                                                                                                                                                                                                         */
+atom-panel.modal,
+.overlay {
+  --background-color: @overlay-background-color;
+  --border-radius: @component-border-radius;
+  --border-color: @base-border-color;
+  --text-color: @base-border-color;
+
+  ul, ol {
+    --text-color: @text-color-subtle;
+
+    li {
+      --size: @component-padding/2 @component-padding*2 }
+
+    li .character-match {
+      .text(normal) }
+
+    li.selected .character-match {
+      .text(selected) }
+
+    li.selected {
+      --text-color: @text-color-selected }}
+
+  atom-text-editor.mini,
+  atom-text-editor[mini] {
+    --text-color: @text-color-subtle;
+
+    &.is-focused.text,
+    &.is-focused.source {
+    --text-color: @text-color-highlight }}}
+
+atom-notification {
+  --background-color: @overlay-background-color;
+  --text-color: @text-color }
+
+atom-notification .btn-toolbar > *,
+atom-notification .btn-toolbar > .btn.btn {
+  --size: @tab-height * 0.75;
+  --background-color: rgba(0, 0, 0, 0.1);
+  &:hover { --background-color: @text-color-subtle }
+  &:not(:hover) { --text-color: @text-color-subtle }}

@@ -7,34 +7,37 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 // Containers
-atom-panel-container.bottom {
+atom-panel-container {
+  &.bottom {
+  border-top: 1px solid var(--border-color);
   margin-top: 0;
-  border-top: 1px solid @tool-panel-border-color;
-  z-index: 3 }
+  z-index: 3 }}
 
 atom-pane-container {
 
   atom-pane-axis.horizontal > *:not(:last-child) {
-    border-right: 1px solid @base-border-color }
+    border-right: 1px solid var(--border-color) }
 
   atom-pane-axis.vertical atom-pane-resize-handle.vertical {
-    border-bottom: 1px solid @base-border-color;
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: -1px }}
 
 
 // Panels
 atom-panel {
   .text(normal);
-  background: @tool-panel-background-color }
+  background: var(--background-color) }
 
 atom-panel.bottom {
-    background: @app-background-color;
-    padding: 0 !important }
+  padding: 0 !important }
 
 atom-panel.bottom > *:not(:empty) {
-    background: @app-background-color;
-    padding-top: 1px;
-    z-index: 3 }
+  background: var(--background-color);
+  padding-top: 1px;
+  z-index: 3 }
+
+.inset-panel {
+  background-color: var(--background-color) }
 
 
 // Heading
@@ -42,12 +45,11 @@ atom-panel.bottom > *:not(:empty) {
 .inset-panel .panel-heading {
   .text(heading);
   font-size: 2em;
-  border-radius: @component-border-radius;
-  background: @panel-heading-background-color;
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
 
-  & .btn {
+  .btn {
     .button(@button-border-color);
-
     font-size: 0.85rem !important;
     padding: 0 0.5em !important;
     height: 2em !important;
@@ -62,16 +64,14 @@ atom-panel.bottom > *:not(:empty) {
 
 // Item views
 .panel-body {
-  --background-base: @tool-panel-background-color;
-  background: @tool-panel-background-color;
+  background-color: var(--background-color);
   border-radius: inherit }
 
 
 // Misc
-.pane-item,
+atom-pane-container atom-pane .item-views .pane-item,
 atom-pane-container atom-pane .item-views {
-  // TODO: Is this really needed?!? id:16
-  // background: fade(@app-background-color, 5%) !important;
+  background-color: var(--background-color) !important;
   border: 0 }
 
 .focusable-panel,
@@ -87,6 +87,7 @@ atom-pane-container atom-pane .item-views {
 atom-panel.left,
 atom-panel.right {
   @{handle} {
+    background: transparent;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -96,7 +97,6 @@ atom-panel.right {
     min-height: @handle-size;
     width: @handle-size;
     height: @handle-size;
-    background: fade(@background-color-dark, 0%);
     z-index: 100000 }}
 
 atom-panel.left @{handle} {

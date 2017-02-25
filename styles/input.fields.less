@@ -167,48 +167,31 @@ Select Forms                                                                    
   @size: @input-height / 2;
   margin: @size 0;
   border-radius: @component-border-radius;
-  height: 1px;
+  height: var(--size);
+  background: var(--track-color) !important;
 
-  .input-range-container {
-    height: @size;
-    top: -@size/2;
-    transform: translateY(2px); // Compensation for the input-range height
-    cursor: pointer !important;
-    position: relative;
-    box-sizing: content-box }
+  &:active, &:focus, &:hover {
+    --text-color: var(--focus-color) !important;
+    background: var(--focus-track-color) !important }
 
   &::-webkit-slider-runnable-track {
-    background-color: fade(@sub-background-color, 0%);
-    height: @component-padding * 3;
+    height: ~"calc(2 * var(--margin) + var(--handle-size))";
     -webkit-appearance: none;
     box-shadow: none;
     border: none;
     margin: 0 }
 
   &::-webkit-slider-thumb {
-    box-shadow: 1px 0px @component-padding * 1.5 var(--background-base);
-    border: @component-padding solid @sub-background-color;
-    margin: -(3 * @component-padding - @size) / 3 0;
-    background: @text-color-info;
+    box-shadow: 1px 0px @component-padding * 1.5 var(--background-color);
+    border: var(--margin) solid @sub-background-color;
+    margin: 0;
     border-radius: 50%;
-    border-color: var(--background-base);
-    width: @size;
-    height: @size;
+    border-color: var(--background-color);
+    background-color: var(--text-color) !important;
+    width: var(--handle-size);
+    height: var(--handle-size);
     outline: none;
     display: block;
     padding: 0 !important;
     box-sizing: content-box;
-    -webkit-appearance: none }
-
-  .input-range-knob {
-    .accent(inverse);
-    height: @size;
-    width: @size;
-    left: -@size/2;
-    top: @size/2;
-    transform: translateY(-50%); // Overridden on mousedown
-    position: absolute;
-    display: block;
-    border-radius: 50%;
-    z-index: 50;
-    background-color: @text-color-success }}}
+    -webkit-appearance: none }}}

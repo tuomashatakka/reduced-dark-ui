@@ -16,6 +16,7 @@ Animation                                                                       
                                                                                                                                                                                                                                                                                                                                                                     /*
 General                                                                                                                                                                                                                                                                                                                                                                  */
 @import '../colors';
+@import 'css-variables';
                                                                                                                                                                                                                                                                                                                                                                         /*
 Size factors                                                                                                                                                                                                                                                                                                                                                                 */
 @size-tiny:   0.72;
@@ -28,7 +29,7 @@ Size factors                                                                    
 @size:        6;
                                                                                                                                                                                                                                                                                                                                                                         /*
 Tints                                                                                                                                                                                                                                                                                                                                                                    */
-@tint:                  desaturate(mix(@__backgroundTint, #ffffff, 40%), 25%);
+@tint:                 desaturate(mix(@__backgroundTint, #ffffff, 60%), 25%);
 @tinted-sub:           darken(multiply(@col-bg,         @tint),         3%);
 @tinted-base:                 multiply(@col-bg,         @tint);
 @tinted-darker:               multiply(@col-darker,     @tint);
@@ -48,7 +49,7 @@ Main palette                                                                    
 @color-annotation:                 mix(@tinted-light, @__annotation, 75%);
 @color-warning:                    mix(@tinted-light, @__warning, 75%);
 @color-error:                      mix(@tinted-light, @__error, 75%);
-
+@color-disabled:                   mix(@text-color-subtle, @base-background-color, 60%);
                                                                                                                                                                                                                                                                                                                                                                         /*
 Base / backfase                                                                                                                                                                                                                                                                                                                                                                    */
 @sub-background-color:                 @tinted-sub;

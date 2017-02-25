@@ -9,25 +9,24 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 @tree-view-border-color-disabled: rgba(0,0,0,0.05);
-
-@active: ~".project-root.selected";
 @inactive: ".project-root.collapsed, .project-root.selected.collapsed, .project-root.expanded ~ .project-root:not(.selected)";
+@active: ~".project-root.selected";
+
 
 
 .project-root > .header.list-item {
-  font-size: 0.8em !important;
-}
+  font-size: 0.8em !important }
+
 .project-root > .header.list-item .icon::before {
   font-size: 0.8em !important;
-  padding-right: 1em !important;
-}
+  padding-right: 1em !important }
 
 .list-tree,
 .list-group,
 .tree-view {
   position:     relative;
-  font-size:    @font-size;
-  background:   @tree-view-background-color;
+  background:   var(--background-color);
+  font-size:    var(--text-size);
   padding:      0;
 
   > li.separator {
@@ -42,11 +41,14 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     padding-bottom: @component-padding / 2 }
 
   .project-root-header {
-    color:          @text-color-highlight;
-    border-bottom:  1px solid transparent;
+    color: var(--text-color);
+    border-bottom: 1px solid transparent;
+    border-bottom-color: var(--border-color);
+    background-color: var(--background-color);
+    height: inherit;
 
     span {
-      color:        @text-color-subtle }
+      color:        var(--text-color) }
 
     .name {
       .h1;
@@ -74,25 +76,14 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
   // Inactive tabs
   @{inactive} {
-    height: @tab-height !important;
+    height: var(--size) !important;
     flex-grow: 0 !important;
     z-index: 0;
-
-    .project-root-header {
-      background-color: @background-color-dark;
-      border-bottom-color: @tree-view-border-color-disabled;
-      height: inherit }
-
-    .entries {
-      display: none !important } }
+    .entries { display: none !important }}
 
   // Active tab
   @{active} {
-    z-index: 1000;
-
-    .project-root-header {
-      background: @tree-view-background-color;
-      border-bottom-color: transparent }}}
+    z-index: 1000 }}
 
 .tree-view-resizer .tree-view-resize-handle {
   width: @handle-size }
