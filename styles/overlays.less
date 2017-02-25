@@ -10,18 +10,20 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 atom-panel.modal,
 .overlay {
 
-
 .text(normal);
 .overlay-shadow;
-
 background-color: var(--background-color);
+background-color: @tool-panel-background-color !important;
 border-radius: var(--border-radius) !important;
 border: 1px solid var(--border-color) !important;
 padding: @component-padding @component-padding*2;
 width: 720px;
 transform: translateX(-50%);
+z-index: 100000;
 left: 50vw;
 margin-left: 0;
+padding: 0;
+margin: 0;
 
 .small({
   width: 100%;
@@ -35,20 +37,20 @@ label, p {
 atom-text-editor.mini,
 atom-text-editor[mini] {
   @air:               @component-padding * 2;
-  @line:              unit(@air, em);
+  @line:              2em;
   .text(heading);
-
-  font-weight:        100;
+  flex:               0 0 auto;
   color:              var(--text-color) !important;
   background-color:   transparent !important;
-  font-size:          @overlay-input-size;
   line-height:        @line;
-  height:             auto;
-  max-height:         none;
-  margin:             0 -@air;
-  padding:            @air / 2 @air @air @air * 3;
+  margin:             0;
+  font-size:          @overlay-input-size;
+  padding:            @air @air @air @air * 3;
+  font-weight:        100;
   border-width:       0;
   border-radius:      0;
+  height:             auto;
+  max-height:         none;
   box-shadow:         none !important;
   &, * { box-shadow:  none !important }
 
@@ -76,14 +78,17 @@ atom-text-editor[mini] {
 
 .loading, .error-message {
   .text(subtle);
-  height: @component-line-height + @component-padding;
-  line-height: @component-line-height + @component-padding;
+  height:         @component-line-height + @component-padding;
+  line-height:    @component-line-height + @component-padding;
   padding-bottom: @component-padding }
 
 ul.list-group,
 .select-list ol.list-group,
 &.select-list ol.list-group {
-  margin: 0 -@component-padding*2 -@component-padding;
+  flex:       1 1 100%;
+  margin:     0;
+  max-height: 100%;
+  height:     100%;
 
   li {
     padding: var(--size);
@@ -103,4 +108,22 @@ ul.list-group,
 
 
 
+}
+
+atom-panel.modal {
+  position: fixed;
+  background: var(--background-color);
+  left: 25vw;
+  right: 25vw;
+  top: 5vh;
+  bottom: 8vh;
+  height: auto;
+  width: auto;
+  transform: none;
+  .select-list {
+    display: flex;
+    flex-direction: column;
+    max-height: none;
+    height: 100%;
+  }
 }

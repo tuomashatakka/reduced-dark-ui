@@ -52,7 +52,9 @@ atom-text-editor .gutter-container * {
     border-color: @input-border-color;
     background-color: @input-background-color-active;
     .text, .source { color: @input-text-color-active }
-    .selection .region { background-color: fade(@__accentColor, 80%); border-radius: 2px !important }
+    .selection .region {
+      background-color: hsla(hue(@input-background-color), saturation(@input-background-color), 40, 50%);
+      border-radius: 2px !important }
     &:hover { border-color: auto;
       background-color: @input-background-color-active }}
 
