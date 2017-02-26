@@ -12,15 +12,22 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka
 
 Tab alignment                                                                                                                                                                                                                                                                                                                                                          */
 
-.tab-bar .tab,
-.tab-bar .tab.active {
-  @import 'config/tab-close-positioning';
+@import 'config/tab-close-positioning';
+.tab-bar .tab, .tab-bar .tab.active {
   flex-grow: 0 }
 
-.tab-bar when (@__tabPosition = "Left")     { justify-content: flex-start }
-.tab-bar when (@__tabPosition = "Center")   { justify-content: center }
-.tab-bar when (@__tabPosition = "Right")    { justify-content: flex-start; flex-basis: none; flex-direction: row-reverse }
-.tab-bar when (@__tabPosition = "Stretch")  {
+.tab-bar[data-justify="Left"] {
+  justify-content: flex-start }
+
+.tab-bar[data-justify="Center"] {
+  justify-content: center }
+
+.tab-bar[data-justify="Right"] {
+  justify-content: flex-start;
+  flex-basis: none;
+  flex-direction: row-reverse }
+
+.tab-bar[data-justify="Stretch"] {
   justify-content: flex-start;
 
   .tab {
@@ -31,8 +38,7 @@ Tab alignment                                                                   
   .tab.active {
     max-width: none;
     flex-grow: 1 !important;
-    flex-basis: auto }
-}
+    flex-basis: auto }}
                                                                                                                                                                                                                                                                                                                                                                                     /*
 Tab bar fixed to the top of the screen                                                                                                                                                                                                                                                                                                                                */
 atom-workspace > atom-workspace-axis when (@__fixedTabBar = true) {

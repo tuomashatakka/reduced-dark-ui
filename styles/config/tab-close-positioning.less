@@ -1,11 +1,20 @@
 
                                                                                                                                                                                                                                                                                                                                                                                   /*
 Tab bar close icon position toggle                                                                                                                                                                                                                                                                                                                                */
-@pad: @tab-height / 3 / 4;
-.close-icon when (@__tabClosePosition = "Left")                   { left: @pad;
-                                                                    right: auto !important }
-.close-icon when (@__tabClosePosition = "Right")                  { left: auto !important;
-                                                                    right: @pad }
-.close-icon when (@__tabClosePosition = "Hidden")                 { display: none }
-&.modified .close-icon when (@__tabClosePosition = "Unmodified")  { display: none }
-&:not(.active) .close-icon when (@__tabClosePosition = "Active")  { display: none }
+
+[data-close-button='Left'] .close-icon {
+  left: 0;
+  right: auto !important }
+
+[data-close-button='Right'] .close-icon {
+  left: auto !important;
+  right: 0 }
+
+[data-close-button='Hidden'] .close-icon {
+  display: none }
+
+[data-close-button='Unmodified'] .tab.modified .close-icon {
+  display: none }
+
+[data-close-button='Active'] .tab:not(.active) .close-icon {
+  display: none }
