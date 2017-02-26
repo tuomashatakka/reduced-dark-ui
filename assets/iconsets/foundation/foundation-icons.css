@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: "foundation-icons";
-  src: url("atom://tool-bar/iconsets/foundation/foundation-icons.woff") format("woff");
+  src: url("atom://reduced-dark-ui/assets/iconsets/foundation/foundation-icons.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }

@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'devicon';
-	src: url('atom://tool-bar/iconsets/devicon/devicon.woff') format('woff');
+	src: url('atom://reduced-dark-ui/assets/iconsets/devicon/devicon.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
