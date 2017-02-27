@@ -1,42 +1,52 @@
 
 
-
-
-* {
-  background-color: var(--color-background-tint) }
-
+div, section, ul, ol, atom-panel {
+  background-color: var(--background-color)
+}
 html {
-  --background-color: @sub-background-color;
+  //--background-color: @sub-background-color;
   --text-size: @font-size;
   --line-height: @line-height }
 
 atom-workspace {
   --size: @tab-height;
-  --background-color: darken(@app-background-color, 0.4%) }
+}
+  //--background-color: var(--color-background-base)
+  // //--background-color: darken(@app-background-color, 0.4%) }
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Panels                                                                                                                                                                                                                                                                                                                                                         */
 atom-pane-container {
-  --background-color: @tool-panel-background-color;
+  //--background-color: @tool-panel-background-color;
+  //--background-color: var(--color-background-base);
   --border-color: @tool-panel-border-color }
 
 atom-panel-container.bottom {
-  --background-color: @app-background-color }
+}
+  //--background-color: var(--color-background-base); }
+  // //--background-color: @app-background-color; }
 
 .inset-panel {
-  --background-color: @inset-panel-background-color }
+}
+  //--background-color: var(--color-background-base); }
+  // //--background-color: @inset-panel-background-color }
 
 .panel-heading,
 .inset-panel .panel-heading {
-  --background-color: @panel-heading-background-color }
+}
+  //--background-color: var(--color-background-base); }
+  // //--background-color: @panel-heading-background-color }
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Text                                                                                                                                                                                                                                                                                                                                                         */
 pre {
   --text-color: inherit;
-  --background-color: @base-background-color }
+}
+  //--background-color: var(--color-background-base); }
+  // //--background-color: @base-background-color }
 
 code {
   --text-color: @text-color-info;
-  --background-color: @base-border-color }
+}
+  //--background-color: @base-border-color }
 
 .badge {
   --text-color: @tooltip-key-text-color }
@@ -114,23 +124,27 @@ kbd, .tooltip {
 
 .tab-bar .tab {
   --background-color: @tab-background-color;
+  --background-color: transparent;
   --text-color:      @text-color-subtle }
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Tab hover state                                                                                                                                                                                                                                                                                                                                                         */
 .tab-bar .tab:hover {
-  --background-color: @tab-background-color-hover;
+  // --background-color: @tab-background-color-hover;
+  // --background-color: var(--color-background-base);
   --text-color:       @text-color-highlight }
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Tab active state                                                                                                                                                                                                                                                                                                                                                         */
 .tab-bar .tab.active {
   @import (reference) 'syntax-variables';
   --text-color:       @text-color-selected;
-  --background-color: @syntax-background-color }
+  --background-color: @syntax-background-color
+}
 
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Status bar                                                                                                                                                                                                                                                                                                                                                         */
 status-bar {
   --background-color: @sub-background-color;
+  --background-color: var(--color-background-base);
   --text-size: unit(@size-small, rem);
   --size: @input-height }
 
@@ -140,6 +154,7 @@ status-bar {
 @active: ~".project-root.selected";
 .list-tree, .list-group, .tree-view {
   --background-color: @tree-view-background-color;
+  --background-color: var(--color-background-base);
   --text-size: @font-size;
 
   .project-root-header {
@@ -150,18 +165,21 @@ status-bar {
     .project-root-header {
     --size: @tab-height;
     --background-color: @background-color-dark;
+    --background-color: var(--color-background-base);
     --border-color: @tree-view-border-color-disabled }}
 
   @{active} {
     .project-root-header {
     --background-color: @tree-view-background-color;
+    --background-color: var(--color-background-base);
     --border-color: transparent }}}
 
                                                                                                                                                                                                                                                                                                                                                                                       /*
 → Overlays                                                                                                                                                                                                                                                                                                                                                         */
 atom-panel.modal,
 .overlay {
-  --background-color: @overlay-background-color;
+  // --background-color: @overlay-background-color;
+  // --background-color: var(--color-background-base);
   --border-radius: @component-border-radius;
   --border-color: @base-border-color;
   --text-color: @base-border-color;
@@ -190,12 +208,13 @@ atom-panel.modal,
     --text-color: @text-color-highlight }}}
 
 atom-notification {
-  --background-color: @overlay-background-color;
+  // --background-color: @overlay-background-color;
+  // --background-color: var(--color-background-base);
   --text-color: @text-color }
 
 atom-notification .btn-toolbar > *,
 atom-notification .btn-toolbar > .btn.btn {
-  --size: @tab-height * 0.75;
-  --background-color: rgba(0, 0, 0, 0.1);
-  &:hover { --background-color: @text-color-subtle }
+  --size: ~"calc(var(--size) * 0.75)";
+  //--background-color: rgba(0, 0, 0, 0.1);
+  &:hover { --background-color: var(--text-color) }
   &:not(:hover) { --text-color: @text-color-subtle }}
