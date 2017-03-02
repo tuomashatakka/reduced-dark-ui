@@ -19,13 +19,12 @@ atom-text-editor.editor {
     padding: 0 }}
 
 // Set the editor to be transparent pls
-// atom-text-editor /deep/ {
+// atom-text-editor {
 //   background-color: transparent !important }
 
 // Get rid of the gutter as well
 atom-text-editor .gutter-container * {
-  // background: inherit
-}
+  background: inherit }
 
 @{editor},
 @{editor-alt} {
@@ -40,22 +39,38 @@ atom-text-editor .gutter-container * {
   line-height: @input-height - @component-padding;
   padding: @component-padding / 2 @component-padding;
 
-  .cursor { border-color: @text-color-highlight }
-  .text, .source { transition: color @transition-time; color: inherit }
-  .placeholder-text { .text(subtle) }
+  .cursor {
+    border-color: @text-color-highlight }
+
+  .text, .source {
+    transition: color @transition-time;
+    color: inherit }
+
+  .placeholder-text {
+    .text(subtle) }
 
   &:hover {
     background-color: mix(@input-background-color, @input-background-color-active, 75%);
     color: @text-color-highlight }
 
-  &[mini].is-focused {
-    border-color: @input-border-color;
-    background-color: @input-background-color-active;
-    .text, .source { color: @input-text-color-active }
-    .selection .region {
-      background-color: hsla(hue(@input-background-color), saturation(@input-background-color), 40, 50%);
-      border-radius: 2px !important }
-    &:hover { border-color: auto;
-      background-color: @input-background-color-active }}
+  .selection .region {
+    border-radius: 2px !important }
 
-}
+  &[mini],
+  &.mini {
+
+    *:not(.selection) {
+      background: transparent }
+
+    &.is-focused {
+      border-color: @input-border-color;
+      background-color: @input-background-color-active;
+
+      .text, .source {
+        color: @input-text-color-active }
+
+      .selection .region {
+        background-color: var(--color-background-selected, hsla(hue(@input-background-color), saturation(@input-background-color), 40, 50%)) }
+
+      &:hover { border-color: auto;
+        background-color: @input-background-color-active }}}}

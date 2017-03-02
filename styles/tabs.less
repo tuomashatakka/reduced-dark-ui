@@ -5,36 +5,22 @@
 
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
-copyright   Copyright (C) 2016-2017 Tuomas Hatakka
-
-
-
-✕ Coloring                                                                                                                                                                                                                                                                                                                                                          */
-
-
-
-
+copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                                                          */
                                                                                                                                                                                                                                                                                                                                                                         /*
 ✕ Namespace                                                                                                                                                                                                                                                                                                                                                          */
-
 .tab-bar {
-
-
                                                                                                                                                                                                                                                                                                                                                                         /*
 ✕ Local variables                                                                                                                                                                                                                                                                                                                                                          */
-
 @icon-size:           3.2em;
 @flex:                1 0 auto;
 @line:                @tab-height / 3;
 @horizontal-padding:  @tab-height / 2;
 @vertical-padding:    @tab-height - 2 * @line;
 @border:              1px 0 0;
---background-color:   transparent;
 
 justify-content:      center;
 height:               @tab-height;
 line-height:          @tab-height;
-background:           @tab-bar-background-color;
 display:              flex;
 overflow-x:           auto;
 overflow-y:           hidden;
@@ -42,15 +28,12 @@ border-radius:        0 !important;
 -webkit-transform:    scale(1);
 background:           var(--background-color);
 color:                var(--text-color);
-
-
                                                                                                                                                                                                                                                                                                                                                                           /*
 ✕ Tabs                                                                                                                                                                                                                                                                                                                                                          */
-
 .tab {
   .text(normal);
-  background:       var(--background-color) !important;
-  color:            var(--text-color);
+  background:       var(--tab-background-color) !important;
+  color:            inherit;
 
   font-size:        0.92em;
   max-width:        none;
@@ -82,6 +65,7 @@ color:                var(--text-color);
     height:         @line;
     line-height:    @line;
     vertical-align: middle;
+    background-color: transparent !important;
     border-color:   auto    !important;
     color:          inherit !important;
     font-size:      inherit !important;
@@ -91,30 +75,32 @@ color:                var(--text-color);
                                                                                                                                                                                                                                                                                                                                                                                   /*
   → Currently active tab                                                                                                                                                                                                                                                                                                                                                         */
   &.active {
+    .accent;
     flex:             @flex;
     max-width:        none;
     width:            auto;
-    .accent;
-
+    background:       var(--tab-background-color-active) !important;
+    color:            var(--text-color-active) !important;
     .title {
+      background-color: transparent !important;
       font-weight:    700;
       letter-spacing: -0.02em;
       color:          inherit;
       padding:        0 }}
 
   .close-icon { .close-icon-generator(none) }
+  &:hover {
+    background:       var(--tab-background-color-hover) !important;
+    color:            var(--text-color-hover) !important }
+
   &:hover .close-icon { .close-icon-generator(hover) }
   &:not(:hover) {
     &.modified .close-icon { .close-icon-generator(modified) }
     .state(added);
     .state(modified);
     .state(ignored); }}
-
-
-
                                                                                                                                                                                                                                                                                                                                                                                     /*
 ✕ Decorations                                                                                                                                                                                                                                                                                                                                                          */
-
 &::before {
   border-width: @border;
   border-style: solid;
@@ -125,12 +111,8 @@ color:                var(--text-color);
   content:      "";
   display:      block;
   position:     absolute }
-
-
-
                                                                                                                                                                                                                                                                                                                                                                               /*
 ✕ Inline tabs for the settings config view                                                                                                                                                                                                                                                                                                                                                          */
-
 &.inline-tabs {
   @line:            @tab-height * 3/4;
   position:         relative    !important;
@@ -170,11 +152,8 @@ color:                var(--text-color);
     padding:        0 0 @component-padding 0 !important;
     margin:         0;
     background:     @base-background-color }}}
-
-
                                                                                                                                                                                                                                                                                                                                                                               /*
 ✕ Local mixins                                                                                                                                                                                                                                                                                                                                                          */
-
 .close-icon-generator(@state: none) {
   @size:            @tab-height / 2;
   @angle-hidden:   -30deg;

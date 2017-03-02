@@ -22,12 +22,13 @@
 .tab-bar.inline-tabs .tab {
   box-sizing:           border-box;
   border:               1px solid transparent;
-  border-bottom-color:  @base-border-color;
+  border-bottom-color:  var(--border-color, @base-border-color);
+  background-color:     var(--background-color, @base-background-color);
 
   &.active {
-    border-color:         @base-border-color;
     border-bottom-color:  transparent;
-    background-color:     fade(@sub-background-color, 50%) }
+    border-color:         var(--border-color-active, @base-border-color);
+    background-color:     var(--background-color-active, @base-background-color) }
 
   .icon {
     margin-top:     0.4em;
@@ -40,7 +41,7 @@ h1, h2 {
   .headline }
 
 .displayed-item {
-  background-color:       fade(@sub-background-color, 50%);
+  background-color:       var(--background-color, @base-background-color);
   margin:                 0 0 4 * @component-padding;
   padding:                @component-padding }
 
@@ -70,7 +71,7 @@ h1, h2 {
 
 .btn-group > .btn,
 .btn-toolbar > .btn {
-  border-color: fade(lighten(@base-border-color, 8%), 50%) }
+  border-color: var(--border-color, @base-border-color) }
 
 .settings-title,
 .settings-description {
@@ -160,12 +161,12 @@ h1, h2 {
       z-index: 1 }
 
     * {
-      transition:     color @transition-time, height 0s linear @transition-time }
+      transition:     color var(--trans-default), height 0s linear var(--trans-default) }
 
     &:hover  {
       * {
-        transition:   color @transition-time, height 0s linear 0s;
-        color:        @sub-background-color !important }
+        transition:   color var(--trans-default), height 0s linear 0s;
+        color: var(--background-color, @sub-background-color) !important }
       @{color-input} {
         height: 100% } }}
 
@@ -209,7 +210,7 @@ h1, h2 {
       border-radius:  0 }
 
     &::-webkit-color-swatch {
-      transition:     height @transition-time;
+      transition:     height var(--trans-default);
       transform:      translate(0.5px, 0.5px);
       border-radius:  0 }}
 
@@ -225,8 +226,8 @@ h1, h2 {
 
    &:hover {
      .accent.inverse;
-     transition:  color @transition-time,
-                  background-color @transition-time;
+     transition:  color var(--trans-default),
+                  background-color var(--trans-default);
    }
 
    .icon {

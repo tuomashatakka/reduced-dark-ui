@@ -7,20 +7,21 @@ author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
+atom-panel-container.modal {
+  position: fixed;
+}
 atom-panel.modal,
 .overlay {
 
 .text(normal);
 .overlay-shadow;
-background-color: var(--background-color);
-background-color: @tool-panel-background-color !important;
+background-color: var(--background-color, @tool-panel-background-color);
 border-radius: var(--border-radius) !important;
 border: 1px solid var(--border-color) !important;
 padding: @component-padding @component-padding*2;
-width: 720px;
+left: 50vw;
 transform: translateX(-50%);
 z-index: 100000;
-left: 50vw;
 margin-left: 0;
 padding: 0;
 margin: 0;
@@ -38,6 +39,7 @@ atom-text-editor.mini,
 atom-text-editor[mini] {
   @air:               @component-padding * 2;
   @line:              2em;
+
   .text(heading);
   flex:               0 0 auto;
   color:              var(--text-color) !important;
@@ -69,12 +71,14 @@ atom-text-editor[mini] {
   &.is-focused,
   &.is-focused:hover,
   &:hover {
-  &, .text, .source {
-    color:            var(--text-color) !important;
-    border-width:     0 !important;
-    background-color: transparent !important }}}
+    background: transparent !important;
 
-&.from-top { top: 5vh }
+    &, .text, .source {
+      color:            var(--text-color) !important;
+      border-width:     0 !important }}}
+
+&.from-top {
+  top: 5vh }
 
 .loading, .error-message {
   .text(subtle);
@@ -111,8 +115,9 @@ ul.list-group,
 }
 
 atom-panel.modal {
+  background: var(--background-color, @base-background-color);
   position: fixed;
-  background: var(--background-color);
+  z-index: 10000;
   left: 25vw;
   right: 25vw;
   top: 5vh;

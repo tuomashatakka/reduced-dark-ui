@@ -26,6 +26,7 @@ atom-workspace {
   position: relative }
 
 atom-workspace {
+  position: fixed;
   background-color: var(--background-color);
   transition: background 1.2s;
   //background-image: @gradient !important;
@@ -33,19 +34,7 @@ atom-workspace {
   atom-workspace-axis.vertical {
     transition: filter 250ms;
     left: 0 !important;
-    transition:
-      left @transition-time,
-      margin @transition-time }
-
-  atom-workspace-axis.vertical when (@__collapsing = left) {
-    margin-left: var(--size) }
-
-  atom-workspace-axis.vertical when (@__collapsing = right) {
-    margin-right: var(--size) }
-
-  atom-workspace-axis.vertical when (@__collapsing = both) {
-    margin-right: var(--size);
-    margin-left: var(--size) }
+    transition: left var(--trans-default, @transition-time), margin var(--trans-default, @transition-time) }
 
   atom-workspace-axis.horizontal {
     width: 100vw;
@@ -55,15 +44,16 @@ atom-workspace {
 .modal-open {
   atom-panel-container.footer,
   atom-workspace-axis.horizontal {
-  transition: -webkit-filter @transition-time;
-  -webkit-filter: blur(@blur-intensity) }}
-
-
+    transition: -webkit-filter var(--trans-default, @transition-time);
+    -webkit-filter: blur(@blur-intensity) }}
                                                                                                                                                                                                                                                                                                                                                                         /*
 Search and replace                                                                                                                                                                                                                                                                                                                                                        */
 .project-find, .find-and-replace {
-  .btn-group-find .btn { .button-variant(@text-color-info) }
-  [class*="btn-group-replace"] .btn { .button-variant(@text-color-warning) }}
+  .btn-group-find .btn {
+    .button-variant(@text-color-info) }
+
+  [class*="btn-group-replace"] .btn {
+    .button-variant(@text-color-warning) }}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Badges & Keybinding Badges                                                                                                                                                                                                                                                                                                                                                       */
@@ -72,10 +62,10 @@ kbd,
   .text(normal);
   color: var(--text-color);
   border: 1px solid var(--text-color);
-  background: var(--background-color);
+  background: transparent;
   font-size: 90%;
   border-radius: @component-border-radius;
-  margin-left: @component-padding/2 }
+  margin-left: @component-padding / 2 }
 
 .badge,
 .badge-flexible {
@@ -92,6 +82,7 @@ kbd,
 Scrollbars                                                                                                                                                                                                                                                                                                                                                                 */
 .scrollbars-visible-always,
 atom-text-editor,
+atom-workspace,
 .settings-view {
 
   /deep/ ::-webkit-scrollbar {
@@ -100,17 +91,17 @@ atom-text-editor,
 
   /deep/ ::-webkit-scrollbar-track,
   /deep/ ::-webkit-scrollbar-corner {
-    background: @scrollbar-track-color }
+    background-color: var(--scrollbar-background-color, @scrollbar-track-color) }
 
   /deep/ ::-webkit-scrollbar-thumb {
     border-radius: @handle-size;
     border: 1px solid transparent;
-    background: @scrollbar-color;
+    background-color: var(--scrollbar-color, @scrollbar-color);
     background-clip: content-box;
 
     &:active, &:hover {
-      border-color: @scrollbar-color;
-      background: @scrollbar-color-active }}}
+      border-color: var(--scrollbar-active-color, @scrollbar-color);
+      background-color: var(--scrollbar-active-color, @scrollbar-color-active) }}}
 
 .scrollbars-visible-always .panes > .pane.active {
   ul::-webkit-scrollbar {

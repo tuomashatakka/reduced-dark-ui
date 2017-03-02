@@ -50,10 +50,10 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     cursor: pointer;
 
     &.selected:before {
-      background: @background-color-selected }
+      background: var(--color-background-selected, @background-color-selected) }
 
     &.selected .word {
-      color: @text-color-selected !important }
+      color: var(--color-text-selected, @text-color-selected) !important }
 
     &:hover {
       transition: color 0s }
@@ -101,7 +101,7 @@ ol.list-group {
   li.selected,
   li:hover,
   li:focus {
-    background-color:    @background-color-selected;
+    background-color:    var(--color-background-selected, @background-color-selected);
     font-weight:         500;
     transition-delay:    0;
     transition-duration: 0;
@@ -110,11 +110,11 @@ ol.list-group {
       display:        none }
 
     pre {
-      border-color:   @text-color-highlight }}
+      border-color:   var(--color-text-highlight, @text-color-highlight) }}
 
   kbd {
-    background:       @background-color-selected;
-    color:            @text-color-subtle;
+    background:       var(--color-background-selected, @background-color-selected);
+    color:            var(--color-text-subtle, @text-color-subtle);
     border-radius:    @component-border-radius;
     padding:          @component-padding / 4
                       @component-padding / 2;
@@ -139,7 +139,7 @@ ol.list-group {
 
   li.active:before {
     margin-right:     @component-icon-padding;
-    color:            @text-color-success }}}
+    color:            var(--color-text-success, @text-color-success) }}}
 
 
 .ui-sortable {
@@ -156,7 +156,7 @@ li.ui-sortable-helper {
   height:           @component-line-height;
   list-style:       none;
   padding:        0 @component-padding;
-  background:       @background-color-highlight }
+  background:       var(--color-background-highlight, @background-color-highlight) }
 
 
 .list-group .icon,
@@ -239,7 +239,7 @@ catalog {
   main article.icon:hover {
     background-color: fade(@c, 10%);
     box-shadow:       @inset-shadow-marble;
-    color:            @text-color-highlight }
+    color:            var(--color-text-highlight, @text-color-highlight) }
 
   main article.icon:hover::before {
     color:            inherit }

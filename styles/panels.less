@@ -24,9 +24,10 @@ atom-pane-container {
 
 
 // Panels
-atom-panel {
+atom-panel, .tool-panel {
   .text(normal);
-  background: var(--background-color) }
+  background: var(--background-color, @tool-panel-background-color) !important;
+  * { background: transparent } }
 
 atom-panel.bottom {
   padding: 0 !important }
@@ -37,7 +38,7 @@ atom-panel.bottom > *:not(:empty) {
   z-index: 3 }
 
 .inset-panel {
-  background-color: var(--background-color) }
+  background-color: var(--background-color, @inset-panel-background-color) }
 
 
 // Heading
@@ -46,7 +47,7 @@ atom-panel.bottom > *:not(:empty) {
   .text(heading);
   font-size: 2em;
   border-radius: var(--border-radius);
-  background-color: var(--background-color);
+  background-color: transparent;
 
   .btn {
     .button(@button-border-color);
@@ -64,7 +65,7 @@ atom-panel.bottom > *:not(:empty) {
 
 // Item views
 .panel-body {
-  background-color: var(--background-color);
+  background-color: transparent !important;
   border-radius: inherit }
 
 
@@ -77,9 +78,6 @@ atom-pane-container atom-pane .item-views {
 .focusable-panel,
 .item-views .focusable-panel {
   padding: @component-padding }
-
-.tool-panel {
-  background: transparent }
 
 
 // Resizers

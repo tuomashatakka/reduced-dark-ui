@@ -16,18 +16,18 @@ Tab alignment                                                                   
 .tab-bar .tab, .tab-bar .tab.active {
   flex-grow: 0 }
 
-.tab-bar[data-justify="Left"] {
+.tab-bar[data-justify="left"] {
   justify-content: flex-start }
 
-.tab-bar[data-justify="Center"] {
+.tab-bar[data-justify="center"] {
   justify-content: center }
 
-.tab-bar[data-justify="Right"] {
+.tab-bar[data-justify="right"] {
   justify-content: flex-start;
   flex-basis: none;
   flex-direction: row-reverse }
 
-.tab-bar[data-justify="Stretch"] {
+.tab-bar[data-justify="stretch"] {
   justify-content: flex-start;
 
   .tab {
@@ -41,25 +41,22 @@ Tab alignment                                                                   
     flex-basis: auto }}
                                                                                                                                                                                                                                                                                                                                                                                     /*
 Tab bar fixed to the top of the screen                                                                                                                                                                                                                                                                                                                                */
-atom-workspace > atom-workspace-axis when (@__fixedTabBar = true) {
+atom-workspace[fixed-tabs] atom-workspace-axis.horizontal {
   @import "config/fixed-tab-bar"; }
                                                                                                                                                                                                                                                                                                                                                                            /*
 Project root(s) fixed to the top of the tree view                                                                                                                                                                                                                                                                                                                                */
-atom-workspace when (@__fixedProjectRoot = true) {
-  @import "config/fixed-project-root"; }
+@import "config/fixed-project-root";
                                                                                                                                                                                                                                                                                                                                                                            /*
 Editor background override                                                                                                                                                                                                                                                                                                                                                          */
-atom-workspace when (@__overrideEditorBackground = true) {
-  @import "config/override-editor-background"; }
+@import "config/override-editor-background";
                                                                                                                                                                                                                                                                                                                                                                            /*
 Collapsing panels                                                                                                                                                                                                                                                                                                                                                          */
-atom-workspace {
-  @import "config/collapsing"; }
+@import "config/collapsing";
                                                                                                                                                                                                                                                                                                                                                                            /*
 Visual FX                                                                                                                                                                                                                                                                                                                                                          */
-atom-workspace when (@__enhancedFx = true) {
-  @import "config/visual-fx"; }
+// atom-workspace when (@__enhancedFx = true) {
+//   @import "config/visual-fx"; }
                                                                                                                                                                                                                                                                                                                                                                            /*
 SILLY MODE                                                                                                                                                                                                                                                                                                                                                          */
-html when (@__SILLYMODE = true) {
+html[silly] {
   @import "config/silly-mode"; }

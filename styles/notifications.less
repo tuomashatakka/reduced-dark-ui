@@ -135,7 +135,7 @@ atom-notification {
   &:hover {
     background:         @base-background-color;
     border-color:       @base-background-color;
-    color:              @text-color-highlight !important;
+    color:              var(--color-text-highlight, @text-color-highlight) !important;
     }}}
 
 code.error,
@@ -156,7 +156,7 @@ code.error,
 .stack-toggle {
   line-height:          @left-bar-width;
   border-top:           1px solid fade(@text-color-subtle, 5%);
-  color:                @text-color-info;
+  color:                var(--color-text-info, @text-color-info);
 
   .icon, .icon::before {
     line-height:        inherit;
@@ -179,7 +179,7 @@ code.error,
 
   .description {
     padding-bottom:     @button-height/2;
-    a { color:          @text-color-info }}
+    a { color:          var(--color-text-info, @text-color-info) }}
 
   &:empty {
     padding-top:        0;
@@ -203,23 +203,23 @@ code.error,
 @success: ~"atom-notification.icon.success::before";
 
 @{info} {
-  color:              @text-color-info;
-  background-color:   @background-color-info }
+  color:              var(--color-text-info, @text-color-info);
+  background-color:   var(--color-background-info, @background-color-info) }
 
 @{fatal} {
-  color:              @text-color-error;
-  background-color:   @background-color-error }
+  color:              var(--color-text-error, @text-color-error);
+  background-color:   var(--color-background-error, @background-color-error) }
 
 @{error} {
   color:              @color-annotation;
-  background-color:   @background-color-annotation }
+  background-color:   var(--color-background-annotation, @background-color-annotation) }
 
 @{warning} {
-  color:              @text-color-warning;
-  background-color:   @background-color-warning }
+  color:              var(--color-text-warning, @text-color-warning);
+  background-color:   var(--color-background-warning, @background-color-warning) }
 
 @{success} {
-  color:              @text-color-success;
-  background-color:   @background-color-success }
+  color:              var(--color-text-success, @text-color-success);
+  background-color:   var(--color-background-success, @background-color-success) }
 
 }

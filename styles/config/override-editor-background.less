@@ -1,9 +1,6 @@
 @import 'ui-variables';
 
-atom-text-editor,
-atom-text-editor.editor {
+atom-text-editor[background-override='true'],
+atom-text-editor[background-override='true'].editor {
   background: @tab-background-color-active;
-  background: @base-background-color !important }
-
-.tab-bar .tab.active {
-  background: @tab-background-color-active }
+  background: inherit !important }

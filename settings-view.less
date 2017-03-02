@@ -43,7 +43,7 @@ background-color: @app-background-color;
   margin-top: 4rem }}
 
 // input[type="checkbox"]:checked {
-//   background-color: @text-color-highlight }
+//   background-color: var(--color-text-highlight, @text-color-highlight) }
 
 
                                                                                                                                                                                                                                                                                                                                                                             /*
@@ -62,7 +62,7 @@ background-color: @app-background-color;
       background: transparent;
 
     &:hover::before {
-      color: @text-color-highlight }
+      color: var(--color-text-highlight, @text-color-highlight) }
 
     &:before {
       margin-right: 0;
@@ -70,11 +70,11 @@ background-color: @app-background-color;
       transition: color @transition-time ease }}}
 
   .alert-info {
-    color: @text-color-info;
+    color: var(--color-text-info, @text-color-info);
     background: mix(@text-color-info, @base-background-color, 2%) }
 
   .alert-danger {
-    color: @text-color-error;
+    color: var(--color-text-error, @text-color-error);
     background: mix(@text-color-error, @base-background-color, 2%) }
 
   .setting-title,
@@ -154,7 +154,7 @@ background-color: @app-background-color;
       &:hover { background: transparent }}
 
     &.active > a:hover {
-      background: @background-color-selected }}}
+      background: var(--color-background-selected, @background-color-selected) }}}
 
 
       /////////////////////////////
@@ -192,7 +192,7 @@ background-color: @app-background-color;
 .package-card {
   .text(normal);
   position: relative;
-  background: @background-color-highlight;
+  background: var(--color-background-highlight, @background-color-highlight);
   border-width: 0px;
   border-radius: 2px;
   padding: @component-padding;
@@ -250,10 +250,10 @@ background-color: @app-background-color;
     background-color: @tool-panel-background-color !important }
 
   .package-status.icon-check {
-    color: @text-color-success }
+    color: var(--color-text-success, @text-color-success) }
 
   .package-status.icon-cloud-download {
-    color: @text-color-info }}
+    color: var(--color-text-info, @text-color-info) }}
 
 .package-readme {
   font-size: 1em;

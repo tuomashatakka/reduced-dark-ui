@@ -10,7 +10,6 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 @size:        @tab-height * 0.5;
 @horizontal:  ~".tool-bar.tool-bar-horizontal";
 @vertical:    ~".tool-bar.tool-bar-vertical";
-// color: crimson;
 
 @{horizontal},
 @{vertical} {
@@ -20,7 +19,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   hr.tool-bar-spacer {
     -webkit-mask-image: none !important;
     border-left-width: 0;
-    border-color: @base-border-color }
+    border-color: var(--border-color, @base-border-color) }
 
   button.btn.tool-bar-btn {
     position: relative;
@@ -40,8 +39,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     border-radius: @component-padding / 2;
     padding: 0;
     transition:
-      color @transition-time,
-      background-color @transition-time }
+      color var(--trans-default, @transition-time),
+      background-color var(--trans-default, @transition-time) }
 
   button::before { width: @size }
   button::after { .text(caps) }
@@ -57,7 +56,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 @{horizontal} {
-  background: @sub-background-color;
+  --background-color: var(--color-background-sub, @sub-background-color);
+  background: var(--background-color, @sub-background-color);
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap !important;
