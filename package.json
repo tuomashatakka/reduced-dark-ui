@@ -76,9 +76,9 @@
           "title": "Layout spacing",
           "description": "Adjust the layout gutters & line height. Smaller values mean more dense UI",
           "type": "integer",
-          "default": 100,
-          "minimum": 50,
-          "maximum": 150
+          "default": 80,
+          "minimum": 40,
+          "maximum": 160
         },
         "tabPosition": {
           "order": 6,
