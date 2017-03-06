@@ -33,9 +33,11 @@ Buttons                                                                         
                                                                                                                                                                                                                                                                                                                                                                         /*
 UI Main                                                                                                                                                                                                                                                                                                                                                                 */
 .bg(@var, @fallback: "base") {
+  background-color: var(--background-color);
   --background-color: var(~"--color-background-@{var}", ~"@{fallback}-background-color") }
 
 .txt(@var, @fallback: "main") {
+  color: var(--text-color);
   --text-color: var(~"--color-text-@{var}", ~"text-color-@{fallback}", @text-color) }
 
 .apply() {
@@ -81,38 +83,66 @@ User interaction and inputs                                                     
     background-color: var(--color-background-highlight, @input-background-color-highlight) !important })}
                                                                                                                                                                                                                                                                                                                                                                         /*
 Text                                                                                                                                                                                                                                                                                                                                                                 */
-.text() {           .text(normal) }
-.text(highlight) {  .text(normal);
-  color: var(--color-text-highlight, @text-color-highlight);
-  font-size: inherit }
+.text() {
+  .text(normal) }
+
+.text(highlight) {
+  .text(normal);
+  font-size: inherit;
+  .txt(highlight) }
+
 .text(selected) {
   .text(normal);
-  color: var(--color-text-selected, @text-color-selected);
-  font-size: inherit }
+  font-size: inherit;
+  .txt(selected) }
+
 .text(hover) {
   .text(normal);
-  color: var(--color-text-hover, @text-color-hover) }
+  .txt(hover) }
+
 .text(subtle) {
   .text(normal);
-  color: var(--color-text-subtle, @text-color-subtle);
-  font-size: inherit }
-.text(minor) {      .text(normal); color: var(--color-text-minor, @text-color-minor) }
-.text(info) {       .text(normal); color: var(--color-text-info, @text-color-info) }
-.text(success) {    .text(normal); color: var(--color-text-success, @text-color-success) }
-.text(warning) {    .text(normal); color: var(--color-text-warning, @text-color-warning) }
-.text(ignored) {    .text(normal); color: mix(@text-color-subtle, @base-background-color) }
-.text(error) {      .text(normal); color: var(--color-text-error, @text-color-error) }
-.text(added) {      .text(success); color: var(--color-text-added, @text-color-added) }
-.text(removed) {    .text(error); color: var(--color-text-removed, @text-color-removed) }
-.text(renamed) {    .text(warning); color: var(--color-text-renamed, @text-color-renamed) }
-.text(modified) {   .text(warning); color: var(--color-text-modified, @text-color-modified) }
+  font-size: inherit;
+  .txt(minor) }
+
+.text(minor) {
+  .text(normal);
+  .txt(minor) }
+
+.text(info) {
+  .text(normal);
+  .txt(info) }
+
+.text(success) {
+  .text(normal);
+  .txt(success) }
+.text(warning) {
+  .text(normal);
+  .txt(warning) }
+.text(ignored) {
+  .text(normal);
+  color: mix(@text-color-subtle, @base-background-color) }
+.text(error) {
+  .text(normal);
+  .txt(error) }
+.text(added) {
+  .text(success);
+  .txt(added) }
+.text(removed) {
+  .text(error);
+  .txt(removed) }
+.text(renamed) {
+  .text(warning);
+  .txt(renamed) }
+.text(modified) {
+  .text(warning);
+  .txt(modified) }
 .text(normal) {
   color:            var(--color-text, @text-color);
-  font-family:      @__uiFont, @font-family;
+  font-family:      var(--font);
   font-size:        inherit;
   font-size:        @font-size;
-  font-weight:      300;
-  font-weight:      @font-weight }
+  font-weight:      var(--font-weight, @font-weight, 400) }
 
 .text(heading) {
   color:            var(--color-text, @text-color);
@@ -212,30 +242,31 @@ Overlay                                                                         
                                                                                                                                                                                                                                                                                                                                                                              /*
 Colors & accent                                                                                                                                                                                                                                                                                                                                                              */
 .state() {
+  color: var(--text-color);
   background-color: var(--color-background-highlight, @background-color-highlight) }
 .state(error) {
   background-color: var(--color-background-error, @background-color-error);
-  color: var(--color-text-error, @text-color-error) }
+  .txt(error) }
 .state(warning) {
   background-color: var(--color-background-warning, @background-color-warning);
-  color: var(--color-text-warning, @text-color-warning) }
+  .txt(warning) }
 .state(info) {
   background-color: var(--color-background-info, @background-color-info);
-  color: var(--color-text-info, @text-color-info) }
+  .txt(info) }
 .state(success) {
   background-color: var(--color-background-success, @background-color-success);
-  color: var(--color-text-success, @text-color-success) }
+  .txt(success) }
 
 .state(added) {     &.modified, & .status-added {
-  color: var(--color-text-added, @text-color-added) }}
+  .txt(added) }}
 .state(modified) {  &.modified, & .status-modified {
-  color: var(--color-text-modified, @text-color-modified) }}
+  .txt(modified) }}
 .state(ignored) {   &.ignored,  & .status-ignored {
-  color: var(--color-text-ignored, @text-color-ignored) }}
+  .txt(ignored) }}
 .state(renamed) {   &.renamed,  & .status-renamed {
-  color: var(--color-text-renamed, @text-color-renamed) }}
+  .txt(renamed) }}
 .state(removed) {   &.removed,  & .status-removed {
-  color: var(--color-text-removed, @text-color-removed) }}
+  .txt(removed) }}
 
 .state(@class, @type) {
   @selector: ~".@{class}-@{type}";

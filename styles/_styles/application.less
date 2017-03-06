@@ -1,13 +1,13 @@
 
 
-div, section, ul, ol,
-atom-pane,
-atom-panel,
-atom-workspace,
-atom-pane-container,
-atom-panel-container, {
-  background-color: var(--background-color)
-}
+// div, section, ul, ol,
+// atom-pane,
+// atom-panel,
+// atom-workspace,
+// atom-pane-container,
+// atom-panel-container, {
+//   background-color: var(--background-color)
+// }
 
 html {
   background-color: @app-background-color;
@@ -16,10 +16,11 @@ html {
  }
 
 atom-workspace {
-  .bg(base, base);
   --scrollbar-background-color: var(transparent);
-  --scrollbar-color: var(--color-background-dark);
+  --scrollbar-color: var(--color-background-sub);
   --scrollbar-active-color: var(--color-background-dark);
+
+  --color-text: var(--color-text-base, @text-color);
   --color-text-main: var(--color-primary, @text-color-info);
   --color-text-info: var(--color-primary, @text-color-info);
   --color-text-added: var(--color-success, @text-color-success);
@@ -29,14 +30,31 @@ atom-workspace {
   --color-text-modified: var(--color-error, @text-color-warning);
   --color-text-error: var(--color-error, @text-color-error);
   --color-text-renamed: var(--color-warning, @text-color-error);
+  --color-text-removed: var(--color-error, @text-color-error);
 
-  --text-color: var(--color-primary, @text-color);
-  --text-color-subtle: @text-color-subtle;
-  --text-color-highlight: @text-color-highlight;
-  --text-color-selected: @text-color-selected;
-  --text-color-active: @text-color-selected;
+  --text-color: var(--color-text, @text-color);
+  --text-color-subtle: var(--color-subtle, @text-color-subtle);
+  --text-color-highlight: var(--color-primary, @text-color-highlight);
+  --text-color-selected: var(--color-primary, @text-color-selected);
+  --text-color-active: var(--color-primary, @text-color-selected);
+  --text-color-hover: var(--color-accent-color, @text-color-selected);
+  --text-color: var(--color-text, @text-color);
+  --color-text-subtle: var(--color-subtle, @text-color-subtle);
+  --color-text-highlight: var(--color-primary, @text-color-highlight);
+  --color-text-selected: var(--color-primary, @text-color-selected);
+  --color-text-active: var(--color-primary, @text-color-selected);
+  --color-text-hover: var(--color-accent-color, @text-color-selected);
+  --color-background-subtle: var(--color-background-base);
 
-  --size: @tab-height }
+
+  --size: var(4rem, unit(@tab-height, rem));
+
+  .bg(base, base);
+  color: var(--text-color);
+  font-family: var(--font, @font-family);
+
+  --color-background-panel: var(--color-background-base);
+}
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Panes                                                                                                                                                                                                                                                                                                                                                         */
 atom-pane-container {
@@ -46,28 +64,40 @@ atom-pane-container {
 → Panels                                                                                                                                                                                                                                                                                                                                                         */
 atom-panel-container.bottom {
   .bg(dark, tool-panel) }
+
+atom-panel {
+  --background-color: var(--color-background-panel) }
+
 .inset-panel {
   .bg(base, inset-panel) }
+
 .panel-heading, .inset-panel .panel-heading {
   .bg(base, panel-heading) }
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Text                                                                                                                                                                                                                                                                                                                                                         */
 pre {
   --text-color: inherit }
+
 code {
   .txt(info);
   .bg(base) }
+
 .badge {
   --text-color: @tooltip-key-text-color }
+
 .highlight {
   --text-color: @base-background-color;
   --background-color: @text-color }
+
 .highlight-info {
   --background-color: @text-color-info }
+
 .highlight-success {
   --background-color: @text-color-success }
+
 .highlight-warning {
   --background-color: @text-color-warning }
+
 .highlight-error {
   --background-color: @text-color-error }
                                                                                                                                                                                                                                                                                                                                                                                       /*
@@ -75,6 +105,7 @@ code {
 kbd, .tooltip {
   --background-color: @tooltip-background-color;
   --text-color: @tooltip-text-color }
+
 .tooltip .keystroke {
   --background-color: @tooltip-key-background-color;
   --text-color: @tooltip-key-text-color }
@@ -91,44 +122,51 @@ input[type='range'] {
                                                                                                                                                                                                                                                                                                                                                                                       /*
 → Buttons                                                                                                                                                                                                                                                                                                                                                         */
 .btn {
-  --color:            @text-color;
+  --color:            var(--text-color, @text-color);
   --border-color:     var(--color);
+  --active-color:     var(--color, @text-color);
+  --disabled-color:   var(--color-text-subtle, @color-disabled);
   --background-color: transparent;
-  --active-color:     @text-color;
-  --disabled-color:   @color-disabled;
   --size: 8px }
+
 .btn.btn-primary {
   --color: var(--color-background-info, @background-color-info) }
+
 .btn.btn-info {
   --color: var(--color-background-info, @background-color-info) }
+
 .btn.btn-success {
   --color: var(--color-background-success, @background-color-success) }
+
 .btn.btn-warning {
   --color: var(--color-background-warning, @background-color-warning) }
+
 .btn.btn-error {
   --color: var(--color-background-error, @background-color-error) }
+
 .btn:focus, .btn:active:focus {
   --color: var(--color-text-selected, @text-color-selected) }
+
 .btn-toolbar, .btn-group {
-  --border-color: mix(@base-background-color, @button-border-color, 75%) }
+  --border-color: var(--color-dimmed) }
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Tabs                                                                                                                                                                                                                                                                                                                                                         */
 .tab-bar {
-  @import (reference) 'syntax-variables';
-  --text-color: var(--text-color, @text-color-subtle);
-  --text-color-hover: var(--text-color-highlight, @text-color-highlight);
-  --text-color-active: var(--text-color-active, @text-color-selected);
-//--background-color-active: var(--color-background-tab-active, @syntax-background-color);
-  --background-color: transparent;
-  --tab-background-color: var(--color-background-tab, @tab-background-color);
-  --tab-background-color-hover: var(--color-background-tab-hover, @tab-background-color-hover);
-  --tab-background-color-active: var(--color-background-tab-active, @tab-background-color-active) }
+  // @import (reference) 'syntax-variables';
+  --text-color:                   var(--color-text-base, @text-color-subtle);
+  --text-color-hover:             var(--color-primary-mixed, @text-color-highlight);
+  --text-color-active:            var(--color-primary, @text-color-selected);
+  --background-color:             transparent;
+  --tab-background-color:         transparent;
+  --tab-background-color-hover:   transparent;
+  --tab-background-color-active:  transparent;
+}
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Status bar                                                                                                                                                                                                                                                                                                                                                         */
 status-bar {
-  --background-color: var(--color-background-sub, @sub-background-color);
+  --background-color: var(--color-background-dark, @sub-background-color);
   --text-size: unit(@size-small, rem);
-  --size: @input-height }
+  --size: 4rem }
                                                                                                                                                                                                                                                                                                                                                                                       /*
 → Tree view                                                                                                                                                                                                                                                                                                                                                         */
 @inactive: ".project-root.collapsed, .project-root.selected.collapsed, .project-root.expanded ~ .project-root:not(.selected)";
@@ -136,14 +174,17 @@ status-bar {
 .list-tree, .list-group, .tree-view {
   --background-color: transparent;
   --text-size: @font-size;
+
   .project-root-header {
     --text-color: var(--color-text-highlight, @text-color-highlight);
     span { --text-color: var(--color-text-subtle, @text-color-subtle) } }
+
   @{inactive} {
     .project-root-header {
     --size: @tab-height;
     --background-color: var(--color-background-dark, @background-color-dark);
     --border-color: @tree-view-border-color-disabled }}
+
   @{active} {
     .project-root-header {
     --background-color: var(--color-background-base, @tree-view-background-color);
@@ -156,6 +197,7 @@ atom-panel.modal,
   --border-radius: @component-border-radius;
   --border-color: @base-border-color;
   --text-color: @base-border-color;
+
   ul, ol {
     --text-color: @text-color-subtle;
     li {
@@ -163,6 +205,7 @@ atom-panel.modal,
     li .character-match { .text(normal) }
     li.selected .character-match { .text(selected) }
     li.selected { --text-color: @text-color-selected }}
+
   atom-text-editor.mini, atom-text-editor[mini] { --text-color: @text-color-subtle;
     &.is-focused.text, &.is-focused.source { --text-color: @text-color-highlight }}}
                                                                                                                                                                                                                                                                                                                                                                                           /*
@@ -170,9 +213,11 @@ atom-panel.modal,
 atom-notification {
   --background-color: var(--color-background-base, @overlay-background-color);
   --text-color: @text-color }
+
 atom-notification .btn-toolbar > *,
 atom-notification .btn-toolbar > .btn.btn {
   --size: ~"calc(var(--size) * 0.75)";
-  //--background-color: rgba(0, 0, 0, 0.1);
-  &:hover { --background-color: var(--text-color) }
-  &:not(:hover) { --text-color: @text-color-subtle }}
+  &:hover {
+    --background-color: var(--text-color) }
+  &:not(:hover) {
+    --text-color: @text-color-subtle }}

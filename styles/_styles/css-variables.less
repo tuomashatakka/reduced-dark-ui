@@ -21,7 +21,7 @@
   // Theme colors
   --color-primary: @__primary;
   --color-accent: @__accentColor;
-  --color-tint: @__backgroundTint;
+  --color-tint: @__tint;
 
   --color-info: @color-info;
   --color-success: @__success;
@@ -42,7 +42,7 @@
   --silly-mode: @__SILLYMODE;
 
   // Theme's fonts
-  --font-family: @__uiFont;
+  --font: var(--font-family, @__uiFont);
   --font-weight: @__uiFontWeight;
 
   --border-color: transparent;
@@ -55,4 +55,7 @@
   --time: var(--anim-duration);
   --time-lg: ~"calc(var(--anim-duration) * 2)";
   --trans-default: var(--time);
+  --trans-long: var(--time-lg);
+  --trans-short: var(--time-sm);
+  --trans-insta: var(--time-xs);
 }

@@ -60,3 +60,57 @@ html body[theme-active]::after {
   opacity:        0;
   max-height:     0;
   border-radius:  0 }
+
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+   index ⟩ defer ⟩ reduced-dark-ui
+
+
+   author Tuomas Hatakka
+    email tuomas.hatakka@gmail.com
+        © 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                                        */
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+  ↛ Core                                                                                                                                                                                                                                                                                                                                                                    */
+     @import 'styles/ui';
+     @import "styles/ui-animations";
+     @import "styles/ui-variables";
+
+     @import (reference) "octicon-mixins";
+     @import (reference) "styles/ui-mixins";
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+  ↛ Components                                                                                                                                                                                                                                                                                                                                                              */
+     @import "styles/atom";
+     @import "styles/buttons";
+     @import "styles/input.editor.less";
+     @import "styles/input.fields.less";
+     @import "styles/lists";
+     @import "styles/messages";
+     @import "styles/notifications";
+     @import "styles/overlays";
+     @import "styles/panels";
+     @import "styles/progress-indicator";
+     @import "styles/sites";
+     @import "styles/status-bar";
+     @import "styles/tabs";
+     @import "styles/text";
+     @import "styles/tooltips";
+     @import "styles/toolbar";
+     @import "styles/tree-view";
+     @import "styles/icons";
+     @import "styles/settings-view";
+     @import "styles/styleguide";
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+  ↛ Package Support                                                                                                                                                                                                                                                                                                                                                         */
+     @import "styles/package-support/index";
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+  ↛ Theme settings                                                                                                                                                                                                                                                                                                                                                          */
+     @import "styles/ui-theme-settings";
+     @import "styles/_styles/application";
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+  ↛ Icon fonts                                                                                                                                                                                                                                                                                                                                                          */
+     @import "./assets/iconsets/ionicons/ionicons.less";

@@ -156,9 +156,9 @@
           "type": "color",
           "default": "#f93995"
         },
-        "backgroundTint": {
+        "tint": {
           "order": 3,
-          "title": "Background tint",
+          "title": "Global tint",
           "description": "Applies a tinting for the whole workspace",
           "type": "color",
           "default": "#ffffff"

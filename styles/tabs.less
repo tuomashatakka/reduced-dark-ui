@@ -13,13 +13,14 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 ✕ Local variables                                                                                                                                                                                                                                                                                                                                                          */
 @icon-size:           3.2em;
 @flex:                1 0 auto;
+@scrollbar-size:      @handle-size / 2;
 @line:                @tab-height / 3;
 @horizontal-padding:  @tab-height / 2;
 @vertical-padding:    @tab-height - 2 * @line;
 @border:              1px 0 0;
 
-justify-content:      center;
-height:               @tab-height;
+justify-content:      flex-start;
+height:               auto !important;
 line-height:          @tab-height;
 display:              flex;
 overflow-x:           auto;
@@ -27,13 +28,12 @@ overflow-y:           hidden;
 border-radius:        0 !important;
 -webkit-transform:    scale(1);
 background:           var(--background-color);
-color:                var(--text-color);
                                                                                                                                                                                                                                                                                                                                                                           /*
 ✕ Tabs                                                                                                                                                                                                                                                                                                                                                          */
 .tab {
   .text(normal);
   background:       var(--tab-background-color) !important;
-  color:            inherit;
+  color:            var(--text-color);
 
   font-size:        0.92em;
   max-width:        none;
@@ -43,12 +43,15 @@ color:                var(--text-color);
   position:         relative;
   box-sizing:       border-box;
   border-style:     solid;
+  align-self:       flex-start;
 
   flex:             @flex;
   border-width:     @border;
   line-height:      @line;
-  height:           @tab-height;
+  max-height:       none;
+  height:           auto;
   padding:          @vertical-padding @horizontal-padding !important;
+  margin:           0 0 0;
   transition:       all @transition-time / 3 ease !important;
 
   &:not(.active):not(.modified):not(.added):not(:hover) {
@@ -68,10 +71,7 @@ color:                var(--text-color);
     background-color: transparent !important;
     border-color:   auto    !important;
     color:          inherit !important;
-    font-size:      inherit !important;
-    &::before {
-      color: inherit !important;
-      border-color: auto !important }}
+    font-size:      inherit !important }
                                                                                                                                                                                                                                                                                                                                                                                   /*
   → Currently active tab                                                                                                                                                                                                                                                                                                                                                         */
   &.active {
@@ -96,9 +96,10 @@ color:                var(--text-color);
   &:hover .close-icon { .close-icon-generator(hover) }
   &:not(:hover) {
     &.modified .close-icon { .close-icon-generator(modified) }
-    .state(added);
-    .state(modified);
-    .state(ignored); }}
+    // .state(added);
+    // .state(modified);
+    // .state(ignored);
+    }}
                                                                                                                                                                                                                                                                                                                                                                                     /*
 ✕ Decorations                                                                                                                                                                                                                                                                                                                                                          */
 &::before {
@@ -151,7 +152,12 @@ color:                var(--text-color);
     border-top-right-radius:  0;
     padding:        0 0 @component-padding 0 !important;
     margin:         0;
-    background:     @base-background-color }}}
+    background:     @base-background-color }}
+
+&::-webkit-scrollbar {
+  height: @scrollbar-size }
+&::-webkit-scrollbar-thumb {
+  border: none }}
                                                                                                                                                                                                                                                                                                                                                                               /*
 ✕ Local mixins                                                                                                                                                                                                                                                                                                                                                          */
 .close-icon-generator(@state: none) {

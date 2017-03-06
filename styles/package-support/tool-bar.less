@@ -7,7 +7,7 @@ author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
-@size:        @tab-height * 0.5;
+@size:        unit(@tab-height, rem);
 @horizontal:  ~".tool-bar.tool-bar-horizontal";
 @vertical:    ~".tool-bar.tool-bar-vertical";
 
@@ -34,16 +34,20 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   button::before,
   button::after {
     position: relative;
-    line-height: @size !important;
-    height: @size !important;
     border-radius: @component-padding / 2;
     padding: 0;
     transition:
-      color var(--trans-default, @transition-time),
-      background-color var(--trans-default, @transition-time) }
+      color var(--trans-short),
+      background-color var(--trans-short) }
 
-  button::before { width: @size }
-  button::after { .text(caps) }
+  button::before {
+    font-size: 4em !important;
+    width: @size }
+
+  button::after {
+    .text(caps);
+    font-size: 1em;
+    font-weight: 400 }
 
   button:hover::before {
     .accent;
@@ -62,29 +66,39 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   align-items: center;
   flex-wrap: nowrap !important;
   padding: 0 @component-padding / 2;
+  height: auto;
 
   hr, .tool-bar-spacer {
     margin: 0 @component-padding * 2 }
 
   button {
-    flex: 0 1 @size * 2.5;
-    width: auto !important;
-    padding: 0 !important;
-    height: auto !important }
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    text-align: center;
+    flex: 0 1 unit(@size, rem);
+    padding: @component-padding !important;
+    height: 100% !important }
 
   button::before {
+    display: block;
     box-sizing: content-box;
-    display: inline-block;
-    height: @size * 0.75;
-    line-height: @size !important }
+    height: 1.5em !important;
+    width: 1.5em !important;
+    margin: 0 auto;
+    line-height: 1.5em !important;
+    flex: 1 0 75% }
 
   button::after {
     display: block;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
+    text-align: center;
     transition: all @transition-time;
-    line-height: 1.5em;
+    height: @size * 0.25;
+    line-height: @size * 0.25;
     content: attr(data-original-title) }}
 
 @{vertical} {

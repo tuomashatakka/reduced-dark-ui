@@ -8,14 +8,14 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-status-bar {
+status-bar.status-bar {
   .text(subtle);
-  display: block;
-  height: var(--size);
-  line-height: var(--size);
+  display:          block;
+  letter-spacing:   0.02em;
+  height:           var(--size);
+  line-height:      var(--size);
+  font-size:        var(--text-size);
   background-color: var(--background-color);
-  font-size: var(--text-size);
-  letter-spacing: 0.02em;
 
   & > .flexbox-repaint-hack {
     background: transparent;
@@ -25,6 +25,10 @@ status-bar {
     background: transparent;
     height: inherit;
     line-height: inherit }
+
+  .icon::before {
+    font-size: 1.4em !important;
+    vertical-align: middle }
 
   span {
     font-size: 1em }
@@ -40,7 +44,7 @@ status-bar {
       font-size: var(--text-size);
       flex: 0 1 auto;
       padding: 0;
-      margin: 0 @component-padding / 1.5 0 0 }}
+      margin: 0 @component-padding / 1.5 0 }}
 
   .status-bar-right > *:last-child {
     padding-right: @component-padding }

@@ -31,8 +31,8 @@ atom-panel[collapse] {
   top: 0;
   bottom: 0;
   transition:
-    margin @transition-time @transition-curve,
-    transform @transition-time @transition-curve;
+    margin @transition-time linear, // @transition-curve,
+    transform @transition-time linear; // @transition-curve;
 
   .display-icon {
     cursor: pointer;

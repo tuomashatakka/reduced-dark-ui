@@ -107,8 +107,11 @@ button.icon,
 .btn-toolbar {
   height: @button-height !important;
   border-width: 0;
-  border-color: var(--border-color);
+  border-color: var(--border-color) !important;
   margin: 0px;
+
+  .btn {
+    border-color: inherit !important }
 
   > .btn:not(.selected):not(:hover) {
     border-color: var(--border-color);
@@ -120,12 +123,14 @@ button.icon,
     line-height:    @button-height;
     overflow:       hidden;
     margin:         0 1px 1px 0;
+    border-color: inherit !important;
     border-width:   0;
 
     & > .btn {
       border-width: 0;
       margin:       0 1px 1px 0;
       line-height:  @button-height;
+      border-color: inherit !important;
       border-radius: @button-border-radius !important }}}
 
 
@@ -148,7 +153,6 @@ button.icon,
     min-width:    @w;
     max-width:    @w;
     text-align:   center;
-    border-color: @base-border-color;
 
     &::before,
     .icon::before {

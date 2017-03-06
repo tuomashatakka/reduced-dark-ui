@@ -115,7 +115,7 @@ atom-panel {
     top: 0;
     z-index: 1000;
     position: absolute;
-    box-sizing: content-box;
+    box-sizing: border-box;
     text-align: center;
     width: var(--size);
     height: var(--size) !important;
@@ -127,7 +127,7 @@ atom-panel {
     background-color: transparent;
     transform: translateX(0);
     transition: transform var(--anim-duration), width var(--anim-duration);
-    transition-timing-function: @transition-curve;
+    transition-timing-function: linear; // @transition-curve;
 
     &::before {
       font-size: inherit !important;
@@ -135,12 +135,17 @@ atom-panel {
       padding: 0 !important;
       display: block;
       text-align: center;
+      box-sizing: border-box;
       width: auto;
-      height: var(--size) !important;
-      line-height: var(--size);
+      height: 100% !important;
+      line-height: ~"calc(var(--size) - 2 * var(--padding))";
       border-radius: 50em;
-      transition-timing-function: @transition-curve;
-      background: var(--background-color) }}}
+      transition-timing-function: linear; //@transition-curve;
+      background: var(--background-color) }}
+
+  &.open .display-icon::before,
+  &:hover .display-icon::before {
+    border-radius: 0 }}
 
 
 .preview-icon {
