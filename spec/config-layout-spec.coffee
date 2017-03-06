@@ -39,12 +39,14 @@ describe "Reduced Dark UI configuration", ->
 
     # Minimum boundary
     atom.config.set('reduced-dark-ui.layout.spacing', 10)
+    console.log(document.documentElement.getAttribute('spacing'))
     expect(domattr(attr)).toBe '50'
 
     # Maximum boundary
-    atom.config.set('reduced-dark-ui.layout.spacing', 210)
-    expect(domattr(attr)).toBe '150'
+    atom.config.set('reduced-dark-ui.layout.spacing', 250)
+    console.log(document.documentElement.getAttribute('spacing'))
+    expect(document.documentElement.getAttribute('spacing')).toBe '150'
 
     # Regular case
-    atom.config.set('reduced-dark-ui.layout.spacing', 105)
-    expect(domattr(attr)).toBe '105'
+    atom.config.set('reduced-dark-ui.layout.spacing', 55)
+    expect(document.documentElement.getAttribute('spacing')).toBe '55'
