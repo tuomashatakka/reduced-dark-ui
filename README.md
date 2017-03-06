@@ -1,7 +1,11 @@
 
 <p align="center" style="display: block; vertical-align: middle">
 
-  <img src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo-glyph.png" width=20 height=20 style="display: inline-block; vertical-align: baseline" />
+<img src="https://img.shields.io/travis/tuomashatakka/reduced-dark-ui.svg?style=flat-square" />
+
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  
+<img src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo-glyph.png" width=20 height=20 style="display: inline-block; vertical-align: baseline" />
   <a href="https://atom.io/themes/reduced-dark-ui" style="display: inline-block; vertical-align: baseline">
   <img src="https://img.shields.io/apm/dm/reduced-dark-ui.svg?style=flat-square" style="display: inline-block; vertical-align: baseline">
   </a>
