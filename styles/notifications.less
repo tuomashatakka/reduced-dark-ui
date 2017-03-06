@@ -8,14 +8,11 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka
 
 
-
 ✕ Namespace                                                                                                                                                                                                                                                                                                                                                          */
 atom-notifications {
 
-
                                                                                                                                                                                                                                                                                                                                                                           /*
 ✕ Local variables                                                                                                                                                                                                                                                                                                                                                          */
-
 @hide-factor:           0; //.85;
 @shadow-opacity:        15; // this per 100
 @shadow-blur:           14;    // this per 10
@@ -26,19 +23,15 @@ atom-notifications {
 @border-radius:         2px;
 @gutter:                1px;
 
-
                                                                                                                                                                                                                                                                                                                                                                           /*
 ✕ General definitions                                                                                                                                                                                                                                                                                                                                                          */
-
 .text(normal);
 top:                    @padding;
 background-color:       transparent;
 margin-left:           -@left-bar-width;
 
-
                                                                                                                                                                                                                                                                                                                                                                           /*
 ✕ Notifications                                                                                                                                                                                                                                                                                                                                                          */
-
 atom-notification:hover {
   transition-delay:     0s;
   transition-duration:  @transition-time/2;
@@ -57,27 +50,34 @@ atom-notification {
 
   &.has-close .message {
     padding-right:      2rem }
+
   &:first-child.has-close .message {
     padding-right:      6rem }
+
   &:not(.has-close) {
     transform:          translateX(0) }
+
   &::after, &:not(.has-close) .close-all {
     display:            none }
                                                                                                                                                                                                                                                                                                                                                                                       /*
   → Left-side icons                                                                                                                                                                                                                                                                                                                                                         */
-  &::before {
+  &.icon::before {
     position:           absolute;
     box-sizing:         border-box;
     text-align:         center;
-    vertical-align:     middle;
-    display:            table-cell;
+    display:            block;
     height:             auto;
     top:                0;
     left:               0;
     bottom:             0;
     background:         transparent;
     line-height:        auto !important;
+    margin:             -@left-bar-width/2 0 !important;
+    transform:          none;
+    line-height:        @left-bar-width/3;
+    top:                50%;
     width:              @left-bar-width   !important;
+    height:             @left-bar-width   !important;
     padding:            @left-bar-width/3 !important;
     font-size:          @left-bar-width/3 !important;
     border-radius:      @border-radius 0 0
@@ -101,6 +101,8 @@ atom-notification {
 
     & > *,
     & > .btn.btn {
+      --size:           @button-height;
+      --text-size:      8px;
       box-sizing:       border-box;
       transition:       all var(--anim-duration);
       flex:             1 1 auto;
@@ -112,9 +114,6 @@ atom-notification {
       background-color: var(--background-color);
       height:           var(--size) !important;
       line-height:      var(--size) !important;
-
-      &:not(:hover) {
-        color:          var(--text-color) !important }
 
       &:first-child {
         border-left-width: 0 !important }}}
@@ -162,6 +161,9 @@ code.error,
     line-height:        inherit;
     font-size:          inherit }}}
 
+.content {
+  background-color:     var(--background-color) !important }
+
 .detail {
   padding-top:          0;
   line-height:          1.5em;
@@ -196,30 +198,26 @@ code.error,
                                                                                                                                                                                                                                                                                                                                                                               /*
 ✕ State colors                                                                                                                                                                                                                                                                                                                                                          */
 
-@info: ~"atom-notification.icon.info::before";
-@fatal: ~"atom-notification.icon.fatal::before";
-@error: ~"atom-notification.icon.error::before";
-@warning: ~"atom-notification.icon.warning::before";
-@success: ~"atom-notification.icon.success::before";
+@info: ~"atom-notification.icon.info";
+@fatal: ~"atom-notification.icon.fatal";
+@error: ~"atom-notification.icon.error";
+@warning: ~"atom-notification.icon.warning";
+@success: ~"atom-notification.icon.success";
 
-@{info} {
-  color:              var(--color-text-info, @text-color-info);
-  background-color:   var(--color-background-info, @background-color-info) }
+.notification-highlight(@state: info, @var: "info") {
+   @cls: ~"atom-notification.icon.@{state}";
+   @{cls} {
+     color:              var(~"--color-@{var}");
+     background-color:   var(~"--color-@{var}-dimmed");
 
-@{fatal} {
-  color:              var(--color-text-error, @text-color-error);
-  background-color:   var(--color-background-error, @background-color-error) }
+   &::before {
+     color:              inherit;
+     background-color:   transparent }}}
 
-@{error} {
-  color:              @color-annotation;
-  background-color:   var(--color-background-annotation, @background-color-annotation) }
-
-@{warning} {
-  color:              var(--color-text-warning, @text-color-warning);
-  background-color:   var(--color-background-warning, @background-color-warning) }
-
-@{success} {
-  color:              var(--color-text-success, @text-color-success);
-  background-color:   var(--color-background-success, @background-color-success) }
+.notification-highlight(info, "info");
+.notification-highlight(fatal, "error");
+.notification-highlight(error, "annotation");
+.notification-highlight(warning, "warning");
+.notification-highlight(success, "success");
 
 }

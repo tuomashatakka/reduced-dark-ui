@@ -82,9 +82,6 @@ code {
   .txt(info);
   .bg(base) }
 
-.badge {
-  --text-color: @tooltip-key-text-color }
-
 .highlight {
   --text-color: @base-background-color;
   --background-color: @text-color }
@@ -127,7 +124,8 @@ input[type='range'] {
   --active-color:     var(--color, @text-color);
   --disabled-color:   var(--color-text-subtle, @color-disabled);
   --background-color: transparent;
-  --size: 8px }
+  --text-size: 9px;
+  --size: var(--text-size) }
 
 .btn.btn-primary {
   --color: var(--color-background-info, @background-color-info) }

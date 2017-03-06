@@ -27,3 +27,32 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 @col-success:     #10faad; //#2dffa0;
 @col-highlight:   #10faad;
 @col-main:        #59edbc;
+
+.badge, [class*='badge-'] {
+  background-color: var(--background-color) !important }
+
+.badge-info,
+.status-info {
+  --text-color: var(--color-info, @col-main);
+  --background-color: var(--color-info-dimmed) }
+
+[class*='-success'],
+[class*='-added'] {
+  --text-color: var(--color-success, @col-success);
+  --background-color: var(--color-success-dimmed) }
+
+
+[class*='-warning'],
+[class*='-modified'] {
+  --text-color: var(--color-warning, @col-warning);
+  --background-color: var(--color-warning-dimmed) }
+
+[class*='-renamed'] {
+  --text-color: var(--color-annotation, @col-annotation);
+  --background-color: var(--color-annotation-dimmed) }
+
+[class*='-removed'],
+[class*='-error'],
+[class*='-fatal'] {
+  --text-color: var(--color-renamed, @col-error);
+  --background-color: var(--color-error-dimmed) }

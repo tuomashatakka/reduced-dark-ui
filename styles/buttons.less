@@ -11,7 +11,8 @@
 ↛ Defaults                                                                                                                                                                                                                                                                                                                                                                 */
 button,
 button.icon,
-.btn {
+.btn,
+a[class*='btn']:not(.btn-group):not(.btn-toolbar) {
   .text(caps);
   @color-alt:         @col-dark;
   @inner-height:      @button-height - @input-padding-vertical;
@@ -32,7 +33,7 @@ button.icon,
   border-style:       solid        !important;
   transition:         all var(--time-sm);
   box-sizing:         content-box;
-  font-size:          var(--size) !important;
+  font-size:          var(--text-size, --size) !important;
   font-weight:        400;
   padding:            0 @component-padding / 2;
   outline:            none !important;
