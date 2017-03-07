@@ -31,21 +31,21 @@ describe "Reduced Dark UI configuration", ->
     attr = 'spacing'
 
     # Default value
-    expect(domattr(attr)).toBe '100'
+    expect(domattr(attr)).toBe '80'
 
     # Invalid value
     atom.config.set('reduced-dark-ui.layout.spacing', false)
-    expect(domattr(attr)).toBe '100'
+    expect(domattr(attr)).toBe '80'
 
     # Minimum boundary
     atom.config.set('reduced-dark-ui.layout.spacing', 10)
     console.log(document.documentElement.getAttribute('spacing'))
-    expect(domattr(attr)).toBe '50'
+    expect(domattr(attr)).toBe '40'
 
     # Maximum boundary
     atom.config.set('reduced-dark-ui.layout.spacing', 250)
     console.log(document.documentElement.getAttribute('spacing'))
-    expect(document.documentElement.getAttribute('spacing')).toBe '150'
+    expect(document.documentElement.getAttribute('spacing')).toBe '160'
 
     # Regular case
     atom.config.set('reduced-dark-ui.layout.spacing', 55)
