@@ -1,6 +1,10 @@
 @import 'ui-variables';
 
+
+
+
 &.tree-view-scroller {
+
 
 
 position: relative;
@@ -9,16 +13,16 @@ overflow: initial;
 z-index: 301;
 
 .tree-view {
+  flex-flow: column nowrap;
   position: relative;
+  overflow: initial;
+  display: flex;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  margin-left: 0;
   padding: 0;
-  overflow: initial;
-  display: flex;
-  flex-flow: column nowrap;
+  margin-left: 0;
 
   > .project-root {
     position: static;
@@ -46,13 +50,13 @@ z-index: 301;
       display: block;
       max-width: 100%;
       z-index: 1000;
-      height: @tab-height }
+      height: var(--size, @tab-height) }
 
     > .list-tree {
       position: absolute;
       overflow: auto;
       display: block;
-      top: @tab-height;
+      top: var(--size, @tab-height);
       bottom: 0;
       left: 0;
       right: 0 }
@@ -63,13 +67,15 @@ z-index: 301;
     z-index: 1001;
 
     .project-root-header {
-      background-color: inherit !important;
+      background-color: var(--background-color) !important;
+      right: 0;
       display: block;
       z-index: 100000000;
-      right: 0;
       position: absolute }}
 
   &.expanded ~ .project-root {
     display: none;
     opacity: 0 }}}
+
+
 }

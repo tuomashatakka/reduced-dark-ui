@@ -14,51 +14,50 @@ button.icon,
 .btn,
 a[class*='btn']:not(.btn-group):not(.btn-toolbar) {
   .text(caps);
-  @color-alt:         @col-dark;
+  @gradient:          linear-gradient(4deg, rgba(255,210,220,0.4), transparent);
   @inner-height:      @button-height - @input-padding-vertical;
   @btn-size:          @button-height - @component-padding;
   @padding:           @component-padding / 2 @component-padding / 2 * 3;
 
-  margin:             0;
-  color:              @text-color;
-  background:         @button-background-color;
   border-radius:      @roundness;
-  padding:            @padding     !important;
-  height:             @btn-size    !important;
-  min-width:          @btn-size    !important;
-  min-height:         @btn-size    !important;
-  line-height:        @btn-size    !important;
-  box-shadow:         none         !important;
-  border-width:       1px          !important;
-  border-style:       solid        !important;
-  transition:         all var(--time-sm);
   box-sizing:         content-box;
-  font-size:          var(--text-size, --size) !important;
+  box-shadow:         none         !important;
+  height:             var(--size, @button-height)    !important;
+  min-width:          var(--size, @button-height)    !important;
+  min-height:         var(--size, @button-height)    !important;
+  line-height:        var(--size, @button-height)    !important;
+  border-style:       solid        !important;
+  border-width:       1px          !important;
+  padding:            var(--padding, @padding) !important;
+  margin:             0;
   font-weight:        400;
-  padding:            0 @component-padding / 2;
+  font-size:          var(--text-size, --size) !important;
+  transition:         all var(--time-sm);
   outline:            none !important;
 
   .icon::before,
   &::before {
+    margin:           -1px auto 0;
+    padding:          0 0.1em 0 0;
+    font-size:        var(--icon-size, 2em) !important;
     text-align:       center;
     vertical-align:   middle;
     display:          inline-block;
     position:         relative;
-    margin:           -1px auto 0;
-    padding:          0 0.1em 0 0;
-    font-size:        2em !important;
     line-height:      inherit !important;
     height:           inherit !important;
     color:            inherit !important }
 
-  color:              var(--color) !important;
-  border-color:       var(--border-color) !important;
+  color:              var(--color)            !important;
+  border-color:       var(--border-color)     !important;
   background-color:   var(--background-color) !important;
 
   &.selected, &:active, &:focus, &:hover {
-    color:              black !important;
-    border-color:       var(--active-color) !important;
-    background-color:   var(--active-color) !important }
+    background:            @gradient;
+    background-color:      var(--active-color) !important;
+    border-color:          var(--active-color) !important;
+    color:                 black !important;
+    background-blend-mode: color; }
 
   &[class*='btn-'] {
     --active-color: var(--color) }
@@ -76,61 +75,74 @@ a[class*='btn']:not(.btn-group):not(.btn-toolbar) {
  &:hover {
    transition-duration: var(--time-xs) }
 
-  &[disabled], &.disabled {
-    opacity:            1 }
-
   &.btn-sm,
   &.btn-xs {
-    font-size:        ~"calc(0.92 * var(--size)) !important";
+    font-size:        ~"calc(0.92 * var(--text-size)) !important";
+    min-height:       @button-height/1.5 !important;
+    max-height:       @button-height/1.5 !important;
     height:           @button-height/1.5 !important;
     line-height:      @button-height/1.5 !important }
 
   &.btn-lg {
-    font-size:        ~"calc(1.2 * var(--size)) !important";
+    font-size:        ~"calc(1.2 * var(--text-size)) !important";
     padding:          0 @component-padding;
+    min-height:       @button-height * 1.2 !important;
+    max-height:       @button-height * 1.2 !important;
     height:           @button-height * 1.2 !important;
     line-height:      @button-height * 1.2 !important }
 
   // &.icon {
   //   vertical-align:   middle;
-  &.status-indicator { border-width: 0 !important }}
+  &.status-indicator {
+    border-width: 0 !important }}
                                                                                                                                                                                                                                                                                                                                                                         /*
 ↛ Toolbars and grouped buttons                                                                                                                                                                                                                                                                                                                                                                 */
 
 .btn-group {
-  padding: 0 0 2px;
+  padding: 0 0 2px 2px;
   box-sizing: content-box;
+
+  .btn:not(:first-child) {
+    border-left-color: transparent !important }
 
   > .btn.icon::before {
     margin: -1px 0 0 }}
 
 .btn-group,
 .btn-toolbar {
-  height: @button-height !important;
-  border-width: 0;
-  border-color: var(--border-color) !important;
-  margin: 0px;
+  border-color:   var(--border-color) !important;
+  border-width:   0;
+  margin:         0;
+  height:         var(--size, @button-height) !important;
 
   .btn {
     border-color: inherit !important }
 
-  > .btn:not(.selected):not(:hover) {
-    border-color: var(--border-color);
-    height: 100% }
+    > .btn:not(.selected):not(:hover) {
+      border-color: inherit;
+      height:       100% }
+
+    > .btn:hover {
+      border-color: inherit !important;
+      background-color: var(--active-color) !important }
+
+    > .btn.selected {
+      border-color: inherit !important;
+      background: var(--color) !important }
     // border-color: inherit !important }
 
   .btn-toolbar > & {
     border-radius:  @button-border-radius;
-    line-height:    @button-height;
+    line-height:    var(--size, @button-height);
+    border-color:   inherit !important;
     overflow:       hidden;
     margin:         0 1px 1px 0;
-    border-color: inherit !important;
     border-width:   0;
 
     & > .btn {
       border-width: 0;
       margin:       0 1px 1px 0;
-      line-height:  @button-height;
+      line-height:  var(--size, @button-height);
       border-color: inherit !important;
       border-radius: @button-border-radius !important }}}
 
@@ -140,9 +152,9 @@ a[class*='btn']:not(.btn-group):not(.btn-toolbar) {
   margin:         0 auto;
 
   > .btn-group {
-    margin:       0;
+    margin:        0;
     border-radius: 0;
-    position:     static }
+    position:      static }
 
   .btn,
   button,
@@ -157,12 +169,12 @@ a[class*='btn']:not(.btn-group):not(.btn-toolbar) {
 
     &::before,
     .icon::before {
-      display:    block;
       font-size:  unit(@size-large, rem) !important;
+      box-sizing: border-box;
+      display:    block;
       width:      100%;
       margin:     0;
-      padding:    0;
-      box-sizing: border-box }}}
+      padding:    0 }}}
 
 .pull-right.btn {
   height:         @button-height * 0.6 !important;

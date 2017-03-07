@@ -17,20 +17,20 @@ html {
 
 atom-workspace {
   --scrollbar-background-color: var(transparent);
-  --scrollbar-color: var(--color-background-sub);
-  --scrollbar-active-color: var(--color-background-dark);
+  --scrollbar-color:            var(--color-background-light);
+  --scrollbar-active-color:     var(--color-background-dark);
 
-  --color-text: var(--color-text-base, @text-color);
-  --color-text-main: var(--color-primary, @text-color-info);
-  --color-text-info: var(--color-primary, @text-color-info);
-  --color-text-added: var(--color-success, @text-color-success);
-  --color-text-success: var(--color-success, @text-color-success);
-  --color-text-warning: var(--color-warning, @text-color-warning);
-  --color-text-ignored: var(--color-warning, @text-color-warning);
+  --color-text:          var(--color-text-base, @text-color);
+  --color-text-main:     var(--color-primary, @text-color-info);
+  --color-text-info:     var(--color-primary, @text-color-info);
+  --color-text-added:    var(--color-success, @text-color-success);
+  --color-text-success:  var(--color-success, @text-color-success);
+  --color-text-warning:  var(--color-warning, @text-color-warning);
+  --color-text-ignored:  var(--color-warning, @text-color-warning);
   --color-text-modified: var(--color-error, @text-color-warning);
-  --color-text-error: var(--color-error, @text-color-error);
-  --color-text-renamed: var(--color-warning, @text-color-error);
-  --color-text-removed: var(--color-error, @text-color-error);
+  --color-text-error:    var(--color-error, @text-color-error);
+  --color-text-renamed:  var(--color-warning, @text-color-error);
+  --color-text-removed:  var(--color-error, @text-color-error);
 
   --text-color: var(--color-text, @text-color);
   --text-color-subtle: var(--color-subtle, @text-color-subtle);
@@ -39,13 +39,18 @@ atom-workspace {
   --text-color-active: var(--color-primary, @text-color-selected);
   --text-color-hover: var(--color-accent-color, @text-color-selected);
   --text-color: var(--color-text, @text-color);
+
   --color-text-subtle: var(--color-subtle, @text-color-subtle);
-  --color-text-highlight: var(--color-primary, @text-color-highlight);
-  --color-text-selected: var(--color-primary, @text-color-selected);
-  --color-text-active: var(--color-primary, @text-color-selected);
+  --color-text-highlight: var(--color-highlight, @text-color-highlight);
+  --color-text-selected: var(--color-selected, @text-color-selected);
+  --color-text-active: var(--color-selected, @text-color-selected);
   --color-text-hover: var(--color-accent-color, @text-color-selected);
   --color-background-subtle: var(--color-background-base);
-
+  --color-background-info: var(--color-info-dimmed);
+  --color-background-success: var(--color-success-dimmed);
+  --color-background-warning: var(--color-warning-dimmed);
+  --color-background-annotation: var(--color-annotation-dimmed);
+  --color-background-error: var(--color-error-dimmed);
 
   --size: var(4rem, unit(@tab-height, rem));
 
@@ -53,7 +58,7 @@ atom-workspace {
   color: var(--text-color);
   font-family: var(--font, @font-family);
 
-  --color-background-panel: var(--color-background-base);
+  --color-background-panel: var(--color-background-medium);
 }
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Panes                                                                                                                                                                                                                                                                                                                                                         */
@@ -65,88 +70,95 @@ atom-pane-container {
 atom-panel-container.bottom {
   .bg(dark, tool-panel) }
 
+.list-tree,
+.list-group,
+.tree-view,
 atom-panel {
   --background-color: var(--color-background-panel) }
 
 .inset-panel {
   .bg(base, inset-panel) }
 
-.panel-heading, .inset-panel .panel-heading {
+.panel-heading,
+.inset-panel .panel-heading {
   .bg(base, panel-heading) }
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Text                                                                                                                                                                                                                                                                                                                                                         */
 pre {
   --text-color: inherit }
-
 code {
   .txt(info);
   .bg(base) }
 
 .highlight {
-  --text-color: @base-background-color;
-  --background-color: @text-color }
-
-.highlight-info {
-  --background-color: @text-color-info }
-
-.highlight-success {
-  --background-color: @text-color-success }
-
-.highlight-warning {
-  --background-color: @text-color-warning }
-
-.highlight-error {
-  --background-color: @text-color-error }
+  --text-color: var(--color-text-highlight, @base-background-color);
+  --background-color: var(--color-text-subtle, @text-color) }
+.highlight-success { .bg(info) }
+.highlight-success { .bg(success) }
+.highlight-warning { .bg(warning) }
+.highlight-error { .bg(error) }
                                                                                                                                                                                                                                                                                                                                                                                       /*
 → Tooltips                                                                                                                                                                                                                                                                                                                                                         */
-kbd, .tooltip {
-  --background-color: @tooltip-background-color;
-  --text-color: @tooltip-text-color }
-
+kbd, .tooltip,
 .tooltip .keystroke {
-  --background-color: @tooltip-key-background-color;
-  --text-color: @tooltip-key-text-color }
+  --background-color: var(--color-background-medium, @tooltip-background-color);
+  --text-color: var(--color-text-subtle, @tooltip-text-color) }
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → GUI                                                                                                                                                                                                                                                                                                                                                         */
 input[type='range'] {
-  --text-color: @text-color;
-  --track-color: @text-color;
-  --focus-color: @color-main;
-  --focus-track-color: @text-color-highlight;
+  --text-color: var(--color-text-base, @text-color);
+  --track-color: var(--scrollbar-color, @text-color);
+  --focus-color: var(--color-accent-color, @color-main);
+  --focus-track-color: var(--scrollbar-active-color, @text-color-highlight);
   --size: 1px;
   --margin: 1em;
   --handle-size: 1em }
                                                                                                                                                                                                                                                                                                                                                                                       /*
 → Buttons                                                                                                                                                                                                                                                                                                                                                         */
 .btn {
-  --color:            var(--text-color, @text-color);
-  --border-color:     var(--color);
-  --active-color:     var(--color, @text-color);
-  --disabled-color:   var(--color-text-subtle, @color-disabled);
   --background-color: transparent;
-  --text-size: 9px;
-  --size: var(--text-size) }
+  --disabled-color:   var(--color-text-subtle, @color-disabled);
+  --active-color:     var(--color-text-highlight, @text-color);
+  --border-color:     var(--color-dimmed);
+  --color:            var(--color-text-base, @text-color);
+  --text-size:        9px;
+  --padding:          0.6rem 1rem;
+  --size:             2.4rem }
 
-.btn.btn-primary {
-  --color: var(--color-background-info, @background-color-info) }
+.btn-primary {
+  --background-color: var(--color-primary-dimmed);
+  --disabled-color: var(--color-primary-dimmed);
+  --active-color: var(--color-primary);
+  --border-color: var(--color-primary-dimmed);
+  --color: var(--color-primary, @background-color-info) }
 
-.btn.btn-info {
-  --color: var(--color-background-info, @background-color-info) }
+.btn-info {
+  --disabled-color: var(--color-info-dimmed);
+  --active-color: var(--color-accent-color-mixed);
+  --border-color: var(--color-info-dimmed);
+  --color: var(--color-info, @background-color-info) }
 
-.btn.btn-success {
-  --color: var(--color-background-success, @background-color-success) }
+.btn-success {
+  --disabled-color: var(--color-success-dimmed);
+  --border-color: var(--color-success-dimmed);
+  --active-color: var(--color-success);
+  --color: var(--color-success, @background-color-success) }
 
-.btn.btn-warning {
-  --color: var(--color-background-warning, @background-color-warning) }
+.btn-warning {
+  --disabled-color: var(--color-warning-dimmed);
+  --border-color: var(--color-warning-dimmed);
+  --active-color: var(--color-warning);
+  --color: var(--color-warning, @background-color-warning) }
 
-.btn.btn-error {
-  --color: var(--color-background-error, @background-color-error) }
+.btn-error {
+  --disabled-color: var(--color-error-dimmed);
+  --border-color: var(--color-error-dimmed);
+  --active-color: var(--color-error);
+  --color: var(--color-error, @background-color-error) }
 
-.btn:focus, .btn:active:focus {
-  --color: var(--color-text-selected, @text-color-selected) }
-
-.btn-toolbar, .btn-group {
-  --border-color: var(--color-dimmed) }
+.btn-toolbar,
+.btn-group {
+  --border-color: var(--color-background-neutral) }
                                                                                                                                                                                                                                                                                                                                                                                     /*
 → Tabs                                                                                                                                                                                                                                                                                                                                                         */
 .tab-bar {
@@ -163,15 +175,15 @@ input[type='range'] {
 → Status bar                                                                                                                                                                                                                                                                                                                                                         */
 status-bar {
   --background-color: var(--color-background-dark, @sub-background-color);
-  --text-size: unit(@size-small, rem);
-  --size: 4rem }
+  --text-size: 10px;
+  --size: 3.6rem }
                                                                                                                                                                                                                                                                                                                                                                                       /*
 → Tree view                                                                                                                                                                                                                                                                                                                                                         */
 @inactive: ".project-root.collapsed, .project-root.selected.collapsed, .project-root.expanded ~ .project-root:not(.selected)";
 @active: ~".project-root.selected";
 .list-tree, .list-group, .tree-view {
-  --background-color: transparent;
-  --text-size: @font-size;
+  --background-color: var(--color-background-panel);
+  --text-size: var(--text-size, @font-size);
 
   .project-root-header {
     --text-color: var(--color-text-highlight, @text-color-highlight);
@@ -179,38 +191,38 @@ status-bar {
 
   @{inactive} {
     .project-root-header {
-    --size: @tab-height;
-    --background-color: var(--color-background-dark, @background-color-dark);
-    --border-color: @tree-view-border-color-disabled }}
+    --size: var(--size-panel-head, @tab-height);
+    --background-color: inherit;
+    --border-color: var(--color-background-dark, @tree-view-border-color-disabled) }}
 
   @{active} {
     .project-root-header {
-    --background-color: var(--color-background-base, @tree-view-background-color);
+    --background-color: inherit;
     --border-color: transparent }}}
                                                                                                                                                                                                                                                                                                                                                                                       /*
 → Overlays                                                                                                                                                                                                                                                                                                                                                         */
 atom-panel.modal,
 .overlay {
-  --background-color: var(--color-background-base, @overlay-background-color);
+  --background-color: var(--color-background-panel, @overlay-background-color);
   --border-radius: @component-border-radius;
   --border-color: @base-border-color;
-  --text-color: @base-border-color;
+  --text-color: var(--color-text-base, @text-color);
 
   ul, ol {
-    --text-color: @text-color-subtle;
+    --text-color: var(--color-text-subtle, @text-color-subtle);
     li {
       --size: @component-padding/2 @component-padding*2 }
     li .character-match { .text(normal) }
     li.selected .character-match { .text(selected) }
     li.selected { --text-color: @text-color-selected }}
 
-  atom-text-editor.mini, atom-text-editor[mini] { --text-color: @text-color-subtle;
-    &.is-focused.text, &.is-focused.source { --text-color: @text-color-highlight }}}
+  atom-text-editor.mini, atom-text-editor[mini] { .txt(subtle);
+    &.is-focused.text, &.is-focused.source { .txt(highlight); }}}
                                                                                                                                                                                                                                                                                                                                                                                           /*
 → Notifications                                                                                                                                                                                                                                                                                                                                                         */
 atom-notification {
-  --background-color: var(--color-background-base, @overlay-background-color);
-  --text-color: @text-color }
+  --background-color: var(--color-background-panel, @overlay-background-color);
+  --text-color: var(--color-text-base, @text-color) }
 
 atom-notification .btn-toolbar > *,
 atom-notification .btn-toolbar > .btn.btn {

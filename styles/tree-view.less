@@ -12,21 +12,20 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 @inactive: ".project-root.collapsed, .project-root.selected.collapsed, .project-root.expanded ~ .project-root:not(.selected)";
 @active: ~".project-root.selected";
 
-
-
 .project-root > .header.list-item {
-  font-size: 0.8em !important }
+  font-size: 0.9em !important }
 
 .project-root > .header.list-item .icon::before {
-  font-size: 0.8em !important;
+  font-size: 0.9em !important;
   padding-right: 1em !important }
 
 .list-tree,
 .list-group,
 .tree-view {
-  position:     relative;
+  --size:       @tab-height;
   background:   var(--background-color);
   font-size:    var(--text-size);
+  position:     relative;
   padding:      0;
 
   > li.separator {
@@ -54,8 +53,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
       .h1;
       font-weight:    100;
       font-size:      2em         !important;
-      height:         @tab-height !important;
-      line-height:    @tab-height !important }
+      height:         var(--size, @tab-height) !important;
+      line-height:    var(--size, @tab-height) !important }
 
     // Root folder/repo icons
     .icon-repo::before {
@@ -68,7 +67,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     &::before {
       margin-left:    1em;
       color:          inherit;
-      transition:     all @transition-time ease;
+      transition:     all var(--trans-default) ease;
       opacity:        0.25 }
 
     &:hover::before {
