@@ -13,11 +13,11 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 @active: ~".project-root.selected";
 
 .project-root > .header.list-item {
-  font-size: 0.9em !important }
+  font-size: 0.5em !important }
 
 .project-root > .header.list-item .icon::before {
-  font-size: 0.9em !important;
-  padding-right: 1em !important }
+  font-size: 1.2em !important;
+  padding-right: 0 !important }
 
 .list-tree,
 .list-group,
@@ -36,7 +36,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     background:   transparent !important }
 
   .project-root {
-    transition:     opacity @transition-time;
+    transition:     opacity var(--trans-default);
     padding-bottom: @component-padding / 2 }
 
   .project-root-header {
@@ -44,7 +44,8 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
     border-bottom: 1px solid transparent;
     border-bottom-color: var(--border-color);
     background-color: var(--background-color);
-    height: inherit;
+    height: var(--size);
+    line-height: var(--size);
 
     span {
       color:        var(--text-color) }

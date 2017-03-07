@@ -11,7 +11,6 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 project-viewer {
   --background-color: var(--color-background-panel, @tool-panel-background-color);
-
   position: relative;
   display: block;
   overflow: visible;
@@ -25,7 +24,14 @@ project-viewer {
     padding: 1rem !important;
     transition: all @transition-time;
 
+    & > li.list-nested-item {
+      margin-bottom: 2em }
     & > li.list-nested-item > .list-item {
-      .h3;
+      > span {
+        all: inherit;
+        display: inline;
+      }
+      .h1;
+      font-size: 1em;
       line-height: 1.5em;
       padding-top: 0.25em; }}}
