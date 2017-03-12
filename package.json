@@ -126,7 +126,7 @@
           "title": "Collapsing panels",
           "description": "Collapse the side panels. Panels are shown on mouseover.",
           "type": "string",
-          "default": "Right",
+          "default": "Neither",
           "enum": [
             "Neither",
             "Left",
