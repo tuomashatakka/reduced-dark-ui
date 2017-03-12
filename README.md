@@ -26,6 +26,9 @@
 
 </p>
 
+
+**Please note that the custom view for the theme settings is deactivated until the Atom's 1.16 update.**
+
     
 <img src="https://tuomashatakka.gitlab.io/atom-ui-reduced-dark/assets/logo/logo.png" style="width: auto; height: 8vh; margin: 0 auto; display: block; text-align: center;" alt="Reduced Dark UI" />
 
