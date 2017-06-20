@@ -1,27 +1,22 @@
 @import 'ui-variables';
 
-
 atom-panel .display-icon {
   display: none }
 
 atom-workspace-axis.vertical {
   margin-left: 0 }
 
+atom-panel-container[collapse] atom-panel.left {
+  .applyCollapsing();
+  left: 0;
+  transform: translateX(-100%);
+  margin-right: -@tab-height }
 
-
-atom-panel[collapse] {
-  &.left {
-    .applyCollapsing();
-    left: 0;
-    transform: translateX(-100%);
-    margin-right: -@tab-height }
-  &.right {
-    .applyCollapsing();
-    right: 0;
-    transform: translateX(100%);
-    margin-left: -@tab-height }}
-
-
+atom-panel-container[collapse] atom-panel.right {
+  .applyCollapsing();
+  right: 0;
+  transform: translateX(100%);
+  margin-left: -@tab-height }
 
 .applyCollapsing() {
   @gutter-y: 1 / 8; // Horizontal spacing is 1/8

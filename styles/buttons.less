@@ -54,8 +54,8 @@ a[class*='btn']:not(.btn-group):not(.btn-toolbar) {
 
   &.selected, &:active, &:focus, &:hover {
     background:            @gradient;
-    background-color:      var(--active-color) !important;
-    border-color:          var(--active-color) !important;
+    background-color:      var(--active-color, white) !important;
+    border-color:          var(--active-color, white) !important;
     color:                 black !important;
     background-blend-mode: color; }
 
@@ -107,6 +107,10 @@ a[class*='btn']:not(.btn-group):not(.btn-toolbar) {
 
   > .btn.icon::before {
     margin: -1px 0 0 }}
+
+.btn-toolbar {
+  .btn:not(:first-child) {
+    border-left-color: inherit !important }}
 
 .btn-group,
 .btn-toolbar {

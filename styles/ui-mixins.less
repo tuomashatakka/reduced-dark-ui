@@ -279,32 +279,41 @@ Colors & accent                                                                 
 
 
 .accent(@state: normal) {
-  @color: @color-highlight;
-  @light: @col-lighter;
-  @dark: @col-dark;
-
+  color: var(--color-primary);
   border-color: auto;
-  color: @color;
-
-  & when (lightness(@color) < 0.5) { background-color: @light }
-  & when (lightness(@color) >= 0.5) { background-color: @dark }
-  & when (@state = inverse) { .accent.inverse }
-  &.active, &.selected { color: lighten(@color, 10%) }
-  &:hover, &:focus { color: lighten(@color, 5%) }
-
-  &.inverse {
-    @color: @color-highlight;
-    @light: @col-lighter;
-    @dark: @col-dark;
-    background-color: @color;
-
-    & when (lightness(@color) < 0.5) { &, &:focus, &:active {
-      color: @light;
-      border-color: @color !important }}
-
-    & when (lightness(@color) >= 0.5) { &, &:focus, &:active {
-      color: @dark;
-      border-color: @color !important }}}}
+}
+.accent.inverse {
+  color: var(--color-primary);
+  border-color: auto;
+  background-color: var(--color-background-primary)
+}
+// .accent(@state: normal) {
+//   @color: @color-highlight;
+//   @light: @col-lighter;
+//   @dark: @col-dark;
+//
+//   border-color: auto;
+//   color: @color;
+//
+//   & when (lightness(@color) < 0.5) { background-color: @light }
+//   & when (lightness(@color) >= 0.5) { background-color: @dark }
+//   & when (@state = inverse) { .accent.inverse }
+//   &.active, &.selected { color: lighten(@color, 10%) }
+//   &:hover, &:focus { color: lighten(@color, 5%) }
+//
+//   &.inverse {
+//     @color: @color-highlight;
+//     @light: @col-lighter;
+//     @dark: @col-dark;
+//     background-color: @color;
+//
+//     & when (lightness(@color) < 0.5) { &, &:focus, &:active {
+//       color: @light;
+//       border-color: @color !important }}
+//
+//     & when (lightness(@color) >= 0.5) { &, &:focus, &:active {
+//       color: @dark;
+//       border-color: @color !important }}}}
 
                                                                                                                                                                                                                                                                                                                                                                            /*
 Media Queries                                                                                                                                                                                                                                                                                                                                                              */

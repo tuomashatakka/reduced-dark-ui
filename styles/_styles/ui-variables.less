@@ -25,7 +25,7 @@ Size factors                                                                    
 @size-large:  1.2;
 @size-xlarge: 2.4;
 @size-huge:   4;
-@size-base:   6;
+@size-base:   4;
 @size:        6;
                                                                                                                                                                                                                                                                                                                                                                         /*
 Tints                                                                                                                                                                                                                                                                                                                                                                    */
@@ -193,9 +193,13 @@ Package Support                                                                 
 
                                                                                                                                                                                                                                                                                                                                                                       /*
 Typography                                                                                                                                                                                                                                                                                                                                                              */
-@font-family:       @__uiFont,            @base-font-family;
-@font-family-menu: "Montserrat",          @base-font-family;
-@font-family-caps: "Novecento Sans Wide", @font-family-menu;
+@font-family:      @__uiFont,
+                   @base-font-family;
+@font-family-menu: "Montserrat",
+                   "Questrial",
+                   @base-font-family;
+@font-family-caps: "Novecento Sans Wide",
+                   @font-family-menu;
 @base-font-family: "Helvetica Neue",
                    "Open Sans",
                    "Lato",
