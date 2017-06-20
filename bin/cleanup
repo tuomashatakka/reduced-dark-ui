@@ -1,0 +1,35 @@
+#!/bin/sh
+
+clear
+
+# UPDATE THESE IF YOU RUN THIS ON YOUR OWN MACHINE
+NAME=reduced-dark-ui
+PROJECT_DIR=~/Projects/Atom/$NAME
+STORAGE_DIR=~/.atom/storage/$NAME
+VARIABLES_FILE=$PROJECT_DIR/styles/ui-variables.less
+
+cd $PROJECT_DIR
+
+echo \\n
+echo "Unlinking the package $NAME "
+apm-beta unlink $PROJECT_DIR
+apm-beta unlink $PROJECT_DIR --dev
+
+echo \\n
+echo "Linking the package $NAME as a regular pkg "
+# apm-beta link $PROJECT_DIR
+
+echo \\n
+echo "Forcibly clearing the config.less & font.less "
+chmod -R 0755 $STORAGE_DIR
+rm -f $STORAGE_DIR/config.less
+rm -f $STORAGE_DIR/font.less
+
+echo \\n
+echo "Creating initial config-fallback.less"
+rm -f $VARIABLES_FILE
+rm -fR $STORAGE_DIR
+touch $VARIABLES_FILE
+
+echo "@import '_styles/config-fallback';" >> $VARIABLES_FILE
+echo "@import '_styles/ui-variables';" >> $VARIABLES_FILE

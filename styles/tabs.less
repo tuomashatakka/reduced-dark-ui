@@ -1,127 +1,213 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
-project     reduced-dark-ui
-version     0.0.0
-repository  https://github.com/tuomashatakka/reduced-dark-ui
+ tabs ⟩ components ⟩ reduced-dark-ui
+
+
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
-copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
-
-
-@icon-size: 1em;
-
+copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                                                          */
+                                                                                                                                                                                                                                                                                                                                                                        /*
+✕ Namespace                                                                                                                                                                                                                                                                                                                                                          */
 .tab-bar {
-  display: flex;
-  // margin-left: @tab-height;
-  height: @tab-height;
-  justify-content: center;
-  overflow-x: auto;
-  background: @tab-bar-background-color;
-  border-radius: 0 !important;
-  -webkit-transform: scale(1);
+                                                                                                                                                                                                                                                                                                                                                                        /*
+✕ Local variables                                                                                                                                                                                                                                                                                                                                                          */
+@icon-size:           3.2em;
+@flex:                1 0 auto;
+@scrollbar-size:      @handle-size / 2;
+@line:                @tab-height / 3;
+@horizontal-padding:  @tab-height / 2;
+@vertical-padding:    @tab-height - 2 * @line;
+@border:              1px 0 0;
 
-  .tab {
-    .text(normal);
-    box-sizing: border-box;
-    position: relative;
-    display: block;
-    flex: 1 1 auto;
-    text-align: center;
-    width: auto;
-    height: @tab-height;
-    line-height: @tab-height/3;
-    padding: @tab-height/3 0.5rem !important;
-    border-width: 1px 0 0;
-    border-top-style: solid;
-    color: @text-color-subtle;
-    background: @tab-background-color;
-    transition: all @transition-time ease !important;
+justify-content:      flex-start;
+height:               auto !important;
+line-height:          @tab-height;
+display:              flex;
+overflow-x:           auto;
+overflow-y:           hidden;
+border-radius:        0 !important;
+-webkit-transform:    scale(1);
+background:           var(--background-color);
+                                                                                                                                                                                                                                                                                                                                                                          /*
+✕ Tabs                                                                                                                                                                                                                                                                                                                                                          */
+.tab {
+  .text(normal);
+  background:       var(--tab-background-color) !important;
+  color:            var(--text-color);
 
-    [class*='status-'], &.modified, &.added {
-      transition:
-        color @transition-time ease,
-        background @transition-time ease;
+  font-size:        0.92em;
+  max-width:        none;
+  width:            auto;
+  display:          block;
+  text-align:       center;
+  position:         relative;
+  box-sizing:       border-box;
+  border-style:     solid;
+  align-self:       flex-start;
 
-      .title, *::before {
-        color: inherit !important;
-        border-color: auto !important }}
+  flex:             @flex;
+  border-width:     @border;
+  line-height:      @line;
+  max-height:       none;
+  height:           auto;
+  padding:          @vertical-padding @horizontal-padding !important;
+  margin:           0 0 0;
+  transition:       all @transition-time / 3 ease !important;
 
-    .status-modified, &.modified { color: @text-color-modified }
-    .status-added, &.added { color: @text-color-added }
-    .status-ignored, &.ignored { color: @text-color-ignored }
-    .title, .title::before {
-      line-height: inherit;
-      font-size: 1rem !important }
+  &:not(.active):not(.modified):not(.added):not(:hover) {
+    border-color:     transparent }
 
-    // Hovered
-    &:hover {
-      color: @text-color-highlight;
-      background: @tab-background-color-hover }
-
-    // Current
-    &.active {
-      flex: 1 1 auto;
-      color: @text-color-selected;
-      background-color: @tab-background-color-active;
-      .accent;
-
-      .title { color: inherit; padding: 0 }}
-
-    .tab-state() }}
-
-.platform-darwin {
-  .tab .close-icon {
-    left: @icon-size !important;
-    right: auto !important }
-
-  .tab.modified:not(:hover) .close-icon {
-    left: @icon-size !important;
-    border: none;
-    right: auto !important }}
-
-.close-icon-generator(@state: none) {
-  position: absolute;
-  top: @tab-height / 2;
-  left: @icon-size;
-  width: @icon-size;
-  height: @icon-size;
-  line-height: @icon-size;
-  text-align: center;
-  font-size: @icon-size;
-  transform: translate(0%, -50%);
-  box-sizing: border-box;
-  transition: all @transition-time ease;
+  &.modified,
+  &.added {
+    transition-duration: @transition-time !important }
 
   &::before {
-    display: block;
-    border-radius: 50%;
-    transition: all @transition-time ease;
-    transform: rotate(45deg);
-    opacity: 0 }
+    display: none; } // For the material design icons
 
+  .title, .title::before {
+    height:         @line;
+    line-height:    @line;
+    vertical-align: middle;
+    background-color: transparent !important;
+    border-color:   auto    !important;
+    color:          inherit !important;
+    font-size:      inherit !important }
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  → Currently active tab                                                                                                                                                                                                                                                                                                                                                         */
+  &.active {
+    .accent;
+    flex:             @flex;
+    max-width:        none;
+    width:            auto;
+    background:       var(--tab-background-color-active) !important;
+    color:            var(--text-color-active) !important;
+    .title {
+      background-color: transparent !important;
+      font-weight:    700;
+      letter-spacing: -0.02em;
+      color:          inherit;
+      padding:        0 }}
 
-  // Not modified, non-hovered
-  &::before when (@state = none) {
-    color: transparent }
+  .close-icon { .close-icon-generator(none) }
+  &:hover {
+    background:       var(--tab-background-color-hover) !important;
+    color:            var(--text-color-hover) !important }
 
-  // Hovered
-  &::before when (@state = hover) {
-    color: inherit;
-    background: @tab-background-color-active;
-    border-width: 0px;
-    transform: rotate(0deg);
-    opacity: 1 }
-
-  // Modified
-  &::before when (@state = modified) {
-    border-width: 0px;
-    opacity: 1 }
-}
-
-
-.tab-state() {
-  .close-icon { .close-icon-generator() }
   &:hover .close-icon { .close-icon-generator(hover) }
-  &.modified:not(:hover) .close-icon { .close-icon-generator(modified) }
-}
+  &:not(:hover) {
+    &.modified .close-icon { .close-icon-generator(modified) }
+    // .state(added);
+    // .state(modified);
+    // .state(ignored);
+    }}
+                                                                                                                                                                                                                                                                                                                                                                                    /*
+✕ Decorations                                                                                                                                                                                                                                                                                                                                                          */
+&::before {
+  border-width: @border;
+  border-style: solid;
+  border-color: fade(@text-color-subtle, 10%);
+  top:          0;
+  left:         0;
+  right:        0;
+  content:      "";
+  display:      block;
+  position:     absolute }
+                                                                                                                                                                                                                                                                                                                                                                              /*
+✕ Inline tabs for the settings config view                                                                                                                                                                                                                                                                                                                                                          */
+&.inline-tabs {
+  @line:            @tab-height * 3/4;
+  position:         relative    !important;
+  transform:        none        !important;
+  top:              initial     !important;
+  background:       transparent;
+  display:          flex;
+  overflow-x:       hidden;
+  margin:           0;
+  line-height:      @line;
+  height:       2 * @line;
+
+  .icon,
+  + .displayed-item header .icon {
+    .displayicon(); }
+
+  .tab {
+    .text(menu);
+    flex:           1 0 auto !important;
+    padding:        0 @component-padding !important;
+    cursor:         pointer;
+    line-height:    inherit;
+    height:         inherit;
+    border-top:     none }
+
+  .tab.active {
+    background:     transparent }
+
+  .tab .icon {
+    font-size:      @tab-height / 2;
+    margin:         0 auto;
+    display:        block }
+
+  + displayed-item {
+    border-top-left-radius:   0;
+    border-top-right-radius:  0;
+    padding:        0 0 @component-padding 0 !important;
+    margin:         0;
+    background:     @base-background-color }}
+
+&::-webkit-scrollbar {
+  height: @scrollbar-size }
+&::-webkit-scrollbar-thumb {
+  border: none }}
+                                                                                                                                                                                                                                                                                                                                                                              /*
+✕ Local mixins                                                                                                                                                                                                                                                                                                                                                          */
+.close-icon-generator(@state: none) {
+  @size:            @tab-height / 2;
+  @angle-hidden:   -30deg;
+  @angle-modified:  45deg;
+
+  position:       absolute;
+  width:          @size;
+  height:         @size;
+  line-height:    @size;
+  top:            (@tab-height - @size) / 2;
+  left:           (@tab-height - @size) / 2;
+  bottom:         (@tab-height - @size) / 2;
+  text-align:     center;
+  background:     transparent;
+  box-sizing:     border-box;
+  border-width:   0 !important;
+  transition:     all @transition-time ease;
+  border-radius:  50%;
+
+  &::before {
+    content:       '\f404';
+    font-family:   'ionicons';
+    border-radius:  50%;
+    display:        block;
+    position:       absolute;
+    width:          inherit;
+    height:         inherit;
+    line-height:    inherit;
+    text-align:     inherit;
+    border-width:   0 !important;
+    font-size:      @icon-size !important;
+    transition:     all @transition-time ease;
+    color:          inherit;
+    opacity:        0 }
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  → Not modified, non-hovered                                                                                                                                                                                                                                                                                                                                                         */
+  &::before when (@state = none) {
+    transform: rotate(@angle-hidden);
+    color: rgba(0, 0, 0, 0.1) }
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  → Hovered state                                                                                                                                                                                                                                                                                                                                                      */
+  &::before when (@state = hover) {
+    transform: rotate(0deg);
+    cursor: pointer;
+    opacity: 1 }
+                                                                                                                                                                                                                                                                                                                                                                                  /*
+  → Modified state                                                                                                                                                                                                                                                                                                                                                         */
+  &::before when (@state = modified) {
+    transform: rotate(@angle-modified) !important;
+    border-width: 0px !important;
+    opacity: 1 }}

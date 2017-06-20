@@ -1,119 +1,58 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
-project     reduced-dark-ui
-version     0.0.0
-repository  https://github.com/tuomashatakka/reduced-dark-ui
+    user.interface.config _ reduced-dark-ui
+
+
 author      Tuomas Hatakka
 email       tuomas.hatakka@gmail.com
-copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
-                                                                                                                                                                                                                                                                                                                                                                        /*
+copyright   Copyright (C) 2016-2017 Tuomas Hatakka
 
-Variable definitions                                                                                                                                                                                                                                                                                                                                                    */
-@attr-config:       ~'@{ui-theme-name}-settings';
-@attr-color-accent: ~'@{ui-theme-name}-highilightcolor';
+    ............
 
-                                                                                                                                                                                                                                                                                                                                                                        /*
-User Interface                                                                                                                                                                                                                                                                                                                                                          */
-//.config(tabSizing);
-// .config(fixedTabBar);
-// .config(fixedProjectRoot);
-// .config(overrideEditorBackground);
-// .config(@arg) {
-//[@{attr-config}*=@{arg}] {
-atom-workspace when (@config-tabSizing = true) {
-  .tab-bar .tab {
+
+Tab alignment                                                                                                                                                                                                                                                                                                                                                          */
+@import 'config/tab-close-positioning';
+.tab-bar .tab, .tab-bar .tab.active {
+  flex-grow: 0 }
+
+.tab-bar[data-justify="left"] {
+  justify-content: flex-start }
+
+.tab-bar[data-justify="center"] {
+  justify-content: center }
+
+.tab-bar[data-justify="right"] {
+  justify-content: flex-start;
+  flex-basis: none;
+  flex-direction: row-reverse }
+
+.tab-bar[data-justify="stretch"] {
+  justify-content: flex-start;
+
+  .tab {
     max-width: none;
+    flex-grow: 1 !important;
     flex-basis: auto }
-}
 
-
-atom-workspace when (@config-fixedTabBar = true) {
-  & > atom-workspace-axis {
-    margin-top: @tab-height !important }
-
-  .tree-view-resizer {
-    overflow: hidden;
-    & .project-root > .list-tree { top: 0 }}
-
-  .tab-bar {
-    position: fixed;
-    height: @tab-height;
-    transform: translateY(-100%);
-    left: 0;
-    right: 0;
-    z-index: 300;
-    .tab.active,
-    .tab:hover.active {
-      width: inherit }}
-}
-
-
-atom-workspace when (@config-fixedProjectRoot = true) {
-
-  .tree-view-scroller {
-    position: relative;
-    margin-left: 0;
-    overflow: initial;
-    z-index: 301;
-
-    .tree-view {
-      position: relative;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin-left: 0;
-      padding: 0;
-      overflow: initial;
-
-      > .project-root {
-        position: static;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: 0;
-        padding: 0;
-        max-width: 100%;
-
-        &.selected {
-          z-index: 1000 }
-
-        &::before {
-          content: none; }
-
-        .project-root-header {
-          position: relative;
-          top: 0;
-          left: 0;
-          margin: 0;
-          padding: 0;
-          display: block;
-          max-width: 100%;
-          z-index: 1000;
-          height: @tab-height }
-
-        > .list-tree {
-          position: absolute;
-          overflow: auto;
-          display: block;
-          top: @tab-height;
-          bottom: 0;
-          left: 0;
-          right: 0 }
-
-        &.expanded {
-          .project-root-header {
-            right: 0;
-            position: absolute }
-          ~ .project-root {
-            display: none }}}}}
-}
-
-atom-workspace when (@config-overrideEditorBackground = true) {
-  atom-text-editor,
-  atom-text-editor::shadow,
-  :host {
-    background: @tab-background-color-active }
-}
+  .tab.active {
+    max-width: none;
+    flex-grow: 1 !important;
+    flex-basis: auto }}
+                                                                                                                                                                                                                                                                                                                                                                                    /*
+Tab bar fixed to the top of the screen                                                                                                                                                                                                                                                                                                                                */
+atom-workspace[fixed-tabs] atom-workspace-axis.horizontal { @import "config/fixed-tab-bar"; }
+                                                                                                                                                                                                                                                                                                                                                                           /*
+Project root(s) fixed to the top of the tree view                                                                                                                                                                                                                                                                                                                                */
+[fixed-root] { @import "config/fixed-project-root"; }
+                                                                                                                                                                                                                                                                                                                                                                           /*
+Editor background override                                                                                                                                                                                                                                                                                                                                                          */
+[background-override] { @import "config/override-editor-background"; }
+                                                                                                                                                                                                                                                                                                                                                                           /*
+Visual FX                                                                                                                                                                                                                                                                                                                                                          */
+// atom-workspace when (@__enhancedFx = true) { @import "config/visual-fx"; }
+                                                                                                                                                                                                                                                                                                                                                                           /*
+SILLY MODE                                                                                                                                                                                                                                                                                                                                                          */
+[silly] { @import "config/silly-mode"; }
+                                                                                                                                                                                                                                                                                                                                                                           /*
+Collapsing panels                                                                                                                                                                                                                                                                                                                                                          */
+@import "config/collapsing";

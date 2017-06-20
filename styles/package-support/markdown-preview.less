@@ -13,23 +13,24 @@ GitHub                                                                          
 .markdown-preview[data-use-github-style] {
 
   atom-text-editor,
-  atom-text-editor::shadow {
+  atom-text-editor.editor {
     padding: 16px;
 
-    .editor--private {
-      span.source {
-        color: @markdown-preview-text-color }
-  }}
+    .editor--private span.source {
+      color: @markdown-preview-text-color }}
 
-  atom-text-editor,
-  atom-text-editor::shadow,
   code {
     background-color: #F7F7F7 !important;
     border-radius: 3px }
 
-  em, strong, th { color: @markdown-preview-text-color; font-weight: 300 }
+  em,
+  strong,
+  th {
+    color: @markdown-preview-text-color;
+    font-weight: 500 !important }
 
-  h1, h2, h3, h4, h5 { color: #333333 }}
+  h1, h2, h3, h4, h5 {
+    color: #333333 }}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Style                                                                                                                                                                                                                                                                                                                                                                 */
@@ -46,7 +47,7 @@ Style                                                                           
   h1, h2, h3, h4, h5 { color: @markdown-preview-text-color }
 
   atom-text-editor,
-  atom-text-editor::shadow {
+  atom-text-editor.editor {
     padding: @component-padding*1.5;
 
     .editor--private {
@@ -64,11 +65,38 @@ Style                                                                           
 
 
     h1, h2, h3, h4, h5 { color: @markdown-preview-text-color }
+
     table {
-      td, th            { border-color: transparent; color: @markdown-preview-text-color }
-      th                { background-color: @markdown-preview-border-color }
-      tr                { background-color: @markdown-preview-table-body-color;
-        &:nth-child(2n) { background-color: darken(@markdown-preview-background-color, 3%) }
-      }}
+
+      td, th {
+        border-color: transparent;
+        color: @markdown-preview-text-color }
+      th {
+        background-color: @markdown-preview-border-color }
+
+      tr {
+        background-color: @markdown-preview-table-body-color }
+
+      tr:nth-child(2n) {
+        background-color: darken(@markdown-preview-background-color, 3%) }}}}
+
+
+.markdown-preview {
+  background: transparent !important;
+  * {
+    color: @col-light !important;
+    font-weight: 100 !important;
+    font-family: Helvetica Neue;
+    letter-spacing: 0.03em }
+
+  th {
+    background: @col-dark }
+
+  th, td {
+    border-color: @col-dark !important }
+
+  h1, h2, h3, h4 {
+    font-weight: 100 !important;
+    text-transform: lowercase;
   }
 }

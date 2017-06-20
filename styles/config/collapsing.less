@@ -1,0 +1,50 @@
+@import 'ui-variables';
+
+atom-panel .display-icon {
+  display: none }
+
+atom-workspace-axis.vertical {
+  margin-left: 0 }
+
+atom-panel-container[collapse] atom-panel.left {
+  .applyCollapsing();
+  left: 0;
+  transform: translateX(-100%);
+  margin-right: -@tab-height }
+
+atom-panel-container[collapse] atom-panel.right {
+  .applyCollapsing();
+  right: 0;
+  transform: translateX(100%);
+  margin-left: -@tab-height }
+
+.applyCollapsing() {
+  @gutter-y: 1 / 8; // Horizontal spacing is 1/8
+
+  position: absolute;
+  padding-top: @tab-height;
+  top: 0;
+  bottom: 0;
+  transition:
+    margin @transition-time linear, // @transition-curve,
+    transform @transition-time linear; // @transition-curve;
+
+  .display-icon {
+    cursor: pointer;
+    display: block }
+
+  &.open,
+  &:hover {
+    transform: translateX(0) }
+
+  &.open  ~ atom-panel,
+  &:hover ~ atom-panel {
+    margin-left: -@tab-height }
+
+  @advance: @tab-height * (3 / 4 + @gutter-y);
+  &:nth-child(1) { z-index: 101; margin-top: 0 * @advance }
+  &:nth-child(2) { z-index: 102; margin-top: 1 * @advance }
+  &:nth-child(3) { z-index: 103; margin-top: 2 * @advance }
+  &:nth-child(4) { z-index: 104; margin-top: 3 * @advance }
+  &:nth-child(5) { z-index: 105; margin-top: 4 * @advance }
+  &:nth-child(6) { z-index: 106; margin-top: 5 * @advance }}

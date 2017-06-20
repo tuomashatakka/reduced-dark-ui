@@ -1,66 +1,180 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Process Palette Panel
-project     reduced-dark-ui
-version     0.0.0
-repository  https://github.com/tuomashatakka/reduced-dark-ui
-author      Tuomas Hatakka
-email       tuomas.hatakka@gmail.com
-copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+ panels ⟩ process-palette ⟩ reduced-dark-ui
 
 
+ author Tuomas Hatakka
+  email tuomas.hatakka@gmail.com
+      © 2016-2017 Tuomas Hatakka
+
+
+↛ Namespace                                                                                                                                                                                                                                                                                                                                                                 */
 .process-palette {
-  @radius: 4px;
 
-  .main-content {
-    padding-top: 2em }
+                                                                                                                                                                                                                                                                                                                                                                            /*
+↛ Local variables                                                                                                                                                                                                                                                                                                                                                                 */
+@radius: @button-border-radius;
 
-  .process-palette-scrollable {
+.main-content {
+  padding-top: 2em }
+
+.process-palette-scrollable {
+  display: flex;
+  flex-flow: column wrap }
+
+.process-palette-scrollable  > div {
+  flex: 1 1 auto;
+
+  button {
+    float: none }
+
+  table, tbody, tr, td, th {
+    .text(subtle);
+    flex: 1 1 auto;
+    display: block }
+
+  td {
+    padding-right: 0.5em;
+    font-size: 0.75em }
+
+  &:empty {
+    display: none }}
+
+  .button-group {
+    display: flex !important;
+    align-items: stretch;
+    text-align: center;
+    display: block;
+    left: 0;
+    position: relative }
+
+  .process-palette-button-view {
     display: flex;
-    flex-wrap: wrap;
 
-    & > div {
-      flex: 1 1 auto;
-
-      button {
-        float: left }
-      .header {
-        display: block;
-        .text(normal);
-        text-indent: -7.3em;
-        overflow: hidden;
-      }
-      table, tbody, tr, td, th {
-        display: inline-block;
-        .text(subtle)
-      }
-      td {
-        padding-right: 0.5em;
-        font-size: 0.75em;
-      }
-      &:empty { display: none }}
+    .btn {
+      line-height: @button-height;
+      padding: 0 @component-padding;
+      vertical-align: middle;
+      &::before {
+        vertical-align: middle;
+        margin-top: -2px }
+    }
   }
 
 
-  button.btn.btn-xs {
-    border-radius: 0;
-    line-height: 3em;
-    height: 3em;
-    padding: 0 0.8em;
-    margin: 0 -1px 0 0;
-    border-width: 0;
+button.btn.btn-xs,
+button.btn.btn-sm {
+  float: none;
+  flex: 1 0 auto;
+  width: auto;
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 0;
+  border-width: 0 !important;
+  margin: 0 @component-padding/2;
+  padding: 0 @component-padding;
+  border-width: 0;
 
-    &:first-of-type {
-      border-top-left-radius: @radius;
-      border-bottom-left-radius: @radius;
-    }
-    &:last-of-type {
-      margin-right: 0.5em;
-      border-top-right-radius: @radius;
-      border-bottom-right-radius: @radius;
-    }
+  // &.btn-sm + .btn {
+  //   border-top-left-radius: @radius;
+  //   border-bottom-left-radius: @radius;
+  // }
+  // &:first-of-type {
+  //   border-top-left-radius: @radius;
+  //   border-bottom-left-radius: @radius;
+  // }
+  // &:last-of-type {
+  //   margin-right: 0.5em;
+  //   border-top-right-radius: @radius;
+  //   border-bottom-right-radius: @radius;
+  // }
 
-    &::before {
-      padding-top: 2px }
+  &::before {
+    margin-top: -2px;
+    vertical-align: middle}
+}
+
+
+.process-palette-process {
+  display: flex;
+  align-items: center;
+
+  .header {
+    .text(caps);
+    display: block;
+    white-space: nowrap }
+}
+
+
+}
+
+
+
+
+.process-palette-split-view .right {
+  width: auto !important;
+  > * {
+    width: auto !important;
+  }
+}
+.process-palette-command-edit-view table {
+  width: auto !important;
+  min-width: 100%;
+  max-width: 100%;
+  td, tr, th {
+    padding: 0;
+    margin: 0;
+  }
+  .first-column {
+    padding-left: 0.2em;
+  }
+}
+.process-palette-command-edit-view .multi-line-editor {
+  border: 1px solid fade(#f6f6f6, 5%);
+  background-color: fade(black, 5%);
+  min-height: 12em;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 0.2em 0.4em;
+  font-size: 0.85em;
+}
+.process-palette {
+
+  atom-text-editor .editor--private,
+  atom-text-editor .editor-contents--private {
+    border-radius: 1em;
+    height: 100%;
+    width: 100%;
+    min-height: inherit;
+    overflow: hidden !important;
+    display: block;
+  }
+  atom-text-editor .editor--private .scroll-view,
+  atom-text-editor .editor-contents--private .scroll-view {
+    background-color: transparent;
+    * {
+    }
+  }
+  atom-workspace .process-palette-command-edit-view input[type="checkbox"] {
+    margin-left: 1em;
+    border-radius: 50%;
+    border: none;
+    -webkit-appearance: none;
+    &:checked {
+      background: #f0f0f0;
+    }
+  }
+  .process-palette-output-panel {
+    position: absolute;
+    box-sizing: border-box;
+    left: 1rem !important;
+    right: 1rem !important;
+    top: 1rem !important;
+    bottom: 1rem !important;
+    margin-top: 11em;
+    height: initial !important;
+    width: auto !important;
+    display: block;
+    background: transparent;
   }
 }

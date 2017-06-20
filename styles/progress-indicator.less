@@ -17,7 +17,7 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
   height: @size;
   display: block;
 
-  background-image: url(images/octocat-spinner-128.gif);
+  background-image: none;
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -72,4 +72,8 @@ progress {
 
 @-webkit-keyframes progress-buffering {
    100% { background-position: -100px 0px; }
+}
+
+.loading, [class*='loading'] {
+  animation: none !important;
 }

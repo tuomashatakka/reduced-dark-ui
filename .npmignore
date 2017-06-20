@@ -2,3 +2,19 @@
 # Node
 node_modules
 npm-debug.log
+
+# CI
+.gitlab-ci.yml
+.travis.yml
+circle.yml
+
+# Assets
+assets/logo/*.svg
+assets/logo/*.ai
+assets/logo/*-*.png
+
+.imdone
+bin/**
+pigments-report.*
+process-palette.json
+process-palette.yml

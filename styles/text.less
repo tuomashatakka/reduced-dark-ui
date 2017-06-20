@@ -9,21 +9,35 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 
-body { font-weight: 400 }
+body {
+  font-weight: 400 }
 
  h1,  h2,  h3,  h4,  h5,  h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-
   .text(heading);
-  small { font-weight: 100 }
-}
+  small { font-weight: 100 }}
 
-h1, .h1 { font-size: 2em }
-h2, .h2 { font-size: 1.75em }
-h3, .h3 { font-size: 1.5em }
-h4, .h4 { font-size: 1.25em }
-h5, .h5 { font-size: 1em }
-h6, .h6 { font-size: 1em }
+h1, .h1 {
+  font-size:      3.6em;
+  line-height:    1em;
+  margin:         0;
+  padding:        0.4em 0 0;
+  vertical-align: middle;
+  letter-spacing: 0.2em;
+  font-weight:    500;
+  text-transform: uppercase;
+}
+h2, .h2 {
+  font-size: 2.4em;
+  font-weight: 100;
+  letter-spacing: -0.075em;
+  margin: 0;
+  padding: 0.5em 0 0 }
+
+h3, .h3 { font-size: 1.6em }
+h4, .h4 { font-size: 1.335em }
+h5, .h5 { font-size: 1.1675em }
+h6, .h6 { font-size: 1.1em }
 
 .text-selected { .text(selected) }
 .text-subtle { .text(subtle) }
@@ -33,30 +47,25 @@ h6, .h6 { font-size: 1em }
 .text-warning { .text(warning) }
 .text-error { .text(error) }
 
-.highlight { .highlight-type(@text-color) }
-.highlight-info { .highlight-type(@text-color-info) }
-.highlight-success { .highlight-type(@text-color-success) }
-.highlight-warning { .highlight-type(@text-color-warning) }
-.highlight-error { .highlight-type(@text-color-error) }
-
-.highlight-type(@color) {
+.highlight, *[class*='highlight-'] {
   .text(normal);
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: inherit !important;
   padding-left: @component-padding / 2;
   padding-right: @component-padding / 2;
-  color: @base-background-color !important;
-  border-radius: @component-border-radius;
-  background-color: @color }
+  border-radius: @component-border-radius }
 
 pre {
+  // border-color: @base-border-color;
   .text(normal);
-  border-color: @base-border-color;
-  border-width: 0;
-  background: @base-background-color }
+  border-width: 0 }
 
 code {
   padding: 2px 4px;
   font-size: 0.9em;
-  color: @text-color-info;
-  background-color: @base-border-color;
   border-radius: 4px }
+
+pre, code {
+  background-color: var(--background-color);
+  color: var(--text-color) }

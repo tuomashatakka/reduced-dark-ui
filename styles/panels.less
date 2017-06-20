@@ -8,70 +8,50 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 // Containers
 atom-panel-container {
-  background: @base-background-color }
-
-atom-panel-container.bottom {
+  &.bottom {
+  border-top: 1px solid var(--border-color);
   margin-top: 0;
-  border-top: 1px solid @tool-panel-border-color;
-  z-index: 3 }
+  z-index: 3 }}
 
 atom-pane-container {
-  atom-pane-axis.horizontal > * { border-right: 1px solid @base-border-color }
-  atom-pane-axis.horizontal > *:last-child { border-right: none }
+
+  atom-pane-axis.horizontal > *:not(:last-child) {
+    border-right: 1px solid var(--border-color) }
+
   atom-pane-axis.vertical atom-pane-resize-handle.vertical {
-    border-bottom: 1px solid @base-border-color;
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: -1px }}
 
+[class*='resize'] {
+  background: var(--color-background-base) }
 
 // Panels
-atom-panel {
+atom-panel, .tool-panel {
   .text(normal);
-  background: @tool-panel-background-color }
+  background: var(--background-color, @tool-panel-background-color) !important;
+  * { background: transparent } }
 
 atom-panel.bottom {
-    background: @app-background-color;
-    padding-bottom: 1em }
+  padding: 0 !important }
 
 atom-panel.bottom > *:not(:empty) {
-    background: @app-background-color;
-    padding-top: 1px;
-    z-index: 3 }
+  background: var(--background-color);
+  padding-top: 1px;
+  z-index: 3 }
 
+.inset-panel {
+  background-color: var(--background-color, @inset-panel-background-color) }
 
-// Collapsing
-atom-panel-container.left {
-
-  // atom-panel.left {
-  //   background: @app-background-color;
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   bottom: 0 }
-
-  // atom-panel {
-  //   transition: all @transition-time;
-  //   transform: translateX(-100%);
-  //   margin-right: -@tab-height;
-  //
-  //   &:hover { transform: translateX(0) }
-  //   &:hover ~ atom-panel { margin-left: -@tab-height }
-  //
-  //   &:nth-child(1) { z-index: 101; margin-top: 0 * @tab-height }
-  //   &:nth-child(2) { z-index: 102; margin-top: 1 * @tab-height }
-  //   &:nth-child(3) { z-index: 103; margin-top: 2 * @tab-height }
-  //   &:nth-child(4) { z-index: 104; margin-top: 3 * @tab-height }
-  //   &:nth-child(5) { z-index: 105; margin-top: 4 * @tab-height }
-  //   &:nth-child(6) { z-index: 106; margin-top: 5 * @tab-height }}
-}
 
 // Heading
 .panel-heading,
 .inset-panel .panel-heading {
   .text(heading);
   font-size: 2em;
-  border-radius: 0;
+  border-radius: var(--border-radius);
+  background-color: transparent;
 
-  & .btn {
+  .btn {
     .button(@button-border-color);
     font-size: 0.85rem !important;
     padding: 0 0.5em !important;
@@ -84,26 +64,30 @@ atom-panel-container.left {
     &.btn-warning { .button-variant(@text-color-warning) }
     &.btn-error { .button-variant(@text-color-error) }}}
 
+
 // Item views
 .panel-body {
-  background: @tool-panel-background-color;
+  background-color: transparent !important;
   border-radius: inherit }
 
+
 // Misc
-.pane-item,
+atom-pane-container atom-pane .item-views .pane-item,
 atom-pane-container atom-pane .item-views {
-  background: @app-background-color !important;
+  background-color: var(--background-color) !important;
   border: 0 }
 
 .focusable-panel,
 .item-views .focusable-panel {
   padding: @component-padding }
 
+
 // Resizers
 @handle: ~"*[class*='resize']:empty";
 atom-panel.left,
 atom-panel.right {
   @{handle} {
+    background: transparent;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -113,7 +97,6 @@ atom-panel.right {
     min-height: @handle-size;
     width: @handle-size;
     height: @handle-size;
-    background: fade(@background-color-dark, 10%);
     z-index: 100000 }}
 
 atom-panel.left @{handle} {
@@ -129,13 +112,13 @@ atom-panel.right @{handle} {
   transform: translateX(-50%) }
 
 atom-panel.top @{handle} {
-  top: 0px;
-  bottom: auto;
+  top: auto;
+  bottom: 0px;
   width: auto;
   transform: translateY(50%) }
 
 atom-panel.bottom @{handle} {
-  bottom: 0px;
-  top: auto;
+  bottom: auto;
+  top: 0px;
   width: auto;
   transform: translateY(-50%) }

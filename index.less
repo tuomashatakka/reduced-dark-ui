@@ -1,56 +1,116 @@
+                                                                                                                                                                                                                                                                                                                                                                        /*
+ 𝘙𝘌𝘋𝘜𝘊𝘌𝘋⦧𝘋𝘈𝘙𝘒
+ For more info about the loading of
+ the theme's stylesheets, please see
+ 𝐅𝐧 setupStorage
+ located in the lib/core/configuration
+ /index.js file of the theme package.
+                                                                                                                                                                                                                                                                                                                                                                        */
+body {
+  background-size:  15vh !important;
+  background:       #161317
+                    center center
+                    url('/Users/tuomas/Projects/Atom/reduced-dark-ui/assets/logo/logo-glyph.svg')
+                    no-repeat }
 
-                                                                                                                                                                                                                                                                                                                                                                        /*
-title       Reduced
-project     reduced-dark-ui
-version     0.0.0
-repository  https://github.com/tuomashatakka/reduced-dark-ui
-author      Tuomas Hatakka
-email       tuomas.hatakka@gmail.com
-copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
-                                                                                                                                                                                                                                                                                                                                                                        /*
-Core                                                                                                                                                                                                                                                                                                                                                                    */
-@import (reference) "styles/ui-variables";
-@import (reference) "octicon-mixins";
-@import (reference) "styles/ui-mixins";
-@import "styles/ui-animations";
-                                                                                                                                                                                                                                                                                                                                                                        /*
-Components                                                                                                                                                                                                                                                                                                                                                              */
-@import "styles/atom";
-@import "styles/buttons";
-@import "styles/editor";
-@import "styles/inputs";
-@import "styles/lists";
-@import "styles/messages";
-@import "styles/notifications";
-@import "styles/overlays";
-@import "styles/panels";
-@import "styles/progress-indicator";
-@import "styles/settings-view";
-@import "styles/sites";
-@import "styles/status-bar";
-@import "styles/tabs";
-@import "styles/text";
-@import "styles/tooltips";
-@import "styles/toolbar";
-@import "styles/tree-view";
-@import "styles/icons";
-                                                                                                                                                                                                                                                                                                                                                                        /*
-Package Support                                                                                                                                                                                                                                                                                                                                                         */
-@import "styles/package-support/color-picker";
-@import "styles/package-support/imdone-atom";
-@import "styles/package-support/script";
-@import "styles/package-support/autocomplete-plus";
-// @import "styles/package-support/build";
-@import "styles/package-support/deprecation-cop";
-@import "styles/package-support/expose";
-@import "styles/package-support/markdown-preview";
-@import "styles/package-support/minimap";
-@import "styles/package-support/process-palette";
-@import "styles/package-support/project-manager";
-@import "styles/package-support/project-viewer";
-@import "styles/package-support/tool-bar";
-@import "styles/package-support/timecop";
-@import "styles/package-support/linter";
-                                                                                                                                                                                                                                                                                                                                                                        /*
-Theme settings                                                                                                                                                                                                                                                                                                                                                          */
-@import "styles/ui-theme-settings";
+body::after {
+  -webkit-font-smoothing: antialiased;
+  font-family:          'Octicons Regular';
+  content:              "\f087";
+  font-weight:          normal;
+  font-style:           normal;
+  position:             fixed;
+  display:              block;
+  margin:               -1em 0 0 -1em;
+  top:                  50%;
+  left:                 50%;
+  font-size:            2rem;
+  width:                2em;
+  height:               2em;
+  max-height:           6em;
+  line-height:          2em     !important;
+  text-align:           center;
+  text-decoration:      none;
+  -webkit-filter:       none;
+  -webkit-text-stroke:  2px white;
+  border:               1px solid;
+  opacity:              1;
+  animation:            spin 2s linear infinite;
+  transition:           all 0s;
+  border-radius:        50% }
+
+html body[theme-active]::after {
+  -webkit-text-stroke: none;
+  background-color:    #161317;
+  text-transform: uppercase;
+  content:        "Welcome.";
+  font-family:    Helvetica Neue, Helvetica, Roboto, Open Sans, Arial, sans-serif;
+  font-weight:    100 !important;
+  font-size:      4rem;
+  line-height:    1em !important;
+  height:         1em !important;
+  width:          6em;
+  margin:         -0.5em 0 0 -3em;
+  overflow:       hidden;
+  width:          auto;
+  animation:      none;
+  border:         none;
+  transition:     opacity 2s linear 1s,
+                  max-height 0s linear 3s;
+  opacity:        0;
+  max-height:     0;
+  border-radius:  0 }
+
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+   index ⟩ defer ⟩ reduced-dark-ui
+
+
+   author Tuomas Hatakka
+    email tuomas.hatakka@gmail.com
+        © 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                                        */
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+  ↛ Core                                                                                                                                                                                                                                                                                                                                                                    */
+     @import 'styles/ui';
+     @import "styles/ui-animations";
+     @import "styles/ui-variables";
+
+     @import (reference) "octicon-mixins";
+     @import (reference) "styles/ui-mixins";
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+  ↛ Components                                                                                                                                                                                                                                                                                                                                                              */
+     @import "styles/atom";
+     @import "styles/buttons";
+     @import "styles/input.editor.less";
+     @import "styles/input.fields.less";
+     @import "styles/lists";
+     @import "styles/messages";
+     @import "styles/notifications";
+     @import "styles/overlays";
+     @import "styles/panels";
+     @import "styles/progress-indicator";
+     @import "styles/sites";
+     @import "styles/status-bar";
+     @import "styles/tabs";
+     @import "styles/text";
+     @import "styles/tooltips";
+     @import "styles/toolbar";
+     @import "styles/tree-view";
+     @import "styles/icons";
+     @import "styles/settings-view";
+     @import "styles/styleguide";
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+  ↛ Package Support                                                                                                                                                                                                                                                                                                                                                         */
+     @import "styles/package-support/index";
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+  ↛ Theme settings                                                                                                                                                                                                                                                                                                                                                          */
+     @import "styles/ui-theme-settings";
+     @import "styles/_styles/application";
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+  ↛ Icon fonts                                                                                                                                                                                                                                                                                                                                                          */
+     @import "./assets/iconsets/ionicons/ionicons.less";

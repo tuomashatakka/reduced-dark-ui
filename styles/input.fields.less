@@ -1,0 +1,197 @@
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+    input.fields _ reduced-dark-ui
+
+
+author      Tuomas Hatakka
+email       tuomas.hatakka@gmail.com
+copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+
+// Selectors
+
+
+// .controls > .control-label::after {
+//   content: "\f107";
+//   font-family: "FontAwesome" }
+
+atom-workspace {
+  input,
+  select,
+  @{select-input},
+  @{txt-input},
+  @{txtarea-input} {
+    background:     @input-background-color !important;
+    border-color:   @input-background-color !important;
+    border-radius:  @button-border-radius !important;
+    color:          @input-text-color !important;
+    font-family:    inherit;
+    transition:
+      color            @transition-time,
+      background-color @transition-time;
+
+    &:focus,
+    &:active,
+    &:hover,
+    &.is-focused {
+      color:          @input-text-color-active !important;
+      border-color:   @input-background-color !important;
+      background:     @input-background-color-highlight !important }
+
+    ::selection,
+    .selection .region {
+      border-radius: 2px !important;
+      background-color: fade(@input-background-color, 20%) !important;
+    }}
+
+
+
+@{checkbox-field} {
+  padding-left: 0 }
+
+@{checkbox-input} {
+  @size: unit(1.6, rem);
+
+  vertical-align: middle;
+  width: @size;
+  height: @size;
+  line-height: @size;
+  text-align: center;
+  border-radius: @size;
+  border-color: fade(@text-color, 5%);
+  background-color: fade(@text-color, 20%);
+  text-align: center;
+  margin-top: -0.3em;
+  margin-left: -@size - 0.6em;
+  color: @input-text-color;
+  background-color: @input-background-color;
+
+  &:focus { box-shadow: none !important }
+  &::before, &::after {
+    left: 50%;
+    top: 50%;
+    margin: 3px 1px -1px -2px;
+    min-height: 1px;
+    height: 1px;
+    transform: translate(-50%, -50%);
+    background-color: @input-background-color-highlight }}
+                                                                                                                                                                                                                                                                                                                                                                    /*
+Select Forms                                                                                                                                                                                                                                                                                                                                                                 */
+@{select-field},
+@{select-input} {
+  .inputfield(field);
+  padding: 0;
+  line-height: @button-height;
+  height: @button-height;
+  border-radius: @button-border-radius;
+  overflow: hidden;
+  border: 1px solid;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  padding: 0 @component-padding }
+
+@{select-field} {
+  padding:          0;
+  height:      unit(@input-height, em);
+  line-height: unit(@input-height, em);
+  border-radius:    @button-border-radius;
+
+  &:hover {
+    background-color: @background-color-highlight !important;
+  }
+
+  @{select-input} {
+    .inputfield(field);
+    border-radius:  0       !important;
+    border:         0       !important;
+    line-height:    inherit !important;
+    height:         inherit !important;
+    color:          inherit;
+    box-sizing:     content-box }
+
+  button.btn {
+    border-radius:  0;
+    color:          inherit;
+    font-size:      inherit;
+    display:        block     !important;
+    height:         inherit   !important;
+    line-height:    inherit   !important;
+    border-color:   inherit   !important;
+    border-width:   0 0 0 0px !important;
+    margin:         0 0 0     !important;
+    border-radius:  50%;
+    padding:        0 @component-padding 0 @component-padding * .75 !important;
+    padding:        0 @component-padding / 2
+                    0 @component-padding !important;
+    &::before {
+      -webkit-text-stroke-width:  1px;
+      -webkit-font-smoothing:     auto;
+      text-shadow:    none;
+      display:        inherit !important;
+      height:         inherit !important;
+      line-height:    inherit !important;
+      border-color:   inherit !important;
+      font-size:      2em;
+      margin:         0 !important }
+
+    &:hover { &, &::before {
+      background: transparent !important;
+      color: @text-color-subtle }}}}
+
+@{color-field} {
+  .inputfield(field);
+  padding: 0;
+
+  @{color-input} {
+    margin: 0 0 0 -2.5rem;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    border: none;
+    background: transparent }
+
+    ::-webkit-color-swatch-wrapper {
+      padding: 0;
+      width: 100%;
+      height: 100% }
+
+    ::-webkit-color-swatch {
+      border-width: 0;
+      border-radius: 50% }}
+
+
+@{range-input} {
+  .inputfield(field);
+  .selection(disabled);
+  @size: @input-height / 2;
+  margin: @size 0;
+  border-radius: @component-border-radius;
+  height: var(--size);
+  background: var(--track-color) !important;
+
+  &:active, &:focus, &:hover {
+    --text-color: var(--focus-color) !important;
+    background: var(--focus-track-color) !important }
+
+  &::-webkit-slider-runnable-track {
+    height: ~"calc(2 * var(--margin) + var(--handle-size))";
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    margin: 0 }
+
+  &::-webkit-slider-thumb {
+    box-shadow: 1px 0px @component-padding * 1.5 var(--background-color);
+    border: var(--margin) solid @sub-background-color;
+    margin: 0;
+    border-radius: 50%;
+    border-color: var(--background-color);
+    background-color: var(--text-color) !important;
+    width: var(--handle-size);
+    height: var(--handle-size);
+    outline: none;
+    display: block;
+    padding: 0 !important;
+    box-sizing: content-box;
+    -webkit-appearance: none }}}

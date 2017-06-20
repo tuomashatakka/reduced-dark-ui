@@ -1,6 +1,6 @@
 {
   "name": "reduced-dark-ui",
-  "version": "0.3.2",
+  "version": "0.11.0",
   "main": "./lib/main.js",
   "theme": "ui",
   "author": {
@@ -10,6 +10,44 @@
   "bugs": {
     "url": "https://github.com/tuomashatakka/reduced-dark-ui/issues"
   },
+  "dependencies": {
+    "atom-space-pen-views": "^2.2.0",
+    "auto-updater": "^1.0.2",
+    "eslint": "3.12.2",
+    "jasmine": "^2.5.3",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "underscore": "^1.8.3"
+  },
+  "description": "Plain elegant, unobtrusive interface featuring configurable, adaptive color palette. It's like having a cake and eating it too.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=0.174.0 <2.0.0"
+  },
+  "homepage": "https://github.com/tuomashatakka/reduced-dark-ui",
+  "keywords": [
+    "dark",
+    "clean",
+    "elegant",
+    "plain",
+    "minimal",
+    "custom",
+    "configure",
+    "settings",
+    "clear",
+    "unobtrusive",
+    "easy",
+    "solid",
+    "flat",
+    "material",
+    "monotone",
+    "subtle",
+    "design",
+    "hot",
+    "responsive",
+    "scale",
+    "ui"
+  ],
   "configSchema": {
     "layout": {
       "order": 1,
@@ -17,35 +55,84 @@
       "description": "General user interface definitions",
       "type": "object",
       "properties": {
+        "SILLYMODE": {
+          "order": 1,
+          "title": "ACTIVATE SILLY MODE (experimental but highly recommended)",
+          "description": "ACTIVATE SILLY MODE FOR ENHANCED USER EXPERIENCE AND INCREASED PRODUCTIVITY! A BIT LIKE POMODORO BUT BETTER",
+          "type": "boolean",
+          "default": false
+        },
         "uiScale": {
           "order": 1,
-          "title": "UI Scale",
+          "title": "User interface scale",
           "description": "Scale the user interface (does not affect the text editor font size)",
           "type": "integer",
           "default": 100,
-          "minimum": 25,
-          "maximum": 200
+          "minimum": 40,
+          "maximum": 150
         },
-        "tabSizing": {
-          "order": 2,
-          "title": "Spread tabs",
+        "spacing": {
+          "order": 3,
+          "title": "Layout spacing",
+          "description": "Adjust the layout gutters & line height. Smaller values mean more dense UI",
+          "type": "integer",
+          "default": 80,
+          "minimum": 40,
+          "maximum": 160
+        },
+        "tabPosition": {
+          "order": 6,
+          "title": "Tab alignment",
           "description": "Spread the tabs to fill the whole tab bar.",
-          "type": "boolean",
-          "default": true
+          "type": "string",
+          "default": "Center",
+          "enum": [
+            "Left",
+            "Center",
+            "Right",
+            "Stretch"
+          ]
+        },
+        "tabClosePosition": {
+          "order": 7,
+          "title": "Tab close button visibility",
+          "description": "Set the positioning & visibility for the tabs' close buttons. 'Active' option displays the close icon only on current icon, and 'Unmodified' option hides the close icon from the files that have unsaved changes.",
+          "type": "string",
+          "default": "Left",
+          "enum": [
+            "Hidden",
+            "Unmodified",
+            "Active",
+            "Left",
+            "Right"
+          ]
         },
         "fixedTabBar": {
-          "order": 3,
-          "title": "Fixed Tab Bar",
+          "order": 4,
+          "title": "Fixed tab tar",
           "description": "Display tabs above everything else. Enabling this setting allows tabs to spread amongst the whole screen. **Has some issues while the screen is split horizontally**",
           "type": "boolean",
           "default": false
         },
         "fixedProjectRoot": {
-          "order": 4,
-          "title": "Fixed Project Root",
+          "order": 2,
+          "title": "Fixed project root",
           "description": "Set the project root(s) in the tree view to be fixed to the top of the view. If enabled, the root folders remain fixed to the top of the view while the tree view is scrolled.",
           "type": "boolean",
           "default": true
+        },
+        "collapsing": {
+          "order": 5,
+          "title": "Collapsing panels",
+          "description": "Collapse the side panels. Panels are shown on mouseover.",
+          "type": "string",
+          "default": "Neither",
+          "enum": [
+            "Neither",
+            "Left",
+            "Right",
+            "Both"
+          ]
         }
       }
     },
@@ -58,92 +145,265 @@
         "primary": {
           "order": 1,
           "title": "Primary color",
-          "description": "The primary highlight color. Used in the main GUI component interaction",
+          "description": "The primary highlight color. Used in the main GUI interaction",
           "type": "color",
           "default": "#59edbc"
         },
         "accentColor": {
           "order": 2,
           "title": "Secondary color",
-          "description": "A complementary highlight accent.",
+          "description": "A complementary highlight accent, used mainly for hostile states' representation.",
           "type": "color",
-          "default": "#3bb3f6"
+          "default": "#f93995"
+        },
+        "tint": {
+          "order": 3,
+          "title": "Global tint",
+          "description": "Applies a tinting for the whole workspace",
+          "type": "color",
+          "default": "#ffffff"
+        },
+        "state": {
+          "order": 4,
+          "title": "State colors",
+          "description": "Colors for representing different states (such as git file events)",
+          "type": "object",
+          "properties": {
+            "success": {
+              "order": 2,
+              "title": "Success",
+              "description": "New files in the repository, success messages, affirmative buttons",
+              "type": "color",
+              "default": "#6ceba2"
+            },
+            "warning": {
+              "order": 3,
+              "title": "Warning",
+              "description": "Edited files, warning labels",
+              "type": "color",
+              "default": "#e6f69a"
+            },
+            "annotation": {
+              "order": 4,
+              "title": "Annotate",
+              "description": "Serious warnings",
+              "type": "color",
+              "default": "#e87565"
+            },
+            "error": {
+              "order": 5,
+              "title": "Error",
+              "description": "Fatal errors, cancel actions, all that negative stuff",
+              "type": "color",
+              "default": "#ff3558"
+            }
+          }
         }
       }
     },
     "decor": {
       "order": 3,
       "title": "Miscellaneous",
-      "description": "a",
+      "description": "",
       "type": "object",
       "properties": {
         "overrideEditorBackground": {
-          "order": 1,
           "title": "Override Editor Background Color",
           "description": "Instead of using the syntax theme's background color, force the Reduced Dark UI's background color to be used in the editor",
           "type": "boolean",
           "default": true
         },
+        "fading": {
+          "title": "Contrast for the ui elements (experimental)",
+          "description": "Increase the contrast between ui elements for increased visual clues (ease of access)",
+          "type": "boolean",
+          "default": false
+        },
+        "enhancedFx": {
+          "title": "Blend modes and gradient background (experimental)",
+          "description": "This is some seriously GPU-intensive stuff.",
+          "type": "boolean",
+          "default": false
+        },
         "uiFont": {
           "order": 2,
-          "title": "UI font family",
-          "description": "Font for the regular text in the UI",
+          "title": "Font family",
+          "description": "Typeface for the regular text",
           "type": "string",
-          "enum": [
-            "Arial",
-            "Helvetica Neue",
-            "Roboto",
-            "Open Sans",
-            "Montserrat",
-            "Lato",
-            "Raleway",
-            "Work Sans"
-          ]
+          "default": "Arial"
         },
         "uiFontWeight": {
           "order": 3,
-          "title": "UI font weight",
-          "description": "Font weight for the regular text in the UI",
-          "type": "string",
+          "title": "Font style",
+          "description": "Font style for the regular text",
+          "type": "number",
+          "default": 300,
           "enum": [
-            "100",
-            "200",
-            "300",
-            "400",
-            "500",
-            "600",
-            "700",
-            "800"
+            100,
+            200,
+            300,
+            400,
+            500,
+            600,
+            700,
+            800,
+            900
           ]
+        },
+        "animations": {
+          "title": "Animations & Transitions",
+          "description": "Settings for UI animations",
+          "type": "object",
+          "properties": {
+            "duration": {
+              "order": 1,
+              "title": "Duration",
+              "description": "Duration for transitions. Set to 0 to disable",
+              "type": "number",
+              "default": 0.2,
+              "minimum": 0,
+              "maximum": 0.6
+            },
+            "blurIntensity": {
+              "order": 2,
+              "title": "Blur intensity",
+              "description": "Intensity for backdrop blur effect. Set to 0 to disable",
+              "type": "number",
+              "default": 0.6,
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
         }
       }
     },
     "icons": {
       "order": 4,
       "title": "Icons",
-      "description": "Icons for the workspace's panels (run reduced-dark-ui:decorate to refresh)",
-      "type": "object"
+      "description": "Icons for the workspace's panels",
+      "type": "object",
+      "default": {}
+    },
+    "env": {
+      "order": 5,
+      "title": "Advanced",
+      "description": "Settings for the theme's runtime. All of these can also be set as ```PATH``` variables in the regular manner: ```export PATH=$PATH:<key>=<value>```",
+      "type": "object",
+      "properties": {
+        "GOOGLE_API_KEY": {
+          "title": "Google API key for webfonts",
+          "description": "Requires Fonts API access",
+          "type": "string",
+          "default": ""
+        }
+      }
     }
   },
-  "activationCommands": {
-    "atom-workspace": "reduced-dark-ui:decorate"
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "globals": {
+      "atom": true,
+      "Promise": true,
+      "module": true,
+      "process": true,
+      "emit": true,
+      "require": true,
+      "document": true,
+      "window": true,
+      "jQuery": true,
+      "__dirname": true,
+      "__pathname": true
+    },
+    "parser": "babel-eslint",
+    "plugins": [
+      "react",
+      "react-native",
+      "flowtype"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:flowtype/recommended"
+    ],
+    "rules": {
+      "react-native/no-unused-styles": 2,
+      "react-native/split-platform-components": 2,
+      "strict": 0,
+      "flowtype/boolean-style": [
+        2,
+        "boolean"
+      ],
+      "flowtype/define-flow-type": 1,
+      "flowtype/delimiter-dangle": [
+        2,
+        "never"
+      ],
+      "flowtype/generic-spacing": [
+        2,
+        "never"
+      ],
+      "flowtype/no-primitive-constructor-types": 2,
+      "flowtype/no-weak-types": 1,
+      "flowtype/object-type-delimiter": [
+        2,
+        "comma"
+      ],
+      "flowtype/require-parameter-type": 2,
+      "flowtype/require-return-type": [
+        2,
+        "always",
+        {
+          "annotateUndefined": "never"
+        }
+      ],
+      "flowtype/require-valid-file-annotation": 2,
+      "flowtype/semi": [
+        2,
+        "always"
+      ],
+      "flowtype/space-after-type-colon": [
+        2,
+        "always"
+      ],
+      "flowtype/space-before-generic-bracket": [
+        2,
+        "never"
+      ],
+      "flowtype/space-before-type-colon": [
+        2,
+        "never"
+      ],
+      "flowtype/type-id-match": [
+        2,
+        "^([A-Z][a-z0-9]+)+Type$"
+      ],
+      "flowtype/union-intersection-spacing": [
+        2,
+        "always"
+      ],
+      "flowtype/use-flow-type": 1,
+      "flowtype/valid-syntax": 1
+    },
+    "settings": {
+      "react": {
+        "pragma": "React",
+        "version": "15.3.1"
+      },
+      "flowtype": {
+        "onlyFilesWithFlowAnnotation": true
+      }
+    }
   },
-  "dependencies": {
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1"
-  },
-  "description": "A dark & minimal yet usable theme for atom.",
-  "devDependencies": {},
-  "engines": {
-    "atom": ">=0.174.0 <2.0.0"
-  },
-  "homepage": "https://github.com/tuomashatakka/reduced-dark-ui",
-  "keywords": [
-    "dark",
-    "clean",
-    "elegant",
-    "ui"
-  ],
   "optionalDependencies": {},
   "readmeFilename": "README.md",
   "license": "MIT",

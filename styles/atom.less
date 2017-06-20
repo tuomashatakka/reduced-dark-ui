@@ -11,101 +11,98 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 Workspace                                                                                                                                                                                                                                                                                                                                                               */
 @blur-intensity: 6px;
 
+
 html {
-  font-size: @font-size}
+  background: var(--background-color);
+  font-size: var(--text-size);
+  line-height: var(--line-height) }
 
-* {
-  font-size: 1em }
-
-body {
+atom-workspace {
+  animation-name: prelude;
+  animation-duration: 3s;
+  animation-play-state: paused;
+  width: 100vw;
+  overflow: hidden;
   position: relative }
 
+atom-workspace {
+  position: fixed;
+  background-color: var(--background-color);
+  transition: background 1.2s;
+  //background-image: @gradient !important;
+
+  atom-workspace-axis.vertical {
+    transition: filter 250ms;
+    left: 0 !important;
+    transition: left var(--trans-default, @transition-time), margin var(--trans-default, @transition-time) }
+
+  atom-workspace-axis.horizontal {
+    width: 100vw;
+    overflow: hidden }}
 
 // Blur for the modal bg
-atom-workspace {
-  atom-workspace-axis.vertical {
-    margin-left: @tab-height }}
-
 .modal-open {
   atom-panel-container.footer,
   atom-workspace-axis.horizontal {
-  transition: -webkit-filter @transition-time;
-  -webkit-filter: blur(@blur-intensity) }}
-
-
+    transition: -webkit-filter var(--trans-default, @transition-time);
+    -webkit-filter: blur(@blur-intensity) }}
                                                                                                                                                                                                                                                                                                                                                                         /*
 Search and replace                                                                                                                                                                                                                                                                                                                                                        */
 .project-find, .find-and-replace {
-  .btn-group-find .btn { .button-variant(@text-color-info) }
-  [class*="btn-group-replace"] .btn { .button-variant(@text-color-warning) }}
+  .btn-group-find .btn {
+    .button-variant(@text-color-info) }
+
+  [class*="btn-group-replace"] .btn {
+    .button-variant(@text-color-warning) }}
 
                                                                                                                                                                                                                                                                                                                                                                         /*
 Badges & Keybinding Badges                                                                                                                                                                                                                                                                                                                                                       */
 kbd,
 .settings-view .package-readme kbd {
   .text(normal);
-  color: @tooltip-key-text-color;
-  background: @tooltip-key-background-color;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  background: transparent;
   font-size: 90%;
-  border: 1px solid @tooltip-key-text-color;
   border-radius: @component-border-radius;
-  margin-left: @component-padding/2 }
+  margin-left: @component-padding / 2 }
 
-.badge {
+.badge,
+.badge-flexible {
   padding: @component-padding / 2;
+  font-size: 1em;
 
-  &.info, &.success, &.warning, &.error,
+  &.error { .state(error) }
+
+  &, &.info, &.success, &.warning, &.error,
   &.badge-info, &.badge-success, &.badge-warning, &.badge-error {
-    color: @tooltip-key-background-color }
+    color: var(--text-color) }
 }
                                                                                                                                                                                                                                                                                                                                                                         /*
 Scrollbars                                                                                                                                                                                                                                                                                                                                                                 */
-
 .scrollbars-visible-always,
 atom-text-editor,
+atom-workspace,
 .settings-view {
+
   /deep/ ::-webkit-scrollbar {
     width: @handle-size;
     height: @handle-size }
 
   /deep/ ::-webkit-scrollbar-track,
   /deep/ ::-webkit-scrollbar-corner {
-    background: @scrollbar-track-color }
+    background-color: var(--scrollbar-background-color, @scrollbar-track-color) }
 
   /deep/ ::-webkit-scrollbar-thumb {
     border-radius: @handle-size;
     border: 1px solid transparent;
-    background: @scrollbar-color;
+    background-color: var(--scrollbar-color, @scrollbar-color);
     background-clip: content-box;
 
     &:active, &:hover {
-      border-color: @scrollbar-color;
-      background: @scrollbar-color-active }}}
+      border-color: var(--scrollbar-active-color, @scrollbar-color);
+      background-color: var(--scrollbar-active-color, @scrollbar-color-active) }}}
 
-                                                                                                                                                                                                                                                                                                                                                                        /*
-Select Forms                                                                                                                                                                                                                                                                                                                                                                 */
-.select-container {
-  border-radius: @button-border-radius;
-  overflow: hidden;
-  border: 1px solid;
-  height: @input-height;
-  line-height: @input-height;
-
-  button.btn.btn {
-    border-width: 0 0 0 1px !important;
-    border-radius: 0 @button-border-radius @button-border-radius 0;
-    padding: 0 1.5em 0 1em }
-
-  select.form-control {
-    border-width: 0 }}
-
-select.form-control {
-  .text(normal);
-  height: @input-height;
-  line-height: @input-height;
-  text-transform: none;
-
-  &:focus,
-  &:hover {
-   background: @input-background-color-active !important;
-   color: @input-text-color-active !important }}
+.scrollbars-visible-always .panes > .pane.active {
+  ul::-webkit-scrollbar {
+    display: none }}

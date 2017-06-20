@@ -8,23 +8,36 @@ email       tuomas.hatakka@gmail.com
 copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
 
 linter-panel {
-  line-height: 2em;
+  overflow: visible;
+  padding: @component-padding;
 
-  &:not(:empty) {
-    padding: @handle-size 0 0 !important }
+  &:empty {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important }
 
   linter-message {
     display: block;
-    padding: 0.5em 1em 0;
+    padding: 0 0 0;
+    height: 2rem !important;
+    line-height: 2rem !important;
 
     .badge, .linter-highlight.badge {
       .badge;
-      margin: 0;
-      border-radius: @button-border-radius }
+
+      margin: 0 @component-padding / 3 0 0;
+      padding: 0 @component-padding;
+      border-radius: 2px;
+      height: 2rem !important;
+      line-height: 2rem !important;
+      &.error {
+        .text(caps);
+        .state(error) }
+    }
 
     .linter-message-item {
-      font-size: unit(@size-small, rem) }}
-}
+      margin: 0;
+      line-height: 2rem;
+      }}}
 
 linter-bottom-container {
   display: inline-block;
@@ -34,5 +47,4 @@ linter-bottom-container {
   linter-bottom-tab {
     border-color: transparent;
     height: inherit;
-    line-height: inherit }
-}
+    line-height: inherit }}

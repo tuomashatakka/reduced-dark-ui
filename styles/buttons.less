@@ -1,115 +1,202 @@
 
                                                                                                                                                                                                                                                                                                                                                                         /*
-title       Reduced
-project     reduced-dark-ui
-version     0.0.0
-repository  https://github.com/tuomashatakka/reduced-dark-ui
-author      Tuomas Hatakka
-email       tuomas.hatakka@gmail.com
-copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+ button ⟩ components ⟩ reduced-dark-ui
 
 
-button, button.icon, .btn-default, .btn {
-  .button(@button-border-color);
+ author Tuomas Hatakka
+  email tuomas.hatakka@gmail.com
+      © 2016-2017 Tuomas Hatakka
 
-  &:focus, &:active:focus {
-    outline: 0;
-    border: 1px solid @text-color-selected !important }
 
+↛ Defaults                                                                                                                                                                                                                                                                                                                                                                 */
+button,
+button.icon,
+.btn,
+a[class*='btn']:not(.btn-group):not(.btn-toolbar) {
+  .text(caps);
+  @gradient:          linear-gradient(4deg, rgba(255,210,220,0.4), transparent);
+  @inner-height:      @button-height - @input-padding-vertical;
+  @btn-size:          @button-height - @component-padding;
+  @padding:           @component-padding / 2 @component-padding / 2 * 3;
+
+  border-radius:      @roundness;
+  box-sizing:         content-box;
+  box-shadow:         none         !important;
+  height:             var(--size, @button-height)    !important;
+  min-width:          var(--size, @button-height)    !important;
+  min-height:         var(--size, @button-height)    !important;
+  line-height:        var(--size, @button-height)    !important;
+  border-style:       solid        !important;
+  border-width:       1px          !important;
+  padding:            var(--padding, @padding) !important;
+  margin:             0;
+  font-weight:        400;
+  font-size:          var(--text-size, --size) !important;
+  transition:         all var(--time-sm);
+  outline:            none !important;
+
+  .icon::before,
+  &::before {
+    margin:           -1px auto 0;
+    padding:          0 0.1em 0 0;
+    font-size:        var(--icon-size, 2em) !important;
+    text-align:       center;
+    vertical-align:   middle;
+    display:          inline-block;
+    position:         relative;
+    line-height:      inherit !important;
+    height:           inherit !important;
+    color:            inherit !important }
+
+  color:              var(--color)            !important;
+  border-color:       var(--border-color)     !important;
+  background-color:   var(--background-color) !important;
+
+  &.selected, &:active, &:focus, &:hover {
+    background:            @gradient;
+    background-color:      var(--active-color, white) !important;
+    border-color:          var(--active-color, white) !important;
+    color:                 black !important;
+    background-blend-mode: color; }
+
+  &[class*='btn-'] {
+    --active-color: var(--color) }
+
+  &:active,
+  &:focus {
+   }
+
+  &.selected,
+  &.selected:active:focus,
+  &.selected:focus,
+  &.selected:active { }
+
+ &.selected:hover,
+ &:hover {
+   transition-duration: var(--time-xs) }
+
+  &.btn-sm,
   &.btn-xs {
-    font-size: @size-xsmall;
-    padding: 0 @component-padding / 2;
-    height: @button-height/1.5;
-    line-height: @button-height/1.5 }
-
-  &.btn-sm {
-    font-size: @size-small;
-    padding: 0 @component-padding / 2;
-    height: @button-height;
-    line-height: @button-height }
+    font-size:        ~"calc(0.92 * var(--text-size)) !important";
+    min-height:       @button-height/1.5 !important;
+    max-height:       @button-height/1.5 !important;
+    height:           @button-height/1.5 !important;
+    line-height:      @button-height/1.5 !important }
 
   &.btn-lg {
-    font-size: @size-large;
-    padding: 0 @component-padding;
-    height: @button-height * 2;
-    line-height: @button-height * 2 }
+    font-size:        ~"calc(1.2 * var(--text-size)) !important";
+    padding:          0 @component-padding;
+    min-height:       @button-height * 1.2 !important;
+    max-height:       @button-height * 1.2 !important;
+    height:           @button-height * 1.2 !important;
+    line-height:      @button-height * 1.2 !important }
 
-  &.icon {
-    &::before {
-      vertical-align: middle;
-      margin-top: -3px;
-      font-size: 2.2em;
-      color: mix(@text-color, @app-background-color) }
-  }
+  // &.icon {
+  //   vertical-align:   middle;
+  &.status-indicator {
+    border-width: 0 !important }}
+                                                                                                                                                                                                                                                                                                                                                                        /*
+↛ Toolbars and grouped buttons                                                                                                                                                                                                                                                                                                                                                                 */
 
-  &.btn-info, &.btn-primary { .button-variant(@text-color-info) }
-  &.btn-success { .button-variant(@text-color-success) }
-  &.btn-warning { .button-variant(@text-color-warning) }
-  &.btn-error { .button-variant(@text-color-error) }
-  &.status-indicator { border-width: 0 !important }
-}
-
-.btn-toolbar,
 .btn-group {
+  padding: 0 0 2px 2px;
+  box-sizing: content-box;
 
-  border: 0;
-  margin: 0px;
+  .btn:not(:first-child) {
+    border-left-color: transparent !important }
 
-  & > .btn {
-    border: 1px solid;
-    height: @button-height !important;
-    box-sizing: border-box }
+  > .btn.icon::before {
+    margin: -1px 0 0 }}
 
-  .btn:hover {
-    border-color: transparent !important }
+.btn-toolbar {
+  .btn:not(:first-child) {
+    border-left-color: inherit !important }}
 
-  .btn:first-child {
-    border-left-width: 1px !important;
-    border-left-style: solid !important;
-    border-top-left-radius: @button-border-radius !important;
-    border-bottom-left-radius: @button-border-radius !important }
-  .btn:last-child {
-    border-right-width: 1px !important;
-    border-right-style: solid !important;
-    border-top-right-radius: @button-border-radius !important;
-    border-bottom-right-radius: @button-border-radius !important }
+.btn-group,
+.btn-toolbar {
+  border-color:   var(--border-color) !important;
+  border-width:   0;
+  margin:         0;
+  height:         var(--size, @button-height) !important;
 
-  &.btn-toolbar > &,
+  .btn {
+    border-color: inherit !important }
+
+    > .btn:not(.selected):not(:hover) {
+      border-color: inherit;
+      height:       100% }
+
+    > .btn:hover {
+      border-color: inherit !important;
+      background-color: var(--active-color) !important }
+
+    > .btn.selected {
+      border-color: inherit !important;
+      background: var(--color) !important }
+    // border-color: inherit !important }
+
   .btn-toolbar > & {
-    border-radius: @button-border-radius;
-    line-height: @button-height;
-    overflow: hidden;
-    margin: 0 1px;
-    border: 0 solid fade(@base-border-color, 75%);
+    border-radius:  @button-border-radius;
+    line-height:    var(--size, @button-height);
+    border-color:   inherit !important;
+    overflow:       hidden;
+    margin:         0 1px 1px 0;
+    border-width:   0;
 
     & > .btn {
       border-width: 0;
-      margin: 1px;
-      line-height: @button-height;
-      border-radius: @button-border-radius !important }}
-}
+      margin:       0 1px 1px 0;
+      line-height:  var(--size, @button-height);
+      border-color: inherit !important;
+      border-radius: @button-border-radius !important }}}
+
 
 .meta-controls .btn-toolbar {
-  margin: 0 auto;
+  @w:             @button-height - @component-padding !important;
+  margin:         0 auto;
 
-  button, .btn {
-    font-size: 0;
-    width: @button-height;
-    height: @button-height;
-    line-height: @button-height;
-    text-align: center;
-    padding: 0;
-    box-sizing: border-box;
-    border-color: @base-border-color;
+  > .btn-group {
+    margin:        0;
+    border-radius: 0;
+    position:      static }
+
+  .btn,
+  button,
+  button.btn {
+    font-size:    0 !important;
+    margin:       0 0 0 2px;
+    padding:      @component-padding / 2 !important;
+    width:        @w;
+    min-width:    @w;
+    max-width:    @w;
+    text-align:   center;
 
     &::before,
     .icon::before {
-      font-size: unit(@size-large, rem);
-      width: 100%;
-      height: 100%;
-      line-height: @button-height;
-      margin: -2px 0 2px;
+      font-size:  unit(@size-large, rem) !important;
       box-sizing: border-box;
-    }
-  }
-}
+      display:    block;
+      width:      100%;
+      margin:     0;
+      padding:    0 }}}
+
+.pull-right.btn {
+  height:         @button-height * 0.6 !important;
+  min-height:     @button-height * 0.6 !important;
+  line-height:    @button-height * 0.6 !important;
+  padding-top:    @button-height * 0.2 !important;
+  padding-bottom: @button-height * 0.2 !important }
+
+                                                                                                                                                                                                                                                                                                                                                                          /*
+↛ Rounding for edge cases                                                                                                                                                                                                                                                                                                                                                                 */
+.btn:first-of-type {
+  border-left-width: 1px !important;
+  border-left-style: solid !important;
+  border-top-left-radius: @button-border-radius !important;
+  border-bottom-left-radius: @button-border-radius !important }
+
+.btn:last-of-type {
+  border-right-width: 1px !important;
+  border-right-style: solid !important;
+  border-top-right-radius: @button-border-radius !important;
+  border-bottom-right-radius: @button-border-radius !important }

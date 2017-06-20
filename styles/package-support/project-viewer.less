@@ -10,54 +10,28 @@ copyright   Copyright (C) 2016-2017 Tuomas Hatakka                              
 
 
 project-viewer {
-
+  --background-color: var(--color-background-panel, @tool-panel-background-color);
   position: relative;
   display: block;
   overflow: visible;
 
-  & > .list-tree {
-    height: 100vh;
+  > .hidden-block {
+    background-color: var(--background-color) }
+
+  .body-content > .list-tree {
     box-sizing: border-box;
     text-align: left;
     padding: 1rem !important;
     transition: all @transition-time;
 
+    & > li.list-nested-item {
+      margin-bottom: 2em }
     & > li.list-nested-item > .list-item {
-      .h3;
+      > span {
+        all: inherit;
+        display: inline;
+      }
+      .h1;
+      font-size: 1em;
       line-height: 1.5em;
-      padding-top: 0.25em; }}
-
-  // &::before {
-  //   content: "\f35c" !important;
-  //   display: block;
-  //   margin-left: 100%;
-  //
-  //   margin: 0;
-  //   top: 0;
-  //   left: 0;
-  //   margin-left: 100%;
-  //   width: @tab-height;
-  //   height: @tab-height;
-  //   line-height: @tab-height;
-  //   text-align: center;
-  //   font-size: 2em;
-  //   background-color: inherit;
-  //
-  //   font-family: ionicons;
-  //   transform: translateX(0%);
-  //   transition: all @transition-time }
-
-
-  pv-header {
-    .h3;
-    display: none;
-    background: transparent;
-    position: relative;
-    margin: 0;
-    padding: 0 !important;
-    width: 100%;
-    line-height: @tab-height;
-    text-align: center;
-    font-size: 0;
-  }
-}
+      padding-top: 0.25em; }}}

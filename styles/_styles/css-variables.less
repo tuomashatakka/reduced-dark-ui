@@ -1,0 +1,61 @@
+
+
+:root {
+  // Atom's ui-variables
+  --text-color: @text-color;
+  --text-color-selected: @text-color-selected;
+  --text-color-highlight: @text-color-highlight;
+  --text-color-hover: @text-color-hover;
+  --text-color-ignored: @text-color-ignored;
+  --text-color-minor: @text-color-minor;
+  --text-color-subtle: @text-color-subtle;
+
+  --text-color-info: @text-color-info;
+  --text-color-success: @text-color-success;
+  --text-color-added: @text-color-added;
+  --text-color-modified: @text-color-modified;
+  --text-color-renamed: @text-color-renamed;
+  --text-color-removed: @text-color-removed;
+  --text-color-error: @text-color-error;
+
+  // Theme colors
+  --color-primary: @__primary;
+  --color-accent: @__accentColor;
+  --color-tint: @__tint;
+
+  --color-info: @color-info;
+  --color-success: @__success;
+  --color-warning: @__warning;
+  --color-annotation: @__annotation;
+  --color-error: @__error;
+
+
+  // Theme's config
+  --ui-scale: @__uiScale;
+  --tab-fixed: @__fixedTabBar;
+  --tab-position: @__tabPosition;
+  --tab-close-position: @__tabClosePosition;
+  --fixed-project-root: @__fixedProjectRoot;
+  --background-color-override: @__overrideEditorBackground;
+  --panel-collapse: @__collapsing;
+  --fx-enhance: @__enhancedFx;
+  --silly-mode: @__SILLYMODE;
+
+  // Theme's fonts
+  --font: var(--font-family, @__uiFont);
+  --font-weight: @__uiFontWeight;
+
+  --border-color: transparent;
+  --border-radius: @component-border-radius;
+
+  // Transitions
+  --anim-duration: @transition-time;
+  --time-xs: ~"calc(var(--anim-duration) / 6)";
+  --time-sm: ~"calc(var(--anim-duration) / 3)";
+  --time: var(--anim-duration);
+  --time-lg: ~"calc(var(--anim-duration) * 2)";
+  --trans-default: var(--time);
+  --trans-long: var(--time-lg);
+  --trans-short: var(--time-sm);
+  --trans-insta: var(--time-xs);
+}

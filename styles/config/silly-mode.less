@@ -1,0 +1,106 @@
+
+
+// A single line comment
+#id_selector_with .some .classes .too h2 {
+  font-size: 2em;
+  margin-top: -1em;
+  transform: rotate(60deg) skewX(30deg);
+}
+
+.tab {
+  font-size: 4rem !important;
+  letter-spacing: -0.02em;
+  text-shadow: 6px 1px 0px red, -6px 1px 0px blue !important;
+}
+.tree-view {
+  background: darkturquoise !important;
+  * { background: transparent !important }}
+
+
+status-bar, .status-bar {
+  background: orange !important }
+
+atom-panel, atom-text-editor {
+  background: linear-gradient(-90deg, rgb(6, 121, 116), rgb(27, 0, 255), rgb(70, 46, 19)) !important;
+  * { background: transparent !important }}
+
+/**
+ * Main color palette is split into three different colors.
+ * The value for the aberration input adjusts the angle
+ * the accent colors are shifted from the primary color.
+ */
+
+// Do them headlines
+h1, h2, h3,
+h1[title^="Blog"] {
+  transform: rotate(180deg);
+  color: crimson;
+  background-color: rgba(255, 255, 0, 0.25);
+  text-shadow: 0 1px 24px red;
+  border: 8px double;
+  border-color: yellow orange rebeccapurple;
+}
+
+body  * {
+  font-family: Comic Sans, "Comic Sans MS", hulveticca, fontAwesom-o;
+
+}
+input[type='number'] {
+  border-radius: 50%;
+  line-height: 2px;
+}
+
+.asdaa:not(:hover) {}
+.asdaa::before {}
+aside {}
+  body {
+    animation: skeww 6s ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+  }
+li::before {
+  // content: "\f014";
+  // font-family: FontAwesome;
+  font-size: 5em;
+  -webkit-text-stroke: 0.001em yellow;
+  color: transparent;
+  -webkit-font-smoothing: antialiased;
+  mix-blend-mode: screen;
+  position: absolute;
+  text-shadow: 6px 1px 0px red, -6px 1px 0px blue !important;
+
+  animation-name: skeww;
+  animation-play-state: running;
+  animation-iteration-count: 30;
+  animation-delay: 0s;
+    animation-duration: 10s;
+  animation-direction: alternate;
+}
+* {
+  animation-name: makeFlashy;
+  animation-iteration-count: 80;
+  animation-duration: 12s;
+  animation-direction: alternate;
+
+}
+@keyframes makeFlashy {
+  from {
+    color: #631517;
+  //  font-size: 16px;
+  }
+  to {
+    color: #68be18;
+    //font-size: 10px;
+  }
+}
+
+@keyframes skeww {
+  from {
+    width: 90vw;
+    transform: skewY(-2deg) scale(0.95);
+  }
+  to {
+    width: 105vw;
+    transform: skewY(2deg) rotate(3deg);
+  }
+}

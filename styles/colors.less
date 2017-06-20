@@ -1,0 +1,86 @@
+
+                                                                                                                                                                                                                                                                                                                                                                        /*
+title       Reduced
+project     reduced-dark-ui
+repository  https://github.com/tuomashatakka/reduced-dark-ui
+author      Tuomas Hatakka
+email       tuomas.hatakka@gmail.com
+copyright   Copyright (C) 2016-2017 Tuomas Hatakka                                                                                                                                                                                                                                                                                                                      */
+
+
+@col-bg:          #201f23;
+@col-darker:      #252429;
+@col-dark:        #29292e;
+@col-gray:        #4F4F59;
+@col-light:       #CBC9C9;
+@col-lighter:     #DEDEDE;
+@col-white:       #ECEEEF;
+
+@col-alternative: #3bb3f6;
+@col-keyword:     #87B2CE;
+@col-numbers:     #b17ebd;
+@col-include:     #e969cd;
+
+@col-error:       #f52847;
+@col-annotation:  #ed3945;
+@col-warning:     #f4e795;
+@col-success:     #10faad; //#2dffa0;
+@col-highlight:   #10faad;
+@col-main:        #59edbc;
+
+.badge, [class*='badge-'] {
+  --background-color: var(--color-background-light);
+  background-color: var(--background-color) !important;
+  padding: 0.7em 0.9em 0.55em;
+  border-radius: 2em;
+
+  &::before, *::before {
+    line-height: inherit;
+    margin: 0px 0.3em 0 0 }}
+
+[class*='status-'] {
+  color: var(--text-color) !important }
+
+.badge-info,
+.status-info {
+  --text-color: var(--color-text-info, @col-main);
+  --background-color: var(--color-background-info) }
+
+[class*='-success'],
+[class*='-added'] {
+  --text-color: var(--color-text-success, @col-success);
+  --background-color: var(--color-background-success) }
+
+
+[class*='-ignored'],
+[class*='-warning'],
+[class*='-modified'] {
+  --text-color: var(--color-text-warning, @col-warning);
+  --background-color: var(--color-background-warning) }
+
+[class*='-removed'],
+[class*='-renamed'] {
+  --text-color: var(--color-text-annotation, @col-annotation);
+  --background-color: var(--color-background-annotation) }
+
+[class*='-error'],
+[class*='-fatal'] {
+  --text-color: var(--color-text-error, @col-error);
+  --background-color: var(--color-background-error) }
+
+
+.icon[class*=icon-diff-]::before {
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: var(--text-color);
+  font-size: 20px;
+  text-align: center;
+  width: var(--text-size, 24px);
+  height: var(--text-size, 24px);
+  line-height: var(--text-size, 24px);
+  color: transparent !important;
+  font-family: ionicons !important }
+.icon[class*=icon-diff-].status-ignored::before {   content: "\f425" !important }
+.icon[class*=icon-diff-].status-added::before {     content: "\f3fe" !important }
+.icon[class*=icon-diff-].status-modified::before {  content: "\f418" !important }
+.icon[class*=icon-diff-].status-renamed::before {   content: "\f362" !important }
+.icon[class*=icon-diff-].status-removed::before {   content: "\f35b" !important }
